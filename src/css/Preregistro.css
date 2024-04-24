@@ -33,13 +33,19 @@
     text-align: left; 
     margin-bottom: 1%;
   }
-  .botonn {
-    margin-left: 2%;
-    background-color: #6E6E6E;
-    color: white;
-    border-color: #6E6E6E;
-    border-radius: 20px;
+  .text_advertencia{
     font-size: 1em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-top: 0%;
+  }
+  .botonn {
+    margin-bottom: 2%;
+    background-color: white;
+    color: #383737;
+    border-color: #383737;
+    border-radius: 10px;
+    font-size: 2em;
     height: 20%;
     width: 20%;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
@@ -55,10 +61,12 @@
     border-radius: 5px;
     padding: 8px 12px; /* Ajusta según tus necesidades */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
+  
   }
   
   .custom-file-input {
     display: none; /* Oculta el input de archivo real */
+  
   }
   .no-file-message {
     color: black;
@@ -98,9 +106,9 @@
     border-radius: 10px; /* Borde redondeado */
     padding: 8px; /* Espaciado interno */
     font-size: 16px; /* Tamaño de fuente */
-    width: 50%; /* Ancho del combo box, ajusta según necesites */
-    height: 40px;
-    margin-top: 1%;
+    width: 23.5%; /* Ancho del combo box, ajusta según necesites */
+    height: 45px;
+   
 }
 select option {
     background-color: #d9d9d9; /* Fondo blanco */
@@ -114,8 +122,130 @@ input {
     border-radius: 10px; /* Borde redondeado */
     padding: 1px; /* Espaciado interno */
     font-size: 16px; /* Tamaño de fuente */
-    width: 48.5%; /* Ancho del combo box, ajusta según necesites */
+    width: 48%; /* Ancho del combo box, ajusta según necesites */
     height: 40px;
     margin-top: 1%;
   
 }
+.boton_envio{
+    margin-left: 70%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    background-color: #6e6e6e;
+    color: white;
+    border-color: #6e6e6e;
+    border-radius: 10px;
+    font-size: 2em;
+    height: 20%;
+    width: 20%;
+    transition: background-color 0.3s, color 0.3s;
+}
+.boton_envio:hover {
+  background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
+  color: black; /* Cambia el color del texto al pasar el mouse */
+}
+
+.boton_modal {
+  margin-bottom: 5%;
+  margin-top: 5%;
+  background-color:#6e6e6e ;
+  color: white;
+  border-color: #6e6e6e;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  height: 40px;
+  width: 180px;
+  margin-right: 60px;
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
+}
+.boton_modal:hover{
+  background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
+  color: black; /* Cambia el color del texto al pasar el mouse */
+}
+/* Estilo para el fondo atenuado */
+
+
+
+
+.titulo_modal{
+  font-size: 3em;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-align: center; 
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.texto_modal{
+  font-size: 1.5em;
+  font-family: 'Montserrat';
+  text-align: center; 
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5) !important; /* Color de fondo oscuro con opacidad */
+}
+
+/* Estilo para el modal */
+.modal-content {
+  background-color: white; /* Color de fondo del modal */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+  width: 50%; /* Ancho del modal */
+  height: 45%; /* Alto del modal */
+  position: fixed; /* Posición fija */
+  top: 50%; /* Centrado verticalmente */
+  left: 50%; /* Centrado horizontalmente */
+  transform: translate(-50%, -50%); /* Centrado exacto */
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1424px) {
+  .titulo_formulario{
+    font-size: 2em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 2%;
+  }
+  .text_formulario{
+    font-size: 1em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 2%;
+    margin-top: 2%;
+  }
+  .text_inputs{
+    font-size: 0.5em;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 2%;
+  }
+  .botonn{
+    font-size: 1em;
+    height: 40%;
+    
+  }
+  .text_advertencia{
+    font-size: 0.7em;
+   
+  }
+  .boton_envio{
+   
+    font-size: 1.5em;
+ 
+}
+
+.modal-content {
+  width: 50%; /* Ancho del modal */
+  height: 30%; /* Alto del modal */
+}
+}
+
+
