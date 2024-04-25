@@ -59,7 +59,7 @@ function Continuar_solicitud() {
 
         <div style={{ display: 'flex', alignItems: 'center' }}>
         
-            <Button style={{  marginRight: '72%' }} className='boton333' variant="primary" type="submit" >
+            <Button style={{  marginRight: '65%' }} className='boton333' variant="primary" type="submit" >
               Atras
             </Button>
          

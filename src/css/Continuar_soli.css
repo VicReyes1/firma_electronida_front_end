@@ -48,7 +48,11 @@
     }
     .textito3{
         margin-top: 20%;
-        font-size: 1.5em;
+        font-size: 1em;
         font-family: 'Montserrat';
+    } 
+    .textito{
+        margin-top: 4%;
     }
+    
   }
