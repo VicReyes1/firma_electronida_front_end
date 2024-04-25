@@ -23,7 +23,7 @@ const Login = () => {
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Control
-              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'5%', borderWidth:'2px' }}
+              className="form-control-veda"
               type="email"
               placeholder="Correo Electrónico"
               value={email}
@@ -32,8 +32,8 @@ const Login = () => {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Control
-              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'5%', borderWidth:'2px' }}
+            <Form.Control 
+              className="form-control-veda"
               type="password"
               placeholder="Contraseña"
               value={password}

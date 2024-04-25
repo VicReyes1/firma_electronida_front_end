@@ -12,7 +12,7 @@
 .boton_login{
     margin-bottom: 5%;
     margin-top: 5%;
-    margin-left: 28%;
+    margin-left: 22%;
     background-color:#6e6e6e ;
     color: white;
     border-color: #6e6e6e;
@@ -32,7 +32,6 @@
 .boton33{
     margin-bottom: 5%;
     margin-top: 5%;
-
     background-color:#6e6e6e ;
     color: white;
     border-color: #6e6e6e;
@@ -46,4 +45,18 @@
 .boton33:hover{
     background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
     color: black; /* Cambia el color del texto al pasar el mouse */
+  }
+
+  .form-control-veda {
+    width: 60%;
+    margin-left: 20%;
+    height: 60px;
+    font-size: 2em;
+    margin-bottom: 5%;
+    border-width: 2px;
+    padding-left: 30px; /* Agrega un margen izquierdo de 10px */
+  }
+  
+  .form-control-veda:focus {
+    box-shadow: 0px 0px 5px 5px #6E6E6E !important;
   }

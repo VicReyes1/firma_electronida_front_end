@@ -14,16 +14,24 @@
     
   }
   .titulo_formulario{
-    font-size: 3em;
+    font-size: 2.5em;
     font-family: 'Montserrat';
     text-align: left; 
     margin-bottom: 1%;
+    margin-top: 4%;
   }
   .text_formulario{
     font-size: 1.5em;
     font-family: 'Montserrat';
     text-align: left; 
     margin-bottom: 1%;
+    margin-top: 2%;
+  }
+  .text_pdf{
+    font-size: 1.5em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 2%;
     margin-top: 2%;
   }
   .text_inputs{
@@ -37,6 +45,12 @@
     font-size: 1em;
     font-family: 'Montserrat';
     text-align: left; 
+    margin-top: 1%;
+  }
+  .text_advertencia2{
+    font-size: 1em;
+    font-family: 'Montserrat';
+    text-align: left; 
     margin-top: 0%;
   }
   .botonn {
@@ -47,7 +61,7 @@
     border-radius: 10px;
     font-size: 2em;
     height: 20%;
-    width: 20%;
+    width: 30%;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
   }
   
@@ -61,10 +75,12 @@
     border-radius: 5px;
     padding: 8px 12px; /* Ajusta según tus necesidades */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
+    
   
   }
   
   .custom-file-input {
+  
     display: none; /* Oculta el input de archivo real */
   
   }
@@ -122,16 +138,17 @@ input {
     border-radius: 10px; /* Borde redondeado */
     padding: 1px; /* Espaciado interno */
     font-size: 16px; /* Tamaño de fuente */
-    width: 48%; /* Ancho del combo box, ajusta según necesites */
+    width: 47.1%; /* Ancho del combo box, ajusta según necesites */
     height: 40px;
     margin-top: 1%;
+    padding-left: 20px; /* Agrega un margen izquierdo de 10px */
   
 }
 .boton_envio{
     margin-left: 70%;
     margin-right: 10%;
     margin-top: 2%;
-    margin-bottom: 4%;
+    margin-bottom: 10%;
     background-color: #6e6e6e;
     color: white;
     border-color: #6e6e6e;
@@ -218,7 +235,7 @@ input {
     font-family: 'Montserrat';
     text-align: left; 
     margin-bottom: 2%;
-    margin-top: 2%;
+    margin-top: 4%;
   }
   .text_inputs{
     font-size: 0.5em;
@@ -227,12 +244,24 @@ input {
     text-align: left; 
     margin-bottom: 2%;
   }
-  .botonn{
+  .text_pdf{
     font-size: 1em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 4%;
+    margin-top: 4%;
+  }
+  .botonn{
+    font-size: 2em;
+    width: 40%;
     height: 40%;
     
   }
   .text_advertencia{
+    font-size: 0.7em;
+   
+  }
+  .text_advertencia2{
     font-size: 0.7em;
    
   }

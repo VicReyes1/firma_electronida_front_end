@@ -206,13 +206,13 @@ function Preregistro() {
         El formato permitido para los archivos es: .pdf (se permiten hasta 1MB en total para los archivos).
         </div>
 
-        <div className='text_formulario'>
+        <div className='text_pdf'>
         <span style={{ fontWeight: 'bold' }}>Indentidicación Oficial con fotografía</span>
         (INE, pasaporte, cédula profesional)
         </div>
         
         <div className="files">
-            <label className="custom-file-label">
+            <label className="custom-file-label" style={{ marginTop: '6%' }}>
                 Seleccionar Archivo
                 <input 
                 type="file" 
@@ -224,8 +224,8 @@ function Preregistro() {
              {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
-        <div className='text_formulario'>
-        <span style={{ fontWeight: 'bold' }}>Comprobante de Domicilio Laboral no mayor a 3 meses</span>
+        <div className='text_pdf'>
+        <span style={{ fontWeight: 'bold', marginBottom:'2%' }}>Comprobante de Domicilio Laboral no mayor a 3 meses</span>
         (Recibo de Teléfono, Agua Potable o Luz)
         </div>
 
@@ -242,7 +242,7 @@ function Preregistro() {
              {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
-        <div className='text_formulario'>
+        <div className='text_pdf'>
         <span style={{ fontWeight: 'bold' }}>Clave Única de Registro de Población</span>
         (CURP) Vigente
         </div>
@@ -260,7 +260,7 @@ function Preregistro() {
              {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
-        <div className='text_formulario'>
+        <div className='text_pdf'>
         <span style={{ fontWeight: 'bold' }}>Registro Federal de Contribuyentes expedido por el SAT</span>
         (RFC)
         </div>
@@ -278,7 +278,7 @@ function Preregistro() {
              {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
-        <div className='text_formulario'>
+        <div className='text_pdf'>
         <span style={{ fontWeight: 'bold' }}>Documento que lo Avala como Servidor Público o Notario Público Vigente</span>
        
         </div>
@@ -296,7 +296,7 @@ function Preregistro() {
              {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
-        <div className='text_formulario'>
+        <div className='text_pdf'>
         <span style={{ fontWeight: 'bold' }}>Trámite de Certificación Digital</span>  
         </div>
         
@@ -343,7 +343,7 @@ function Preregistro() {
 
         {isNotary && (
           <div>
-            <div className="text_formulario">
+            <div className="text_pdf">
               <span style={{ fontWeight: 'bold' }}>Credencial de Notario Público</span>
             </div>
 
@@ -416,7 +416,7 @@ function Preregistro() {
         </div>
 
         <div className="inputs">
-         <input style={{ width: '100%', marginBottom:'1%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
+         <input style={{ width: '98%', marginBottom:'1%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
         </div>
 
         <div className='titulo_formulario'>
@@ -428,7 +428,7 @@ function Preregistro() {
         </div>
 
         <div className="inputs">
-         <input style={{ width: '100%', marginBottom:'1%' }} type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} placeholder="Calle, Número interior o Exterior y Colonia o Barrio" />
+         <input style={{ width: '98%', marginBottom:'1%' }} type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} placeholder="Calle, Número interior o Exterior y Colonia o Barrio" />
         </div>
 
         <div className='text_formulario'>
@@ -452,7 +452,7 @@ function Preregistro() {
             {/* Agrega las opciones que necesites */}
           </select>
 
-         <input style={{ width: '48%' }} type="text" value={codigoP} onChange={(e) => setCodigoP(e.target.value)} placeholder="Codigo Postal" />
+         <input style={{ width: '47%' }} type="text" value={codigoP} onChange={(e) => setCodigoP(e.target.value)} placeholder="Codigo Postal" />
         </div>
 
         <div className='titulo_formulario'>
@@ -487,7 +487,7 @@ function Preregistro() {
         </div>
 
         <div className="inputs">
-          <input style={{ width: '64%', marginRight: '2%' }} type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} placeholder="Telefono" />
+          <input style={{ width: '62%', marginRight: '2%' }} type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} placeholder="Telefono" />
           <input style={{ width: '32%' }} type="text" value={extencion} onChange={(e) => setExtencion(e.target.value)} placeholder="Extensión" />
         </div>
 
@@ -515,7 +515,7 @@ function Preregistro() {
         <span>La contraseña deberá contener un mínimo de 8 y un máximo de 15 caracteres.</span> 
         </div>
 
-        <div className='text_advertencia'>
+        <div className='text_advertencia2'>
         <span>Utilizar letras y números, no debe usar caracteres especiales.</span> 
         </div>
 
@@ -526,7 +526,7 @@ function Preregistro() {
             </label>
         </div>
         <div className="checkboxes">
-            <label style={{  fontSize: '0.7em' }} className="checkbox-label">
+            <label style={{  fontSize: '0.7em', }} className="checkbox-label">
                 <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isPoliticas} onChange={() => setIsPoliticas(!isPoliticas)} />
                 <span className="checkbox-text">He leído y acepto las políticas de Aviso de Privacidad.</span>
             </label>
