@@ -69,6 +69,7 @@
     border-color: #6E6E6E;
     border-radius: 20px;
     font-size: 1em;
+    font-family: 'Montserrat';
     height: 10%;
     width: 40%;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
@@ -77,4 +78,20 @@
   .boton2:hover {
     background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
     color: black; /* Cambia el color del texto al pasar el mouse */
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1424px) {
+    .titulo_2 {
+      font-size: 4em;
+     
+    }
+    .tabla td, .tabla th {
+      font-size: 1.5em; /* Tamaño de fuente más grande para todas las celdas de la tabla */
+    }
+    .boton2 {
+      font-size: 1em;
+      width: 90px;
+     
+    }
+
   }
