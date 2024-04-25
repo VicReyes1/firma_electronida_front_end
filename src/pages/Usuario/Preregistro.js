@@ -416,7 +416,7 @@ function Preregistro() {
         </div>
 
         <div className="inputs">
-         <input style={{ width: '98%', marginBottom:'1%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
+         <input style={{ width: '96%', marginBottom:'1%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
         </div>
 
         <div className='titulo_formulario'>
@@ -428,7 +428,7 @@ function Preregistro() {
         </div>
 
         <div className="inputs">
-         <input style={{ width: '98%', marginBottom:'1%' }} type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} placeholder="Calle, Número interior o Exterior y Colonia o Barrio" />
+         <input style={{ width: '96%', marginBottom:'1%' }} type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} placeholder="Calle, Número interior o Exterior y Colonia o Barrio" />
         </div>
 
         <div className='text_formulario'>
@@ -452,7 +452,7 @@ function Preregistro() {
             {/* Agrega las opciones que necesites */}
           </select>
 
-         <input style={{ width: '47%' }} type="text" value={codigoP} onChange={(e) => setCodigoP(e.target.value)} placeholder="Codigo Postal" />
+         <input style={{ width: '46%' }} type="text" value={codigoP} onChange={(e) => setCodigoP(e.target.value)} placeholder="Codigo Postal" />
         </div>
 
         <div className='titulo_formulario'>
@@ -463,7 +463,7 @@ function Preregistro() {
         </div>
 
         <div className="select">
-          <select style={{ marginRight: '2%', width: '49%' }} value={puesto} onChange={(e) => setPuesto(e.target.value)}>
+          <select style={{ marginRight: '2%', width: '48%' }} value={puesto} onChange={(e) => setPuesto(e.target.value)}>
             <option value="">Puesto</option>
             <option value="">Selecciona una opción</option>
             <option value="">Selecciona una opción</option>
@@ -471,7 +471,7 @@ function Preregistro() {
             {/* Agrega las opciones que necesites */}
           </select>
 
-          <select style={{ width: '49%'  }} value={area} onChange={(e) => setArea(e.target.value)}>
+          <select style={{ width: '48%'  }} value={area} onChange={(e) => setArea(e.target.value)}>
             <option value="">Área</option>
             <option value="">Selecciona una opción</option>
             <option value="">Selecciona una opción</option>
@@ -488,7 +488,7 @@ function Preregistro() {
 
         <div className="inputs">
           <input style={{ width: '62%', marginRight: '2%' }} type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} placeholder="Telefono" />
-          <input style={{ width: '32%' }} type="text" value={extencion} onChange={(e) => setExtencion(e.target.value)} placeholder="Extensión" />
+          <input style={{ width: '30%' }} type="text" value={extencion} onChange={(e) => setExtencion(e.target.value)} placeholder="Extensión" />
         </div>
 
         <div className='text_formulario'>
