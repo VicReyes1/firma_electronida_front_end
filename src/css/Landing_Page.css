@@ -1,0 +1,128 @@
+        .container{
+            display: grid;
+            grid-template-areas:
+                "head head"
+                "content content"
+                "boton1 boton2";
+                
+            grid-template-rows: 25vh 45vh 30vh;
+        }
+        .header{
+            grid-area: head;
+            background-color: white;
+            text-align: center; /* centrar imagen*/
+        }
+        .content{
+            grid-area: content;
+            background-color: white;
+            text-align: center;
+        }
+        .footer{
+            grid-area: boton1;
+            background-color: white;
+            text-align: center;
+        }
+        .footer2{
+            grid-area: boton2;
+            background-color: white;
+            text-align: center;
+        }
+
+        .Logo{
+            width: 25%; /* Ancho deseado */
+            height: auto; /* Altura automática para mantener la relación de aspecto */
+            margin-top: 3.5%;
+        }
+
+        .titulo{
+            font-size: 5.5em;
+            font-weight: bold;
+            font-family: 'Montserrat';
+            margin-top: 2%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .texto{
+            font-size: 1.5em;
+            font-family: 'Montserrat';
+            margin-top: 1%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .boton {
+            margin-top: 8%;
+            background-color: #6E6E6E;
+            color: white;
+            border-color: #6E6E6E;
+            border-radius: 20px;
+            font-size: 2em;
+            height: 20%;
+            width: 50%;
+            transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
+          }
+          
+          .boton:hover {
+            background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
+            color: black; /* Cambia el color del texto al pasar el mouse */
+          }
+          
+          @media screen and (max-width: 767px){
+            .container{
+                display: grid;
+                grid-template-areas:
+                    "head head"
+                    "content content"
+                    "boton1 boton1"
+                    "boton2 boton2";
+                    
+                grid-template-rows: 25vh 35vh 20vh 20vh;
+    
+            }
+            .Logo {
+              width: 60%;
+              margin-top: 20%;
+            }
+            .titulo{
+                font-size: 2em;
+            }
+            .texto{
+                margin-top: 5%;
+                font-size: 1em;
+                text-align: justify;
+                
+            }
+            .boton {
+                margin-top: 0%;
+                font-size: 1em;
+                height: 30%;
+            }
+           
+
+
+
+          }
+          
+          @media screen and (min-width: 768px) and (max-width: 1424px) {
+            
+            .Logo {
+                width: 50%;
+                margin-top: 10%;
+              }
+              .titulo{
+                  font-size: 4em;
+              }
+              .texto{
+                  margin-top: 10%;
+                  font-size: 1.5em;
+                  text-align: justify;
+                  
+              }
+              .boton {
+                  margin-top: 0%;
+                  font-size: 2em;
+                  height: 25%;
+              }
+          }
+
+          
+       

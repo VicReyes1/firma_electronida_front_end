@@ -1,0 +1,97 @@
+.container2 {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    margin-top: 2%;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+  }
+  
+  .header2 {
+    width: 100%; /* Asegura que el encabezado ocupe todo el ancho */
+    display: flex;
+    align-items: center; /* Centra los elementos del header */
+  }
+  
+  .titulo_header {
+    background-color: #6e6e6e;
+    color: white;
+    padding: 10px;
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    text-align: left;
+    width: 100%;
+  }
+  
+  .image2 {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  
+  .Logo2 {
+    width: 200px;
+    height: auto;
+  }
+  
+  .titulo-container {
+    
+    text-align: center; /* Centra el texto */
+    width: 100%;
+  }
+  
+  .titulo_2 {
+    font-size: 5em;
+    font-weight: bold;
+    font-family: 'Montserrat';
+  }
+  .table_conteiner {
+    width: 80%;
+    margin-top: 5%;
+    border: 2px solid #6E6E6E;
+    border-radius: 20px;
+    padding: 1%; /* Espacio entre el contenido y el borde */
+  }
+  
+  .tabla {
+    width: 100%;
+    text-align: center; /* Centra el contenido de la tabla */
+  }
+  
+  .tabla td, .tabla th {
+    text-align: center;
+    font-size: 2em; /* Tamaño de fuente más grande para todas las celdas de la tabla */
+  }
+
+  .boton2 {
+    margin-top: 8%;
+    background-color: #6E6E6E;
+    color: white;
+    border-color: #6E6E6E;
+    border-radius: 20px;
+    font-size: 1em;
+    font-family: 'Montserrat';
+    height: 10%;
+    width: 40%;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
+  }
+  
+  .boton2:hover {
+    background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
+    color: black; /* Cambia el color del texto al pasar el mouse */
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1424px) {
+    .titulo_2 {
+      font-size: 4em;
+     
+    }
+    .tabla td, .tabla th {
+      font-size: 1.5em; /* Tamaño de fuente más grande para todas las celdas de la tabla */
+    }
+    .boton2 {
+      font-size: 1em;
+      width: 90px;
+     
+    }
+
+  }
