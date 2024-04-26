@@ -87,7 +87,7 @@ function Preregistro() {
       };
 
 
-  // Estados para almacenar los valores de los inputs
+  // Estados para almacenar los valores del formulario de preregistro  
   const [file1, setFile1] = useState(null);
   const [file2, setFile2] = useState(null);
   const [file3, setFile3] = useState(null);
@@ -221,7 +221,7 @@ function Preregistro() {
           
                 />
             </label>
-             {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {file1 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -239,7 +239,7 @@ function Preregistro() {
           
                 />
             </label>
-             {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {file2 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -257,7 +257,7 @@ function Preregistro() {
           
                 />
             </label>
-             {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {file3 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -275,7 +275,7 @@ function Preregistro() {
         
                 />
             </label>
-             {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {file4 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -293,7 +293,7 @@ function Preregistro() {
             
                 />
             </label>
-             {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {file5 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -357,7 +357,7 @@ function Preregistro() {
               
                 />
               </label>
-              {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
+              {file1 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}   
             </div>
           </div>
         )}

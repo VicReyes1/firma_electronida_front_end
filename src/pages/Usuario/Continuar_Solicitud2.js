@@ -5,7 +5,7 @@ import '../../css/Continuar_soli.css'
 
 import Heder from '../heder';
 
-function Continuar_solicitud() {
+function Continuar_solicitud2() {
 
     const [file1, setFile1] = useState(null);
       // Funciones para manejar cambios en los inputs
@@ -54,16 +54,17 @@ function Continuar_solicitud() {
         </div>
 
         <div className='textito3'>
-        Documentos enviados por correo o descárgalos aquí. 
-        </div>
+                    Documentos enviados por correo o descárgalos <Link to="/liga que nos pasa aide" style={{textDecoration: 'underline'}}>aquí</Link>. 
+                </div>
 
         <div style={{ display: 'flex', alignItems: 'center' }}>
-        
+        <Link to="/mi_solicitud" >
             <Button style={{  marginRight: '65%' }} className='boton333' variant="primary" type="submit" >
               Atras
             </Button>
+            </Link>
          
-            <Button className='boton333' variant="primary" type="submit">
+            <Button  className='boton3334' variant="primary" type="submit">
               Entrar
             </Button>
           </div>
@@ -76,4 +77,4 @@ function Continuar_solicitud() {
   );
 }
 
-export default Continuar_solicitud;
+export default Continuar_solicitud2;

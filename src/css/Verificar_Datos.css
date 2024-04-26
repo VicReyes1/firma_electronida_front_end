@@ -1,0 +1,150 @@
+.container44 {
+    display: grid;
+    grid-template-areas:
+        "content1 content2";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+}
+
+.content1 {
+    grid-area: content1; /* Cambiado de "content" a "content1" */
+
+    text-align: center;
+}
+
+.content2 {
+    grid-area: content2; /* Cambiado de "content" a "content2" */
+
+    text-align: left;
+}
+.text_2{
+    font-size: 1.5em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 1%;
+    text-align: center;
+  }
+  .titulo_formulario{
+    font-size: 2.5em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 4%;
+    margin-top: 4%;
+    margin-left: 10%;
+  }
+  .text_formulario{
+    font-size: 1.5em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 4%;
+    margin-top: 4%;
+    margin-left: 10%;
+  }
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat';
+    font-size: 1.5em;
+    margin-right: 1%;
+    margin-left: 6%;
+    margin-top: 2%;
+  
+    font-weight: normal; /* Ajusta el peso de la fuente del label */
+  }
+  
+
+  .checkbox-label .checkbox-text2 {
+    font-weight: bold;
+  }
+  .select2 {
+    background-color: white; /* Fondo blanco */
+    border: 1px solid #383737; /* Borde color #383737 */
+    color: #383737; /* Texto color #383737 */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 8px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    width: 30%; /* Ancho del combo box, ajusta según necesites */
+    height: 45px;
+    margin-top: 4%;
+    margin-left: 54%;
+   
+}
+.select2 option {
+    background-color: #d9d9d9; /* Fondo blanco */
+    color: #383737; /* Texto color #383737 */
+    font-size: 16px; /* Tamaño de fuente */
+}
+.pdf_contenedor{
+    
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    border-radius: 20px;
+    width: 84%;
+    height: 100vh;
+    margin-top: 3%;
+
+}
+
+.comentarios {
+    background-color: white; /* Fondo blanco */
+    border: 1px solid #383737; /* Borde color #383737 */
+    color: #383737; /* Texto color #383737 */
+    border-radius: 10px; /* Borde redondeado */
+    font-size: 1.5em; /* Tamaño de fuente */
+    width: 82%; /* Ancho del combo box, ajusta según necesites */
+    height: 150px;
+    padding-top: 30px;
+    padding-left: 30px; /* Agrega un margen izquierdo de 10px */
+    margin-top: 10%;
+    
+
+}
+
+.boton_envio2{
+    margin-left: 65%;
+
+    margin-top: 5%;
+    margin-bottom: 10%;
+    background-color: #6e6e6e;
+    color: white;
+    border-color: #6e6e6e;
+    border-radius: 10px;
+    font-size: 1.5em;
+    height: 3%;
+    width: 20%;
+    transition: background-color 0.3s, color 0.3s;
+}
+.boton_envio2:hover {
+  background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
+  color: black; /* Cambia el color del texto al pasar el mouse */
+}
+
+@media screen and (min-width: 768px) and (max-width: 1424px) {
+    .text_2{
+        font-size: 1.5em;
+     
+      }
+      .titulo_formulario{
+        font-size: 1.5em;
+  
+      }
+      .text_formulario{
+        font-size: 1em;
+   
+      }
+      .checkbox-label {
+        font-size: 1em;
+    
+      }
+      .pdf_contenedor{
+        height: 50vh;
+    }
+    .comentarios {
+        height: 100px;
+    }
+    .boton_envio2{
+        margin-left: 65%;
+        font-size: 1em;
+
+    }
+}
