@@ -14,6 +14,7 @@ import Continuar_solicitud1 from '../pages/Usuario/Continuar_Solicitud1';
 import Continuar_solicitud3 from '../pages/Usuario/Continuar_Solicitud3';
 import Admin_Solicitudes from '../pages/ADMIN/Solicitudes';
 import Verificar_Datos from '../pages/ADMIN/Verificar_Datos';
+import Aprobacion_Req from '../pages/ADMIN/Aprobacion_req';
 
 
 
@@ -36,6 +37,7 @@ function Rutas() {
         <Route path='/continuar_solicitud3' element={<Continuar_solicitud3 />} />
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos' element={<Verificar_Datos/>} />
+        <Route path='/admin&Aprobacion_Req' element={<Aprobacion_Req/>} />
       
       </Routes>
     </div>
