@@ -1,3 +1,7 @@
+@font-face {
+    font-family: Futura;
+    src: url('../Fonts/TIPOGRAFIA\ FUTURA/Futura.ttc');
+  }
 .continuar_soli{
     margin-top: 2%;
     margin-left: 10%;
@@ -7,22 +11,22 @@
 .textito{
     margin-top: 2%;
     font-size: 1.5em;
-    font-family: 'Montserrat';
+    font-family: 'Futura';
 }
 .textito2{
     font-size: 1.5em;
-    font-family: 'Montserrat';
+    font-family: 'Futura';
     margin-bottom: 3%;
 }
 .textito3{
     margin-top: 20%;
     font-size: 1.5em;
-    font-family: 'Montserrat';
+    font-family: 'Futura';
 }
 .textito33{
     margin-top: 10%;
     font-size: 1.5em;
-    font-family: 'Montserrat';
+    font-family: 'Futura';
 }
 .boton333{
     margin-bottom: 5%;
@@ -72,7 +76,7 @@
     .textito3{
         margin-top: 20%;
         font-size: 1em;
-        font-family: 'Montserrat';
+        font-family: 'Futura';
     } 
     .textito{
         margin-top: 4%;

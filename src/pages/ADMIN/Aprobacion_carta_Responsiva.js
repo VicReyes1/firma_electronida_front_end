@@ -78,7 +78,7 @@ function Aprobacion_Req() {
           Aprobación Carta Responsiva
           </div>
           <div className='text_2'>
-          Seleccione los campos que no requieran corrección. Si es aprobado, se dará por finalizado el proceso.
+          Seleccione los campos que sean correctos. Si es aprobado, se dará por finalizado el proceso.
           </div>
         </div>
       </div>

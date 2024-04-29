@@ -21,8 +21,8 @@ function Mi_Solicitud() {
       <thead>
         <tr>
           <th>Nombre</th>
-          <th>Estatus</th>
-          <th>Fecha de Envió</th>
+          <th>Estado</th>
+          <th>Fecha de Envío</th>
           <th>Editar</th>
         </tr>
       </thead>
@@ -31,7 +31,7 @@ function Mi_Solicitud() {
           <td>1</td>
           <td>Mark</td>
           <td>Otto</td>
-          <td><Button className='boton2' variant="primary">Editar</Button></td>
+          <td><Button className='boton2' class='btn' variant="primary">Editar</Button></td>
         </tr>
       </tbody>
     </Table>

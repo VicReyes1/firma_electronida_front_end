@@ -28,7 +28,7 @@ function Ver_solicitud() {
         <tr>
           <th>Nombre</th>
           <th>Estatus</th>
-          <th>Fecha de Envió</th>
+          <th>Fecha de Envío</th>
           <th>Editar</th>
         </tr>
       </thead>

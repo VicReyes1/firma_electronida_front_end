@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import '../../css/Continuar_soli.css'
 
 import Heder from '../heder';
+import Swal from 'sweetalert2'
 
 function Continuar_solicitud1() {
 
@@ -26,9 +27,15 @@ function Continuar_solicitud1() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        Swal.fire({
+            title: "Archivos Subidos",
+            text: "En las próximas 24 horas habrán actualizaciones a través del correo electrónico proporcionado.",
+            icon: "success"
+          });
+          console.log('Formulario enviado');
+        };
         // Aquí puedes enviar los archivos file1 y file2
-    };
-
+    
     return (
         <div>
             <Heder />
@@ -39,10 +46,10 @@ function Continuar_solicitud1() {
                     </div>
                 </div>
                 <div className='textito'>
-                    Sube las copias firmadas de los siguientes documentos. 
+                    Suba las copias firmadas de los siguientes documentos. 
                 </div>
                 <div className='textito2'>
-                    En caso de no proporcionar los documentos se eliminará la solicitud después de 7 días. 
+                    En caso de no proporcionar los documentos su solicitud se eliminará después de 7 días. 
                 </div>
                 <div className='text_formulario'>
                     <span style={{ fontWeight: 'bold' }}>Solicitud de Requerimiento</span>
@@ -73,16 +80,16 @@ function Continuar_solicitud1() {
                     {file2 ? <span className="file-name">{file2.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
                 </div>
                 <div className='textito33'>
-                    Documentos enviados por correo o descárgalos <Link to="/liga que nos pasa aide" style={{textDecoration: 'underline'}}>aquí</Link>. 
+                    Documentos enviados por correo o descárguelos <Link to="/liga que nos pasa aide" style={{textDecoration: 'underline'}}>aquí</Link>. 
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Link to="/mi_solicitud" >
                         <Button style={{  marginRight: '65%' }} className='boton333' variant="primary" type="submit" >
-                            Atras
+                            Atrás
                         </Button>
                     </Link>
                     <Button  className='boton3334' variant="primary" type="submit" onClick={handleSubmit}>
-                        Entrar
+                        Enviar
                     </Button>
                 </div>
             </div>

@@ -17,8 +17,8 @@
     color: white;
     padding: 10px;
     font-size: 2.5em;
-    font-weight: bold;
-    font-family: 'Montserrat';
+    font-weight: Medium;
+    font-family: 'Futura';
     text-align: left;
     width: 100%;
   }
@@ -41,7 +41,7 @@
   .titulo_2 {
     font-size: 5em;
     font-weight: bold;
-    font-family: 'Montserrat';
+    font-family: 'Futura';
   }
 
   .table_conteiner {
@@ -72,7 +72,7 @@
     border-color: #6E6E6E;
     border-radius: 20px;
     font-size: 1em;
-    font-family: 'Montserrat';
+    font-family: 'Futura';
     height: 10%;
     width: 40%;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */

@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import '../../css/Preregistro.css'; // Verifica la ruta a tu archivo CSS
 import Heder from '../heder';
+import '../../css/sweetalert_tuneado_veda.min.css'
+import Swal from 'sweetalert2'
 
 function CameraModal({ onClose }) {
     const [recording, setRecording] = useState(false);
@@ -171,7 +173,11 @@ function Preregistro() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes enviar el formulario
+    Swal.fire({
+      title: "Usuario Registrado",
+      text: "Revise su bandeja de entrada para terminar de crear su cuenta.",
+      icon: "success"
+    });
     console.log('Formulario enviado');
   };
 
@@ -179,7 +185,7 @@ function Preregistro() {
     <div className="contenedor">
       <Heder />
       <div className="titulo_3">
-        Ingresa tus Datos
+        Ingrese sus Datos
       </div>
 
       <div className='formulario'>
@@ -203,11 +209,11 @@ function Preregistro() {
         </div>
 
         <div className='text_formulario'>
-        El formato permitido para los archivos es: .pdf (se permiten hasta 1MB en total para los archivos).
+        El formato permitido para los archivos es: .pdf (se permite hasta 1MB en total para los archivos).
         </div>
 
         <div className='text_pdf'>
-        <span style={{ fontWeight: 'bold' }}>Indentidicación Oficial con fotografía</span>
+        <span style={{ fontWeight: 'bold' }}>Indentificación Oficial con Fotografía</span>
         (INE, pasaporte, cédula profesional)
         </div>
         
@@ -370,7 +376,7 @@ function Preregistro() {
         <div className="select">
         <select style={{ marginRight: '2%' }} value={dependencia} onChange={handleDependenciaChange} >
         <option value="">Dependencia</option>
-        <option value="1">Oficialia Mayor</option>
+        <option value="1">Oficialáa Mayor</option>
         <option value="2">Secretaría de Educación</option>
         {/* Agrega las opciones que necesites */}
       </select>
@@ -385,7 +391,7 @@ function Preregistro() {
       </select>
 
           <select style={{ marginRight: '2%' }} value={municipio} onChange={(e) => setMunicipio(e.target.value)}>
-            <option value="">Prersidencia Municipal</option>
+            <option value="">Presidencia Municipal</option>
             <option value="">Selecciona una opción</option>
             <option value="">Selecciona una opción</option>
             <option value="">Selecciona una opción</option>
@@ -424,7 +430,7 @@ function Preregistro() {
         </div>
 
         <div className='text_formulario'>
-        <span style={{ fontWeight: 'bold' }}>Calle, Número interior o Exterior y Colonia o Barrio</span>  
+        <span style={{ fontWeight: 'bold' }}>Calle, Número Interior o Exterior y Colonia o Barrio</span>  
         </div>
 
         <div className="inputs">
@@ -432,7 +438,7 @@ function Preregistro() {
         </div>
 
         <div className='text_formulario'>
-        <span style={{ fontWeight: 'bold' }}>Municipio/Estado/Codigo Postal</span>  
+        <span style={{ fontWeight: 'bold' }}>Municipio/Estado/Código Postal</span>  
         </div>
        
         <div className="select">
@@ -452,7 +458,7 @@ function Preregistro() {
             {/* Agrega las opciones que necesites */}
           </select>
 
-         <input style={{ width: '46%' }} type="text" value={codigoP} onChange={(e) => setCodigoP(e.target.value)} placeholder="Codigo Postal" />
+         <input style={{ width: '46%' }} type="text" value={codigoP} onChange={(e) => setCodigoP(e.target.value)} placeholder="Código Postal" />
         </div>
 
         <div className='titulo_formulario'>
@@ -481,29 +487,29 @@ function Preregistro() {
         </div>
 
         <div className='text_formulario'>
-        <span style={{ fontWeight: 'bold' }}>Telefono  </span> 
+        <span style={{ fontWeight: 'bold' }}>Teléfono  </span> 
         (10 digitos)
         <span style={{ fontWeight: 'bold' }}>/Extensión</span> 
         </div>
 
         <div className="inputs">
-          <input style={{ width: '62%', marginRight: '2%' }} type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} placeholder="Telefono" />
+          <input style={{ width: '62%', marginRight: '2%' }} type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} placeholder="Teléfono" />
           <input style={{ width: '30%' }} type="text" value={extencion} onChange={(e) => setExtencion(e.target.value)} placeholder="Extensión" />
         </div>
 
         <div className='text_formulario'>
         <span style={{ fontWeight: 'bold' }}>Correo Electrónico  </span> 
         (debe ser personal)
-        <span style={{ fontWeight: 'bold' }}>/Confirma tu Correo Electrónico</span> 
+        <span style={{ fontWeight: 'bold' }}>/Confirme su Correo Electrónico</span> 
         </div>
 
         <div className="inputs">
-          <input style={{  marginRight: '2%' }} type="text" value={correo} onChange={(e) => setCorreo(e.target.value)} placeholder=" Email" />
-          <input type="text" value={confirma_correo} onChange={(e) => setConfirma_Correo(e.target.value)} placeholder="Confirma tu correo" />
+          <input style={{  marginRight: '2%' }} type="text" value={correo} onChange={(e) => setCorreo(e.target.value)} placeholder=" Correo" />
+          <input type="text" value={confirma_correo} onChange={(e) => setConfirma_Correo(e.target.value)} placeholder="Confirme su correo" />
         </div>
 
         <div className='text_formulario'>
-        <span style={{ fontWeight: 'bold' }}>Crea Tu Contraseña/ Confirma tu Contraseña  </span> 
+        <span style={{ fontWeight: 'bold' }}>Contraseña/ Confirme su Contraseña  </span> 
         </div>
 
         <div className="inputs">
@@ -564,7 +570,7 @@ function Preregistro() {
   </Modal.Body>
 
   <Modal.Footer>
-    <Button className="boton_modal" variant="secondary" onClick={handleCloseModal}>Atras</Button>
+    <Button className="boton_modal" variant="secondary" onClick={handleCloseModal}>Atrás</Button>
     <Button  className="boton_modal" variant="primary" onClick={handleSubmit}>Enviar</Button>
   </Modal.Footer>
 </Modal>

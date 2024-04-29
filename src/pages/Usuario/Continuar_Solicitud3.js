@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import '../../css/Continuar_soli.css'
 
 import Heder from '../heder';
+import Swal from 'sweetalert2'
+
 
 function Continuar_solicitud3() {
 
@@ -15,7 +17,10 @@ function Continuar_solicitud3() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes enviar la carta responsiva
-    
+    Swal.fire({
+      title: "Archivo Subido",
+      icon: "success"
+    });
   };
 
   return (
@@ -30,10 +35,10 @@ function Continuar_solicitud3() {
       </div>
 
     <div className='textito'>
-    Sube las copias firmadas de los siguientes documentos. 
+    Suba las copias firmadas de los siguientes documentos. 
     </div>
     <div className='textito2'>
-    En caso de no proporcionar los documentos se eliminará la solicitud después de 7 días. 
+    En caso de no proporcionar los documentos su solicitud se eliminará después de 7 días. 
     </div>
 
        <div className='text_formulario'>
@@ -54,18 +59,18 @@ function Continuar_solicitud3() {
         </div>
 
         <div className='textito3'>
-                    Documentos enviados por correo o descárgalos <Link to="/liga que nos pasa aide" style={{textDecoration: 'underline'}}>aquí</Link>. 
+                    Documentos enviados por correo o descárguelos <Link to="/liga que nos pasa aide" style={{textDecoration: 'underline'}}>aquí</Link>. 
                 </div>
 
         <div style={{ display: 'flex', alignItems: 'center' }}>
         <Link to="/mi_solicitud" >
             <Button style={{  marginRight: '65%' }} className='boton333' variant="primary" type="submit" >
-              Atras
+              Atrás
             </Button>
             </Link>
          
-            <Button  className='boton3334' variant="primary" type="submit">
-              Entrar
+            <Button  className='boton3334' variant="primary" type="submit"onClick={handleSubmit}>
+              Enviar
             </Button>
           </div>
 
