@@ -1,0 +1,29 @@
+/* Estilos para el botón Salmon */
+.salmon-button {
+    font-size: 24px; /* Tamaño de fuente grande */
+    background-color: salmon; /* Color de fondo salmon */
+    color: white; /* Color del texto blanco */
+    padding: 15px 30px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Borde redondeado */
+    cursor: pointer; /* Cursor apuntador */
+  }
+  
+  /* Estilos para el botón Verde */
+  .vegetable-button {
+    font-size: 24px; /* Tamaño de fuente grande */
+    background-color: #8BC34A; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+    padding: 15px 30px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Borde redondeado */
+    cursor: pointer; /* Cursor apuntador */
+  }
+  
+  /* Estilos para centrar los botones en la página */
+  .button-container {
+    display: flex; /* Utiliza flexbox */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    margin-top: 50px; /* Margen superior para separar del borde superior */
+  }
+  

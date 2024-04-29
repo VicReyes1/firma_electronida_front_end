@@ -88,12 +88,12 @@ function Preregistro() {
 
 
   // Estados para almacenar los valores del formulario de preregistro  
-  const [file1, setFile1] = useState(null);
-  const [file2, setFile2] = useState(null);
-  const [file3, setFile3] = useState(null);
-  const [file4, setFile4] = useState(null);
-  const [file5, setFile5] = useState(null);
-  const [file6, setFile6] = useState(null);
+  const [ArchivoINE, setArchivoINE] = useState(null);
+  const [ArchivoComprobanteDomicilio, setArchivoComprobanteDomicilio] = useState(null);
+  const [ArchivoCURP, setArchivoCURP] = useState(null);
+  const [ArchivoRFC, setArchivoRFC] = useState(null);
+  const [ArchivoAval, setArchivoAval] = useState(null);
+  const [ArchivoCredencialNotario, setArchivoCredencialNotario] = useState(null);
   const [isServer, setIsServer] = useState(false);
   const [isNotary, setIsNotary] = useState(false);
   const [isNuevo, setIsNuevo] = useState(false);
@@ -123,23 +123,23 @@ function Preregistro() {
  
 
   // Funciones para manejar cambios en los inputs
-  const handleFile1Change = (e) => {
-    setFile1(e.target.files[0]);
+  const handleArchivoINEChange = (e) => {
+    setArchivoINE(e.target.files[0]);
   };
-  const handleFile2Change = (e) => {
-    setFile2(e.target.files[0]);
+  const handleArchivoComprobanteDomicilioChange = (e) => {
+    setArchivoComprobanteDomicilio(e.target.files[0]);
   };
-  const handleFile3Change = (e) => {
-    setFile3(e.target.files[0]);
+  const handleArchivoCURPChange = (e) => {
+    setArchivoCURP(e.target.files[0]);
   };
-  const handleFile4Change = (e) => {
-    setFile4(e.target.files[0]);
+  const handleArchivoRFCChange = (e) => {
+    setArchivoRFC(e.target.files[0]);
   };
-  const handleFile5Change = (e) => {
-    setFile5(e.target.files[0]);
+  const handleArchivoAvalChange = (e) => {
+    setArchivoAval(e.target.files[0]);
   };
-  const handleFile6Change = (e) => {
-    setFile6(e.target.files[0]);
+  const handleArchivoCredencialNotarioChange = (e) => {
+    setArchivoCredencialNotario(e.target.files[0]);
   };
 
   const [organismosDisponibles, setOrganismosDisponibles] = useState([]);
@@ -216,12 +216,12 @@ function Preregistro() {
                 Seleccionar Archivo
                 <input 
                 type="file" 
-                onChange={handleFile1Change} 
+                onChange={handleArchivoINEChange} 
                 className="custom-file-input"
           
                 />
             </label>
-            {file1 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {ArchivoINE ? <span className="file-name">{ArchivoINE.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -234,12 +234,12 @@ function Preregistro() {
                 Seleccionar Archivo
                 <input 
                 type="file" 
-                onChange={handleFile2Change} 
+                onChange={handleArchivoComprobanteDomicilioChange} 
                 className="custom-file-input"
           
                 />
             </label>
-            {file2 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {ArchivoComprobanteDomicilio ? <span className="file-name">{ArchivoComprobanteDomicilio.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -252,12 +252,12 @@ function Preregistro() {
                 Seleccionar Archivo
                 <input 
                 type="file" 
-                onChange={handleFile3Change} 
+                onChange={handleArchivoCURPChange} 
                 className="custom-file-input"
           
                 />
             </label>
-            {file3 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {ArchivoCURP ? <span className="file-name">{ArchivoCURP.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -270,12 +270,12 @@ function Preregistro() {
                 Seleccionar Archivo
                 <input 
                 type="file" 
-                onChange={handleFile4Change} 
+                onChange={handleArchivoRFCChange} 
                 className="custom-file-input"
         
                 />
             </label>
-            {file4 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {ArchivoRFC ? <span className="file-name">{ArchivoRFC.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -288,12 +288,12 @@ function Preregistro() {
                 Seleccionar Archivo
                 <input 
                 type="file" 
-                onChange={handleFile5Change} 
+                onChange={handleArchivoAvalChange} 
                 className="custom-file-input"
             
                 />
             </label>
-            {file5 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+            {ArchivoAval ? <span className="file-name">{ArchivoAval.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf'>
@@ -352,12 +352,12 @@ function Preregistro() {
                 Seleccionar Archivo
                 <input 
                   type="file" 
-                  onChange={handleFile6Change} 
+                  onChange={handleArchivoCredencialNotarioChange} 
                   className="custom-file-input"
               
                 />
               </label>
-              {file1 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}   
+              {ArchivoCredencialNotario ? <span className="file-name">{ArchivoCredencialNotario.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}   
             </div>
           </div>
         )}

@@ -16,6 +16,8 @@ import Admin_Solicitudes from '../pages/ADMIN/Solicitudes';
 import Verificar_Datos from '../pages/ADMIN/Verificar_Datos';
 import Aprobacion_Req from '../pages/ADMIN/Aprobacion_req';
 
+import PDFGenerator from '../pages/ADMIN/PDF';
+
 
 
 
@@ -38,6 +40,7 @@ function Rutas() {
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos' element={<Verificar_Datos/>} />
         <Route path='/admin&Aprobacion_Req' element={<Aprobacion_Req/>} />
+        <Route path='/PDF' element={<PDFGenerator/>} />
       
       </Routes>
     </div>
