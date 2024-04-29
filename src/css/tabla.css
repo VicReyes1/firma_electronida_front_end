@@ -1,0 +1,85 @@
+.tabla-container {
+    margin: 20px auto;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .tabla-container form {
+    width: 100%;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .custom-table th {
+    background-color: #666666;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .custom-table td {
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .custom-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .pagination-container {
+    text-align: right;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pagination-info {
+    /* Mantén el estilo original o añade cualquier otro estilo adicional */
+  }
+  
+  .pagina {
+    background-color: #6e6e6e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+  }
+
+  .boton2 {
+    background-color: #6e6e6e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
+  }
+  
+  .boton2:hover {
+    background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
+    color: black; /* Cambia el color del texto al pasar el mouse */
+  }
+ .buscar{
+  width: 600px;
+  margin-left: 82%;
+  margin-bottom: 2%;
+ }
+
+ 
+
+ 

@@ -33,8 +33,7 @@
     height: auto;
   }
   
-  .titulo-container {
-    
+  .titulo-container {   
     text-align: center; /* Centra el texto */
     width: 100%;
   }
@@ -44,6 +43,7 @@
     font-weight: bold;
     font-family: 'Montserrat';
   }
+
   .table_conteiner {
     width: 80%;
     margin-top: 5%;
@@ -59,9 +59,12 @@
   
   .tabla td, .tabla th {
     text-align: center;
-    font-size: 2em; /* Tamaño de fuente más grande para todas las celdas de la tabla */
+    font-size: 2em;
+
   }
 
+  
+  
   .boton2 {
     margin-top: 8%;
     background-color: #6E6E6E;
@@ -79,6 +82,20 @@
     background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
     color: black; /* Cambia el color del texto al pasar el mouse */
   }
+
+
+  .blue-circle::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #3085D6;
+    display: inline-block; /* Para que el círculo se comporte como un elemento en línea */
+    vertical-align: middle; /* Para alinear verticalmente el círculo en el centro de la celda */
+  }
+  
+
+  
 
   @media screen and (min-width: 768px) and (max-width: 1424px) {
     .titulo_2 {

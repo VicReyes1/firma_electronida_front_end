@@ -8,7 +8,14 @@ import Ver_solicitud from '../pages/Usuario/Ver_Solicitud';
 import Preregistro from '../pages/Usuario/Preregistro';
 import Login_recuperar_contra from '../pages/Login_recuperar_contra';
 import Mi_Solicitud from '../pages/Usuario/Mis_Solicitudes';
-import Continuar_solicitud from '../pages/Usuario/Continuar_Solicitud';
+
+import Continuar_solicitud2 from '../pages/Usuario/Continuar_Solicitud2';
+import Continuar_solicitud1 from '../pages/Usuario/Continuar_Solicitud1';
+import Continuar_solicitud3 from '../pages/Usuario/Continuar_Solicitud3';
+import Admin_Solicitudes from '../pages/ADMIN/Solicitudes';
+import Verificar_Datos from '../pages/ADMIN/Verificar_Datos';
+import Aprobacion_Req from '../pages/ADMIN/Aprobacion_req';
+
 
 
 
@@ -25,7 +32,12 @@ function Rutas() {
         <Route path='/ver_solicitud' element={<Ver_solicitud />} />
         <Route path='/mi_solicitud' element={<Mi_Solicitud />} />
         <Route path='/preregistro' element={<Preregistro />} />
-        <Route path='/continuar_solicitud' element={<Continuar_solicitud />} />
+        <Route path='/continuar_solicitud2' element={<Continuar_solicitud2 />} />
+        <Route path='/continuar_solicitud1' element={<Continuar_solicitud1 />} />
+        <Route path='/continuar_solicitud3' element={<Continuar_solicitud3 />} />
+        <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
+        <Route path='/admin&verificar_datos' element={<Verificar_Datos/>} />
+        <Route path='/admin&Aprobacion_Req' element={<Aprobacion_Req/>} />
       
       </Routes>
     </div>

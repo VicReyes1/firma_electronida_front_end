@@ -1,0 +1,49 @@
+.container44 {
+    display: grid;
+    grid-template-areas:
+        "content2";
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+}
+
+.content2 {
+    grid-area: content2; /* Cambiado de "content" a "content2" */
+    margin-left: 15%;
+
+    text-align: left;
+}
+.pdf_contenedor2{
+    
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    border-radius: 20px;
+    width: 84%;
+    height: 100vh;
+    margin-top: 3%;
+
+}
+.select23 {
+    background-color: white; /* Fondo blanco */
+    border: 1px solid #383737; /* Borde color #383737 */
+    color: #383737; /* Texto color #383737 */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 8px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    width: 30%; /* Ancho del combo box, ajusta según necesites */
+    height: 45px;
+    margin-top: 2%;
+    margin-left: 34%;
+   
+}
+.select23 option {
+    background-color: #d9d9d9; /* Fondo blanco */
+    color: #383737; /* Texto color #383737 */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1424px) {
+    .pdf_contenedor{
+        height: 40vh;
+    }
+}
