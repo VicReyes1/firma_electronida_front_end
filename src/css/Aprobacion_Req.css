@@ -1,4 +1,4 @@
-.container44 {
+.container444 {
     display: grid;
     grid-template-areas:
         "content2";
@@ -6,13 +6,13 @@
     grid-template-rows: auto;
 }
 
-.content2 {
+.content22 {
     grid-area: content2; /* Cambiado de "content" a "content2" */
     margin-left: 15%;
 
     text-align: left;
 }
-.pdf_contenedor2{
+.pdf_contenedor22{
     
     border: 1px solid #ccc;
     background-color: #ccc;
@@ -43,7 +43,7 @@
 
 
 @media screen and (min-width: 768px) and (max-width: 1424px) {
-    .pdf_contenedor{
+    .pdf_contenedor22{
         height: 40vh;
     }
 }

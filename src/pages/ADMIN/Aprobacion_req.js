@@ -83,9 +83,9 @@ function Aprobacion_Req() {
         </div>
       </div>
 
-      <div className="container44">
+      <div className="container444">
         
-        <div className="content2">
+        <div className="content22">
            
           <select className='select2' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>
             <option value="">INE</option>
@@ -102,7 +102,7 @@ function Aprobacion_Req() {
             </label>    
         </div>
 
-          <div className='pdf_contenedor2'>
+          <div className='pdf_contenedor22'>
             {/* Mostrar el PDF si hay un Blob */}
             {pdfBlob && <embed src={URL.createObjectURL(pdfBlob)} type="application/pdf" width="100%" height="600px" />}
           </div>

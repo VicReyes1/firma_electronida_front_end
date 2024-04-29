@@ -103,12 +103,14 @@ function Preregistro() {
   const [notaria, setNotaria] = useState('');
   const [organismo, setOrganismo] = useState('');
   const [nombre, setNombre] = useState('');
+  const [paterno, setPaterno] = useState('');
+  const [materno, setMaterno] = useState('');
   const [curp, setCurp] = useState('');
   const [rfc, setRfc] = useState('');
   const [direccion, setDireccion] = useState('');
   const [municipio_direccion, setMunicipio_Direccion] = useState('');
   const [estado, setEstado] = useState('');
-  const [codigoP, setCodigoP] = useState('');
+  const [cp, setcp] = useState('');
   const [puesto, setPuesto] = useState('');
   const [area, setArea] = useState('');
   const [telefono, setTelefono] = useState('');
@@ -416,7 +418,9 @@ function Preregistro() {
         </div>
 
         <div className="inputs">
-         <input style={{ width: '96%', marginBottom:'1%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
+         <input style={{ width: '29%', marginBottom:'1%', marginRight:'2%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
+         <input style={{ width: '29%', marginBottom:'1%', marginRight:'2%' }} type="text" value={paterno} onChange={(e) => setPaterno(e.target.value)} placeholder="  Apellido Paterno" />
+         <input style={{ width: '29%', marginBottom:'1%' }} type="text" value={materno} onChange={(e) => setMaterno(e.target.value)} placeholder="  Apellido Materno" />
         </div>
 
         <div className='titulo_formulario'>
@@ -452,7 +456,7 @@ function Preregistro() {
             {/* Agrega las opciones que necesites */}
           </select>
 
-         <input style={{ width: '46%' }} type="text" value={codigoP} onChange={(e) => setCodigoP(e.target.value)} placeholder="Codigo Postal" />
+         <input style={{ width: '46%' }} type="text" value={cp} onChange={(e) => setcp(e.target.value)} placeholder="Codigo Postal" />
         </div>
 
         <div className='titulo_formulario'>
