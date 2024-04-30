@@ -4,62 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import '../../css/Preregistro.css'; // Verifica la ruta a tu archivo CSS
 import Heder from '../heder';
 
-function CameraModal({ onClose }) {
-    const [recording, setRecording] = useState(false);
-    const [mediaRecorder, setMediaRecorder] = useState(null);
-    const [videoStream, setVideoStream] = useState(null);
-    const videoRef = useRef(null);
-  
-    const startRecording = async () => {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        const recorder = new MediaRecorder(stream);
-  
-        recorder.ondataavailable = (e) => {
-          // Handle data available event
-        };
-  
-        recorder.onstop = () => {
-          // Handle recorder stop event
-          onClose();
-        };
-  
-        recorder.start();
-        setRecording(true);
-        setMediaRecorder(recorder);
-        setVideoStream(stream);
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-        }
-      } catch (error) {
-        console.error('Error al acceder a la cámara: ', error);
-      }
-    };
-  
-    const stopRecording = () => {
-      if (mediaRecorder) {
-        mediaRecorder.stop();
-        setRecording(false);
-        videoStream.getTracks().forEach((track) => track.stop());
-      }
-    };
-  
-    return (
-      <div className="camera-modal">
-        <div className="camera-preview">
-          <video ref={videoRef} autoPlay muted playsInline />
-        </div>
-        <div className="controls">
-          {!recording ? (
-            <button onClick={startRecording}>Iniciar Grabación</button>
-          ) : (
-            <button onClick={stopRecording}>Detener Grabación</button>
-          )}
-        </div>
-      </div>
-    );
-  }
-
   
 function Preregistro() {
     const [modalOpen, setModalOpen] = useState(false);
@@ -98,10 +42,11 @@ function Preregistro() {
   const [isNotary, setIsNotary] = useState(false);
   const [isNuevo, setIsNuevo] = useState(false);
   const [isRenovacion, setIsRenovacion] = useState(false);
-  const [dependencia, setDependencia] = useState('');
-  const [municipio, setMunicipio] = useState('');
-  const [notaria, setNotaria] = useState('');
-  const [organismo, setOrganismo] = useState('');
+  const [secretaria, setSecretaria] = useState('');
+  const [tipoEntidad, setTipoEntidad] = useState('');
+  const [entidad, setEntidad] = useState('');
+
+ 
   const [nombre, setNombre] = useState('');
   const [paterno, setPaterno] = useState('');
   const [materno, setMaterno] = useState('');
@@ -122,7 +67,23 @@ function Preregistro() {
   const [isUso, setIsUso] = useState(false);
   const [isPoliticas, setIsPoliticas] = useState(false);
   const [isRevocacion, setIsRevocacion] = useState(false);
+  const [video, setVideo] = useState(null);
+  const [error, setError] = useState('');
  
+
+  const handleVideoChange = (event) => {
+    const selectedVideo = event.target.files[0];
+    const fileSizeLimit = 10 * 1024 * 1024; // 10 MB
+  
+    if (selectedVideo.size > fileSizeLimit) {
+      setError('El tamaño del video excede el límite permitido (10MB).');
+      setVideo(null); // Para eliminar el archivo seleccionado si excede el límite
+    } else {
+      setVideo(selectedVideo);
+      setError('');
+    }
+  };
+
 
   // Funciones para manejar cambios en los inputs
   const handleArchivoINEChange = (e) => {
@@ -144,21 +105,7 @@ function Preregistro() {
     setArchivoCredencialNotario(e.target.files[0]);
   };
 
-  const [organismosDisponibles, setOrganismosDisponibles] = useState([]);
-  const handleDependenciaChange = (e) => {
-    const selectedDependencia = e.target.value;
-    setDependencia(selectedDependencia);
-    // Aquí puedes definir la lógica para cargar los organismos disponibles según la dependencia seleccionada
-    if (selectedDependencia === '1') {
-      setOrganismosDisponibles(['Innovación Gubernamental', 'Contraloria', 'Prensa']);
-    } else if (selectedDependencia === '2') {
-      setOrganismosDisponibles(['organismo4', 'organismo5', 'organismo6']);
-    } else {
-      setOrganismosDisponibles([]);
-    }
-    // Resetear el valor seleccionado del organismo
-    setOrganismo('');
-  };
+ 
 
   const [showModal, setShowModal] = useState(false);
 
@@ -197,7 +144,23 @@ function Preregistro() {
         <div className='text_formulario'>
         <span style={{ fontWeight: 'bold' }}>Video.</span>
         </div>
-        <button className="botonn" onClick={handleOpenModal}>Abrir Cámara</button>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+      <label className="custom-file-label">
+        Seleccionar Archivo
+        <input
+          type="file"
+          accept="video/*"
+          onChange={handleVideoChange}
+          className="custom-file-input"
+        />
+      </label>
+      {video && (
+        <div style={{ color: error ? 'red' : 'gray', marginLeft: '2%' }}>
+          Video seleccionado: {video.name}
+        </div>
+      )}
+      {error && <div style={{ color: 'red', marginLeft: '2%' }}>{error}</div>}
+    </div>
 
         <form onSubmit={handleSubmit}>
         <div className='titulo_formulario'>
@@ -364,43 +327,29 @@ function Preregistro() {
           </div>
         )}
         
+        <div className='text_formulario'>
+        <span style={{ fontWeight: 'bold' }}>Secretaria</span>  
+        </div>
+
+        <div className="inputs">
+         <input style={{ width: '96%', marginBottom:'1%' }} type="text" value={secretaria} onChange={(e) => setSecretaria(e.target.value)} placeholder="Secretaria" />
+        </div>
       
         <div className='text_formulario'>
-        <span style={{ fontWeight: 'bold' }}>Dependencia/Municipio/Organismo/Notaría Pública</span>  
+        <span style={{ fontWeight: 'bold' }}>Dependencia/Ayuntamiento/Organismo/Notaría Pública</span>  
         </div>
        
         <div className="select">
-        <select style={{ marginRight: '2%' }} value={dependencia} onChange={handleDependenciaChange} >
-        <option value="">Dependencia</option>
-        <option value="1">Oficialia Mayor</option>
-        <option value="2">Secretaría de Educación</option>
+        <select style={{ marginRight: '2%', width:'48%' }} value={tipoEntidad} onChange={(e) => setTipoEntidad(e.target.value)} >
+        <option value="">Seleccione la entidad que le corresponda</option>
+        <option value="1">Dependencia</option>
+        <option value="2">Ayuntamiento</option>
+        <option value="3">Organismo</option>
+        <option value="4">Notaría Pública</option>
         {/* Agrega las opciones que necesites */}
       </select>
 
-      <select style={{ marginRight: '2%' }} value={organismo} onChange={(e) => setOrganismo(e.target.value)} >
-        <option value="">Organismo</option>
-        {organismosDisponibles.map((organismo, index) => (
-          <option key={index} value={organismo}>
-            {organismo}
-          </option>
-        ))}
-      </select>
-
-          <select style={{ marginRight: '2%' }} value={municipio} onChange={(e) => setMunicipio(e.target.value)}>
-            <option value="">Prersidencia Municipal</option>
-            <option value="">Selecciona una opción</option>
-            <option value="">Selecciona una opción</option>
-            <option value="">Selecciona una opción</option>
-            {/* Agrega las opciones que necesites */}
-          </select>
-
-          <select value={notaria} onChange={(e) => setNotaria(e.target.value)}>
-            <option value="">Notaría Pública</option>
-            <option value="">Selecciona una opción</option>
-            <option value="">Selecciona una opción</option>
-            <option value="">Selecciona una opción</option>
-            {/* Agrega las opciones que necesites */}
-          </select>
+      <input type="text" value={entidad} onChange={(e) => setEntidad(e.target.value)} placeholder="Escriba el nombre de su entidad" />
         </div>
 
         
