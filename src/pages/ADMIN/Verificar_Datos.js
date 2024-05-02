@@ -5,6 +5,25 @@ import Heder from '../heder';
 import '../../css/Verificar_Datos.css';
 
 function Verificar_Datos() {
+
+  const [data, setData] = useState({
+    registro_id:'1245456',
+    nombre:'Jesús Adolfo Márquez Trejo',
+    CURP:'MATJ010717HPLRRSA3',
+    notario:'false',
+    servidor:'true',
+    secretaria:'Secretaría del Despacho de la Persona Titular del Poder Ejecutivo',
+    RFC:'MATJ010717D40',
+    direccion:'Blvd. Felipe Angeles, Km. 93.50, Centro Minero, Edificio 1B, Col, Venta Prieta',
+    municipio_direccion: 'Pachuca de Soto',
+    cp:'42000',
+    puesto:'Agente Certificador',
+    entidad:'Dirección General de Innovación Gubernamental',
+    telefono:'797-140-58-61',
+    extencion:'6453',
+  
+  }); 
+
   const [nombre, setNombre] = useState('');
   const [isSP, setIsSP] = useState(false);
   const [isRS, setIsRS] = useState(false);
@@ -115,138 +134,138 @@ function Verificar_Datos() {
       <div className="container44">
         <div className="content1">
 
-          <div className='titulo_formulario'>
-            Solicitud #12345
+          <div className='titulo_formulario2'>
+            Solicitud #{data.registro_id}
           </div>
 
-          <div className='text_formulario'>
-            <span style={{ fontWeight: 'bold' }}>Nombre:</span>
-            {nombre} Victor Serrano{/* Borrar texto nombre cuando ya se conecte */}
+          <div className='text_formulario2'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Nombre:</span>
+            {data.nombre} 
           </div>
 
-          <div className='text_formulario'>
-            <span style={{ fontWeight: 'bold' }}>CURP:</span>
-            {nombre} MATJ010717HPLRRSA3{/* Borrar texto nombre cuando ya se conecte */}
+          <div className='text_formulario2'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>CURP:</span>
+            {data.CURP}
           </div>
 
-          <div className="checkboxes">
-            <label className="checkbox-label">
+          <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isSP} onChange={() => setIsSP(!isSP)} />
-                <span className="checkbox-text">{nombre}Servidor Público</span>
+                <span className="checkbox-text2">{nombre}Servidor Público</span>
             </label>    
         </div>
 
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isRS} onChange={() => setIsRS(!isRS)} />
-                <span className="checkbox-text2" >Razón Social:  </span>
-                {nombre}Oficialia mayor
+                <span style={{fontSize:'1em' }}className="checkbox-text2" >Razón Social:  </span>
+                {data.secretaria}
             </label>    
         </div>
 
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isRFC} onChange={() => setIsRFC(!isRFC)} />
                 <span className="checkbox-text2" >RFC:  </span>
-                {nombre}YEDO028495ST5
+                {data.RFC}
             </label>    
         </div>
 
-        <div className='titulo_formulario'>
+        <div className='titulo_formulario2'>
                  Dirección
         </div>
 
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isdireccion} onChange={() => setIsDireccion(!isdireccion)} />
                 <span className="checkbox-text2" >Dirección:  </span>
-                {nombre}Av. Madero S/N Col. Centro
+                {data.direccion}
             </label>    
         </div>
 
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={ism} onChange={() => setIsM(!ism)} />
                 <span className="checkbox-text2" >Municipio:  </span>
-                {nombre}Pachuca
+                {data.municipio_direccion}
             </label>    
         </div>
 
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isCP} onChange={() => setIsCP(!isCP)} />
                 <span className="checkbox-text2" >Código Postal:  </span>
-                {nombre}42000
+                {data.cp}
             </label>    
         </div>
 
 
-        <div className='titulo_formulario'>
+        <div className='titulo_formulario2'>
              Información Personal
         </div>
        
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isP} onChange={() => setIsP(!isP)} />
                 <span className="checkbox-text2" >Puesto:  </span>
-                {nombre}Subdirector
+                {data.puesto}
             </label>    
         </div>
 
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isA} onChange={() => setIsA(!isA)} />
                 <span className="checkbox-text2" >Área  </span>
-                {nombre}Firma Electrónica
+                {data.entidad}
             </label>    
         </div>
 
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isT} onChange={() => setIsT(!isT)} />
                 <span className="checkbox-text2" >Teléfono:  </span>
-                {nombre} 771 234 5678
+                {data.telefono} 771 234 5678
             </label>    
         </div>
 
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isExt} onChange={() => setIsExt(!isExt)} />
                 <span className="checkbox-text2" >Extensión:  </span>
-                {nombre}  3498
+                {data.extencion}  3498
             </label>    
         </div>
 
-        <div className='titulo_formulario'>
+        <div className='titulo_formulario2'>
             Documentos
         </div>
 
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isIde} onChange={() => setIsIde(!isIde)} />
                 <span className="checkbox-text2">{nombre}Identificación</span>
             </label>    
         </div>
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isCD} onChange={() => setIsCD(!isCD)} />
                 <span className="checkbox-text2">{nombre}Comprobante de Domicilio</span>
             </label>    
         </div>
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isCURP} onChange={() => setIsCURP(!isCURP)} />
                 <span className="checkbox-text2">{nombre}CURP</span>
             </label>    
         </div>
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isDRFC} onChange={() => setIsDRFC(!isDRFC)} />
                 <span className="checkbox-text2">{nombre}RFC</span>
             </label>    
         </div>
-        <div className="checkboxes">
-            <label className="checkbox-label">
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isAval} onChange={() => setIsAval(!isAval)} />
                 <span className="checkbox-text2">{nombre}Aval</span>
             </label>    

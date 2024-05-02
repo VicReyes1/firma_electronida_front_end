@@ -1,0 +1,70 @@
+.container17 {
+    display: grid;
+    grid-template-areas:
+        "content1 content2";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+}
+
+.content17 {
+    grid-area: content1; /* Cambiado de "content" a "content1" */
+
+    text-align: center;
+}
+
+.content18 {
+    grid-area: content2; /* Cambiado de "content" a "content2" */
+
+    text-align: left;
+}
+.text_17{
+    font-size: 1.5em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 1%;
+    text-align: center;
+  }
+  .titulo_formulario17{
+    font-size: 2.5em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 4%;
+    margin-top: 4%;
+    margin-left: 10%;
+  }
+  .text_formulario17{
+    font-size: 1.5em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 4%;
+    margin-top: 4%;
+    margin-left: 10%;
+    margin-right: 2%;
+  }
+  .text_formulario177{
+    font-size: 1.5em;
+    font-family: 'Montserrat';
+    text-align: left; 
+    margin-bottom: 3%;
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 2%;
+  }
+  .boton-blob {
+    background-color: white;
+    border: 2px solid #6e6e6e;
+    color: black;
+    font-size: 1em;
+    font-family: 'Montserrat';
+    width: 20%;
+    margin-left: 10%;
+    padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+    cursor: pointer;
+    border-radius: 5px; /* Para darle un aspecto más redondeado */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Efecto de transición suave */
+}
+
+.boton-blob:hover {
+    background-color: #6e6e6e;
+    color: white;
+}
