@@ -24,7 +24,7 @@
     margin-bottom: 1%;
     text-align: center;
   }
-  .titulo_formulario{
+  .titulo_formulario2{
     font-size: 2.5em;
     font-family: 'Futura';
     text-align: left; 
@@ -32,7 +32,7 @@
     margin-top: 4%;
     margin-left: 10%;
   }
-  .text_formulario{
+  .text_formulario2{
     font-size: 1.5em;
     font-family: 'Futura';
     text-align: left; 
@@ -40,22 +40,40 @@
     margin-top: 4%;
     margin-left: 10%;
   }
-  .checkbox-label {
+
+  .checkboxes2 {
     display: flex;
-    align-items: center;
+    align-items: left;
+
+  }
+  .checkbox-label2 {
+    display: flex;
+   
     font-family: 'Futura';
     font-size: 1.5em;
-    margin-right: 1%;
-    margin-left: 6%;
+    margin-right: 4%;
+    margin-left: 6% ;
     margin-top: 2%;
-  
     font-weight: normal; /* Ajusta el peso de la fuente del label */
+    
+    text-align: left;
+  }
+
+  .checkbox-label2 input[type="checkbox"] {
+    margin-right: 10px; /* Espacio entre el checkbox y el texto */
+    width: 20px; /* Ancho de la checkbox */
+    height: 20px; /* Alto de la checkbox */
+    border-radius: 5px; /* Bordes redondeados */
+
   }
   
 
-  .checkbox-label .checkbox-text2 {
+  .checkbox-label2 .checkbox-text2 {
     font-weight: bold;
+
   }
+
+
   .select2 {
     background-color: white; /* Fondo blanco */
     border: 1px solid #383737; /* Borde color #383737 */
