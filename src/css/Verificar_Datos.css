@@ -51,10 +51,12 @@
    
     font-family: 'Montserrat';
     font-size: 1.5em;
-    margin-right: 1%;
+    margin-right: 4%;
     margin-left: 6% ;
     margin-top: 2%;
     font-weight: normal; /* Ajusta el peso de la fuente del label */
+    
+    text-align: left;
   }
 
   .checkbox-label2 input[type="checkbox"] {
@@ -62,11 +64,13 @@
     width: 20px; /* Ancho de la checkbox */
     height: 20px; /* Alto de la checkbox */
     border-radius: 5px; /* Bordes redondeados */
+
   }
   
 
   .checkbox-label2 .checkbox-text2 {
     font-weight: bold;
+
   }
 
 
