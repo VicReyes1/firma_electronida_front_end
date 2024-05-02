@@ -1,3 +1,7 @@
+@font-face {
+    font-family: Futura;
+    src: url('../Fonts/TIPOGRAFIA\ FUTURA/Futura.ttc');
+  }
         .container{
             display: grid;
             grid-template-areas:
@@ -37,14 +41,14 @@
         .titulo{
             font-size: 5.5em;
             font-weight: bold;
-            font-family: 'Montserrat';
+            font-family: 'Futura';
             margin-top: 2%;
             margin-left: 10%;
             margin-right: 10%;
         }
         .texto{
             font-size: 1.5em;
-            font-family: 'Montserrat';
+            font-family: 'Futura';
             margin-top: 1%;
             margin-left: 14.2%;
             margin-right: 14.2%;
