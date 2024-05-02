@@ -78,7 +78,7 @@ function Aprobacion_Req() {
             Verifica Datos
           </div>
           <div className='text_2'>
-          Seleccione los campos que no requieran corrección. Si es aprobado, se enviarán carta responsiva y manuales.
+          Seleccione los campos que sean correctos. Si es aprobado, se enviarán carta responsiva, manuales y .cer.
           </div>
         </div>
       </div>

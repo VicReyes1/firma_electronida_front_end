@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; 
 import Heder from './heder';
 import '../css/Login.css';
+import Swal from 'sweetalert2'
 
 const Login_recuperar_contra = () => {
 
@@ -12,6 +13,11 @@ const Login_recuperar_contra = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes agregar la lógica para enviar los datos del formulario al servidor
+    Swal.fire({
+      title: "Correo Enviado",
+      text: "Revisa tu bandeja de entrada para recuperar tu cuenta.",
+      icon: "success"
+    });
     console.log('Email:', email);
     console.log('RFC:', rfc);
   };
@@ -47,7 +53,7 @@ const Login_recuperar_contra = () => {
             fontSize:'1.2em' ,
             marginLeft:'20%',
             marginRight:'20%',
-            fontFamily:'Montserrat'
+            fontFamily:'Futura'
              }}
           >
             El RFC deberá contener letras en mayúscula y homoclave, sin espacios ni caracteres especiales.
@@ -56,11 +62,11 @@ const Login_recuperar_contra = () => {
           <div style={{ display: 'flex', alignItems: 'center', marginLeft: '20%' }}>
           <Link to="/login"  style={{ marginRight: '30%' }}>
             <Button className='boton33' variant="primary" type="submit" >
-              Atras
+              Atrás
             </Button>
           </Link>
-            <Button className='boton33' variant="primary" type="submit">
-              Entrar
+            <Button className='boton33' variant="primary" type="submit" onClick={handleSubmit}>
+              Enviar
             </Button>
           </div>
           

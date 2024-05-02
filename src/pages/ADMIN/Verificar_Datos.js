@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Heder from '../heder';
 import '../../css/Verificar_Datos.css';
+import Swal from 'sweetalert2'
+
 
 function Verificar_Datos() {
 
@@ -114,6 +116,11 @@ function Verificar_Datos() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes enviar el formulario
+     Swal.fire({
+      title: "Documentos Enviados",
+      text: "El usuario recibió manuales y .req",
+      icon: "success"
+    });
     console.log('Formulario enviado');
   };
 
@@ -123,10 +130,10 @@ function Verificar_Datos() {
       <div className="container2">
         <div className='titulo-container'>
           <div className='titulo_2'>
-            Verifica Datos
+            Verifique Datos
           </div>
           <div className='text_2'>
-            Seleccione los campos que no requieran corrección. Si es aprobado, se enviará la carta de solicitud al usuario.
+            Seleccione los campos que sean correctos. Si es aprobado, se enviará la carta de solicitud y .req al usuario.
           </div>
         </div>
       </div>
@@ -326,7 +333,7 @@ function Verificar_Datos() {
   </Modal.Header>
 
   <Modal.Footer>
-    <Button className="boton_modal" variant="secondary" onClick={handleCloseModal}>Atras</Button>
+    <Button className="boton_modal" variant="secondary" onClick={handleCloseModal}>Atrás</Button>
     <Button  className="boton_modal" variant="primary" onClick={handleSubmit}>Enviar</Button>
   </Modal.Footer>
 </Modal>
