@@ -34,9 +34,10 @@
     background-color:#6e6e6e ;
     color: white;
     border-color: #6e6e6e;
+    font-family: Futura;
     border-radius: 15px;
     font-size: 2em;
-    font-weight: bold;
+    font-weight: medium;
     height: 50px;
     width: 200px;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
@@ -52,14 +53,15 @@
     background-color:#6e6e6e ;
     color: white;
     border-color: #6e6e6e;
+    font-family: Futura;
     border-radius: 15px;
     font-size: 2em;
-    font-weight: bold;
+    font-weight: medium;
     height: 50px;
     width: 200px;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
 }
-.boton333:hover{
+.boton3334:hover{
     background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
     color: black; /* Cambia el color del texto al pasar el mouse */
   }
