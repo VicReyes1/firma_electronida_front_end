@@ -101,7 +101,9 @@ function Aprobacion_Req() {
                 <span className="checkbox-text">Archivo  .Req</span>
             </label>    
         </div>
-
+         <div>
+         <Button  className="boton-req" variant="primary" >Descargar Archivo</Button>
+         </div>
           <div className='pdf_contenedor22'>
             {/* Mostrar el PDF si hay un Blob */}
             {pdfBlob && <embed src={URL.createObjectURL(pdfBlob)} type="application/pdf" width="100%" height="600px" />}

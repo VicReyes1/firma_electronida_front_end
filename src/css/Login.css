@@ -22,7 +22,8 @@
     border-color: #6e6e6e;
     border-radius: 15px;
     font-size: 2em;
-    font-weight: bold;
+    font-weight: medium;
+    font-family: Futura;
     height: 50px;
     width: 200px;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
@@ -41,7 +42,8 @@
     border-color: #6e6e6e;
     border-radius: 15px;
     font-size: 2em;
-    font-weight: bold;
+    font-family: Futura;
+    font-weight: medium;
     height: 50px;
     width: 200px;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
@@ -56,6 +58,7 @@
     margin-left: 20%;
     height: 60px;
     font-size: 2em;
+    font-family: Futura;
     margin-bottom: 5%;
     border-width: 2px;
     padding-left: 30px; /* Agrega un margen izquierdo de 10px */

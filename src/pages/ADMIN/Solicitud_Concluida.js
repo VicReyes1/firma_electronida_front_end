@@ -112,7 +112,7 @@ function Solicitud_Concluida() {
 
         <div className='text_formulario17'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Municipo:</span>
-            {data.municipio}
+            {data.municipio_direccion}
         </div>
         <div className='text_formulario17'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Código Postal:</span>

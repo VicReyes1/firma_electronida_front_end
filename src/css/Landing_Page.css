@@ -50,8 +50,8 @@
             font-size: 1.5em;
             font-family: 'Futura';
             margin-top: 1%;
-            margin-left: 14.2%;
-            margin-right: 14.2%;
+            margin-left: 23%;
+            margin-right: 23%;
         }
         .boton {
             margin-top: 8%;
@@ -60,6 +60,8 @@
             border-color: #6E6E6E;
             border-radius: 20px;
             font-size: 2em;
+            font-family: Futura;
+            font-weight: medium;
             height: 20%;
             width: 50%;
             transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */

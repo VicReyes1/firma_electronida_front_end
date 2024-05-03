@@ -22,6 +22,7 @@
     padding: 15px;
     text-align: center;
     font-size: 18px;
+    font-family: Futura;font-weight: normal;
   }
   
   .custom-table td {
@@ -29,6 +30,7 @@
     text-align: center;
     font-size: 14px;
     border-bottom: 2px solid #ddd;
+    font-family: Futura;
   }
   
   .custom-table tbody tr:nth-child(even) {
