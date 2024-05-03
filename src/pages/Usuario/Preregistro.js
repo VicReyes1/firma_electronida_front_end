@@ -381,7 +381,7 @@ function Preregistro() {
 
         <div className="inputs">
         <input
-          style={{ marginRight: '2%' }}
+          style={{ marginRight: '1%' }}
           type="text"
           value={curp}
           onChange={(e) => {
@@ -476,7 +476,7 @@ function Preregistro() {
 
         <div className='text_formulario'>
         <span style={{ fontWeight: 'bold' }}>Teléfono  </span> 
-        (10 digitos)
+        (10 dígitos)
         <span style={{ fontWeight: 'bold' }}>/Extensión</span> 
         </div>
 

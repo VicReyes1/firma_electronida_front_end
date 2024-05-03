@@ -262,7 +262,7 @@ input {
   position: absolute;
   top: 50%;
   transform: translateY(-30%);
-  left: 600px; /* Este valor es un poco arbitrario, quizás quieras ajustarlo según tu diseño */
+  left: 90%; /* Este valor es un poco arbitrario, quizás quieras ajustarlo según tu diseño */
 }
 
 @media screen and (min-width: 768px) and (max-width: 1424px) {
@@ -326,7 +326,7 @@ input {
   position: absolute;
   top: 50%;
   transform: translateY(-30%);
-  left: 300px; /* Este valor es un poco arbitrario, quizás quieras ajustarlo según tu diseño */
+  left: 85%; /* Este valor es un poco arbitrario, quizás quieras ajustarlo según tu diseño */
 }
 
 }
