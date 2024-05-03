@@ -78,6 +78,7 @@
     border-radius: 5px;
     padding: 8px 12px; /* Ajusta según tus necesidades */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
+    font-family: Futura;
     
   
   }
@@ -85,6 +86,7 @@
   .custom-file-input {
   
     display: none; /* Oculta el input de archivo real */
+
   
   }
   .no-file-message {
@@ -127,12 +129,14 @@
     font-size: 16px; /* Tamaño de fuente */
     width: 22.8%; /* Ancho del combo box, ajusta según necesites */
     height: 45px;
+    font-family: Futura;
    
 }
 select option {
     background-color: #d9d9d9; /* Fondo blanco */
     color: #383737; /* Texto color #383737 */
     font-size: 16px; /* Tamaño de fuente */
+    font-family: Futura;
 }
 input {
     background-color: white; /* Fondo blanco */
@@ -141,6 +145,7 @@ input {
     border-radius: 10px; /* Borde redondeado */
     padding: 1px; /* Espaciado interno */
     font-size: 16px; /* Tamaño de fuente */
+    font-family: Futura;
     width: 46%; /* Ancho del combo box, ajusta según necesites */
     height: 40px;
     margin-top: 1%;
@@ -157,6 +162,8 @@ input {
     border-color: #6e6e6e;
     border-radius: 10px;
     font-size: 2em;
+    font-family: Futura;
+    font-weight: medium;
     height: 20%;
     width: 20%;
     transition: background-color 0.3s, color 0.3s;
@@ -174,7 +181,8 @@ input {
   border-color: #6e6e6e;
   border-radius: 15px;
   font-size: 1.5em;
-  font-weight: bold;
+  font-weight: medium;
+  font-family: Futura;
   height: 40px;
   width: 180px;
   margin-right: 60px;
@@ -224,6 +232,37 @@ input {
   left: 50%; /* Centrado horizontalmente */
   transform: translate(-50%, -50%); /* Centrado exacto */
   text-align: center;
+}
+.rojo {
+  color: red;
+}
+
+.custom-inputs {
+  display: flex;
+}
+
+.custom-inputs .input-container {
+  position: relative;
+  width: 100%;
+}
+
+.custom-inputs .custom-input {
+  width: 92%;
+}
+
+.custom-inputs .custom-input[type='password'] {
+  position: relative;
+}
+
+.custom-inputs .custom-input[type='password'] + label {
+  display: none;
+}
+
+.custom-inputs .eye-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-30%);
+  left: 600px; /* Este valor es un poco arbitrario, quizás quieras ajustarlo según tu diseño */
 }
 
 @media screen and (min-width: 768px) and (max-width: 1424px) {
@@ -281,6 +320,13 @@ input {
 input { 
   width: 45%; /* Ancho del combo box, ajusta según necesites */
   padding-left: 10px; 
+}
+
+.custom-inputs .eye-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-30%);
+  left: 300px; /* Este valor es un poco arbitrario, quizás quieras ajustarlo según tu diseño */
 }
 
 }

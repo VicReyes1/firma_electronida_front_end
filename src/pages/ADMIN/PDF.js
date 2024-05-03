@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { jsPDF } from 'jspdf';
-import montserratRegular from '../../fonts/Montserrat-Regular.ttf'; // Ruta relativa a la fuente dentro del proyecto
-import montserratBold from '../../fonts/Montserrat-Bold.ttf'; // Ruta relativa a la fuente dentro del proyecto
+import montserratRegular from '../../Fonts/Montserrat-Regular.ttf'; // Ruta relativa a la fuente dentro del proyecto
+import montserratBold from '../../Fonts/Montserrat-Bold.ttf'; // Ruta relativa a la fuente dentro del proyecto
 import '../../css/pdf.css'; // Asegúrate de tener la ruta correcta al archivo CSS
 import logo from '../../Images/Escudoo_color.png'; // Ruta relativa a la imagen dentro del proyecto
 
@@ -35,7 +35,7 @@ const PDFGenerator = () => {
   });
 
   // Estados para controlar las coordenadas de cada dato
-  const [municipioCoords, setMunicipioCoords] = useState({ x: 112, y: 45 });
+  const [municipio_direccionCoords, setMunicipioCoords] = useState({ x: 112, y: 45 });
   const [fechaCoords, setFechaCoords] = useState({ x: 163, y: 45 });
   const [notarioCoords, setnotarioCoords] = useState({ x: 170, y: 60 });
   const [servidorCoords, setservidorCoords] = useState({ x: 129, y: 60 });
@@ -43,13 +43,13 @@ const PDFGenerator = () => {
   const [entidadCoords, setentidadCoords] = useState({ x: 32, y: 90 });
   const [nombreCoords, setnombreCoords] = useState({ x: 58, y: 100 });
   const [puestoCoords, setpuestoCoords] = useState({ x: 37, y: 110 });
-  const [RFCCoords, setRFCCoords] = useState({ x: 57, y: 120 });
+  const [RFCCoords, setRFCCoords] = useState({ x: 30, y: 120 });
   const [CURPCoords, setCURPCoords] = useState({ x: 124, y: 120 });
   const [correoCoords, setcorreoCoords] = useState({ x: 58, y: 130 });
-  const [telefonoCoords, settelefonoCoords] = useState({ x: 57, y: 140 });
+  const [telefonoCoords, settelefonoCoords] = useState({ x: 40, y: 140 });
   const [extencionCoords, setextencionCoords] = useState({ x: 132, y: 140 });
   const [direccionCoords, setdireccionCoords] = useState({ x: 20, y: 160 });
-  const [municipioCoords2, setMunicipioCoords2] = useState({ x: 42, y: 170 });
+  const [municipio_direccionCoords2, setMunicipioCoords2] = useState({ x: 42, y: 170 });
   const [estadoCoords, setestadoCoords] = useState({ x: 108, y: 170 });
   const [cpCoords, setcpCoords] = useState({ x: 175, y: 170 });
   const [ineCoords, setineCoords] = useState({ x: 175, y: 210 });
@@ -93,12 +93,13 @@ const PDFGenerator = () => {
       doc.setTextColor(0, 0, 0);
       doc.setFontSize(12); // Establece el tamaño de letra más pequeño
       doc.text('GOBIERNO DEL ESTADO DE HIDALGO', 65, 30);
-      doc.text('SOLICITUD DE CERTIDICADO DIGITAL DE FIRMA ELECTRÓNICA AVANZADA', 22, 35);
+      doc.text('SOLICITUD DE CERTIFICADO DIGITAL DE FIRMA ELECTRÓNICA AVANZADA', 22, 35);
 
       doc.setFont('Montserrat');
       doc.setFontSize(10);
       doc.text('Hidalgo a ', 144, 45);
-      doc.text(data.municipio, municipioCoords.x, municipioCoords.y);
+      doc.text(',', 142, 45);
+      doc.text(data.municipio_direccion, municipio_direccionCoords.x, municipio_direccionCoords.y);
       doc.text(data.fecha, fechaCoords.x, fechaCoords.y);
 
       
@@ -135,9 +136,8 @@ const PDFGenerator = () => {
       doc.text(data.puesto, puestoCoords.x, puestoCoords.y);
 
       doc.setFont('Montserrat-Bold');
-      doc.text('RFC ', 20, 120);
-      doc.setFontSize(8);
-      doc.text('(con Homoclave): ', 29, 120);
+      doc.text('RFC: ', 20, 120);
+     
       doc.setFont('Montserrat');
       doc.setFontSize(10);
       doc.text(data.RFC, RFCCoords.x, RFCCoords.y);
@@ -153,9 +153,7 @@ const PDFGenerator = () => {
       doc.text(data.correo, correoCoords.x, correoCoords.y);
 
       doc.setFont('Montserrat-Bold');
-      doc.text('Telefono ', 20, 140);
-      doc.setFontSize(8);
-      doc.text('(10 digitos): ', 37, 140);
+      doc.text('Teléfono: ', 20, 140);
       doc.setFont('Montserrat');
       doc.setFontSize(10);
       doc.text(data.telefono, telefonoCoords.x, telefonoCoords.y);
@@ -175,7 +173,7 @@ const PDFGenerator = () => {
       doc.setFont('Montserrat-Bold');
       doc.text('Municipio: ', 20, 170);
       doc.setFont('Montserrat');
-      doc.text(data.municipio, municipioCoords2.x, municipioCoords2.y);
+      doc.text(data.municipio_direccion, municipio_direccionCoords2.x, municipio_direccionCoords2.y);
 
       doc.setFont('Montserrat-Bold');
       doc.text('Entidad: ', 90, 170);
@@ -194,15 +192,15 @@ const PDFGenerator = () => {
       doc.setFontSize(9.5);
       doc.text('PARA OBTENER EL CERTIFICADO DIGITAL DE LA FIRMA ELECTRÓNICA AVANZADA ES NECESARIO QUE ', 20, 190);
       doc.text('ENTREGUE,  JUNTO CON ESTA SOLICITUD,  LOS DOCUMENTOS QUE A CONTINUACIÓN SE INDICAN EN ', 20, 195);
-      doc.text('EN ORIGINAL, ', 20, 200);
+      doc.text('ORIGINAL, ', 20, 200);
       doc.setFont('Montserrat-Bold');
-      doc.text('MARCANDO CON UNA "X"  ', 45, 200);
+      doc.text('MARCANDO CON UNA "X"  ', 39, 200);
       doc.setFont('Montserrat');
-      doc.text('EN LA DOCUMENTACIÓN PROPORCIONADA.', 92, 200);
+      doc.text('EN LA DOCUMENTACIÓN PROPORCIONADA.', 86, 200);
 
       doc.setFont('Montserrat-Bold');
       doc.setFontSize(10);
-      doc.text('a) IDENTIFICACIÓN OFICIAL CON FOTOGRAFIA                                                                 [       ]', 20, 210);
+      doc.text('a) IDENTIFICACIÓN OFICIAL CON FOTOGRAFÍA                                                                 [       ]', 20, 210);
       doc.setFont('Montserrat');
       doc.text(data.ine === 'true' ? 'X' : '', ineCoords.x, ineCoords.y);
 

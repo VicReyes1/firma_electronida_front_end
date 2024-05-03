@@ -41,6 +41,25 @@
     font-size: 16px; /* Tamaño de fuente */
 }
 
+.boton-req {
+    
+    margin-top: 1%;
+    background-color:#6e6e6e ;
+    color: white;
+    border-color: #6e6e6e;
+    border-radius: 15px;
+    font-size: 1em;
+    font-weight: medium;
+    font-family: Futura;
+    height: 40px;
+    width: 240px;
+    margin-right: 60px;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
+  }
+  .boton-req:hover{
+    background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
+    color: black; /* Cambia el color del texto al pasar el mouse */
+  }
 
 @media screen and (min-width: 768px) and (max-width: 1424px) {
     .pdf_contenedor22{

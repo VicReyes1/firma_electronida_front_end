@@ -33,7 +33,7 @@ function Rutas() {
         <Route path='/login' element={<Login />} />
         <Route path='/login&RecuperarContraseña' element={<Login_recuperar_contra />} />
         <Route path='/' element={<Landing_Page />} />
-        <Route path='/ver_solicitud' element={<Ver_solicitud />} />
+
         <Route path='/mi_solicitud' element={<Mi_Solicitud />} />
         <Route path='/preregistro' element={<Preregistro />} />
         <Route path='/continuar_solicitud2' element={<Continuar_solicitud2 />} />

@@ -30,7 +30,7 @@ const Login_recuperar_contra = () => {
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Control
-              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'5%', borderWidth:'2px' }}
+              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'5%', borderWidth:'2px', fontFamily:'Futura' }}
               type="email"
               placeholder="Correo Electrónico"
               value={email}
@@ -40,7 +40,7 @@ const Login_recuperar_contra = () => {
 
           <Form.Group controlId="formBasicText">
             <Form.Control
-              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'1%', borderWidth:'2px' }}
+              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'1%', borderWidth:'2px', fontFamily:'Futura' }}
               type="text"
               placeholder="RFC"
               value={rfc}

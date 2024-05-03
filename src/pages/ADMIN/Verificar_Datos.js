@@ -124,6 +124,19 @@ function Verificar_Datos() {
     console.log('Formulario enviado');
   };
 
+  const handleSubmit2 = (e) => {
+    e.preventDefault();
+    // Aquí puedes enviar el formulario
+     Swal.fire({
+      title: "Formulario Enviado",
+      text: "Se han enviado las correcciones al usuario",
+      icon: "warning"
+    });
+    console.log('Formulario enviado');
+  };
+
+
+
   return (
     <div>
       <Heder />
@@ -133,7 +146,7 @@ function Verificar_Datos() {
             Verifique Datos
           </div>
           <div className='text_2'>
-            Seleccione los campos que sean correctos. Si es aprobado, se enviará la carta de solicitud y .req al usuario.
+            Seleccione los campos que sean correctos. Si es aprobado, se enviarán la carta de solicitud y recursos necesarios para generar el .req al usuario.
           </div>
         </div>
       </div>
@@ -165,7 +178,7 @@ function Verificar_Datos() {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isRS} onChange={() => setIsRS(!isRS)} />
-                <span style={{fontSize:'1em' }}className="checkbox-text2" >Razón Social:  </span>
+                <span style={{fontSize:'1em' }}className="checkbox-text2" >Razón Social:&nbsp;</span>
                 {data.secretaria}
             </label>    
         </div>
@@ -173,7 +186,7 @@ function Verificar_Datos() {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isRFC} onChange={() => setIsRFC(!isRFC)} />
-                <span className="checkbox-text2" >RFC:  </span>
+                <span className="checkbox-text2" >RFC:&nbsp;</span>
                 {data.RFC}
             </label>    
         </div>
@@ -185,7 +198,7 @@ function Verificar_Datos() {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isdireccion} onChange={() => setIsDireccion(!isdireccion)} />
-                <span className="checkbox-text2" >Dirección:  </span>
+                <span className="checkbox-text2" >Dirección:&nbsp;</span>
                 {data.direccion}
             </label>    
         </div>
@@ -193,7 +206,7 @@ function Verificar_Datos() {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={ism} onChange={() => setIsM(!ism)} />
-                <span className="checkbox-text2" >Municipio:  </span>
+                <span className="checkbox-text2" >Municipio:&nbsp;</span>
                 {data.municipio_direccion}
             </label>    
         </div>
@@ -201,7 +214,7 @@ function Verificar_Datos() {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isCP} onChange={() => setIsCP(!isCP)} />
-                <span className="checkbox-text2" >Código Postal:  </span>
+                <span className="checkbox-text2" >Código Postal:&nbsp;</span>
                 {data.cp}
             </label>    
         </div>
@@ -214,7 +227,7 @@ function Verificar_Datos() {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isP} onChange={() => setIsP(!isP)} />
-                <span className="checkbox-text2" >Puesto:  </span>
+                <span className="checkbox-text2" >Puesto:&nbsp;</span>
                 {data.puesto}
             </label>    
         </div>
@@ -222,7 +235,7 @@ function Verificar_Datos() {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isA} onChange={() => setIsA(!isA)} />
-                <span className="checkbox-text2" >Área  </span>
+                <span className="checkbox-text2" >Área:&nbsp;</span>
                 {data.entidad}
             </label>    
         </div>
@@ -230,7 +243,7 @@ function Verificar_Datos() {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isT} onChange={() => setIsT(!isT)} />
-                <span className="checkbox-text2" >Teléfono:  </span>
+                <span className="checkbox-text2" >Teléfono:&nbsp; </span>
                 {data.telefono} 771 234 5678
             </label>    
         </div>
@@ -238,7 +251,7 @@ function Verificar_Datos() {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isExt} onChange={() => setIsExt(!isExt)} />
-                <span className="checkbox-text2" >Extensión:  </span>
+                <span className="checkbox-text2" >Extensión:&nbsp;</span>
                 {data.extencion}  3498
             </label>    
         </div>
@@ -334,7 +347,7 @@ function Verificar_Datos() {
 
   <Modal.Footer>
     <Button className="boton_modal" variant="secondary" onClick={handleCloseModal}>Atrás</Button>
-    <Button  className="boton_modal" variant="primary" onClick={handleSubmit}>Enviar</Button>
+    <Button  className="boton_modal" variant="primary" onClick={handleSubmit2}>Enviar</Button>
   </Modal.Footer>
 </Modal>
     </div>

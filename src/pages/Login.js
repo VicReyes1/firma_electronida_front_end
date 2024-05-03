@@ -19,7 +19,7 @@ const Login = () => {
     <div>
       <Heder />
       <div className='login_conteiner'>
-        <h2 className='titulo_login'>Iniciar sesión</h2>
+        <h2 className='titulo_login'>Iniciar Sesión</h2>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Control
