@@ -10,7 +10,7 @@ function Aprobacion_Req() {
   const [archivo, setArchivo] = useState('');
   const [comentarios, setComentarios] = useState('');
   const [pdfBlob, setPdfBlob] = useState(null);
-
+  const [NSCertificado, setNSCertificado] = useState('');
 
    // Función para cargar el PDF correspondiente desde la API
    const cargarPDF = (archivoSeleccionado) => {
@@ -104,6 +104,8 @@ function Aprobacion_Req() {
          <div>
          <Button  className="boton-req" variant="primary" >Descargar Archivo</Button>
          </div>
+
+
           <div className='pdf_contenedor22'>
             {/* Mostrar el PDF si hay un Blob */}
             {pdfBlob && <embed src={URL.createObjectURL(pdfBlob)} type="application/pdf" width="100%" height="600px" />}
@@ -113,7 +115,11 @@ function Aprobacion_Req() {
             <textarea className='comentarios' value={comentarios} onChange={(e) => setComentarios(e.target.value)} placeholder="Comentarios" />
           </div>
 
-          <Button className="boton_envio2" onClick={todasSeleccionadas() ? handleShowModal1 : handleShowModal2}>
+          <div className="inputs">
+         <input style={{ width: '82.5%', marginTop:'2%' }} type="text" value={NSCertificado} onChange={(e) => setNSCertificado(e.target.value)} placeholder="Número de Serie del Certificado" />
+        </div>
+
+        <Button className="boton_envio2" onClick={todasSeleccionadas() ? handleShowModal1 : handleShowModal2}>
           Siguiente
         </Button>
 

@@ -18,6 +18,7 @@ import Aprobacion_Req from '../pages/ADMIN/Aprobacion_req';
 import Solicitud_Concluida from '../pages/ADMIN/Solicitud_Concluida';
 
 import PDFGenerator from '../pages/ADMIN/PDF';
+import PDFCarta from '../pages/ADMIN/PDF2';
 
 
 
@@ -44,7 +45,7 @@ function Rutas() {
         <Route path='/admin&Aprobacion_Req' element={<Aprobacion_Req/>} />
         <Route path='/admin&Solicitud_Concluida' element={<Solicitud_Concluida/>} />
         <Route path='/PDF' element={<PDFGenerator/>} />
-      
+        <Route path='/PDF2' element={<PDFCarta/>} />
       </Routes>
     </div>
   );
