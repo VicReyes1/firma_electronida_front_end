@@ -7,9 +7,14 @@ import '../../css/pdf.css'; // Asegúrate de tener la ruta correcta al archivo C
 import logo from '../../Images/Escudoo_color.png'; // Ruta relativa a la imagen dentro del proyecto
 
 const PDFGenerator = () => {
+
+  const currentDate = new Date();
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = currentDate.toLocaleDateString('es-MX', options);
+
   const [data, setData] = useState({
     municipio_direccion: 'Pachuca de Soto',
-    fecha: '17 de julio de 2024',
+    fecha: formattedDate,
     notario:'true',
     servidor:'true',
     secretaria:'Secretaría del Despacho de la Persona Titular del Poder Ejecutivo del Estado de Hidalgo',
