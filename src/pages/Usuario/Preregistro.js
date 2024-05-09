@@ -585,22 +585,21 @@ function Preregistro() {
         <span style={{ fontWeight: 'bold' }}>Puesto/Área</span>  
         </div>
 
-        <div className="select">
-          <select style={{ marginRight: '2%', width: '48%' }} value={puesto} onChange={(e) => setPuesto(e.target.value)}>
-            <option value="">Puesto</option>
-            <option value="11">Selecciona una opción</option>
-            <option value="12">Selecciona una opción</option>
-            <option value="13">Selecciona una opción</option>
-            {/* Agrega las opciones que necesites */}
-          </select>
-
-          <select style={{ width: '48%'  }} value={area} onChange={(e) => setArea(e.target.value)}>
-            <option value="">Área</option>
-            <option value="66">Selecciona una opción</option>
-            <option value="64">Selecciona una opción</option>
-            <option value="63">Selecciona una opción</option>
-            {/* Agrega las opciones que necesites */}
-          </select>
+        <div className="inputs">
+        <input
+          style={{ marginRight: '2%' }}
+          type="text"
+          value={puesto}
+          onChange={(e) => setPuesto(e.target.value)}
+          placeholder="Puesto"
+        />
+        <input
+          style={{ marginRight: '2%' }}
+          type="text"
+          value={area}
+          onChange={(e) => setArea(e.target.value)}
+          placeholder="Área"
+        />
         </div>
 
         <div className='text_formulario'>
