@@ -44,6 +44,7 @@ function Preregistro() {
   const [isNotary, setIsNotary] = useState(false);
   const [isNuevo, setIsNuevo] = useState(false);
   const [isRenovacion, setIsRenovacion] = useState(false);
+  const [causa_de_solicitud, setcausa_de_solicitud] = useState('');
   const [secretaria, setSecretaria] = useState('');
   const [tipoEntidad, setTipoEntidad] = useState('');
   const [entidad, setEntidad] = useState('');
@@ -63,21 +64,29 @@ function Preregistro() {
   const [telefono, setTelefono] = useState('');
   const [extencion, setExtencion] = useState('');
   const [correo, setCorreo] = useState('');
+  const [contrasena, setContrasena] = useState('');
+  const [video, setVideo] = useState(null);
+
+
+  const [isResponsavilidadUso, setIsResponsavilidadUso] = useState(false);
+  const [isPoliticas, setIsPoliticas] = useState(false);
+  const [isRevocacion, setIsRevocacion] = useState(false);
   const [confirma_correo, setConfirma_Correo] = useState('');
   const [correosCoinciden, setCorreosCoinciden] = useState(true);
-
-  const [contrasena, setContrasena] = useState('');
   const [confirma_contrasena, setConfirma_Contrasena] = useState('');
   const [contrasenasCoinciden, setContrasenasCoinciden] = useState(true);
   const [mostrarContrasena, setMostrarContrasena] = useState(false);
   const [mostrarConfirmaContrasena, setMostrarConfirmaContrasena] = useState(false);
 
-  const [isUso, setIsUso] = useState(false);
-  const [isPoliticas, setIsPoliticas] = useState(false);
-  const [isRevocacion, setIsRevocacion] = useState(false);
-  const [video, setVideo] = useState(null);
+ 
   const [error, setError] = useState('');
  
+    // Función para verificar si todas las casillas de verificación están marcadas
+    const todasSeleccionadas = () => {
+      // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
+      return (isNuevo || isRenovacion || causa_de_solicitud ) && (isServer || isNotary || ArchivoCredencialNotario) && video && ArchivoINE && ArchivoComprobanteDomicilio && ArchivoCURP && ArchivoRFC && ArchivoAval && secretaria && tipoEntidad && entidad  && direccion && municipio_direccion && estado && cp && puesto && area && telefono && correo && confirma_correo && contrasena && confirma_contrasena  && isResponsavilidadUso && isPoliticas && isRevocacion/* Agregar el resto de tus variables de estado */;
+    };
+  
 
   const handleVideoChange = (event) => {
     const selectedVideo = event.target.files[0];
@@ -115,14 +124,20 @@ function Preregistro() {
 
  
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
 
-  const handleShowModal = () => {
-    setShowModal(true);
+  const handleShowModal1 = () => {
+    setShowModal1(true);
   };
-  
+
+  const handleShowModal2 = () => {
+    setShowModal2(true);
+  };
+
   const handleCloseModal = () => {
-    setShowModal(false);
+    setShowModal1(false);
+    setShowModal2(false);
   };
 
 
@@ -137,6 +152,10 @@ function Preregistro() {
   };
 
   const [showPwd, setShowPwd] = useState(false)
+
+
+  
+ 
 
   return (
     <div className="contenedor">
@@ -164,6 +183,7 @@ function Preregistro() {
           accept="video/*"
           onChange={handleVideoChange}
           className="custom-file-input"
+          accept="video/mp4"// Solo permite archivos PDF
         />
       </label>
       {video && (
@@ -195,7 +215,7 @@ function Preregistro() {
                 type="file" 
                 onChange={handleArchivoINEChange} 
                 className="custom-file-input"
-
+                accept="application/pdf" // Solo permite archivos PDF
                 />
             </label>
             {ArchivoINE ? <span className="file-name">{ArchivoINE.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
@@ -213,7 +233,7 @@ function Preregistro() {
                 type="file" 
                 onChange={handleArchivoComprobanteDomicilioChange} 
                 className="custom-file-input"
-          
+                accept="application/pdf" // Solo permite archivos PDF
                 />
             </label>
             {ArchivoComprobanteDomicilio ? <span className="file-name">{ArchivoComprobanteDomicilio.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
@@ -231,7 +251,7 @@ function Preregistro() {
                 type="file" 
                 onChange={handleArchivoCURPChange} 
                 className="custom-file-input"
-          
+                accept="application/pdf" // Solo permite archivos PDF
                 />
             </label>
             {ArchivoCURP ? <span className="file-name">{ArchivoCURP.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
@@ -249,7 +269,7 @@ function Preregistro() {
                 type="file" 
                 onChange={handleArchivoRFCChange} 
                 className="custom-file-input"
-        
+                accept="application/pdf" // Solo permite archivos PDF
                 />
             </label>
             {ArchivoRFC ? <span className="file-name">{ArchivoRFC.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
@@ -267,7 +287,7 @@ function Preregistro() {
                 type="file" 
                 onChange={handleArchivoAvalChange} 
                 className="custom-file-input"
-            
+                accept="application/pdf" // Solo permite archivos PDF
                 />
             </label>
             {ArchivoAval ? <span className="file-name">{ArchivoAval.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
@@ -278,14 +298,28 @@ function Preregistro() {
         </div>
         
         <div className="checkboxes">
-            <label className="checkbox-label">
-                <input type="checkbox" checked={isNuevo} onChange={() => setIsNuevo(!isNuevo)} />
-                <span className="checkbox-text">Nuevo</span>
-            </label>
-            <label className="checkbox-label">
-                <input type="checkbox" checked={isRenovacion} onChange={handleNotaryCheckboxChange2} />
-                <span className="checkbox-text">Renovación</span>
-            </label>
+          <label className="checkbox-label">
+            <input 
+              type="checkbox" 
+              checked={isNuevo} 
+              onChange={() => {
+                setIsNuevo(true);
+                setIsRenovacion(false);
+              }} 
+            />
+            <span className="checkbox-text">Nuevo</span>
+          </label>
+          <label className="checkbox-label">
+            <input 
+              type="checkbox" 
+              checked={isRenovacion} 
+              onChange={() => {
+                setIsRenovacion(true);
+                setIsNuevo(false);
+              }} 
+            />
+            <span className="checkbox-text">Renovación</span>
+          </label>
         </div>
         {isRenovacion && (
               <div>
@@ -294,7 +328,7 @@ function Preregistro() {
               </div>
 
               <div className="inputs">
-                <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Causa" required/>
+                <input type="text" value={causa_de_solicitud} onChange={(e) => setcausa_de_solicitud(e.target.value)} placeholder="Causa" required/>
                
                </div>
   
@@ -308,15 +342,28 @@ function Preregistro() {
         
         <div className="checkboxes">
             <label className="checkbox-label">
-                <input type="checkbox" checked={isServer} onChange={() => setIsServer(!isServer)} />
-                <span className="checkbox-text">Servidor Público</span>
+              <input 
+                type="checkbox" 
+                checked={isServer} 
+                onChange={() => {
+                  setIsServer(true);
+                  setIsNotary(false);
+                }} 
+              />
+              <span className="checkbox-text">Servidor Público</span>
             </label>
-         
-          <label className="checkbox-label">
-            <input type="checkbox" checked={isNotary} onChange={handleNotaryCheckboxChange} />
-            <span className="checkbox-text">Notario Público</span>
-          </label>
-        </div>
+            <label className="checkbox-label">
+              <input 
+                type="checkbox" 
+                checked={isNotary} 
+                onChange={() => {
+                  setIsNotary(true);
+                  setIsServer(false);
+                }} 
+              />
+              <span className="checkbox-text">Notario Público</span>
+            </label>
+          </div>
 
         {isNotary && (
           <div>
@@ -425,9 +472,9 @@ function Preregistro() {
         <div className="select">
           <select style={{ marginRight: '2%' }} value={municipio_direccion} onChange={(e) => setMunicipio_Direccion(e.target.value)}>
             <option value="">Municipio</option>
-            <option value="">Acatl\u00e1n</option>
-            <option value="">Selecciona una opción</option>
-            <option value="">Selecciona una opción</option>
+            <option value="33">PACHUCA</option>
+            <option value="34">2</option>
+            <option value="35">2</option>
             {/* Agrega las opciones que necesites */}
           </select>
 
@@ -459,17 +506,17 @@ function Preregistro() {
         <div className="select">
           <select style={{ marginRight: '2%', width: '48%' }} value={puesto} onChange={(e) => setPuesto(e.target.value)}>
             <option value="">Puesto</option>
-            <option value="">Selecciona una opción</option>
-            <option value="">Selecciona una opción</option>
-            <option value="">Selecciona una opción</option>
+            <option value="11">Selecciona una opción</option>
+            <option value="12">Selecciona una opción</option>
+            <option value="13">Selecciona una opción</option>
             {/* Agrega las opciones que necesites */}
           </select>
 
           <select style={{ width: '48%'  }} value={area} onChange={(e) => setArea(e.target.value)}>
             <option value="">Área</option>
-            <option value="">Selecciona una opción</option>
-            <option value="">Selecciona una opción</option>
-            <option value="">Selecciona una opción</option>
+            <option value="66">Selecciona una opción</option>
+            <option value="64">Selecciona una opción</option>
+            <option value="63">Selecciona una opción</option>
             {/* Agrega las opciones que necesites */}
           </select>
         </div>
@@ -609,7 +656,7 @@ function Preregistro() {
 
         <div style={{  marginTop: '2%' }} className="checkboxes">
             <label style={{  fontSize: '0.7em' }} className="checkbox-label">
-                <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isUso} onChange={() => setIsUso(!isUso)} />
+                <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isResponsavilidadUso} onChange={() => setIsResponsavilidadUso(!isResponsavilidadUso)} />
                 <span className="checkbox-text">He leído y acepto la Responsabilidad del uso de la Firma Electrónica.</span>
             </label>
         </div>
@@ -627,7 +674,7 @@ function Preregistro() {
         </div>
         
 
-        <Button className="boton_envio" onClick={handleShowModal}>
+        <Button className="boton_envio" onClick={todasSeleccionadas() ? handleShowModal1 : handleShowModal2}>
           Siguiente
         </Button>
          </form>
@@ -642,7 +689,7 @@ function Preregistro() {
       className="modal show"
       style={{ display: 'block', position: 'initial' }}
     >
-  <Modal show={showModal} onHide={handleCloseModal} centered backdrop="static">
+  <Modal show={showModal1} onHide={handleCloseModal} centered backdrop="static">
   <Modal.Header >
     <Modal.Title className='titulo_modal'>¿Seguro que quiere enviar el formulario?</Modal.Title>
   </Modal.Header>
@@ -656,6 +703,21 @@ function Preregistro() {
     <Button  className="boton_modal" variant="primary" onClick={handleSubmit}>Enviar</Button>
   </Modal.Footer>
 </Modal>
+
+<Modal show={showModal2} onHide={handleCloseModal} centered backdrop="static">
+  <Modal.Header >
+    <Modal.Title className='titulo_modal'>Formulario Incompleto</Modal.Title>
+  </Modal.Header>
+
+  <Modal.Body>
+    <p className='texto_modal'>Parece que algunos campos del formulario no han sido completados. Por favor, revisa nuevamente y asegúrate de llenar todos los campos antes de enviarlo. </p>
+  </Modal.Body>
+
+  <Modal.Footer>
+    <Button className="boton_modal" variant="secondary" onClick={handleCloseModal}>Atrás</Button>
+  </Modal.Footer>
+</Modal>
+
     </div>
     </div>
   );

@@ -314,9 +314,26 @@ input {
 }
 
 .modal-content {
-  width: 50%; /* Ancho del modal */
-  height: 30%; /* Alto del modal */
+  width: 60%; /* Ancho del modal */
+  height: auto; /* Alto del modal */
 }
+.boton_modal {
+  font-size: 1.5em;
+  height: 60px;
+  width: 30%;
+  margin-right: 40px;
+  margin-left: 40px;
+  margin-bottom: 10%;
+}
+
+.titulo_modal{
+  font-size: 3em;
+}
+
+.texto_modal{
+  font-size: 2em;
+}
+
 input { 
   width: 45%; /* Ancho del combo box, ajusta según necesites */
   padding-left: 10px; 

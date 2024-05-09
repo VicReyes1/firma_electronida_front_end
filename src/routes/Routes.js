@@ -20,6 +20,7 @@ import Solicitud_Concluida from '../pages/ADMIN/Solicitud_Concluida';
 import PDFGenerator from '../pages/ADMIN/PDF';
 import PDFCarta from '../pages/ADMIN/PDF2';
 import PDFViewer from '../pages/ADMIN/prueba';
+import Aprobacion_Carta from '../pages/ADMIN/Aprobacion_carta_Responsiva';
 
 
 
@@ -43,6 +44,7 @@ function Rutas() {
         <Route path='/continuar_solicitud3' element={<Continuar_solicitud3 />} />
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos' element={<Verificar_Datos/>} />
+        <Route path='/admin&Aprobacion_Carta' element={<Aprobacion_Carta/>} />
         <Route path='/admin&Aprobacion_Req' element={<Aprobacion_Req/>} />
         <Route path='/admin&Solicitud_Concluida' element={<Solicitud_Concluida/>} />
         <Route path='/PDF' element={<PDFGenerator/>} />

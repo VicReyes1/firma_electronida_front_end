@@ -31,8 +31,7 @@
     font-size: 16px; /* Tamaño de fuente */
     width: 30%; /* Ancho del combo box, ajusta según necesites */
     height: 45px;
-    margin-top: 2%;
-    margin-left: 34%;
+    margin-top: 4%
    
 }
 .select23 option {
@@ -43,7 +42,7 @@
 
 .boton-req {
     
-    margin-top: 1%;
+    margin-top: 4%;
     background-color:#6e6e6e ;
     color: white;
     border-color: #6e6e6e;
@@ -53,7 +52,7 @@
     font-family: Futura;
     height: 40px;
     width: 240px;
-    margin-right: 60px;
+    margin-right: 40%;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
   }
   .boton-req:hover{
@@ -61,8 +60,61 @@
     color: black; /* Cambia el color del texto al pasar el mouse */
   }
 
+  .text_formulario9{
+    font-size: 1.5em;
+    font-family: 'Futura' !important;
+    text-align: left; 
+    margin-top: 2%;
+  }
+
+  .checkboxes {
+    display: flex;
+    align-items: center;
+
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    font-family: 'Futura'!important;
+    font-size: 1em;
+    margin-right: 1%;
+  }
+  
+  .checkbox-label input[type="checkbox"] {
+    margin-right: 10px; /* Espacio entre el checkbox y el texto */
+    width: 20px; /* Ancho de la checkbox */
+    height: 20px; /* Alto de la checkbox */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .checkbox-label .checkbox-text {
+    margin-left: 5px; /* Espacio entre el checkbox y el texto */
+  }
+
 @media screen and (min-width: 768px) and (max-width: 1424px) {
     .pdf_contenedor22{
         height: 40vh;
+    }
+
+    .modal-content {
+      width: 60%; /* Ancho del modal */
+      height: auto; /* Alto del modal */
+    }
+    .boton_modal {
+      font-size: 1.5em;
+      height: 60px;
+      width: 30%;
+      margin-right: 40px;
+      margin-left: 40px;
+      margin-bottom: 10%;
+    }
+    
+    .titulo_modal{
+      font-size: 3em;
+    }
+    
+    .texto_modal{
+      font-size: 2em;
     }
 }

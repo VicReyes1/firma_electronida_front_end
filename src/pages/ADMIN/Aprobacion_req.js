@@ -5,12 +5,21 @@ import Heder from '../heder';
 import '../../css/Aprobacion_Req.css';
 
 function Aprobacion_Req() {
+
+  
   const [isReq, setIsReq] = useState(false);
- 
   const [archivo, setArchivo] = useState('');
   const [comentarios, setComentarios] = useState('');
   const [pdfBlob, setPdfBlob] = useState(null);
   const [NSCertificado, setNSCertificado] = useState('');
+  const [Vigencia_Inicio, setVigencia_Inicio] = useState('');
+  const [Vigencia_Fin, setVigencia_Fin] = useState('');
+  
+  const [isCertificado_Autoridad, setIsCertificado_Autoridad] = useState(false);
+  const [isCertificado_Personal, setIsCertificado_Personal] = useState(false);
+  const [isArchivo_p12, setIsArchivo_p12] = useState(false);
+  const [isArchivo_key, setIsArchivo_key] = useState(false);
+
 
    // Función para cargar el PDF correspondiente desde la API
    const cargarPDF = (archivoSeleccionado) => {
@@ -44,8 +53,8 @@ function Aprobacion_Req() {
    // Función para verificar si todas las casillas de verificación están marcadas
    const todasSeleccionadas = () => {
     // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
-    return isReq  /* Agregar el resto de tus variables de estado */;
-  };
+    return isReq && isCertificado_Autoridad && isCertificado_Personal && isArchivo_p12 && Vigencia_Inicio && Vigencia_Fin && NSCertificado/* Agregar el resto de tus variables de estado */;
+  };    
 
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
@@ -75,10 +84,11 @@ function Aprobacion_Req() {
       <div className="container2">
         <div className='titulo-container'>
           <div className='titulo_2'>
-            Verifica Datos
+            Aprobación .Req
           </div>
           <div className='text_2'>
-          Seleccione los campos que sean correctos. Si es aprobado, se enviarán carta responsiva, manuales y .cer.
+          Verifique que el archivo .req contenga los datos correctos, apegados a los campos de los documentos recibidos.<br></br>
+          Si el archivo es correcto, seleccione el campo de aprobar y se enviarán carta responsiva y manuales.
           </div>
         </div>
       </div>
@@ -86,8 +96,11 @@ function Aprobacion_Req() {
       <div className="container444">
         
         <div className="content22">
-           
-          <select className='select2' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>
+        
+        <div style={{ display: 'flex' }}>
+        <Button className="boton-req" variant="primary">Descargar .req</Button>
+
+          <select className='select23' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>
             <option value="">INE</option>
             <option value="">Comprobante de domicilio</option>
             <option value="">CURP</option>
@@ -95,15 +108,10 @@ function Aprobacion_Req() {
             <option value="">Aval como Servidor Público o Notario Público</option>
           </select>
 
-          <div className="checkboxes">
-            <label className="checkbox-label">
-                <input type="checkbox" checked={isReq} onChange={() => setIsReq(!isReq)} />
-                <span className="checkbox-text">Archivo  .Req</span>
-            </label>    
+         
         </div>
-         <div>
-         <Button  className="boton-req" variant="primary" >Descargar Archivo</Button>
-         </div>
+
+ 
 
 
           <div className='pdf_contenedor22'>
@@ -115,15 +123,65 @@ function Aprobacion_Req() {
             <textarea className='comentarios' value={comentarios} onChange={(e) => setComentarios(e.target.value)} placeholder="Comentarios" />
           </div>
 
-          <div className="inputs">
-         <input style={{ width: '82.5%', marginTop:'2%' }} type="text" value={NSCertificado} onChange={(e) => setNSCertificado(e.target.value)} placeholder="Número de Serie del Certificado" />
+        <div className='text_formulario9'>
+        <span style={{ fontWeight: 'bold' }}>Vigencia Inicio</span>  
         </div>
+
+          <div className="inputs" style={{ display: 'flex' }} >
+          <input style={{ width: '35%', marginRight:'11%' }} type="date" value={Vigencia_Inicio} onChange={(e) => setVigencia_Inicio(e.target.value)} placeholder="De:" />
+          <input style={{ width: '35%' }} type="text" value={NSCertificado} onChange={(e) => setNSCertificado(e.target.value)} placeholder="Número de Serie del Certificado" />
+        </div>
+
+        <div className='text_formulario9'>
+        <span style={{ fontWeight: 'bold' }}>Vigencia Fin</span>
+        </div>
+
+        <div className="inputs" style={{ display: 'flex', marginBottom:'2%' }} >
+          <input style={{ width: '35%', marginRight:'11%' }} type="date" value={Vigencia_Fin} onChange={(e) => setVigencia_Fin(e.target.value)} placeholder="A:" />
+        
+          <div className="checkboxes">
+              <label className="checkbox-label">
+                  <input type="checkbox" checked={isReq} onChange={() => setIsReq(!isReq)} />
+                  <span className="checkbox-text" >Aprobar archivo.</span>
+              </label>    
+          </div>
+        </div>
+
+
+        <div className="checkboxes">
+              <label className="checkbox-label">
+                  <input type="checkbox" checked={isCertificado_Autoridad} onChange={() => setIsCertificado_Autoridad(!isCertificado_Autoridad)} />
+                  <span className="checkbox-text" >Certificado Digital de la Autoridad Certificadora de Firma Electrónica Avanzada</span>
+              </label>    
+          </div>
+          <div className="checkboxes">
+              <label className="checkbox-label">
+                  <input type="checkbox" checked={isCertificado_Personal} onChange={() => setIsCertificado_Personal(!isCertificado_Personal)} />
+                  <span className="checkbox-text" >Certificado Digital de Firma Electrónica Avanzada Personal</span>
+              </label>    
+          </div>
+          <div className="checkboxes">
+              <label className="checkbox-label">
+                  <input type="checkbox" checked={isArchivo_p12} onChange={() => setIsArchivo_p12(!isArchivo_p12)} />
+                  <span className="checkbox-text" >Archivo PKCS12 (*.pfx o *.p12)</span>
+              </label>    
+          </div>
+          <div className="checkboxes">
+              <label className="checkbox-label">
+                  <input type="checkbox" checked={isArchivo_key} onChange={() => setIsArchivo_key(!isArchivo_key)} />
+                  <span className="checkbox-text" >Archivo *.KEY</span>
+              </label>    
+          </div>
+       
+    
+
+       
 
         <Button className="boton_envio2" onClick={todasSeleccionadas() ? handleShowModal1 : handleShowModal2}>
           Siguiente
         </Button>
-
-        </div>
+        
+        </div> 
       </div>
 
       <div
