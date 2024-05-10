@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import Pagination from 'react-bootstrap/Pagination';
 import '../../css/tabla.css'; // Importa tus estilos CSS personalizados aquí
 
-function Tabla_Solicitudes_Admin() {
+function Tabla_Solicitudes_Usuario() {
   const [data, setData] = useState([
     { id: 1, name: 'John', state: 'Active', lastUpdate: '20/Abril/2024', sendDate: '15/Abril/2024', views: 100, isNew: true },
     { id: 2, name: 'Alice', state: 'Inactive', lastUpdate: '19/Abril/2024', sendDate: '10/Abril/2024', views: 150 },
@@ -15,28 +16,7 @@ function Tabla_Solicitudes_Admin() {
     { id: 7, name: 'Peter', state: 'Inactive', lastUpdate: '14/Abril/2024', sendDate: '15/Marzo/2024', views: 400 },
     { id: 8, name: 'David', state: 'Active', lastUpdate: '13/Abril/2024', sendDate: '10/Marzo/2024', views: 450 },
     { id: 9, name: 'Sarah', state: 'Inactive', lastUpdate: '12/Abril/2024', sendDate: '05/Marzo/2024', views: 500 },
-    { id: 10, name: 'Emily', state: 'Active', lastUpdate: '11/Abril/2024', sendDate: '01/Marzo/2024', views: 550 },
-    { id: 11, name: 'Lucas', state: 'Active', lastUpdate: '10/Abril/2024', sendDate: '28/Marzo/2024', views: 600 },
-    { id: 12, name: 'Sophia', state: 'Inactive', lastUpdate: '09/Abril/2024', sendDate: '23/Marzo/2024', views: 650 },
-    { id: 13, name: 'Matthew', state: 'Active', lastUpdate: '08/Abril/2024', sendDate: '18/Marzo/2024', views: 700 },
-    { id: 14, name: 'Olivia', state: 'Inactive', lastUpdate: '07/Abril/2024', sendDate: '13/Marzo/2024', views: 750 },
-    { id: 15, name: 'Ethan', state: 'Active', lastUpdate: '06/Abril/2024', sendDate: '08/Marzo/2024', views: 800 },
-    { id: 16, name: 'Emma', state: 'Active', lastUpdate: '05/Abril/2024', sendDate: '03/Marzo/2024', views: 850 },
-    { id: 17, name: 'Alexander', state: 'Inactive', lastUpdate: '04/Abril/2024', sendDate: '27/Febrero/2024', views: 900 },
-    { id: 18, name: 'Ava', state: 'Active', lastUpdate: '03/Abril/2024', sendDate: '22/Febrero/2024', views: 950 },
-    { id: 19, name: 'Michael', state: 'Inactive', lastUpdate: '02/Abril/2024', sendDate: '17/Febrero/2024', views: 1000 },
-    { id: 20, name: 'Isabella', state: 'Active', lastUpdate: '01/Abril/2024', sendDate: '12/Febrero/2024', views: 1050 },
-    { id: 21, name: 'William', state: 'Active', lastUpdate: '31/Marzo/2024', sendDate: '07/Febrero/2024', views: 1100 },
-    { id: 22, name: 'Mia', state: 'Inactive', lastUpdate: '30/Marzo/2024', sendDate: '02/Febrero/2024', views: 1150 },
-    { id: 23, name: 'James', state: 'Active', lastUpdate: '29/Marzo/2024', sendDate: '28/Enero/2024', views: 1200 },
-    { id: 24, name: 'Charlotte', state: 'Inactive', lastUpdate: '28/Marzo/2024', sendDate: '23/Enero/2024', views: 1250 },
-    { id: 25, name: 'Daniel', state: 'Active', lastUpdate: '27/Marzo/2024', sendDate: '18/Enero/2024', views: 1300 },
-    { id: 26, name: 'Amelia', state: 'Inactive', lastUpdate: '26/Marzo/2024', sendDate: '13/Enero/2024', views: 1350 },
-    { id: 27, name: 'Benjamin', state: 'Active', lastUpdate: '25/Marzo/2024', sendDate: '08/Enero/2024', views: 1400 },
-    { id: 28, name: 'Sophie', state: 'Inactive', lastUpdate: '24/Marzo/2024', sendDate: '31/Diciembre/2023', views: 1450 },
-    { id: 29, name: 'Jacob', state: 'Active', lastUpdate: '23/Marzo/2024', sendDate: '26/Diciembre/2023', views: 1500 },
-    { id: 30, name: 'Oliver', state: 'Active', lastUpdate: '22/Marzo/2024', sendDate: '21/Diciembre/2023', views: 1550 },
-    // Agrega más datos aquí si es necesario
+   
   ]);
  
   const [searchTerm, setSearchTerm] = useState('');
@@ -109,24 +89,31 @@ const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de $
       <Table striped bordered hover className="custom-table">
         <thead>
           <tr>
-            <th></th>
             <th>Nombre</th>
             <th>Estado</th>
             <th>Última Actualización</th>
             <th>Fecha de Envío</th>
             <th>Visualización</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
         {currentItems.map((item, index) => (
             <tr key={index}>
-                <td className={item.isNew ? 'blue-circle' : ''}></td>
+                
                 <td>{item.name}</td>
                 <td>{item.state}</td>
                 <td>{item.lastUpdate}</td>
                 <td>{item.sendDate}</td>
                 <td>
                 <button className='boton2'>Ver</button>
+                </td>
+                <td>
+                <button className='boton3'>Actualizar</button>
+                </td>
+                <td>
+                <button className='boton3'>Eliminar</button>
                 </td>
             </tr>
             ))}
@@ -148,4 +135,4 @@ const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de $
   );
 }
 
-export default Tabla_Solicitudes_Admin;
+export default Tabla_Solicitudes_Usuario;

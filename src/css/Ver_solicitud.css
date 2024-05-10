@@ -83,6 +83,22 @@
     color: black; /* Cambia el color del texto al pasar el mouse */
   }
 
+  .boton3 {
+    margin-top: 8%;
+    background-color: transparent; /* Cambiado a transparente para que no tenga fondo */
+    color: #6E6E6E; /* Color de texto */
+    border: none; /* Quita el borde */
+    font-size: 1.5em;
+    font-family: 'Futura';
+    text-decoration: underline; /* Subraya el texto */
+    transition: color 0.3s; /* Transición suave para el cambio de color */
+  }
+  
+  .boton3:hover {
+    color: black; /* Cambia el color del texto al pasar el mouse */
+  }
+  
+
 
   .blue-circle::before {
     content: "";

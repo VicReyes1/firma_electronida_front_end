@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 //Import paginas 
 import Login from '../pages/Login';
 import Landing_Page from '../pages/Landing_Page';
-import Ver_solicitud from '../pages/Usuario/Ver_Solicitud';
 import Preregistro from '../pages/Usuario/Preregistro';
 import Login_recuperar_contra from '../pages/Login_recuperar_contra';
 import Mi_Solicitud from '../pages/Usuario/Mis_Solicitudes';
