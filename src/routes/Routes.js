@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 //Import paginas 
 import Login from '../pages/Login';
 import Landing_Page from '../pages/Landing_Page';
-import Ver_solicitud from '../pages/Usuario/Ver_Solicitud';
 import Preregistro from '../pages/Usuario/Preregistro';
 import Login_recuperar_contra from '../pages/Login_recuperar_contra';
 import Mi_Solicitud from '../pages/Usuario/Mis_Solicitudes';
@@ -19,6 +18,8 @@ import Solicitud_Concluida from '../pages/ADMIN/Solicitud_Concluida';
 
 import PDFGenerator from '../pages/ADMIN/PDF';
 import PDFCarta from '../pages/ADMIN/PDF2';
+import PDFViewer from '../pages/ADMIN/prueba';
+import Aprobacion_Carta from '../pages/ADMIN/Aprobacion_carta_Responsiva';
 
 
 
@@ -42,10 +43,12 @@ function Rutas() {
         <Route path='/continuar_solicitud3' element={<Continuar_solicitud3 />} />
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos' element={<Verificar_Datos/>} />
+        <Route path='/admin&Aprobacion_Carta' element={<Aprobacion_Carta/>} />
         <Route path='/admin&Aprobacion_Req' element={<Aprobacion_Req/>} />
         <Route path='/admin&Solicitud_Concluida' element={<Solicitud_Concluida/>} />
         <Route path='/PDF' element={<PDFGenerator/>} />
         <Route path='/PDF2' element={<PDFCarta/>} />
+        <Route path='/PDF3' element={<PDFViewer/>} />
       </Routes>
     </div>
   );

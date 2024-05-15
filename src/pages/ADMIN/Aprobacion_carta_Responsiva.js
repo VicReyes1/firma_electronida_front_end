@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Heder from '../heder';
 import '../../css/Aprobacion_Req.css';
 
-function Aprobacion_Req() {
+function Aprobacion_Carta() {
   const [isCartaAprobacion, setIsCartaAprobacion] = useState(false);
  
   const [archivo, setArchivo] = useState('');
@@ -78,14 +78,15 @@ function Aprobacion_Req() {
           Aprobación Carta Responsiva
           </div>
           <div className='text_2'>
-          Seleccione los campos que sean correctos. Si es aprobado, se dará por finalizado el proceso.
+          Verifique que el archivo .req contenga los datos correctos, apegados a los campos de los documentos recibidos.<br></br>
+          Si el archivo es correcto, seleccione el campo de aprobar y se dará por terminado el proceso.
           </div>
         </div>
       </div>
 
-      <div className="container44">
+      <div className="container444">
         
-        <div className="content2">
+        <div className="content22">
            
           <select className='select2' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>
             <option value="">INE</option>
@@ -95,20 +96,21 @@ function Aprobacion_Req() {
             <option value="">Aval como Servidor Público o Notario Público</option>
           </select>
 
+
+          <div className='pdf_contenedor22'>
+            {/* Mostrar el PDF si hay un Blob */}
+            {pdfBlob && <embed src={URL.createObjectURL(pdfBlob)} type="application/pdf" width="100%" height="600px" />}
+          </div>
+
+          <div className="inputs" style= {{marginBottom: '2%'}}>
+            <textarea className='comentarios' value={comentarios} onChange={(e) => setComentarios(e.target.value)} placeholder="Comentarios" />
+          </div>
+
           <div className="checkboxes">
             <label className="checkbox-label">
                 <input type="checkbox" checked={isCartaAprobacion} onChange={() => setIsCartaAprobacion(!isCartaAprobacion)} />
                 <span className="checkbox-text">Carta Responsiva</span>
             </label>    
-        </div>
-
-          <div className='pdf_contenedor2'>
-            {/* Mostrar el PDF si hay un Blob */}
-            {pdfBlob && <embed src={URL.createObjectURL(pdfBlob)} type="application/pdf" width="100%" height="600px" />}
-          </div>
-
-          <div className="inputs">
-            <textarea className='comentarios' value={comentarios} onChange={(e) => setComentarios(e.target.value)} placeholder="Comentarios" />
           </div>
 
           <Button className="boton_envio2" onClick={todasSeleccionadas() ? handleShowModal1 : handleShowModal2}>
@@ -157,4 +159,4 @@ function Aprobacion_Req() {
   );
 }
 
-export default Aprobacion_Req;
+export default Aprobacion_Carta;

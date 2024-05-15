@@ -1,6 +1,7 @@
 import React from 'react';
 import Heder from '../heder';
-import Tabla from '../Componentes/Tabla';
+import Tabla_Solicitudes_Admin from '../Componentes/Tabla';
+
 
 function Admin_Solicitudes() {
   return (
@@ -15,7 +16,7 @@ function Admin_Solicitudes() {
       </div>
     </div>
 
-    <Tabla />
+    <Tabla_Solicitudes_Admin/>
 
     </div>
   );
