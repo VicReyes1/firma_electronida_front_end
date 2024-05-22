@@ -3,18 +3,43 @@ import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; 
 import Heder from './heder';
 import '../css/Login.css';
+import axios from 'axios';
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica para enviar los datos del formulario al servidor
-    console.log('Email:', email);
-    console.log('Contraseña:', password);
+  
+    const url = `http://localhost:3001/auth/login`;
+  
+    const data = {
+      correo: email,
+      password: password
+    };
+  
+    try {
+      const response = await axios.post(url, data);
+      console.log(response);
+  
+      if (response.status === 200) {
+        localStorage.setItem('token', response.data.token);
+        console.log(response.data.token)
+        window.location.href = '/mi_solicitud';
+      }
+      
+    } catch (error) {
+      Swal.fire({
+        title: "Credenciales incorrectas",
+        text: "La credenciales de acceso son incorrectas",
+        icon: "error",
+        allowOutsideClick: false
+    })
+    }
   };
-
+  
   return (
     <div>
       <Heder />

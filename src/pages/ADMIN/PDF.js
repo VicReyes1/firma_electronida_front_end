@@ -12,7 +12,7 @@ const PDFGenerator = () => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = currentDate.toLocaleDateString('es-MX', options);
 
-  const [data, setData] = useState({
+  /*const [data, setData] = useState({
     municipio_direccion: 'Pachuca de Soto',
     fecha: formattedDate,
     notario:'true',
@@ -37,7 +37,9 @@ const PDFGenerator = () => {
     ArchivoNotario:'false',
 
     // Agrega más datos de muestra según sea necesario
-  });
+  });*/
+
+  const [data, setData] = useState({})
 
   // Estados para controlar las coordenadas de cada dato
   const [municipio_direccionCoords, setMunicipioCoords] = useState({ x: 112, y: 45 });
@@ -64,17 +66,46 @@ const PDFGenerator = () => {
   const [ArchivoAvalCoords, setArchivoAvalCoords] = useState({ x: 175, y: 230 });
   const [ArchivoNotarioCoords, setArchivoNotarioCoords] = useState({ x: 175, y: 235 });
 
-  const fetchData = async () => {
+  const fetchData = async (id) => {
     try {
-      const response = await axios.get('URL_DE_TU_API');
-      setData(response.data);
+      const response = await axios.get('http://localhost:3001/usuario/getDataPDF/3');
+      
+      const responseData = response.data.data;
+
+      // Objeto para almacenar los datos convertidos a string
+      const stringifiedData = {};
+
+      // Iterar sobre las propiedades del objeto responseData
+      for (const key in responseData) {
+        if (Object.hasOwnProperty.call(responseData, key)) {
+          // Convertir el valor de la propiedad a string y almacenarlo en el nuevo objeto
+          stringifiedData[key] = String(responseData[key]);
+          
+          // Verificar si el valor es "null" o el texto "null"
+          if (
+            key === "ArchivoAval" ||
+            key === "ArchivoCURP" ||
+            key === "ArchivoComprobanteDomicilio" ||
+            key === "ArchivoINE" ||
+            key === "ArchivoRFC" ||
+            key === "ArchivoCredencialNotario" ||
+            key === "video" 
+          ) {
+            // Si el valor es "null" o el texto "null", asignar "false" al nuevo objeto
+            stringifiedData[key] = (responseData[key] === "null" || responseData[key] === null) ? "false" : "true";
+          } 
+        }
+      }
+
+      setData(stringifiedData)
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
-  const generatePDF = () => {
+  const generatePDF = async () => {
     if (data) {
+      console.log(data)
       const doc = new jsPDF();
 
       // Definir la fuente Montserrat
@@ -105,7 +136,7 @@ const PDFGenerator = () => {
       doc.text('Hidalgo a ', 144, 45);
       doc.text(',', 142, 45);
       doc.text(data.municipio_direccion, municipio_direccionCoords.x, municipio_direccionCoords.y);
-      doc.text(data.fecha, fechaCoords.x, fechaCoords.y);
+      doc.text(formattedDate, fechaCoords.x, fechaCoords.y);
 
       
       doc.setFont('Montserrat-Bold');
@@ -113,8 +144,8 @@ const PDFGenerator = () => {
       doc.text('1.  DATOS DEL SOLICITANTE', 15, 60);
       doc.setFontSize(10);
       doc.text('Servidor Público  (   )     Notario Público  (   )', 95, 60);
-      doc.text(data.notario === 'true' ? 'X' : '', notarioCoords.x, notarioCoords.y);
-      doc.text(data.servidor === 'true' ? 'X' : '', servidorCoords.x, servidorCoords.y);
+      doc.text(data.isNotary === 'true' ? 'X' : '', notarioCoords.x, notarioCoords.y);
+      doc.text(data.isServer === 'true' ? 'X' : '', servidorCoords.x, servidorCoords.y);
       
       doc.text('Razón Social', 20, 70);
       doc.setFont('Montserrat');
@@ -145,12 +176,12 @@ const PDFGenerator = () => {
      
       doc.setFont('Montserrat');
       doc.setFontSize(10);
-      doc.text(data.RFC, RFCCoords.x, RFCCoords.y);
+      doc.text(data.rfc, RFCCoords.x, RFCCoords.y);
 
       doc.setFont('Montserrat-Bold');
       doc.text('CURP: ', 110, 120);
       doc.setFont('Montserrat');
-      doc.text(data.CURP, CURPCoords.x, CURPCoords.y);
+      doc.text(data.curp, CURPCoords.x, CURPCoords.y);
 
       doc.setFont('Montserrat-Bold');
       doc.text('Correo Electrónico:', 20, 130);
@@ -161,7 +192,7 @@ const PDFGenerator = () => {
       doc.text('Teléfono: ', 20, 140);
       doc.setFont('Montserrat');
       doc.setFontSize(10);
-      doc.text(data.telefono, telefonoCoords.x, telefonoCoords.y);
+      //doc.text(data.telefono, telefonoCoords.x, telefonoCoords.y);
 
       doc.setFont('Montserrat-Bold');
       doc.text('Extensión: ', 110, 140);
@@ -207,13 +238,13 @@ const PDFGenerator = () => {
       doc.setFontSize(10);
       doc.text('a) IDENTIFICACIÓN OFICIAL CON FOTOGRAFÍA                                                                 [       ]', 20, 210);
       doc.setFont('Montserrat');
-      doc.text(data.ine === 'true' ? 'X' : '', ineCoords.x, ineCoords.y);
+      doc.text(data.ArchivoINE === 'true' ? 'X' : '', ineCoords.x, ineCoords.y);
 
       doc.setFont('Montserrat-Bold');
       doc.setFontSize(10);
       doc.text('b) COMPROBANTE DE DOMICILIO                                                                                         [       ]', 20, 215);
       doc.setFont('Montserrat');
-      doc.text(data.ComprobanteDomicilio === 'true' ? 'X' : '', ComprobanteDomicilioCoords.x, ComprobanteDomicilioCoords.y);
+      doc.text(data.ArchivoComprobanteDomicilio === 'true' ? 'X' : '', ComprobanteDomicilioCoords.x, ComprobanteDomicilioCoords.y);
 
       doc.setFont('Montserrat-Bold');
       doc.setFontSize(10);
@@ -237,7 +268,7 @@ const PDFGenerator = () => {
       doc.setFontSize(10);
       doc.text('f) CREDENCIAL DE NOTARIO PÚBLICO                                                                                 [       ]', 20, 235);
       doc.setFont('Montserrat');
-      doc.text(data.ArchivoNotario === 'true' ? 'X' : '', ArchivoNotarioCoords.x, ArchivoNotarioCoords.y);
+      doc.text(data.ArchivoCredencialNotario === 'true' ? 'X' : '', ArchivoNotarioCoords.x, ArchivoNotarioCoords.y);
       
       doc.setFont('Montserrat-Bold');
       doc.setFontSize(10);
@@ -255,9 +286,9 @@ const PDFGenerator = () => {
 
 
 
-
       // Obtener el PDF como Data URI
       const pdfDataUri = doc.output('datauristring');
+
 
       // Abrir una nueva ventana y mostrar el PDF
       const newWindow = window.open();

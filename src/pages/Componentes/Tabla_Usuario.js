@@ -1,23 +1,39 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import Pagination from 'react-bootstrap/Pagination';
 import '../../css/tabla.css'; // Importa tus estilos CSS personalizados aquí
 
 function Tabla_Solicitudes_Usuario() {
-  const [data, setData] = useState([
-    { id: 1, name: 'John', state: 'Active', lastUpdate: '20/Abril/2024', sendDate: '15/Abril/2024', views: 100, isNew: true },
-    { id: 2, name: 'Alice', state: 'Inactive', lastUpdate: '19/Abril/2024', sendDate: '10/Abril/2024', views: 150 },
-    { id: 3, name: 'Bob', state: 'Active', lastUpdate: '18/Abril/2024', sendDate: '05/Abril/2024', views: 200, isNew: true },
-    { id: 4, name: 'Jane', state: 'Inactive', lastUpdate: '17/Abril/2024', sendDate: '01/Abril/2024', views: 250, isNew: true },
-    { id: 5, name: 'Doe', state: 'Active', lastUpdate: '16/Abril/2024', sendDate: '25/Marzo/2024', views: 300 },
-    { id: 6, name: 'Mary', state: 'Active', lastUpdate: '15/Abril/2024', sendDate: '20/Marzo/2024', views: 350 },
-    { id: 7, name: 'Peter', state: 'Inactive', lastUpdate: '14/Abril/2024', sendDate: '15/Marzo/2024', views: 400 },
-    { id: 8, name: 'David', state: 'Active', lastUpdate: '13/Abril/2024', sendDate: '10/Marzo/2024', views: 450 },
-    { id: 9, name: 'Sarah', state: 'Inactive', lastUpdate: '12/Abril/2024', sendDate: '05/Marzo/2024', views: 500 },
-   
-  ]);
+  const [data, setData] = useState([]);
+  
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        fetch('http://localhost:3001/usuario/obtenerSolicitudes', {
+            method: 'GET',
+            headers: {
+                'Authorization': `${token}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch');
+            }
+            return response.json(); // Parsea la respuesta como JSON
+        })
+        .then(data => {
+            
+            setData(data); // Asigna los datos al estado
+        })
+        .catch(error => console.error('Error al obtener los datos:', error));
+    } else {
+        console.error('No token found');
+        // Aquí puedes manejar el caso en que no se encuentre el token en el localStorage
+    } 
+  }, []); 
  
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,7 +63,7 @@ const filteredData = data.filter(item => {
     );
   } else {
     // Perform regular search
-    return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return item.nombre.toLowerCase().includes(searchTerm.toLowerCase());
   }
 });
 
@@ -90,30 +106,20 @@ const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de $
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Estado</th>
-            <th>Última Actualización</th>
-            <th>Fecha de Envío</th>
+            <th>Estatus</th>
+            <th>Fecha Envio</th>
             <th>Visualización</th>
-            <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
         {currentItems.map((item, index) => (
             <tr key={index}>
                 
-                <td>{item.name}</td>
-                <td>{item.state}</td>
-                <td>{item.lastUpdate}</td>
-                <td>{item.sendDate}</td>
+                <td>{item.nombre}</td>
+                <td>{item.status}</td>
+                <td>{item.createdAt}</td>
                 <td>
-                <button className='boton2'>Ver</button>
-                </td>
-                <td>
-                <button className='boton3'>Actualizar</button>
-                </td>
-                <td>
-                <button className='boton3'>Eliminar</button>
+                  <a href={`/admin&verificar_datos/${item.id}`} className='boton2' onClick={() => window.location.reload()}>Ver</a>
                 </td>
             </tr>
             ))}

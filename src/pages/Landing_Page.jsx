@@ -21,11 +21,16 @@ function Landing_Page() {
         
       </div>
       <div className="footer">
-        <Button className='boton' variant="primary">Iniciar Sesión</Button>
+        <a href="/login">
+          <Button className='boton' variant="primary">Iniciar Sesión</Button>
+        </a>
       </div>
       <div className="footer2">
-        <Button className='boton' variant="primary">Crear Cuenta</Button>
+        <a href="/preregistro">
+          <Button className='boton' variant="primary">Crear Cuenta</Button>
+        </a>
       </div>
+
     </div>
   );
 }

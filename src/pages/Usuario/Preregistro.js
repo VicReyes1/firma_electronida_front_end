@@ -5,32 +5,346 @@ import '../../css/Preregistro.css'; // Verifica la ruta a tu archivo CSS
 import Heder from '../heder';
 import '../../css/sweetalert_tuneado_veda.min.css'
 import Swal from 'sweetalert2'
+import axios from 'axios';
+import { set } from 'firebase/database';
+import { jsPDF } from 'jspdf';
+import montserratRegular from '../../Fonts/Montserrat-Regular.ttf'; // Ruta relativa a la fuente dentro del proyecto
+import montserratBold from '../../Fonts/Montserrat-Bold.ttf'; // Ruta relativa a la fuente dentro del proyecto
+import logo from '../../Images/Escudoo_color.png'; // Ruta relativa a la imagen dentro del proyecto
+
+function Preregistro() {
+
+  const [data, setData] = useState({
+    ArchivoAval: "",
+    ArchivoCURP: "",
+    ArchivoComprobanteDomicilio: "",
+    ArchivoINE: "",
+    ArchivoRFC: "",
+    ArchivoCredencialNotario: "",
+    video: "",
+    municipio_direccion: "",
+    fecha: "",
+    isNotary: "",
+    isServer: "",
+    secretaria: "",
+    entidad: "",
+    nombre: "",
+    puesto: "",
+    rfc: "",
+    curp: "",
+    correo: "",
+    telefono: "",
+    extencion: "",
+    direccion: "",
+    estado: "",
+    cp: "",
+    // Otros campos que esperas recibir de la API
+  });
+  
+
+  const [municipio_direccionCoords, setMunicipioCoords] = useState({ x: 112, y: 45 });
+  const [fechaCoords, setFechaCoords] = useState({ x: 163, y: 45 });
+  const [notarioCoords, setnotarioCoords] = useState({ x: 170, y: 60 });
+  const [servidorCoords, setservidorCoords] = useState({ x: 129, y: 60 });
+  const [secretariaCoords, setsecretariaCoords] = useState({ x: 20, y: 80 });
+  const [entidadCoords, setentidadCoords] = useState({ x: 32, y: 90 });
+  const [nombreCoords, setnombreCoords] = useState({ x: 58, y: 100 });
+  const [puestoCoords, setpuestoCoords] = useState({ x: 37, y: 110 });
+  const [RFCCoords, setRFCCoords] = useState({ x: 30, y: 120 });
+  const [CURPCoords, setCURPCoords] = useState({ x: 124, y: 120 });
+  const [correoCoords, setcorreoCoords] = useState({ x: 58, y: 130 });
+  const [telefonoCoords, settelefonoCoords] = useState({ x: 40, y: 140 });
+  const [extencionCoords, setextencionCoords] = useState({ x: 132, y: 140 });
+  const [direccionCoords, setdireccionCoords] = useState({ x: 20, y: 160 });
+  const [municipio_direccionCoords2, setMunicipioCoords2] = useState({ x: 42, y: 170 });
+  const [estadoCoords, setestadoCoords] = useState({ x: 108, y: 170 });
+  const [cpCoords, setcpCoords] = useState({ x: 175, y: 170 });
+  const [ineCoords, setineCoords] = useState({ x: 175, y: 210 });
+  const [ComprobanteDomicilioCoords, setComprobanteDomicilioCoords] = useState({ x: 175, y: 215 });
+  const [ArchivoCURPCoords, setArchivoCURPCoords] = useState({ x: 175, y: 220 });
+  const [ArchivoRFCCoords, setArchivoRFCCoords] = useState({ x: 175, y: 225 });
+  const [ArchivoAvalCoords, setArchivoAvalCoords] = useState({ x: 175, y: 230 });
+  const [ArchivoNotarioCoords, setArchivoNotarioCoords] = useState({ x: 175, y: 235 });
+
+  const currentDate = new Date();
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = currentDate.toLocaleDateString('es-MX', options);
+
+  const fetchData = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/usuario/getDataPDF/${id}`);
+      
+      const responseData = response.data.data;
+
+      // Objeto para almacenar los datos convertidos a string
+      const stringifiedData = {};
+
+      // Iterar sobre las propiedades del objeto responseData
+      for (const key in responseData) {
+        if (Object.hasOwnProperty.call(responseData, key)) {
+          // Convertir el valor de la propiedad a string y almacenarlo en el nuevo objeto
+          stringifiedData[key] = String(responseData[key]);
+          
+          // Verificar si el valor es "null" o el texto "null"
+          if (
+            key === "ArchivoAval" ||
+            key === "ArchivoCURP" ||
+            key === "ArchivoComprobanteDomicilio" ||
+            key === "ArchivoINE" ||
+            key === "ArchivoRFC" ||
+            key === "ArchivoCredencialNotario" ||
+            key === "video" 
+          ) {
+            // Si el valor es "null" o el texto "null", asignar "false" al nuevo objeto
+            stringifiedData[key] = (responseData[key] === "null" || responseData[key] === null) ? "false" : "true";
+          } 
+        }
+      }
+
+      return stringifiedData
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+ 
+
+  const generatePDF = async (id) => {
+
+
+      var dataAsync = await fetchData(id);
+      
+      const doc = new jsPDF();
+
+      // Definir la fuente Montserrat
+      doc.addFileToVFS(montserratRegular);
+      doc.addFont(montserratRegular, 'Montserrat', 'normal');
+      doc.addFont(montserratBold, 'Montserrat-Bold', 'normal');
+
+      // Establecer Montserrat como la fuente predeterminada
+      doc.setFont('Montserrat');
+
+      // Agregar imagen como encabezado
+      doc.addImage(logo, 'PNG', 180, 5, 20, 25); // Ajusta las coordenadas y el tamaño según tus necesidades
+
+      // Agregar texto adicional al documento
+      doc.setTextColor(128, 128, 128); // Establece el color gris (RGB: 128, 128, 128)
+      doc.setFontSize(8); // Establece el tamaño de letra más pequeño
+      doc.text('AUTORIDAD CERTIFICADORA DE FIRMA ELECTRÓNICA AVANZADA', 15, 15);
+      doc.text('PARA EL ESTADO DE HIDALGO', 15, 20);
+
+      doc.setFont('Montserrat-Bold');
+      doc.setTextColor(0, 0, 0);
+      doc.setFontSize(12); // Establece el tamaño de letra más pequeño
+      doc.text('GOBIERNO DEL ESTADO DE HIDALGO', 65, 30);
+      doc.text('SOLICITUD DE CERTIFICADO DIGITAL DE FIRMA ELECTRÓNICA AVANZADA', 22, 35);
+
+      doc.setFont('Montserrat');
+      doc.setFontSize(10);
+      doc.text('Hidalgo a ', 144, 45);
+      doc.text(',', 142, 45);
+      doc.text(dataAsync.municipio_direccion, municipio_direccionCoords.x, municipio_direccionCoords.y);
+      doc.text(formattedDate, fechaCoords.x, fechaCoords.y);
+
+      
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(12);
+      doc.text('1.  DATOS DEL SOLICITANTE', 15, 60);
+      doc.setFontSize(10);
+      doc.text('Servidor Público  (   )     Notario Público  (   )', 95, 60);
+      doc.text(dataAsync.isNotary === 'true' ? 'X' : '', notarioCoords.x, notarioCoords.y);
+      doc.text(dataAsync.isServer === 'true' ? 'X' : '', servidorCoords.x, servidorCoords.y);
+      
+      doc.text('Razón Social', 20, 70);
+      doc.setFont('Montserrat');
+      doc.setFontSize(8);
+      doc.text('(Dependencia o Entidad Paraestatal o H. Ayuntamiento Entidad Municipal o Notaría Pública u Organismo)', 45, 70);
+      doc.setFontSize(10);
+      doc.text(dataAsync.secretaria !== "null" ? dataAsync.secretaria : 'No Aplica', secretariaCoords.x, secretariaCoords.y);
+
+
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('Área:', 20, 90);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.entidad, entidadCoords.x, entidadCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('Nombre Completo:', 20, 100);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.nombre, nombreCoords.x, nombreCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('Puesto:', 20, 110);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.puesto, puestoCoords.x, puestoCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('RFC: ', 20, 120);
+     
+      doc.setFont('Montserrat');
+      doc.setFontSize(10);
+      doc.text(dataAsync.rfc, RFCCoords.x, RFCCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('CURP: ', 110, 120);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.curp, CURPCoords.x, CURPCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('Correo Electrónico:', 20, 130);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.correo, correoCoords.x, correoCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('Teléfono: ', 20, 140);
+      doc.setFont('Montserrat');
+      doc.setFontSize(10);
+      //doc.text(data.telefono, telefonoCoords.x, telefonoCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('Extensión: ', 110, 140);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.extencion, extencionCoords.x, extencionCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(12);
+      doc.text('2.  DATOS DEL DOMICILIO DE TRABAJO', 15, 150);
+      doc.setFontSize(10);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.direccion, direccionCoords.x, direccionCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('Municipio: ', 20, 170);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.municipio_direccion, municipio_direccionCoords2.x, municipio_direccionCoords2.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('Entidad: ', 90, 170);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.estado, estadoCoords.x, estadoCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.text('Código Postal: ', 145, 170);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.cp, cpCoords.x, cpCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(12);
+      doc.text('3.  DOCUMENTOS DE IDENTIDAD', 15, 180);
+      doc.setFont('Montserrat');
+      doc.setFontSize(9.5);
+      doc.text('PARA OBTENER EL CERTIFICADO DIGITAL DE LA FIRMA ELECTRÓNICA AVANZADA ES NECESARIO QUE ', 20, 190);
+      doc.text('ENTREGUE,  JUNTO CON ESTA SOLICITUD,  LOS DOCUMENTOS QUE A CONTINUACIÓN SE INDICAN EN ', 20, 195);
+      doc.text('ORIGINAL, ', 20, 200);
+      doc.setFont('Montserrat-Bold');
+      doc.text('MARCANDO CON UNA "X"  ', 39, 200);
+      doc.setFont('Montserrat');
+      doc.text('EN LA DOCUMENTACIÓN PROPORCIONADA.', 86, 200);
+
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(10);
+      doc.text('a) IDENTIFICACIÓN OFICIAL CON FOTOGRAFÍA                                                                 [       ]', 20, 210);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.ArchivoINE === 'true' ? 'X' : '', ineCoords.x, ineCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(10);
+      doc.text('b) COMPROBANTE DE DOMICILIO                                                                                         [       ]', 20, 215);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.ArchivoComprobanteDomicilio === 'true' ? 'X' : '', ComprobanteDomicilioCoords.x, ComprobanteDomicilioCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(10);
+      doc.text('c) CLAVE ÚNICA DE REGISTRO DE POBLACIÓN                                                                 [       ]', 20, 220);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.ArchivoCURP === 'true' ? 'X' : '', ArchivoCURPCoords.x, ArchivoCURPCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(10);
+      doc.text('d) REGISTRO FEDERAL DE CONTRIBUYENTES                                                                    [       ]', 20, 225);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.ArchivoRFC === 'true' ? 'X' : '', ArchivoRFCCoords.x, ArchivoRFCCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(10);
+      doc.text('e) DOCUMENTO QUE LO AVALA COMO SERVIDOR O NOTARIO PÚBLICO                   [       ]', 20, 230);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.ArchivoAval === 'true' ? 'X' : '', ArchivoAvalCoords.x, ArchivoAvalCoords.y);
+
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(10);
+      doc.text('f) CREDENCIAL DE NOTARIO PÚBLICO                                                                                 [       ]', 20, 235);
+      doc.setFont('Montserrat');
+      doc.text(dataAsync.ArchivoCredencialNotario === 'true' ? 'X' : '', ArchivoNotarioCoords.x, ArchivoNotarioCoords.y);
+      
+      doc.setFont('Montserrat-Bold');
+      doc.setFontSize(10);
+      doc.text('DECLARO BAJO PROTESTA DE DECIR VERDAD QUE LOS DATOS ', 45, 250);
+      doc.text('CONTENIDOS EN ESTA SOLICITUD SON CIERTOS ', 59, 255);
+      doc.setFont('Montserrat');
+      doc.text('______________________________________________________________________________ ', 35, 270);
+      doc.setTextColor(128, 128, 128);
+      doc.text('FIRMA ', 100, 275);
+
+      doc.setFontSize(8);
+      doc.text('Palacio de Gobierno 1er Piso, Plaza Juárez s/n, Col. Centro, Pachuca de Soto, Hidalgo, México, C.P. 42000 ', 32, 285);
+      doc.text('Tel.: (800) 623 47 62         http://firmaelectronica.hidalgo.gob.mx', 60, 290);
+      
+      const pdfBlob = doc.output('blob');
+
+      // Crear un objeto FormData para enviar el archivo adjunto
+      const formData = new FormData();
+      formData.append('archivo', pdfBlob, 'Solicitud de firma electronica avanzada.pdf');
+      formData.append("id",id);
+      
+
+      // Configurar la solicitud POST utilizando Axios
+      axios.post('http://localhost:3001/usuario/enviarSolicitud', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then(response => {
+        // Verificar si la respuesta es exitosa
+        if (response.status === 200) {
+          // La solicitud fue exitosa
+          console.log('Archivo PDF enviado correctamente a la API');
+        } else {
+          // Hubo un error en la solicitud
+          console.error('Error al enviar el archivo PDF a la API');
+        }
+      })
+      .catch(error => {
+        console.error('Error en la solicitud:', error);
+      });
+
+  };
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleModalClose = () => {
+      setModalOpen(false);
+    };
+  
+    const handleOpenModal = () => {
+      setModalOpen(true);
+    };
 
   
-function Preregistro() {
-    const [modalOpen, setModalOpen] = useState(false);
-    const handleModalClose = () => {
-        setModalOpen(false);
-      };
-    
-      const handleOpenModal = () => {
-        setModalOpen(true);
-      };
+  const [showNotaryCredentials, setShowNotaryCredentials] = useState(false);
+  const [showRenovacionCredentials, setShowRenovacionCredentials] = useState(false);
 
-   
-    const [showNotaryCredentials, setShowNotaryCredentials] = useState(false);
-    const [showRenovacionCredentials, setShowRenovacionCredentials] = useState(false);
+  const handleNotaryCheckboxChange = (e) => {
+    const isChecked = e.target.checked;
+    setIsNotary(isChecked);
+    setShowNotaryCredentials(isChecked);
+  };
 
-    const handleNotaryCheckboxChange = (e) => {
-      const isChecked = e.target.checked;
-      setIsNotary(isChecked);
-      setShowNotaryCredentials(isChecked);
-    };
-    const handleNotaryCheckboxChange2 = (e) => {
-        const isChecked = e.target.checked;
-        setIsRenovacion(isChecked);
-        setShowRenovacionCredentials(isChecked);
-      };
+  const handleNotaryCheckboxChange2 = (e) => {
+    const isChecked = e.target.checked;
+    setIsRenovacion(isChecked);
+    setShowRenovacionCredentials(isChecked);
+  };
 
 
   // Estados para almacenar los valores del formulario de preregistro  
@@ -140,16 +454,115 @@ function Preregistro() {
     setShowModal2(false);
   };
 
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    Swal.fire({
-      title: "Usuario Registrado",
-      text: "Revise su bandeja de entrada para terminar de crear su cuenta.",
-      icon: "success"
-    });
-    console.log('Formulario enviado');
+  const Formulario = {
+    isServer,
+    isNotary,
+    isNuevo,
+    isRenovacion,
+    secretaria,
+    tipoEntidad,
+    entidad,
+    nombre,
+    paterno,
+    materno,
+    curp,
+    rfc,
+    direccion,
+    municipio_direccion,
+    estado,
+    cp,
+    puesto,
+    area,
+    telefono,
+    extencion,
+    correo,
+    confirma_correo,
+    contrasena,
+    confirma_contrasena,
+    isPoliticas,
+    isRevocacion,
+    causa_de_solicitud,
   };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    axios.post('http://localhost:3001/usuario/preregistro', Formulario)
+    .then(response => {
+        // Verificar si la respuesta es exitosa
+        if (response.status === 201) {
+          sendDocuments(response.data)
+        }
+        
+        
+    })
+    .catch(error => {
+        // Manejar errores
+        console.error('Error al enviar el formulario:', error);
+        Swal.fire({
+            title: "Error",
+            text: "Hubo un error al enviar el formulario.",
+            icon: "error"
+        });
+    });
+  };
+
+  const sendDocuments = async (id) => {
+    console.log(id)
+    
+    const documentos = [];
+
+    console.log(documentos)
+    documentos.push(video)
+    documentos.push(ArchivoINE)
+    documentos.push(ArchivoComprobanteDomicilio)
+    documentos.push(ArchivoCURP)
+    documentos.push(ArchivoRFC)
+    documentos.push(ArchivoAval)
+    if (ArchivoCredencialNotario !== null) {
+      documentos.push(ArchivoCredencialNotario)
+    }
+    console.log(documentos)
+
+    if (documentos.length >= 1) {
+      const f = new FormData()
+      for (let i = 0; i < documentos.length; i++) {
+        f.append("files",documentos[i])
+      }
+      f.append("id",id)
+
+      try {
+        const response = await axios.post('http://localhost:3001/upload', f,{
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        if (response.status === 200) {
+          Swal.fire({
+              title: "Usuario Registrado",
+              text: "La solicitud ha sido enviada, ahora puede loguearse con su correo y contraseña proporcionado en el prregistro",
+              icon: "success",
+              allowOutsideClick: false
+          }).then(() => {
+              // Redirigir a otra página después de que el usuario cierre el alert
+              window.location.href = '/'; // Cambia esta ruta por la ruta de redirección deseada
+            });
+        } else {
+          throw new Error('Error en la solicitud');
+        }
+      } catch (error) {
+        console.error('Error al enviar el formulario:', error);
+          Swal.fire({
+              title: "Error",
+              text: "Hubo un error al enviar el formulario.",
+              icon: "error"
+          });
+      }
+      
+    }
+  
+  }
 
   const [showPwd, setShowPwd] = useState(false)
 
@@ -401,10 +814,10 @@ function Preregistro() {
         <div className="select">
         <select style={{ marginRight: '2%', width:'48%' }} value={tipoEntidad} onChange={(e) => setTipoEntidad(e.target.value)} >
         <option value="">Seleccione la entidad que le corresponda</option>
-        <option value="1">Dependencia</option>
-        <option value="2">Ayuntamiento</option>
-        <option value="3">Organismo</option>
-        <option value="4">Notaría Pública</option>
+        <option value="Dependencia">Dependencia</option>
+        <option value="Ayuntamiento">Ayuntamiento</option>
+        <option value="Organismo">Organismo</option>
+        <option value="Notaria Publica">Notaría Pública</option>
         {/* Agrega las opciones que necesites */}
       </select>
 
@@ -562,7 +975,7 @@ function Preregistro() {
 
           <select style={{ marginRight: '2%' }} value={estado} onChange={(e) => setEstado(e.target.value)}>
             <option value="">Estado</option>
-            <option value="1">Hidalgo</option>
+            <option value="Hidalgo">Hidalgo</option>
           </select>
 
         <input
