@@ -43,7 +43,7 @@ function Rutas() {
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos/:id' element={<Verificar_Datos/>} />
         <Route path='/admin&Aprobacion_Carta' element={<Aprobacion_Carta/>} />
-        <Route path='/admin&Aprobacion_Req' element={<Aprobacion_Req/>} />
+        <Route path='/admin&Aprobacion_Req/:id' element={<Aprobacion_Req/>} />
         <Route path='/admin&Solicitud_Concluida' element={<Solicitud_Concluida/>} />
         <Route path='/PDF' element={<PDFGenerator/>} />
         <Route path='/PDF2' element={<PDFCarta/>} />

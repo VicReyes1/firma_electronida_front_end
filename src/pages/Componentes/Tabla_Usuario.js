@@ -27,6 +27,7 @@ function Tabla_Solicitudes_Usuario() {
         .then(data => {
             
             setData(data); // Asigna los datos al estado
+            console.log(data)
         })
         .catch(error => console.error('Error al obtener los datos:', error));
     } else {
@@ -91,6 +92,11 @@ const totalItems = filteredData.length;
 // Muestra la información de la paginación
 const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de ${totalItems} registros`;
 
+const handleRedirection = (id, status) => {
+  if (status === 2) {
+    window.location.href = `/continuar_solicitud1`;
+  }
+};
 //
 
   return (
@@ -119,7 +125,12 @@ const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de $
                 <td>{item.status}</td>
                 <td>{item.createdAt}</td>
                 <td>
-                  <a href={`/admin&verificar_datos/${item.id}`} className='boton2' onClick={() => window.location.reload()}>Ver</a>
+                <button
+                  className='boton2'
+                  onClick={() => handleRedirection(item.id, item.estatusTramite)}
+                >
+                Continuar solicitud
+              </button>
                 </td>
             </tr>
             ))}
