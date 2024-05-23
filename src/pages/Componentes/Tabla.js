@@ -83,6 +83,11 @@ const totalItems = filteredData.length;
 // Muestra la información de la paginación
 const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de ${totalItems} registros`;
 
+const handleRedirection = (id, status) => {
+  if (status === 2) {
+    window.location.href = `/admin&Aprobacion_Req/${id}`;
+  } 
+};
 //
 
   return (
@@ -114,7 +119,12 @@ const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de $
                 <td>{item.telefono}</td>
                 <td>{item.createdAt}</td>
                 <td>
-                  <a href={`/admin&verificar_datos/${item.id}`} className='boton2' onClick={() => window.location.reload()}>Ver</a>
+                    <button
+                    className='boton2'
+                    onClick={() => handleRedirection(item.id, item.estatusTramite)}
+                  >
+                    Ver
+                  </button>
                 </td>
             </tr>
             ))}

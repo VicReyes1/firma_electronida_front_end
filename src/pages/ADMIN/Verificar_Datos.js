@@ -545,7 +545,7 @@ function Verificar_Datos() {
 
           <div className='pdf_contenedor'>
             {/* Mostrar el PDF si hay un Blob */}
-            {pdfBlob && <embed src={pdfBlob} type="application/pdf" width="100%" height="100%" />}
+            {pdfBlob && <embed src={pdfBlob}  width="100%" height="100%" />}
           </div>
 
           <div className="inputs">
