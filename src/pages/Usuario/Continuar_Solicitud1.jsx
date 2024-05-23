@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
-import '../../css/Continuar_soli.css'
+import '../../css/Continuar_soli.css';
 
 import Heder from '../heder';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 function Continuar_solicitud1() {
-
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
+    const [preregistroId, setPreregistroId] = useState(''); // Asume que tienes el ID del preregistro
 
     const handleFile1Change = (e) => {
         setFile1(e.target.files[0]);
@@ -25,17 +26,40 @@ function Continuar_solicitud1() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        Swal.fire({
-            title: "Archivos Subidos",
-            text: "En las próximas 24 horas habrán actualizaciones a través del correo electrónico proporcionado.",
-            icon: "success"
-          });
-          console.log('Formulario enviado');
-        };
-        // Aquí puedes enviar los archivos file1 y file2
-    
+
+        if (!file2) {
+            alert('Por favor, selecciona un archivo .req');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file2', file2);
+        formData.append('preregistroId', preregistroId); // Adjunta el ID del preregistro
+
+        try {
+            const response = await axios.post('http://localhost:3001/usuario/upload-archivo-req', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            Swal.fire({
+                title: "Archivos Subidos",
+                text: "En las próximas 24 horas habrán actualizaciones a través del correo electrónico proporcionado.",
+                icon: "success"
+            });
+            console.log('Formulario enviado', response.data);
+        } catch (error) {
+            Swal.fire({
+                title: "Error",
+                text: "Hubo un problema al subir los archivos.",
+                icon: "error"
+            });
+            console.error('Error al enviar el formulario', error);
+        }
+    };
+
     return (
         <div>
             <Heder />

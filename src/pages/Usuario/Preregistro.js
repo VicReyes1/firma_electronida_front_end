@@ -6,7 +6,6 @@ import Heder from '../heder';
 import '../../css/sweetalert_tuneado_veda.min.css'
 import Swal from 'sweetalert2'
 import axios from 'axios';
-import { set } from 'firebase/database';
 import { jsPDF } from 'jspdf';
 import montserratRegular from '../../Fonts/Montserrat-Regular.ttf'; // Ruta relativa a la fuente dentro del proyecto
 import montserratBold from '../../Fonts/Montserrat-Bold.ttf'; // Ruta relativa a la fuente dentro del proyecto
