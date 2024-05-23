@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 function Continuar_solicitud1() {
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
-    const [preregistroId, setPreregistroId] = useState(''); // Asume que tienes el ID del preregistro
+    const [preregistroId, setPreregistroId] = useState('1'); // Asume que tienes el ID del preregistro
 
     const handleFile1Change = (e) => {
         setFile1(e.target.files[0]);
@@ -39,7 +39,7 @@ function Continuar_solicitud1() {
         formData.append('preregistroId', preregistroId); // Adjunta el ID del preregistro
 
         try {
-            const response = await axios.post('http://localhost:3001/usuario/upload-archivo-req', formData, {
+            const response = await axios.post('http://localhost:3001/usuario/subir-archivo-req', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
