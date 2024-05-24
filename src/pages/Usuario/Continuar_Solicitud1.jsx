@@ -28,16 +28,17 @@ function Continuar_solicitud1() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         if (!file2) {
             alert('Por favor, selecciona un archivo .req');
             return;
         }
-
+    
         const formData = new FormData();
         formData.append('file2', file2);
+        formData.append('pdfFile', file1); // Añadir el archivo PDF al FormData
         formData.append('preregistroId', preregistroId); // Adjunta el ID del preregistro
-
+    
         try {
             const response = await axios.post('http://localhost:3001/usuario/subir-archivo-req', formData, {
                 headers: {
@@ -59,6 +60,7 @@ function Continuar_solicitud1() {
             console.error('Error al enviar el formulario', error);
         }
     };
+    
 
     return (
         <div>
