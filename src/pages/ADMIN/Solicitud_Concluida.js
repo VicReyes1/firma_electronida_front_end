@@ -8,22 +8,22 @@ import '../../css/Solicitud_Concluida.css';
 function Solicitud_Concluida() {
 
     const [data, setData] = useState({
-        registro_id:'1245456',
-        nombre:'Jesús Adolfo Márquez Trejo',
-        CURP:'MATJ010717HPLRRSA3',
-        notario:'false',
-        servidor:'true',
-        secretaria:'Secretaría del Despacho de la Persona Titular del Poder Ejecutivo',
-        RFC:'MATJ010717D40',
-        direccion:'Blvd. Felipe Angeles, Km. 93.50, Centro Minero, Edificio 1B, Col, Venta Prieta',
-        municipio_direccion: 'Pachuca de Soto',
-        cp:'42000',
-        puesto:'Agente Certificador',
-        entidad:'Dirección General de Innovación Gubernamental',
-        telefono:'797-140-58-61',
-        extencion:'6453',
-        identificacionBlob: null 
-      });
+        registro_id: '',
+        nombre: '',
+        CURP: '',
+        notario: '',
+        servidor: '',
+        secretaria: '',
+        RFC: '',
+        direccion: '',
+        municipio_direccion: '',
+        cp: '',
+        puesto: '',
+        entidad: '',
+        telefono: '',
+        extencion: '',
+        identificacionBlob: null
+    });
 
       useEffect(() => {
         // Simulando la obtención del blob de un archivo PDF
@@ -41,6 +41,7 @@ function Solicitud_Concluida() {
         };
 
         fetchidentificacionBlob();
+        fetchData();
     }, []);
 
 
@@ -53,13 +54,144 @@ function Solicitud_Concluida() {
 
     const fetchData = async () => {
         try {
-          const response = await axios.get('URL_DE_TU_API');
-          setData(response.data);
+            const response = await axios.get('http://localhost:3001/admin/getDatos/1');
+            const registro = response.data;
+            setData({
+                registro_id: registro.id,
+                nombre: `${registro.nombre} ${registro.paterno} ${registro.materno}`,
+                CURP: registro.curp,
+                notario: registro.isNotary ? 'true' : 'false',
+                servidor: registro.isServer ? 'true' : 'false',
+                secretaria: registro.secretaria,
+                RFC: registro.rfc,
+                direccion: registro.direccion,
+                municipio_direccion: registro.municipio_direccion,
+                cp: registro.cp,
+                puesto: registro.puesto,
+                entidad: registro.entidad,
+                telefono: registro.telefono,
+                extencion: registro.extencion,
+                identificacionBlob: null // Este campo se manejará después
+            });
         } catch (error) {
-          console.error('Error fetching data:', error);
+            console.error('Error fetching data:', error);
+        }
+    };
+    const descargaIne = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/admin/descargaIne/${1}`, {
+                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'ArchivoINE.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+
+    const descargaDomicilio = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/admin/descargaDomicilio/${1}/`, {
+                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'domicilio.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+
+    const descargaAval = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/admin/descargaServidor/${1}/`, {
+                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'aval.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+
+    const descargaCurp = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/admin/descargaCurp/${1}/`, {
+                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'curp.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+
+    const descargaRFC = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/admin/descargaRFC/${1}/`, {
+                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'RFC.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+
+    const descargaResponsiva = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${1}/`, {
+                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'carta_responsiva.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+
+    const handleDownloadReq = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/admin/descargarReq/${1}`, { responseType: 'blob' });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'archivo.req');
+            document.body.appendChild(link);
+            link.click();
+        } catch (error) {
+            console.error('Error al descargar el archivo .req:', error);
         }
       };
-
 
   return (
     <div>
@@ -145,6 +277,7 @@ function Solicitud_Concluida() {
 
         </div>
 
+
         <div className="content18">
         <div className='titulo_formulario17'>
             Documentos
@@ -153,35 +286,35 @@ function Solicitud_Concluida() {
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Identificación Oficial con Fotografía</span> 
         </div>
         <div>
-           <button onClick={handleOpenIdentificacionBlob} className="boton-blob">Abrir archivo</button>
+           <button onClick={descargaIne} className="boton-blob">Abrir archivo</button>
         </div>
 
         <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Comprobante de Domicilio</span> 
         </div>
         <div>
-           <button onClick={handleOpenIdentificacionBlob} className="boton-blob">Abrir archivo</button>
+           <button onClick={descargaDomicilio} className="boton-blob">Abrir archivo</button>
         </div>
 
         <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Clave Única de Registro de Población</span> 
         </div>
         <div>
-           <button onClick={handleOpenIdentificacionBlob} className="boton-blob">Abrir archivo</button>
+           <button onClick={descargaCurp} className="boton-blob">Abrir archivo</button>
         </div>
 
         <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Registro Federal de Contribuyentes</span> 
         </div>
         <div>
-           <button onClick={handleOpenIdentificacionBlob} className="boton-blob">Abrir archivo</button>
+           <button onClick={descargaRFC} className="boton-blob">Abrir archivo</button>
         </div>
 
         <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Documento que lo Avala como Servidor Público</span> 
         </div>
         <div>
-           <button onClick={handleOpenIdentificacionBlob} className="boton-blob">Abrir archivo</button>
+           <button onClick={descargaAval} className="boton-blob">Abrir archivo</button>
         </div>
 
         <div className='text_formulario177'>
@@ -195,14 +328,14 @@ function Solicitud_Concluida() {
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>.Req</span> 
         </div>
         <div>
-           <button onClick={handleOpenIdentificacionBlob} className="boton-blob">Abrir archivo</button>
+           <button onClick={handleDownloadReq} className="boton-blob">Abrir archivo</button>
         </div>
 
         <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Carta Responsiva</span> 
         </div>
         <div>
-           <button onClick={handleOpenIdentificacionBlob} className="boton-blob">Abrir archivo</button>
+           <button onClick={descargaResponsiva} className="boton-blob">Abrir archivo</button>
         </div>
 
         
