@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Heder from '../heder';
+import axios from 'axios';
 import '../../css/Aprobacion_Req.css';
 
 function Aprobacion_Req() {
@@ -19,6 +20,7 @@ function Aprobacion_Req() {
   const [isCertificado_Personal, setIsCertificado_Personal] = useState(false);
   const [isArchivo_p12, setIsArchivo_p12] = useState(false);
   const [isArchivo_key, setIsArchivo_key] = useState(false);
+  const [preregistroId, setPreregistroId] = useState('1');
 
 
    // Función para cargar el PDF correspondiente desde la API
@@ -72,11 +74,43 @@ function Aprobacion_Req() {
     setShowModal2(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes enviar el formulario
-    console.log('Formulario enviado');
-  };
+    const data = {
+        id: preregistroId,
+        comentarios,
+        NSCertificado,
+        Vigencia_Inicio,
+        Vigencia_Fin,
+        isReq,
+        isCertificado_Autoridad,
+        isCertificado_Personal,
+        isArchivo_p12,
+        isArchivo_key,
+    };
+
+    try {
+        const response = await axios.post('http://localhost:3001/admin/actualizarReq', data);
+        console.log('Formulario enviado', response.data);
+        handleCloseModal();
+    } catch (error) {
+        console.error('Error al enviar el formulario', error);
+    }
+};
+
+const handleDownloadReq = async () => {
+  try {
+      const response = await axios.get(`http://localhost:3001/admin/descargarReq/${preregistroId}`, { responseType: 'blob' });
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'archivo.req');
+      document.body.appendChild(link);
+      link.click();
+  } catch (error) {
+      console.error('Error al descargar el archivo .req:', error);
+  }
+};
 
   return (
     <div>
@@ -98,15 +132,9 @@ function Aprobacion_Req() {
         <div className="content22">
         
         <div style={{ display: 'flex' }}>
-        <Button className="boton-req" variant="primary">Descargar .req</Button>
+        <Button className="boton-req" variant="primary" onClick={handleDownloadReq}>Descargar .req</Button>
 
-          <select className='select23' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>
-            <option value="">INE</option>
-            <option value="">Comprobante de domicilio</option>
-            <option value="">CURP</option>
-            <option value="">RFC</option>
-            <option value="">Aval como Servidor Público o Notario Público</option>
-          </select>
+          
 
          
         </div>

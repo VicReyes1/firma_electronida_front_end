@@ -40,9 +40,9 @@ function Rutas() {
         <Route path='/continuar_solicitud2' element={<Continuar_solicitud2 />} />
         <Route path='/continuar_solicitud1' element={<Continuar_solicitud1 />} />
         <Route path='/continuar_solicitud3' element={<Continuar_solicitud3 />} />
-        <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
-        <Route path='/admin&verificar_datos/:id' element={<Verificar_Datos/>} />
-        <Route path='/admin&Aprobacion_Carta' element={<Aprobacion_Carta/>} />
+        <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />{/* nada? */}
+        <Route path='/admin&verificar_datos/:id' element={<Verificar_Datos/>} /> {/* ?? */}
+        <Route path='/admin&Aprobacion_Carta' element={<Aprobacion_Carta/>} />{/* Falta */}
         <Route path='/admin&Aprobacion_Req/:id' element={<Aprobacion_Req/>} />
         <Route path='/admin&Solicitud_Concluida' element={<Solicitud_Concluida/>} />
         <Route path='/PDF' element={<PDFGenerator/>} />
