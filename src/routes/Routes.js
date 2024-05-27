@@ -38,7 +38,7 @@ function Rutas() {
         <Route path='/mi_solicitud' element={<Mi_Solicitud />} />
         <Route path='/preregistro' element={<Preregistro />} />
         <Route path='/continuar_solicitud2' element={<Continuar_solicitud2 />} />
-        <Route path='/continuar_solicitud1' element={<Continuar_solicitud1 />} />
+        <Route path='/continuar_solicitud1/:id' element={<Continuar_solicitud1 />} />
         <Route path='/continuar_solicitud3' element={<Continuar_solicitud3 />} />
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos/:id' element={<Verificar_Datos/>} />

@@ -94,10 +94,30 @@ const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de $
 
 const handleRedirection = (id, status) => {
   if (status === 2) {
-    window.location.href = `/continuar_solicitud1`;
+    window.location.href = `/continuar_solicitud1/${id}`;
   }
 };
-//
+
+const renderButton = (id,estatusTramite) => {
+  if (estatusTramite === 1) {
+    return (
+      <button
+        className='boton'
+      >
+       Sin acciones
+      </button>
+    );
+  } else if (estatusTramite === 2) {
+    return (
+      <button
+        className='boton2'
+        onClick={() => handleRedirection(id, estatusTramite)}
+      >
+        Continuar Solicitud
+      </button>
+    );
+  }
+};
 
   return (
     <div className="tabla-container">
@@ -121,16 +141,11 @@ const handleRedirection = (id, status) => {
         {currentItems.map((item, index) => (
             <tr key={index}>
                 
-                <td>{item.nombre}</td>
+                <td>{`${item.nombre} ${item.paterno} ${item.materno}`}</td>
                 <td>{item.status}</td>
                 <td>{item.createdAt}</td>
                 <td>
-                <button
-                  className='boton2'
-                  onClick={() => handleRedirection(item.id, item.estatusTramite)}
-                >
-                Continuar solicitud
-              </button>
+                  {renderButton(item.id,item.estatusTramite)}
                 </td>
             </tr>
             ))}

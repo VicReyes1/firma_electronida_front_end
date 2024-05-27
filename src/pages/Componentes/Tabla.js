@@ -12,6 +12,7 @@ function Tabla_Solicitudes_Admin() {
   const [itemsPerPage] = useState(5); // Change this number to adjust items per page
 
 
+
   useEffect(() => {
     // Define la URL de tu API
     const url = 'http://localhost:3001/admin/getAll'; // Reemplaza con la URL de tu API
@@ -84,11 +85,36 @@ const totalItems = filteredData.length;
 const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de ${totalItems} registros`;
 
 const handleRedirection = (id, status) => {
+  if (status === 1) {
+    window.location.href = `/admin&verificar_datos/${id}`;
+  } 
   if (status === 2) {
     window.location.href = `/admin&Aprobacion_Req/${id}`;
-  } 
+  }
+   
 };
-//
+
+const renderButton = (id,estatusTramite) => {
+  if (estatusTramite === 1) {
+    return (
+      <button
+        className='boton'
+        onClick={() => handleRedirection(id, estatusTramite)}
+      >
+       Ver datos
+      </button>
+    );
+  } else if (estatusTramite === 2 || estatusTramite === 3) {
+    return (
+      <button
+        className='boton2'
+        onClick={() => handleRedirection(id, estatusTramite)}
+      >
+        Continuar Solicitud
+      </button>
+    );
+  }
+};
 
   return (
     <div className="tabla-container">
@@ -119,12 +145,7 @@ const handleRedirection = (id, status) => {
                 <td>{item.telefono}</td>
                 <td>{item.createdAt}</td>
                 <td>
-                    <button
-                    className='boton2'
-                    onClick={() => handleRedirection(item.id, item.estatusTramite)}
-                  >
-                    Ver
-                  </button>
+                  {renderButton(item.id,item.estatusTramite)}
                 </td>
             </tr>
             ))}

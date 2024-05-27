@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; 
+import { Link, useParams } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
 import '../../css/Continuar_soli.css';
 
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 function Continuar_solicitud1() {
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
-    const [preregistroId, setPreregistroId] = useState('1'); // Asume que tienes el ID del preregistro
+    const { id } = useParams();
 
     const handleFile1Change = (e) => {
         setFile1(e.target.files[0]);
@@ -36,20 +36,28 @@ function Continuar_solicitud1() {
 
         const formData = new FormData();
         formData.append('file2', file2);
-        formData.append('preregistroId', preregistroId); // Adjunta el ID del preregistro
+        formData.append('pdfFile', file1);
+        formData.append('preregistroId', id); // Adjunta el ID del preregistro
 
         try {
+            const token = localStorage.getItem('token');
             const response = await axios.post('http://localhost:3001/usuario/subir-archivo-req', formData, {
                 headers: {
+                    'Authorization': `${token}`,
                     'Content-Type': 'multipart/form-data'
                 }
             });
+            
             Swal.fire({
-                title: "Archivos Subidos",
-                text: "En las próximas 24 horas habrán actualizaciones a través del correo electrónico proporcionado.",
+                title: "Documentos Enviados",
+                text: "El usuario recibió manuales y .req",
                 icon: "success"
+            }).then(() => {
+                // Redireccionar después de cerrar el SweetAlert
+                window.location.href = '/mi_solicitud'; // Reemplaza '/nueva-ruta' con la ruta deseada
             });
-            console.log('Formulario enviado', response.data);
+             
+            
         } catch (error) {
             Swal.fire({
                 title: "Error",
