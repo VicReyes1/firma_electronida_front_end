@@ -43,26 +43,26 @@
 .boton-req {
     
     margin-top: 4%;
-    background-color:#6e6e6e ;
+    background-color:#691B31 ;
     color: white;
-    border-color: #6e6e6e;
+    border-color: #691B31;
     border-radius: 15px;
     font-size: 1em;
-    font-weight: medium;
-    font-family: Futura;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
     height: 40px;
     width: 240px;
     margin-right: 40%;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
   }
   .boton-req:hover{
-    background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
-    color: black; /* Cambia el color del texto al pasar el mouse */
+    background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
   }
 
   .text_formulario9{
     font-size: 1.5em;
-    font-family: 'Futura' !important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-top: 2%;
   }
@@ -76,7 +76,7 @@
   .checkbox-label {
     display: flex;
     align-items: center;
-    font-family: 'Futura'!important;
+    font-family: 'Montserrat', sans-serif!important;
     font-size: 1em;
     margin-right: 1%;
   }

@@ -155,9 +155,9 @@ const renderButton = (id,estatusTramite) => {
       <div className="pagination-container">
         <div className="pagination-info">{paginationInfo}</div>
         <div className="pagination-controls">
-          <button className='pagina' onClick={prevPage} disabled={currentPage === 1} style={{ backgroundColor: currentPage === 1 ? '#ccc' : '#6e6e6e' }}>Anterior</button>
+          <button className='pagina' onClick={prevPage} disabled={currentPage === 1} style={{ backgroundColor: currentPage === 1 ? '#A02142' : '#691B31' }}>Anterior</button>
           <span className='pagina'>{currentPage}</span>
-          <button className='pagina' onClick={nextPage} disabled={currentPage === totalPages} style={{ backgroundColor: currentPage === totalPages ? '#ccc' : '#6e6e6e' }}>Siguiente</button>
+          <button className='pagina' onClick={nextPage} disabled={currentPage === totalPages} style={{ backgroundColor: currentPage === totalPages ? '#A02142' : '#691B31' }}>Siguiente</button>
         </div>
       </div>
      

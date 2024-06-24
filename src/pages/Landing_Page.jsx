@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import '../css/Landing_Page.css'; // Verifica la ruta a tu archivo CSS
-import Logo from '../Images/Logo.png'; // Verifica la ruta a tu imagen
+import Logo from '../Images/logotipo-09.png'; // Verifica la ruta a tu imagen
 
 function Landing_Page() {
   return (

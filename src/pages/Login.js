@@ -66,8 +66,8 @@ const Login = () => {
             />
           </Form.Group>
 
-          <div style={{ display: 'flex', alignItems: 'center', marginLeft: '20%' }}>
-          <Link to="/login&RecuperarContraseña" style={{ color: 'black', textDecoration: 'underline', fontSize: '1.5em', fontFamily: 'Futura', }}>¿Olvidaste tu Contraseña?</Link>
+          <div style={{ display: 'flex', alignItems: 'center', marginLeft: '15%' }}>
+          <Link to="/login&RecuperarContraseña" style={{ color: 'black', textDecoration: 'underline', fontSize: '1.5em', fontFamily: 'Montserrat', }}>¿Olvidaste tu Contraseña?</Link>
 
             <Button className='boton_login' variant="primary" type="submit" style={{ marginRight: '10px' }}>
               Entrar

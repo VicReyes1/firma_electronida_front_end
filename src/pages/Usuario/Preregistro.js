@@ -1006,7 +1006,7 @@ function Preregistro() {
           placeholder="Puesto"
         />
         <input
-          style={{ marginRight: '2%' }}
+          style={{ marginRight: '1%' }}
           type="text"
           value={area}
           onChange={(e) => setArea(e.target.value)}

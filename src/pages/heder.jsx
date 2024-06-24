@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/Ver_solicitud.css'; // Verifica la ruta a tu archivo CSS
-import Logo from '../Images/Logo.png'; // Verifica la ruta a tu imagen
+import Logo from '../Images/logotipo-01.png'; // Verifica la ruta a tu imagen
 
 function heder() {
   return (

@@ -60,7 +60,7 @@ const Login_recuperar_contra = () => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', marginLeft: '20%' }}>
-          <Link to="/login"  style={{ marginRight: '30%' }}>
+          <Link to="/login"  style={{ marginRight: '20%' }}>
             <Button className='boton33' variant="primary" type="submit" >
               Atrás
             </Button>

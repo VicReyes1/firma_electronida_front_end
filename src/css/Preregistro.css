@@ -59,8 +59,8 @@
   .botonn {
     margin-bottom: 2%;
     background-color: white;
-    color: #383737;
-    border-color: #383737;
+    color: #691B31;
+    border-color: #691B31;
     border-radius: 10px;
     font-size: 2em;
     height: 20%;
@@ -69,8 +69,8 @@
   }
   
   .botonn:hover {
-    background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
-    color: black; /* Cambia el color del texto al pasar el mouse */
+    background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
   }
   .custom-file-label {
     background-color: white;
@@ -78,7 +78,7 @@
     border-radius: 5px;
     padding: 8px 12px; /* Ajusta según tus necesidades */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
-    font-family: Futura;
+    font-family: 'Montserrat', sans-serif;
     
   
   }
@@ -104,7 +104,7 @@
   .checkbox-label {
     display: flex;
     align-items: center;
-    font-family: 'Futura'!important;
+    font-family: ''Montserrat', sans-serif'!important;
     font-size: 1em;
     margin-right: 1%;
   }
@@ -129,14 +129,14 @@
     font-size: 16px; /* Tamaño de fuente */
     width: 22.8%; /* Ancho del combo box, ajusta según necesites */
     height: 45px;
-    font-family: Futura;
+    font-family: 'Montserrat', sans-serif;
    
 }
 select option {
     background-color: #d9d9d9; /* Fondo blanco */
     color: #383737; /* Texto color #383737 */
     font-size: 16px; /* Tamaño de fuente */
-    font-family: Futura;
+    font-family: 'Montserrat', sans-serif;
 }
 input {
     background-color: white; /* Fondo blanco */
@@ -145,7 +145,7 @@ input {
     border-radius: 10px; /* Borde redondeado */
     padding: 1px; /* Espaciado interno */
     font-size: 16px; /* Tamaño de fuente */
-    font-family: Futura;
+    font-family:'Montserrat', sans-serif;
     width: 46%; /* Ancho del combo box, ajusta según necesites */
     height: 40px;
     margin-top: 1%;
@@ -157,28 +157,29 @@ input {
     margin-right: 10%;
     margin-top: 2%;
     margin-bottom: 10%;
-    background-color: #6e6e6e;
+    background-color: #691B31;
     color: white;
-    border-color: #6e6e6e;
+    border-color: #691B31;
     border-radius: 10px;
     font-size: 2em;
-    font-family: Futura;
-    font-weight: medium;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     height: 20%;
+    padding: 10px;
     width: 20%;
     transition: background-color 0.3s, color 0.3s;
 }
 .boton_envio:hover {
-  background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
-  color: black; /* Cambia el color del texto al pasar el mouse */
+  background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+  color: white; /* Cambia el color del texto al pasar el mouse */
 }
 
 .boton_modal {
   margin-bottom: 5%;
   margin-top: 5%;
-  background-color:#6e6e6e ;
+  background-color:#691B31;
   color: white;
-  border-color: #6e6e6e;
+  border-color: #691B31;
   border-radius: 15px;
   font-size: 1.5em;
   font-weight: medium;
@@ -189,8 +190,8 @@ input {
   transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
 }
 .boton_modal:hover{
-  background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
-  color: black; /* Cambia el color del texto al pasar el mouse */
+  background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+  color: white; /* Cambia el color del texto al pasar el mouse */
 }
 /* Estilo para el fondo atenuado */
 
