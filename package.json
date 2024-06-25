@@ -17,7 +17,7 @@
     "pdf-merger-js": "^5.1.1",
     "primereact": "^10.6.5",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.10.2",
+    "react-bootstrap": "^2.10.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",

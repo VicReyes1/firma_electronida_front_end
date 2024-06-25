@@ -1,0 +1,44 @@
+.custom-tabs {
+    margin: 0 2% 0 2%;
+  }
+  
+  .nav-tabs {
+    display: flex;
+    border-bottom: 2px solid black;
+  }
+  
+  .nav-link {
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+    cursor: pointer;
+    color: #BC955B;
+    font-size: 1em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    
+  }
+  
+  .nav-link:hover {
+    color: #691B31;
+  }
+  
+  .nav-link.active {
+    color: #691B31;
+    border-color: black;
+  }
+  
+  .tab-content {
+    border: 2px solid black;
+    padding: 20px;
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+  
