@@ -25,9 +25,14 @@ function Landing_Page() {
           <Button className='boton' variant="primary">Iniciar Sesión</Button>
         </a>
       </div>
-      <div className="footer2">
+      <div className="footer1">
         <a href="/preregistro">
           <Button className='boton' variant="primary">Crear Cuenta</Button>
+        </a>
+      </div>
+      <div className="footer2">
+        <a href="/ppp">
+          <Button className='boton' variant="primary">Registro Presencial</Button>
         </a>
       </div>
 

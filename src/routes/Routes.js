@@ -20,6 +20,7 @@ import PDFGenerator from '../pages/ADMIN/PDF';
 import PDFCarta from '../pages/ADMIN/PDF2';
 import PDFViewer from '../pages/ADMIN/prueba';
 import Aprobacion_Carta from '../pages/ADMIN/Aprobacion_carta_Responsiva';
+import PreregistroPresencial from '../pages/Usuario/PreregistroPresencial';
 
 
 
@@ -34,9 +35,10 @@ function Rutas() {
         
         <Route path='/login' element={<Login />} />
         <Route path='/login&RecuperarContraseña' element={<Login_recuperar_contra />} />
-        <Route path='/inicio' element={<Landing_Page />} />
+        <Route path='/' element={<Landing_Page />} />
         <Route path='/mi_solicitud' element={<Mi_Solicitud />} />
         <Route path='/preregistro' element={<Preregistro />} />
+        <Route path='/preregistro-presencial' element={<PreregistroPresencial />} />
         <Route path='/continuar_solicitud2' element={<Continuar_solicitud2 />} />
         <Route path='/continuar_solicitud1/:id' element={<Continuar_solicitud1 />} />
         <Route path='/continuar_solicitud3' element={<Continuar_solicitud3 />} />
