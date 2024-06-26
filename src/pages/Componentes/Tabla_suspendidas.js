@@ -1,46 +1,36 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
 import '../../css/tabla.css'; // Importa tus estilos CSS personalizados aquí
 
-function Tabla_Solicitudes_Usuario() {
+function Tabla_Solicitudes_Suspendidas_Admin() {
   const [data, setData] = useState([]);
-  
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-        fetch('http://localhost:3001/usuario/obtenerSolicitudes', {
-            method: 'GET',
-            headers: {
-                'Authorization': `${token}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch');
-            }
-            return response.json(); // Parsea la respuesta como JSON
-        })
-        .then(data => {
-            
-            setData(data); // Asigna los datos al estado
-            console.log(data)
-        })
-        .catch(error => console.error('Error al obtener los datos:', error));
-    } else {
-        console.error('No token found');
-        // Aquí puedes manejar el caso en que no se encuentre el token en el localStorage
-    } 
-  }, []); 
  
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5); // Change this number to adjust items per page
 
+
+  useEffect(() => {
+    // Define la URL de tu API
+    const url = 'http://localhost:3001/admin/getAll'; // Reemplaza con la URL de tu API
+
+    // Hacer la petición GET
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setData(data);
+      })
+      .catch(error => {
+      
+      });
+  }, []);
 // Filter data based on search term including date
 const filteredData = data.filter(item => {
   const normalizeDate = (dateString) => {
@@ -94,9 +84,13 @@ const totalItems = filteredData.length;
 const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de ${totalItems} registros`;
 
 const handleRedirection = (id, status) => {
+  if (status === 1) {
+    window.location.href = `/admin&verificar_datos/${id}`;
+  } 
   if (status === 2) {
-    window.location.href = `/continuar_solicitud1/${id}`;
+    window.location.href = `/admin&Aprobacion_Req/${id}`;
   }
+   
 };
 
 const renderButton = (id,estatusTramite) => {
@@ -104,11 +98,12 @@ const renderButton = (id,estatusTramite) => {
     return (
       <button
         className='boton'
+        onClick={() => handleRedirection(id, estatusTramite)}
       >
-       Sin acciones
+       Ver datos
       </button>
     );
-  } else if (estatusTramite === 2) {
+  } else if (estatusTramite === 2 || estatusTramite === 3) {
     return (
       <button
         className='boton2'
@@ -132,33 +127,26 @@ const renderButton = (id,estatusTramite) => {
       <Table striped bordered hover className="custom-table">
         <thead>
           <tr>
+            <th></th>
             <th>Nombre</th>
-            <th>Estatus</th>
-            <th>Fecha Envio</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+            <th>Ultima Actualización</th>
+            <th>Fecha de Envío</th>
             <th>Visualización</th>
-            <th>Actualizar</th>
-            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
         {currentItems.map((item, index) => (
             <tr key={index}>
-                
+                <td className={item.nuevo_modificado ? 'blue-circle' : ''}></td>
                 <td>{`${item.nombre} ${item.paterno} ${item.materno}`}</td>
-                <td>{item.status}</td>
+                <td>{item.correo}</td>
+                <td>{item.telefono}</td>
+                <td>{item.actualizacion}</td>
                 <td>{item.createdAt}</td>
                 <td>
                   {renderButton(item.id,item.estatusTramite)}
-                </td>
-                <td>
-                <a href="/preregistro-presencial">
-                  <Button className='boton-tabla' variant="primary">Actualizar</Button>
-                </a>
-                </td>
-                <td>
-                <a href="/preregistro-presencial">
-                  <Button className='boton-tabla' variant="primary">Eliminar</Button>
-                </a>
                 </td>
             </tr>
             ))}
@@ -174,9 +162,10 @@ const renderButton = (id,estatusTramite) => {
         </div>
       </div>
      
+      
     </div>
     
   );
 }
 
-export default Tabla_Solicitudes_Usuario;
+export default Tabla_Solicitudes_Suspendidas_Admin;

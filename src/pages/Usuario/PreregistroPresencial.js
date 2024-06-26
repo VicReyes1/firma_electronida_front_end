@@ -1151,8 +1151,8 @@ function PreregistroPresencial() {
         </div>
 
         <div className='text_pdf'>
-        <span style={{ fontWeight: 'bold' }}>Archivo Requermiento</span>
-        (Subir .req del usuario)
+        <span style={{ fontWeight: 'bold' }}>Archivo Revocación</span>
+        (Subir documento de revocación o suspención)
         </div>
         
         <div className="files">

@@ -22,7 +22,7 @@
     padding: 15px;
     text-align: center;
     font-size: 18px;
-    font-family: Futura;font-weight: normal;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .custom-table td {
@@ -30,7 +30,7 @@
     text-align: center;
     font-size: 14px;
     border-bottom: 2px solid #ddd;
-    font-family: Futura;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .custom-table tbody tr:nth-child(even) {
@@ -58,6 +58,7 @@
     border-radius: 10px;
     cursor: pointer;
     width: 100px;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .boton2 {
@@ -70,6 +71,7 @@
     cursor: pointer;
     width: 100px;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
+    font-family: 'Montserrat', sans-serif;
   }
   
   .boton2:hover {
@@ -81,8 +83,21 @@
   width: 600px;
   margin-right:200px;
   margin-bottom: 2%;
+  font-family: 'Montserrat', sans-serif;
  }
 
+ .boton-tabla {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  color: black;
+  text-decoration: underline;
+  background: none;
+  border: none;
+}
+
+.boton-tabla:hover {
+  color: #BC955B;
+}
  
 
  

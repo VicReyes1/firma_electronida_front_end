@@ -31,7 +31,7 @@ function Landing_Page() {
         </a>
       </div>
       <div className="footer2">
-        <a href="/ppp">
+        <a href="/preregistro-presencial">
           <Button className='boton' variant="primary">Registro Presencial</Button>
         </a>
       </div>

@@ -132,6 +132,7 @@ const renderButton = (id,estatusTramite) => {
             <th>Nombre</th>
             <th>Correo</th>
             <th>Telefono</th>
+            <th>Ultima Actualización</th>
             <th>Fecha de Envío</th>
             <th>Visualización</th>
           </tr>
@@ -143,6 +144,7 @@ const renderButton = (id,estatusTramite) => {
                 <td>{`${item.nombre} ${item.paterno} ${item.materno}`}</td>
                 <td>{item.correo}</td>
                 <td>{item.telefono}</td>
+                <td>{item.actualizacion}</td>
                 <td>{item.createdAt}</td>
                 <td>
                   {renderButton(item.id,item.estatusTramite)}
