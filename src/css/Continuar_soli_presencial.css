@@ -1,0 +1,89 @@
+@font-face {
+    font-family: Futura;
+    src: url('../Fonts/TIPOGRAFIA\ FUTURA/Futura.ttc');
+  }
+.continuar_soli{
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+.textito{
+    margin-top: 2%;
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+}
+.textito2{
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 3%;
+}
+.textito3{
+    margin-top: 15%;
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+}
+.textito339{
+    margin-top: 2%;
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+}
+.boton333{
+    margin-bottom: 5%;
+    margin-top: 5%;
+    background-color:#691B31 ;
+    color: white;
+    border-color: #691B31;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    height: 50px;
+    width: 200px;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
+}
+.boton333:hover{
+    background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
+  }
+  .boton3334{
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 70%;
+    background-color:#691B31 ;
+    color: white;
+    border-color: #691B31;
+    font-family:'Montserrat', sans-serif;
+    border-radius: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    height: 50px;
+    width: 200px;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
+}
+.boton3334:hover{
+    background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1424px) {
+    .textito{
+        font-size: 1em;
+    }
+    .textito2{
+        font-size: 1em;
+        margin-bottom: 3%;
+    }
+    .textito3{
+        margin-top: 20%;
+        font-size: 1em;
+        font-family: 'Montserrat', sans-serif;
+    } 
+    .textito{
+        margin-top: 4%;
+    }
+    .boton3334{
+        margin-left: 40%;
+    }
+
+  }

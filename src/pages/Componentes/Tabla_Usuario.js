@@ -144,8 +144,8 @@ const renderButton = (id,estatusTramite) => {
         {currentItems.map((item, index) => (
             <tr key={index}>
                 
-                <td>{`${item.nombre} ${item.paterno} ${item.materno}`}</td>
-                <td>{item.status}</td>
+                <td>{`${item.nombre} ${item.paterno} ${item.materno}`}Daniela Martinez Moreno</td>
+                <td>{item.status}grfgdfgfggffdgfgd</td>
                 <td>{item.createdAt}</td>
                 <td>
                   {renderButton(item.id,item.estatusTramite)}

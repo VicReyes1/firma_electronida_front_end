@@ -30,7 +30,7 @@ const Login_recuperar_contra = () => {
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Control
-              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'5%', borderWidth:'2px', fontFamily:'Futura' }}
+              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'5%', borderWidth:'2px', fontFamily:'Montserrat' }}
               type="email"
               placeholder="Correo Electrónico"
               value={email}
@@ -40,7 +40,7 @@ const Login_recuperar_contra = () => {
 
           <Form.Group controlId="formBasicText">
             <Form.Control
-              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'1%', borderWidth:'2px', fontFamily:'Futura' }}
+              style={{ width: '60%', marginLeft:'20%', height:'60px', fontSize:'2em', marginBottom:'1%', borderWidth:'2px', fontFamily:'Montserrat' }}
               type="text"
               placeholder="RFC"
               value={rfc}
@@ -53,7 +53,7 @@ const Login_recuperar_contra = () => {
             fontSize:'1.2em' ,
             marginLeft:'20%',
             marginRight:'20%',
-            fontFamily:'Futura'
+            fontFamily:'Montserrat'
              }}
           >
             El RFC deberá contener letras en mayúscula y homoclave, sin espacios ni caracteres especiales.

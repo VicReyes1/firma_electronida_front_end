@@ -5,7 +5,7 @@
 .titulo_3 {
     font-size: 3em;
     font-weight: bold;
-    font-family: 'Futura';
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
   }
   .formulario{
@@ -18,21 +18,21 @@
   }
   .titulo_formulario{
     font-size: 2.5em;
-    font-family: 'Futura' !important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-bottom: 1%;
     margin-top: 4%;
   }
   .text_formulario{
     font-size: 1.5em;
-    font-family: 'Futura' !important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-bottom: 1%;
     margin-top: 2%;
   }
   .text_pdf{
     font-size: 1.5em;
-    font-family: 'Futura'!important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-bottom: 2%;
     margin-top: 2%;
@@ -40,19 +40,19 @@
   .text_inputs{
     font-size: 1.5em;
     font-weight: bold;
-    font-family: 'Futura'!important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-bottom: 1%;
   }
   .text_advertencia{
     font-size: 1em;
-    font-family: 'Futura'!important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-top: 1%;
   }
   .text_advertencia2{
     font-size: 1em;
-    font-family: 'Futura'!important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-top: 0%;
   }
@@ -92,6 +92,7 @@
   .no-file-message {
     color: black;
     font-style: italic;
+    font-family: 'Montserrat', sans-serif;
     margin-left: 10px;
   }
 
@@ -200,7 +201,7 @@ input {
 
 .titulo_modal{
   font-size: 3em;
-  font-family: 'Futura'!important;
+  font-family: 'Montserrat', sans-serif !important;
   font-weight: bold;
   text-align: center; 
   margin-top: 5%;
@@ -210,7 +211,7 @@ input {
 
 .texto_modal{
   font-size: 1.5em;
-  font-family: 'Futura'!important;
+  font-family: 'Montserrat', sans-serif !important;
   text-align: center; 
   margin-top: 5%;
   margin-left: 10%;
@@ -269,13 +270,13 @@ input {
 @media screen and (min-width: 768px) and (max-width: 1424px) {
   .titulo_formulario{
     font-size: 2em;
-    font-family: 'Futura'!important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-bottom: 2%;
   }
   .text_formulario{
     font-size: 1em;
-    font-family: 'Futura'!important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-bottom: 2%;
     margin-top: 4%;
@@ -283,13 +284,13 @@ input {
   .text_inputs{
     font-size: 0.5em;
     font-weight: bold;
-    font-family: 'Futura'!important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-bottom: 2%;
   }
   .text_pdf{
     font-size: 1em;
-    font-family: 'Futura'!important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left; 
     margin-bottom: 4%;
     margin-top: 4%;
