@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import '../css/Landing_Page.css'; // Verifica la ruta a tu archivo CSS
-import Logo from '../Images/Logo.png'; // Verifica la ruta a tu imagen
+import Logo from '../Images/logotipo-09.png'; // Verifica la ruta a tu imagen
 
 function Landing_Page() {
   return (
@@ -25,9 +25,14 @@ function Landing_Page() {
           <Button className='boton' variant="primary">Iniciar Sesión</Button>
         </a>
       </div>
-      <div className="footer2">
+      <div className="footer1">
         <a href="/preregistro">
           <Button className='boton' variant="primary">Crear Cuenta</Button>
+        </a>
+      </div>
+      <div className="footer2">
+        <a href="/preregistro-presencial">
+          <Button className='boton' variant="primary">Registro Presencial</Button>
         </a>
       </div>
 

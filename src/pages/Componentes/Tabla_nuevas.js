@@ -4,13 +4,12 @@ import Form from 'react-bootstrap/Form';
 import Pagination from 'react-bootstrap/Pagination';
 import '../../css/tabla.css'; // Importa tus estilos CSS personalizados aquí
 
-function Tabla_Solicitudes_Admin() {
+function Tabla_Solicitudes_Nuevas_Admin() {
   const [data, setData] = useState([]);
  
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5); // Change this number to adjust items per page
-
 
 
   useEffect(() => {
@@ -169,4 +168,4 @@ const renderButton = (id,estatusTramite) => {
   );
 }
 
-export default Tabla_Solicitudes_Admin;
+export default Tabla_Solicitudes_Nuevas_Admin;

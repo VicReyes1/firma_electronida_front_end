@@ -193,9 +193,43 @@ function Solicitud_Concluida() {
         }
       };
 
+      const descargaCertificado = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${1}/`, {
+                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'carta_responsiva.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+    const descargaManual = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${1}/`, {
+                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'carta_responsiva.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+
   return (
     <div>
       <Heder />
+      
       <div className="container2">
         <div className='titulo-container'>
           <div className='titulo_2'>
@@ -338,14 +372,23 @@ function Solicitud_Concluida() {
            <button onClick={descargaResponsiva} className="boton-blob">Abrir archivo</button>
         </div>
 
+        <div className='text_formulario177'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>.cer </span> 
+        </div>
+        <div>
+           <button onClick={descargaCertificado} className="boton-blob">Abrir archivo</button>
+        </div>
+        <div className='text_formulario177'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Manual de Usuario </span> 
+        </div>
+        <div>
+           <button onClick={descargaManual} className="boton-blob">Abrir archivo</button>
+        </div>
+
         
  
             
         </div>
-
-
-
-
 
 
 

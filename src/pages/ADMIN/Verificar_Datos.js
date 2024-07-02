@@ -355,11 +355,24 @@ function Verificar_Datos() {
   const handleSubmit = (e) => {
     e.preventDefault();
     generatePDF()
-     Swal.fire({
-      title: "Documentos Enviados",
-      text: "El usuario recibió manuales y .req",
-      icon: "success"
-    });
+      .then(() => {
+        Swal.fire({
+          title: "Documentos Enviados",
+          text: "El usuario recibió manuales y .req",
+          icon: "success"
+        }).then(() => {
+          // Redireccionar después de cerrar el SweetAlert
+          window.location.href = '/admin&solicitudes'; // Reemplaza '/nueva-ruta' con la ruta deseada
+        });
+      })
+      .catch(error => {
+        console.error('Error al generar el PDF:', error);
+        Swal.fire({
+          title: "Error",
+          text: "Hubo un error al enviar los documentos.",
+          icon: "error"
+        });
+      });
     console.log('Formulario enviado');
   };
 
@@ -398,7 +411,7 @@ function Verificar_Datos() {
 
           <div className='text_formulario2'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Nombre:</span>
-            {data.nombre} 
+            {`${data.nombre} ${data.paterno} ${data.materno}`}
           </div>
 
           <div className='text_formulario2'>

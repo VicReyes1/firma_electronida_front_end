@@ -2,18 +2,23 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
-import '../../css/Continuar_soli.css';
+import '../../css/Continuar_soli_presencial.css';
 
 import Heder from '../heder';
 import Swal from 'sweetalert2';
 
-function Continuar_solicitud1() {
+function Continuar_solicitud_Presencial() {
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
+    const [file3, setFile3] = useState(null);
     const { id } = useParams();
 
     const handleFile1Change = (e) => {
         setFile1(e.target.files[0]);
+    };
+
+    const handleFile3Change = (e) => {
+        setFile3(e.target.files[0]);
     };
 
     const handleFile2Change = (e) => {
@@ -84,6 +89,23 @@ function Continuar_solicitud1() {
                 <div className='textito2'>
                     En caso de no proporcionar los documentos su solicitud se eliminará después de 7 días. 
                 </div>
+
+                <div className='text_formulario'>
+                    <span style={{ fontWeight: 'bold' }}>Solicitud de Suspención</span>
+                </div>
+                <div className="files">
+                    <label className="custom-file-label">
+                        Seleccionar Archivo
+                        <input 
+                            type="file" 
+                            onChange={handleFile3Change} 
+                            className="custom-file-input"
+                        />
+                    </label>
+                    {file1 ? <span className="file-name">{file3.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+                </div>
+
+
                 <div className='text_formulario'>
                     <span style={{ fontWeight: 'bold' }}>Solicitud de Requerimiento</span>
                 </div>
@@ -98,6 +120,8 @@ function Continuar_solicitud1() {
                     </label>
                     {file1 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
                 </div>
+
+
                 <div className='text_formulario'>
                     <span style={{ fontWeight: 'bold' }}>.req</span>
                 </div>
@@ -112,7 +136,7 @@ function Continuar_solicitud1() {
                     </label>
                     {file2 ? <span className="file-name">{file2.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
                 </div>
-                <div className='textito33'>
+                <div className='textito339'>
                     Documentos enviados por correo o descárguelos <Link to="/liga que nos pasa aide" style={{textDecoration: 'underline'}}>aquí</Link>. 
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -130,4 +154,4 @@ function Continuar_solicitud1() {
     );
 }
 
-export default Continuar_solicitud1;
+export default Continuar_solicitud_Presencial;

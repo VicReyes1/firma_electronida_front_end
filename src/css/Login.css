@@ -1,69 +1,66 @@
-@font-face {
-  font-family: Futura;
-  src: url('../Fonts/TIPOGRAFIA\ FUTURA/Futura.ttc');
-}
+
 .login_conteiner{
-    margin-top: 8%;
+    margin-top: 0%;
     margin-left: 20%;
     margin-right: 20%;
 }
 .titulo_login{
-    font-size: 4em;
+    font-size: 5em;
     font-weight: bold;
-    font-family: 'Futura';
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
 .boton_login{
     margin-bottom: 5%;
     margin-top: 5%;
-    margin-left: 22%;
-    background-color:#6e6e6e ;
+    margin-left: 15%;
+    background-color:#691B31;
     color: white;
-    border-color: #6e6e6e;
+    border-color: #691B31;
     border-radius: 15px;
     font-size: 2em;
-    font-weight: medium;
-    font-family: Futura;
-    height: 50px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    height: 60px;
     width: 200px;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
 }
 
 .boton_login:hover{
-  background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
-  color: black; /* Cambia el color del texto al pasar el mouse */
+  background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+
 }
 
 .boton33{
     margin-bottom: 5%;
     margin-top: 5%;
-    background-color:#6e6e6e ;
+    background-color:#691B31 ;
     color: white;
-    border-color: #6e6e6e;
+    border-color: #691B31;
     border-radius: 15px;
     font-size: 2em;
-    font-family: Futura;
-    font-weight: medium;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     height: 50px;
     width: 200px;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
 }
 .boton33:hover{
-    background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
-    color: black; /* Cambia el color del texto al pasar el mouse */
+    background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
   }
 
   .form-control-veda {
-    width: 60%;
-    margin-left: 20%;
-    height: 60px;
+    width: 70%;
+    margin-left: 15%;
+    height: 80px;
     font-size: 2em;
-    font-family: Futura;
+    font-family: 'Montserrat', sans-serif;
     margin-bottom: 5%;
     border-width: 2px;
     padding-left: 30px; /* Agrega un margen izquierdo de 10px */
   }
   
   .form-control-veda:focus {
-    box-shadow: 0px 0px 5px 5px #6E6E6E !important;
+    box-shadow: 0px 0px 5px 5px 'Montserrat', sans-serif !important;
   }

@@ -1,6 +1,6 @@
 .container2 {
     display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
+     /* Centra verticalmente los elementos */
     flex-direction: column; /* Apila los elementos verticalmente */
     margin-top: 2%;
     width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
@@ -13,12 +13,12 @@
   }
   
   .titulo_header {
-    background-color: #6e6e6e;
+    background-color: #691B31;
     color: white;
-    padding: 10px;
-    font-size: 2.5em;
-    font-weight: Medium;
-    font-family: 'Futura';
+    padding: 40px;
+    font-size: 3.5em;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif; 
     text-align: left;
     width: 100%;
   }
@@ -29,7 +29,7 @@
   }
   
   .Logo2 {
-    width: 200px;
+    width: 300px;
     height: auto;
   }
   
@@ -41,13 +41,13 @@
   .titulo_2 {
     font-size: 5em;
     font-weight: bold;
-    font-family: 'Futura';
+    font-family: 'Montserrat', sans-serif;
   }
 
   .table_conteiner {
     width: 80%;
     margin-top: 5%;
-    border: 2px solid #6E6E6E;
+    border: 2px solid #691B31;
     border-radius: 20px;
     padding: 1%; /* Espacio entre el contenido y el borde */
   }
@@ -67,29 +67,29 @@
   
   .boton2 {
     margin-top: 8%;
-    background-color: #6E6E6E;
+    background-color: #691B31;
     color: white;
-    border-color: #6E6E6E;
+    border-color: #691B31;
     border-radius: 20px;
     font-size: 1em;
-    font-family: 'Futura';
+    font-family: 'Montserrat', sans-serif;
     height: 10%;
     width: 40%;
     transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
   }
   
   .boton2:hover {
-    background-color: #d9d9d9; /* Cambia el color de fondo al pasar el mouse */
-    color: black; /* Cambia el color del texto al pasar el mouse */
+    background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
   }
 
   .boton3 {
     margin-top: 8%;
     background-color: transparent; /* Cambiado a transparente para que no tenga fondo */
-    color: #6E6E6E; /* Color de texto */
+    color: #691B31; /* Color de texto */
     border: none; /* Quita el borde */
     font-size: 1.5em;
-    font-family: 'Futura';
+    font-family: 'Montserrat', sans-serif;
     text-decoration: underline; /* Subraya el texto */
     transition: color 0.3s; /* Transición suave para el cambio de color */
   }
@@ -109,8 +109,29 @@
     display: inline-block; /* Para que el círculo se comporte como un elemento en línea */
     vertical-align: middle; /* Para alinear verticalmente el círculo en el centro de la celda */
   }
-  
 
+
+  .boton_solicitud{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    text-decoration: none !important;
+  }
+
+  .boton-nueva-soli{
+    padding: 20px 60px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    background: #BC955B;
+    border-color: #BC955B;
+  }
+  
+  .boton-nueva-soli:hover {
+    background: #DDC9A3;
+  }
   
 
   @media screen and (min-width: 768px) and (max-width: 1424px) {

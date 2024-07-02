@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../css/Ver_solicitud.css'; // Verifica la ruta a tu archivo CSS
 import Heder from '../heder';
+import Button from 'react-bootstrap/Button';
 import Tabla_Solicitudes_Usuario from '../Componentes/Tabla_Usuario';
 
 function Mi_Solicitud() {
@@ -14,7 +15,10 @@ function Mi_Solicitud() {
           Mis Solicitudes
         </div>
       </div>
-
+   
+      <a href="/preregistro" className='boton_solicitud'>
+        <Button className='boton-nueva-soli' variant="primary">Nueva Solicitud</Button>
+      </a>
 
       <Tabla_Solicitudes_Usuario/>
 

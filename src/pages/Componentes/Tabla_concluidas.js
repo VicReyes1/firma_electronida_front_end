@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Pagination from 'react-bootstrap/Pagination';
 import '../../css/tabla.css'; // Importa tus estilos CSS personalizados aquí
 
-function Tabla_Solicitudes_Admin() {
+function Tabla_Solicitudes_concluidas_Admin() {
   const [data, setData] = useState([]);
  
   const [searchTerm, setSearchTerm] = useState('');
@@ -169,4 +169,4 @@ const renderButton = (id,estatusTramite) => {
   );
 }
 
-export default Tabla_Solicitudes_Admin;
+export default Tabla_Solicitudes_concluidas_Admin;

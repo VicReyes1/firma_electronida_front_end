@@ -11,7 +11,7 @@ import montserratRegular from '../../Fonts/Montserrat-Regular.ttf'; // Ruta rela
 import montserratBold from '../../Fonts/Montserrat-Bold.ttf'; // Ruta relativa a la fuente dentro del proyecto
 import logo from '../../Images/Escudoo_color.png'; // Ruta relativa a la imagen dentro del proyecto
 
-function Preregistro() {
+function PreregistroPresencial() {
 
   const [data, setData] = useState({
     ArchivoAval: "",
@@ -20,7 +20,7 @@ function Preregistro() {
     ArchivoINE: "",
     ArchivoRFC: "",
     ArchivoCredencialNotario: "",
-    video: "",
+   
     municipio_direccion: "",
     fecha: "",
     isNotary: "",
@@ -37,6 +37,9 @@ function Preregistro() {
     direccion: "",
     estado: "",
     cp: "",
+    ArchivocartaResponsiva:"",
+    Archivoreq:"",
+    ArchivosolicitudRequerimiento:"",
     // Otros campos que esperas recibir de la API
   });
   
@@ -92,7 +95,9 @@ function Preregistro() {
             key === "ArchivoINE" ||
             key === "ArchivoRFC" ||
             key === "ArchivoCredencialNotario" ||
-            key === "video" 
+            key === "ArchivocartaResponsiva" || 
+            key === "Archivoreq" ||
+            key === "ArchivosolicitudRequerimiento"
           ) {
             // Si el valor es "null" o el texto "null", asignar "false" al nuevo objeto
             stringifiedData[key] = (responseData[key] === "null" || responseData[key] === null) ? "false" : "true";
@@ -353,6 +358,10 @@ function Preregistro() {
   const [ArchivoRFC, setArchivoRFC] = useState(null);
   const [ArchivoAval, setArchivoAval] = useState(null);
   const [ArchivoCredencialNotario, setArchivoCredencialNotario] = useState(null);
+  const [ArchivocartaResponsiva, setArchivocartaResponsiva] = useState(null);
+  const [Archivoreq, setArchivoreq] = useState(null);
+  const [ArchivosolicitudRequerimiento, setArchivosolicitudRequerimiento] = useState(null);
+
   const [isServer, setIsServer] = useState(false);
   const [isNotary, setIsNotary] = useState(false);
   const [isNuevo, setIsNuevo] = useState(false);
@@ -378,7 +387,7 @@ function Preregistro() {
   const [extencion, setExtencion] = useState('');
   const [correo, setCorreo] = useState('');
   const [contrasena, setContrasena] = useState('');
-  const [video, setVideo] = useState(null);
+
 
 
   const [isResponsavilidadUso, setIsResponsavilidadUso] = useState(false);
@@ -397,22 +406,11 @@ function Preregistro() {
     // Función para verificar si todas las casillas de verificación están marcadas
     const todasSeleccionadas = () => {
       // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
-      return (isNuevo || isRenovacion || causa_de_solicitud ) && (isServer || isNotary || ArchivoCredencialNotario) && video && ArchivoINE && ArchivoComprobanteDomicilio && ArchivoCURP && ArchivoRFC && ArchivoAval && secretaria && tipoEntidad && entidad  && direccion && municipio_direccion && estado && cp && puesto && area && telefono && correo && confirma_correo && contrasena && confirma_contrasena  && isResponsavilidadUso && isPoliticas && isRevocacion/* Agregar el resto de tus variables de estado */;
+      return (isNuevo || isRenovacion || causa_de_solicitud ) && (isServer || isNotary || ArchivoCredencialNotario) && ArchivoINE && ArchivoComprobanteDomicilio && ArchivoCURP && ArchivoRFC && ArchivoAval && secretaria && tipoEntidad && entidad  && direccion && municipio_direccion && estado && cp && puesto && area && telefono && correo && confirma_correo && contrasena && confirma_contrasena  && isResponsavilidadUso && isPoliticas && isRevocacion/* Agregar el resto de tus variables de estado */;
     };
   
 
-  const handleVideoChange = (event) => {
-    const selectedVideo = event.target.files[0];
-    const fileSizeLimit = 10 * 1024 * 1024; // 10 MB
   
-    if (selectedVideo.size > fileSizeLimit) {
-      setError('El tamaño del video excede el límite permitido (10MB).');
-      setVideo(null); // Para eliminar el archivo seleccionado si excede el límite
-    } else {
-      setVideo(selectedVideo);
-      setError('');
-    }
-  };
 
 
   // Funciones para manejar cambios en los inputs
@@ -433,6 +431,15 @@ function Preregistro() {
   };
   const handleArchivoCredencialNotarioChange = (e) => {
     setArchivoCredencialNotario(e.target.files[0]);
+  };
+  const handleArchivocartaResponsivaChange = (e) => {
+    setArchivocartaResponsiva(e.target.files[0]);
+  };
+  const handleArchivoreqChange = (e) => {
+    setArchivoreq(e.target.files[0]);
+  };
+  const handleArchivosolicitudRequerimientoChange = (e) => {
+    setArchivosolicitudRequerimiento(e.target.files[0]);
   };
 
  
@@ -513,12 +520,14 @@ function Preregistro() {
     const documentos = [];
 
     console.log(documentos)
-    documentos.push(video)
     documentos.push(ArchivoINE)
     documentos.push(ArchivoComprobanteDomicilio)
     documentos.push(ArchivoCURP)
     documentos.push(ArchivoRFC)
     documentos.push(ArchivoAval)
+    documentos.push(ArchivocartaResponsiva)
+    documentos.push(Archivoreq)
+    documentos.push(ArchivosolicitudRequerimiento)
     if (ArchivoCredencialNotario !== null) {
       documentos.push(ArchivoCredencialNotario)
     }
@@ -578,37 +587,9 @@ function Preregistro() {
 
       <div className='formulario'>
 
-        <div className='titulo_formulario'>
-          1.- Video de Identificación
-        </div>
-
-        <div className='text_formulario' style={{ fontWeight:'bold' }}>
-          Video con fondo blanco donde el solicitante establece nombre, posición y dependencia.
-        </div>
-
-        
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-      <label className="custom-file-label">
-        Seleccionar Archivo
-        <input
-          type="file"
-          accept="video/*"
-          onChange={handleVideoChange}
-          className="custom-file-input"
-          accept="video/mp4"// Solo permite archivos PDF
-        />
-      </label>
-      {video && (
-        <div style={{ color: error ? 'red' : 'gray', marginLeft: '2%' }}>
-          Video seleccionado: {video.name}
-        </div>
-      )}
-      {error && <div style={{ color: 'red', marginLeft: '2%' }}>{error}</div>}
-    </div>
-
         <form onSubmit={handleSubmit}>
         <div className='titulo_formulario'>
-          2.- Proporcione los siguientes documentos
+          1.- Proporcione los siguientes documentos
         </div>
 
         <div className='text_formulario'>
@@ -866,7 +847,7 @@ function Preregistro() {
        
 
         <div className='titulo_formulario'>
-          3.- Dirección como aparece en comprobante de domicilio
+          2.- Dirección como aparece en comprobante de domicilio
         </div>
 
         <div className='text_formulario'>
@@ -991,7 +972,7 @@ function Preregistro() {
         </div>
 
         <div className='titulo_formulario'>
-          4.- Información Personal
+          3.- Información Personal
         </div>
         <div className='text_formulario'>
         <span style={{ fontWeight: 'bold' }}>Puesto/Área</span>  
@@ -1147,6 +1128,66 @@ function Preregistro() {
         <span>Utilizar letras y números, no debe usar caracteres especiales.</span> 
         </div>
 
+        <div className='titulo_formulario'>
+          6.- Subir Archivos
+        </div>
+
+        <div className='text_pdf'>
+        <span style={{ fontWeight: 'bold' }}>Carta Responsiva</span>
+        (Subir carta responsiva firmada)
+        </div>
+        
+        <div className="files">
+            <label className="custom-file-label" style={{ marginTop: '6%' }}>
+                Seleccionar Archivo
+                <input 
+                type="file" 
+                onChange={handleArchivocartaResponsivaChange} 
+                className="custom-file-input"
+                accept="application/pdf" // Solo permite archivos PDF
+                />
+            </label>
+            {ArchivocartaResponsiva ? <span className="file-name">{ArchivocartaResponsiva.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+        </div>
+
+        <div className='text_pdf'>
+        <span style={{ fontWeight: 'bold' }}>Archivo Revocación</span>
+        (Subir documento de revocación o suspención)
+        </div>
+        
+        <div className="files">
+            <label className="custom-file-label" style={{ marginTop: '6%' }}>
+                Seleccionar Archivo
+                <input 
+                type="file" 
+                onChange={handleArchivoreqChange} 
+                className="custom-file-input"
+                //accept="application/pdf" // Solo permite archivos PDF
+                />
+            </label>
+            {Archivoreq ? <span className="file-name">{Archivoreq.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+        </div>
+
+        <div className='text_pdf'>
+        <span style={{ fontWeight: 'bold' }}>Archivo Solicitud de Requerimiento</span>
+        (Subir solicitud de requerimiento)
+        </div>
+        
+        <div className="files">
+            <label className="custom-file-label" style={{ marginTop: '6%' }}>
+                Seleccionar Archivo
+                <input 
+                type="file" 
+                onChange={handleArchivosolicitudRequerimientoChange} 
+                className="custom-file-input"
+                accept="application/pdf" // Solo permite archivos PDF
+                />
+            </label>
+            {ArchivosolicitudRequerimiento ? <span className="file-name">{ArchivosolicitudRequerimiento.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+        </div>
+
+
+
         <div style={{  marginTop: '2%' }} className="checkboxes">
             <label style={{  fontSize: '0.7em' }} className="checkbox-label">
                 <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isResponsavilidadUso} onChange={() => setIsResponsavilidadUso(!isResponsavilidadUso)} />
@@ -1216,4 +1257,4 @@ function Preregistro() {
   );
 }
 
-export default Preregistro;
+export default PreregistroPresencial;
