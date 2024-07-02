@@ -1,92 +1,93 @@
 .tabla-container {
-    margin: 20px auto;
-    width: 90%;
-    margin-left: 5%;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  
-  .tabla-container form {
-    width: 100%;
-  }
-  
-  .custom-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .custom-table th {
-    background-color: #691B31;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 18px;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .custom-table td {
-    padding: 15px;
-    text-align: center;
-    font-size: 14px;
-    border-bottom: 2px solid #ddd;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .custom-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .pagination-container {
-    text-align: right;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .pagination-info {
-    /* Mantén el estilo original o añade cualquier otro estilo adicional */
-  }
-  
-  .pagina {
-    background-color: #691B31;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-left: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100px;
-    font-family: 'Montserrat', sans-serif;
-  }
+  margin: 20px auto;
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8);
+}
 
-  .boton2 {
-    background-color: #691B31;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-left: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100px;
-    transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .boton2:hover {
-    background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
-    color: white; /* Cambia el color del texto al pasar el mouse */
-  }
-  
- .buscar{
+.tabla-container form {
+  width: 100%;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th {
+  background-color: #691B31;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.custom-table td {
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 2px solid #ddd;
+  font-family: 'Montserrat', sans-serif;
+  vertical-align: middle;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.pagination-container {
+  text-align: right;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination-info {
+  /* Mantén el estilo original o añade cualquier otro estilo adicional */
+}
+
+.pagina {
+  background-color: #691B31;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.boton2 {
+  background-color: #691B31;
+  color: white;
+  border: none;
+  padding: 5px 30px; /* Cambia el tamaño del padding para ajustar ancho y largo */
+  border-radius: 1rem;
+  cursor: pointer;
+  width: auto; /* Cambia el ancho del botón */
+  font-size: 1.5em; /* Cambia el tamaño de la letra */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.boton2:hover {
+  background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+  color: white; /* Cambia el color del texto al pasar el mouse */
+}
+
+.buscar{
   width: 600px;
-  margin-right:200px;
+  margin-right: 200px;
   margin-bottom: 2%;
   font-family: 'Montserrat', sans-serif;
- }
+}
 
- .boton-tabla {
+.boton-tabla {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5em;
   color: black;
@@ -98,6 +99,56 @@
 .boton-tabla:hover {
   color: #BC955B;
 }
- 
 
- 
+/* Modal Styles */
+.modal-title {
+  margin:5%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4em !important;
+  font-weight: bold;
+}
+
+.modal-body p {
+  margin:5%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em !important;
+  font-weight: normal;
+}
+
+.modal-footer .btn {
+  margin: 0 10px; /* Añade algo de margen entre los botones */
+}
+
+.modal-footer .btn-primary {
+
+    margin-left: 30%;
+    background-color:#691B31 ;
+    color: white;
+    border-color: #691B31;
+    font-family:'Montserrat', sans-serif;
+    border-radius: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    height: 50px;
+    width: 200px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.modal-footer .btn-secondary { 
+  background-color:#691B31 ;
+  color: white;
+  border-color: #691B31;
+  font-family:'Montserrat', sans-serif;
+  border-radius: 15px;
+  font-size: 2em;
+  font-weight: bold;
+  height: 50px;
+  width: 200px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.modal-footer .btn-primary:hover,
+.modal-footer .btn-secondary:hover {
+  background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
+  color: white; /* Cambia el color del texto al pasar el mouse */
+}
