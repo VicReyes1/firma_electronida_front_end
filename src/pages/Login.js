@@ -14,7 +14,6 @@ const Login = () => {
     e.preventDefault();
   
     const url = `http://localhost:3001/auth/login`;
-  
     const data = {
       correo: email,
       password: password

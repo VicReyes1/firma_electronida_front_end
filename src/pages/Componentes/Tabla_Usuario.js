@@ -8,6 +8,8 @@ import '../../css/tabla.css'; // Importa tus estilos CSS personalizados aquí
 
 function Tabla_Solicitudes_Usuario() {
   const [data, setData] = useState([]);
+  const [showModal2, setShowModal2] = useState(false);
+  const [selectedId2, setSelectedId2] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [selectedId, setSelectedId] = useState('');
 
@@ -51,9 +53,18 @@ function Tabla_Solicitudes_Usuario() {
     setShowModal(false);
     setSelectedId('');
   };
+  const handleShowModal2 = (id) => {
+    setSelectedId2(id);
+    setShowModal2(true);
+  };
+
+  const handleCloseModal2 = () => {
+    setShowModal2(false);
+    setSelectedId2('');
+  };
 
   const handleContinue = () => {
-    window.location.href = `/preregistro-presencial/${selectedId}`;
+    window.location.href = `/preregistro22`;
   };
 
   // Filter data based on search term including date
@@ -166,10 +177,8 @@ function Tabla_Solicitudes_Usuario() {
               <td>
                 <Button className='boton-tabla' variant="primary" onClick={() => handleShowModal(item.id)}>Actualizar</Button>
               </td>
-              <td>
-                <a href="/preregistro-presencial">
-                  <Button className='boton-tabla' variant="primary">Eliminar</Button>
-                </a>
+              <td>             
+                  <Button className='boton-tabla' variant="primary" onClick={() => handleShowModal2(item.id)}>Eliminar</Button>
               </td>
             </tr>
           ))}
@@ -197,6 +206,24 @@ function Tabla_Solicitudes_Usuario() {
             Atrás
           </Button>
           <Button variant="primary" onClick={handleContinue}>
+            Continuar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal2 */}
+      <Modal show={showModal2} onHide={handleCloseModal2}>
+        <Modal.Header>
+          <Modal.Title style={{ fontSize: '3em' }}>¿Seguro que quiere eliminar esta solicitud?</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+      
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal2}>
+            Atrás
+          </Button>
+          <Button variant="primary" >
             Continuar
           </Button>
         </Modal.Footer>
