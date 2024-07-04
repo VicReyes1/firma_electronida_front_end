@@ -23,6 +23,7 @@
 
 }
 .select23 {
+  margin-left:54%;
     background-color: white; /* Fondo blanco */
     border: 1px solid #383737; /* Borde color #383737 */
     color: #383737; /* Texto color #383737 */
@@ -31,8 +32,7 @@
     font-size: 16px; /* Tamaño de fuente */
     width: 30%; /* Ancho del combo box, ajusta según necesites */
     height: 45px;
-    margin-top: 4%
-   
+    margin-top: 0%
 }
 .select23 option {
     background-color: #d9d9d9; /* Fondo blanco */

@@ -40,9 +40,13 @@ function Aprobacion_Req() {
   // Cargar el PDF inicialmente según la opción seleccionada
   useEffect(() => {
     cargarPDF('solicitud_requerimiento')
-  }, []);
+  }, [archivo]);
 
- 
+  // Función para manejar el cambio de opción en el select
+  const handleChangeSelect = (e) => {
+    setArchivo(e.target.value);
+  };
+
   // Función para verificar si todas las casillas de verificación están marcadas
   const todasSeleccionadas = () => {
     // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
@@ -125,6 +129,14 @@ const handleDownloadReq = async () => {
         <div style={{ display: 'flex' }}>
         <Button className="boton-req" variant="primary">Descargar .req</Button>         
         </div>
+
+        <select className='select23' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>
+            <option value="">INE</option>
+            <option value="">Comprobante de domicilio</option>
+            <option value="">CURP</option>
+            <option value="">RFC</option>
+            <option value="">Aval como Servidor Público o Notario Público</option>
+          </select>
 
           <div className='pdf_contenedor22'>
             {/* Mostrar el PDF si hay un Blob */}
