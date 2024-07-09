@@ -127,7 +127,7 @@ const handleDownloadReq = async () => {
         <div className="content22">
         
         <div style={{ display: 'flex' }}>
-        <Button className="boton-req" variant="primary">Descargar .req</Button>         
+        <Button className="boton-req" variant="primary" onClick={handleDownloadReq}>Descargar .req</Button>         
         </div>
 
         <select className='select23' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>

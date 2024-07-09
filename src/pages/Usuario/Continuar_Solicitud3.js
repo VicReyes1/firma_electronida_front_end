@@ -80,9 +80,7 @@ function Continuar_solicitud3() {
                     </label>
                     {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
                 </div>
-                <div className='textito3'>
-                    Documentos enviados por correo o descárguelos <Link to="/liga que nos pasa aide" style={{textDecoration: 'underline'}}>aquí</Link>.
-                </div>
+
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Link to="/mi_solicitud">
                         <Button style={{ marginRight: '65%' }} className='boton333' variant="primary" type="submit">

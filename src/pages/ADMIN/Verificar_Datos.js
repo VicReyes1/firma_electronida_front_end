@@ -272,7 +272,7 @@ function Verificar_Datos() {
     doc.text('Palacio de Gobierno 1er Piso, Plaza Juárez s/n, Col. Centro, Pachuca de Soto, Hidalgo, México, C.P. 42000 ', 32, 285);
     doc.text('Tel.: (800) 623 47 62         http://firmaelectronica.hidalgo.gob.mx', 60, 290);
     
-    const pdfBlob = doc.output('blob');
+    //const pdfBlob = doc.output('blob');
 
     // Crear un objeto FormData para enviar el archivo adjunto
     const formData = new FormData();
@@ -308,7 +308,7 @@ function Verificar_Datos() {
         .then(response => response.blob())
         .then(blob => {
           setPdfBlob(URL.createObjectURL(blob));
-        })
+        }).catch(error => console.error('Error al cargar el archivo:', error));
   };
 
 
@@ -558,7 +558,7 @@ function Verificar_Datos() {
 
           <div className='pdf_contenedor'>
             {/* Mostrar el PDF si hay un Blob */}
-            {pdfBlob && <embed src={pdfBlob}  width="100%" height="100%" />}
+            {pdfBlob && <embed src={pdfBlob} type="application/pdf" width="100%" height="100%" />}
           </div>
 
           <div className="inputs">
