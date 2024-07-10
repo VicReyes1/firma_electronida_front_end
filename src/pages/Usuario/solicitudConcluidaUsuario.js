@@ -3,10 +3,9 @@ import Heder from '../heder';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import '../../css/Solicitud_Concluida.css';
-import WizardStepsCompleted from '../Componentes/WizardSteps-Concluido';
 
 
-function Solicitud_ConcluidaUsuario() {
+function Solicitud_Concluida() {
 
     const [data, setData] = useState({
         registro_id: '',
@@ -230,7 +229,7 @@ function Solicitud_ConcluidaUsuario() {
   return (
     <div>
       <Heder />
-      <WizardStepsCompleted />
+      
       <div className="container2">
         <div className='titulo-container'>
           <div className='titulo_2'>
@@ -399,4 +398,4 @@ function Solicitud_ConcluidaUsuario() {
   );
 }
 
-export default Solicitud_ConcluidaUsuario;
+export default Solicitud_Concluida;

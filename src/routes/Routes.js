@@ -23,6 +23,7 @@ import Aprobacion_Carta from '../pages/ADMIN/Aprobacion_carta_Responsiva';
 import PreregistroPresencial from '../pages/Usuario/PreregistroPresencial';
 import Continuar_solicitud_Presencial from '../pages/Usuario/Continuar_Solicitud_Presencial';
 import PreregistroActualizacion from '../pages/Usuario/PreregistroActualizacion';
+import Solicitud_ConcluidaUsuario from '../pages/ADMIN/Solicitud_Concluida';
 
 
 
@@ -46,6 +47,7 @@ function Rutas() {
         <Route path='/continuar_solicitud2' element={<Continuar_solicitud2 />} />
         <Route path='/continuar_solicitud1/:id' element={<Continuar_solicitud1 />} />
         <Route path='/continuar_solicitud3' element={<Continuar_solicitud3 />} />
+        <Route path='/solicitud-concluida-usuario' element={<Solicitud_ConcluidaUsuario />} />
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos/:id' element={<Verificar_Datos/>} /> {/* ?? */}
         <Route path='/admin&Aprobacion_Carta' element={<Aprobacion_Carta/>} />{/* ?? */}

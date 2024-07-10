@@ -11,6 +11,8 @@ import montserratRegular from '../../Fonts/Montserrat-Regular.ttf'; // Ruta rela
 import montserratBold from '../../Fonts/Montserrat-Bold.ttf'; // Ruta relativa a la fuente dentro del proyecto
 import logo from '../../Images/Escudoo_color.png'; // Ruta relativa a la imagen dentro del proyecto
 //import swal from 'sweetalert';
+import WizardStepsInicial from '../Componentes/WizardSteps-Inicial';
+import WizardStepsInProgress from '../Componentes/WizardSteps-Progreso';
 
 
 function Preregistro() {
@@ -649,6 +651,7 @@ function Preregistro() {
   return (
     <div className="contenedor">
       <Heder />
+      <WizardStepsInicial />
       <div className="titulo_3">
         Ingrese sus Datos
       </div>

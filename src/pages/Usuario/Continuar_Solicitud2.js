@@ -5,6 +5,7 @@ import '../../css/Continuar_soli.css';
 import Heder from '../heder';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import WizardStepsInProgress2 from '../Componentes/WizardSteps-Progreso2';
 
 function Continuar_solicitud2() {
     const [file1, setFile1] = useState(null);
@@ -54,6 +55,7 @@ function Continuar_solicitud2() {
     return (
         <div>
             <Heder />
+            <WizardStepsInProgress2 />
             <div className='continuar_soli'>
                 <div className='titulo-container'>
                     <div className='titulo_2'>
