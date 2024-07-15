@@ -169,7 +169,7 @@ function Preregistro() {
       doc.setFontSize(8);
       doc.text('(Dependencia o Entidad Paraestatal o H. Ayuntamiento Entidad Municipal o Notaría Pública u Organismo)', 45, 70);
       doc.setFontSize(10);
-      doc.text(dataAsync.secretaria !== "null" ? dataAsync.secretaria : 'No Aplica', secretariaCoords.x, secretariaCoords.y);
+      doc.text(dataAsync.secretaria !== "" ? dataAsync.secretaria : 'No Aplica', secretariaCoords.x, secretariaCoords.y);
 
 
 
@@ -407,7 +407,7 @@ function Preregistro() {
     // Función para verificar si todas las casillas de verificación están marcadas
     const todasSeleccionadas = () => {
       // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
-      return (isNuevo || isRenovacion || causa_de_solicitud ) && (isServer || isNotary || ArchivoCredencialNotario) && video && ArchivoINE && ArchivoComprobanteDomicilio && ArchivoCURP && ArchivoRFC && ArchivoAval && secretaria && tipoEntidad && entidad  && direccion && municipio_direccion && estado && cp && puesto && area && telefono && correo && confirma_correo && contrasena && confirma_contrasena  && isResponsavilidadUso && isPoliticas && isRevocacion/* Agregar el resto de tus variables de estado */;
+      return (isNuevo || isRenovacion || causa_de_solicitud ) && (isServer || isNotary || ArchivoCredencialNotario) && video && ArchivoINE && ArchivoComprobanteDomicilio && ArchivoCURP && ArchivoRFC && ArchivoAval && tipoEntidad && entidad  && direccion && municipio_direccion && estado && cp && puesto && area && telefono && correo && confirma_correo && contrasena && confirma_contrasena  && isResponsavilidadUso && isPoliticas && isRevocacion/* Agregar el resto de tus variables de estado */;
     };
   
 
@@ -1257,7 +1257,7 @@ function Preregistro() {
                 <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isPoliticas} onChange={() => setIsPoliticas(!isPoliticas)} />
                 <span className="checkbox-text">
                   He leído y acepto las políticas de&nbsp;
-                  <a href="http://www.hidalgo.gob.mx/aviso_privacidad" target="_blank" rel="noopener noreferrer">
+                  <a href="https://gobierno.hidalgo.gob.mx/AvisoPrivacidad" target="_blank" rel="noopener noreferrer">
                     Aviso de Privacidad
                   </a>.
                 </span>

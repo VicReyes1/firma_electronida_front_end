@@ -3,9 +3,12 @@ import Heder from '../heder';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import '../../css/Solicitud_Concluida.css';
+import { useParams } from 'react-router-dom';
 
 
 function Solicitud_Concluida() {
+
+    const { id } = useParams();
 
     const [data, setData] = useState({
         registro_id: '',
@@ -54,7 +57,7 @@ function Solicitud_Concluida() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/admin/getDatos/1');
+            const response = await axios.get('http://localhost:3001/admin/getDatos/${id}');
             const registro = response.data;
             setData({
                 registro_id: registro.id,
@@ -79,7 +82,7 @@ function Solicitud_Concluida() {
     };
     const descargaIne = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaIne/${1}`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaIne/${id}`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -96,7 +99,7 @@ function Solicitud_Concluida() {
 
     const descargaDomicilio = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaDomicilio/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaDomicilio/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -113,7 +116,7 @@ function Solicitud_Concluida() {
 
     const descargaAval = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaServidor/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaServidor/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -130,7 +133,7 @@ function Solicitud_Concluida() {
 
     const descargaCurp = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaCurp/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaCurp/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -147,7 +150,7 @@ function Solicitud_Concluida() {
 
     const descargaRFC = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaRFC/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaRFC/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -164,7 +167,7 @@ function Solicitud_Concluida() {
 
     const descargaResponsiva = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -181,7 +184,7 @@ function Solicitud_Concluida() {
 
     const handleDownloadReq = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargarReq/${1}`, { responseType: 'blob' });
+            const response = await axios.get(`http://localhost:3001/admin/descargarReq/${id}`, { responseType: 'blob' });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -195,7 +198,7 @@ function Solicitud_Concluida() {
 
       const descargaCertificado = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -211,7 +214,7 @@ function Solicitud_Concluida() {
     };
     const descargaManual = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));

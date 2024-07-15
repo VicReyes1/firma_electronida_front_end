@@ -111,6 +111,9 @@ function Tabla_Solicitudes_Usuario() {
     if (status === 2) {
       window.location.href = `/continuar_solicitud1/${id}`;
     }
+    if (status === 3) {
+      window.location.href = `/continuar_solicitud2/${id}`;
+    }
   };
 
   const renderButton = (id, estatusTramite) => {
@@ -151,7 +154,7 @@ function Tabla_Solicitudes_Usuario() {
             <th>Fecha Envio</th>
             <th>Visualización</th>
             <th>Actualizar</th>
-            <th>Eliminar</th>
+
           </tr>
         </thead>
         <tbody>
@@ -166,11 +169,7 @@ function Tabla_Solicitudes_Usuario() {
               <td>
                 <Button className='boton-tabla' variant="primary" onClick={() => handleShowModal(item.id)}>Actualizar</Button>
               </td>
-              <td>
-                <a href="/preregistro-presencial">
-                  <Button className='boton-tabla' variant="primary">Eliminar</Button>
-                </a>
-              </td>
+
             </tr>
           ))}
         </tbody>

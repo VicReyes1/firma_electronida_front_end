@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Heder from '../heder';
 import '../../css/Aprobacion_Req.css';
+import { Link, useParams } from 'react-router-dom'; 
 
 function Aprobacion_Carta() {
   const [isCartaAprobacion, setIsCartaAprobacion] = useState(false);
@@ -10,26 +11,23 @@ function Aprobacion_Carta() {
   const [archivo, setArchivo] = useState('');
   const [comentarios, setComentarios] = useState('');
   const [pdfBlob, setPdfBlob] = useState(null);
+  const { id } = useParams();
 
 
    // Función para cargar el PDF correspondiente desde la API
-   const cargarPDF = (archivoSeleccionado) => {
+   const cargarPDF = () => {
     // Aquí realizas la petición a tu API para obtener el PDF
     // Reemplaza 'URL_DE_TU_API' por la URL correspondiente a tu API
-    fetch(`URL_DE_TU_API?archivo=${archivoSeleccionado}`)
-      .then(response => response.blob())
-      .then(blob => {
-        // Establece el Blob del PDF en el estado
-        setPdfBlob(blob);
-      })
-      .catch(error => console.error('Error al obtener el PDF:', error));
+    fetch(`http://localhost:3001/admin/returnFile/${id}/carta_responsiva`)
+        .then(response => response.blob())
+        .then(blob => {
+          setPdfBlob(URL.createObjectURL(blob));
+        }).catch(error => console.error('Error al cargar el archivo:', error));
   };
 
   // Cargar el PDF inicialmente según la opción seleccionada
   useEffect(() => {
-    if (archivo) {
-      cargarPDF(archivo);
-    }
+    cargarPDF();
   }, [archivo]);
 
   // Función para manejar el cambio de opción en el select
@@ -78,7 +76,7 @@ function Aprobacion_Carta() {
           Aprobación Carta Responsiva
           </div>
           <div className='text_2'>
-          Verifique que el archivo .req contenga los datos correctos, apegados a los campos de los documentos recibidos.<br></br>
+          Verifique que la carta responsiva se encuentre firmada<br></br>
           Si el archivo es correcto, seleccione el campo de aprobar y se dará por terminado el proceso.
           </div>
         </div>
@@ -88,18 +86,18 @@ function Aprobacion_Carta() {
         
         <div className="content22">
            
-          <select className='select2' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>
+          {/*<select className='select2' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>
             <option value="">INE</option>
             <option value="">Comprobante de domicilio</option>
             <option value="">CURP</option>
             <option value="">RFC</option>
             <option value="">Aval como Servidor Público o Notario Público</option>
-          </select>
+          </select>*/}
 
 
           <div className='pdf_contenedor22'>
             {/* Mostrar el PDF si hay un Blob */}
-            {pdfBlob && <embed src={URL.createObjectURL(pdfBlob)} type="application/pdf" width="100%" height="600px" />}
+            {pdfBlob && <embed src={pdfBlob} type="application/pdf" width="100%" height="600px" />}
           </div>
 
           <div className="inputs" style= {{marginBottom: '2%'}}>
