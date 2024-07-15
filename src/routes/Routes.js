@@ -22,6 +22,8 @@ import PDFViewer from '../pages/ADMIN/prueba';
 import Aprobacion_Carta from '../pages/ADMIN/Aprobacion_carta_Responsiva';
 import PreregistroPresencial from '../pages/Usuario/PreregistroPresencial';
 import Continuar_solicitud_Presencial from '../pages/Usuario/Continuar_Solicitud_Presencial';
+import PreregistroActualizacion from '../pages/Usuario/PreregistroActualizacion';
+import Solicitud_ConcluidaUsuario from '../pages/ADMIN/Solicitud_Concluida';
 
 
 
@@ -39,11 +41,13 @@ function Rutas() {
         <Route path='/' element={<Landing_Page />} />
         <Route path='/mi_solicitud' element={<Mi_Solicitud />} />
         <Route path='/preregistro' element={<Preregistro />} />
+        <Route path='/preregistro22' element={<PreregistroActualizacion />} />
         <Route path='/continuar_solicitud_presencial' element={<Continuar_solicitud_Presencial />} />
         <Route path='/preregistro-presencial' element={<PreregistroPresencial />} />
         <Route path='/continuar_solicitud2/:id' element={<Continuar_solicitud2 />} />
         <Route path='/continuar_solicitud1/:id' element={<Continuar_solicitud1 />} />
         <Route path='/continuar_solicitud3/:id' element={<Continuar_solicitud3 />} />
+        <Route path='/solicitud-concluida-usuario' element={<Solicitud_ConcluidaUsuario />} />
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos/:id' element={<Verificar_Datos/>} /> {/* ?? */}
         <Route path='/admin&Aprobacion_Carta/:id' element={<Aprobacion_Carta/>} />{/* ?? */}

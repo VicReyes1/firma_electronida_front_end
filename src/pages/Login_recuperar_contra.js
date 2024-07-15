@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; 
 import Heder from './heder';
 import '../css/Login.css';
+import axios from 'axios';
 import Swal from 'sweetalert2'
 
 const Login_recuperar_contra = () => {
@@ -10,14 +11,33 @@ const Login_recuperar_contra = () => {
   const [email, setEmail] = useState('');
   const [rfc, setRFC] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Aquí puedes agregar la lógica para enviar los datos del formulario al servidor
-    Swal.fire({
-      title: "Correo Enviado",
-      text: "Revisa tu bandeja de entrada para recuperar tu cuenta.",
-      icon: "success"
-    });
+    const url = `http://localhost:3001/auth/login&RecuperarContraseña`;
+    const data = {
+      correo: email,
+      rfc: rfc
+    };
+
+    try {
+      const response = await axios.post(url, data);
+      console.log(response);
+  
+      if (response.status === 200) {
+        localStorage.setItem('token', response.data.token);
+        console.log(response.data.token)
+        window.location.href = '/login';
+      }
+      
+    } catch (error) {
+      Swal.fire({
+        title: "Error al restablecer contraseña",
+        text: "No se tienen registro de sus datos verifique por favor.",
+        icon: "error",
+        allowOutsideClick: false
+    })
+    }
     console.log('Email:', email);
     console.log('RFC:', rfc);
   };

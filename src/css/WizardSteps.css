@@ -1,0 +1,39 @@
+/* WizardSteps.css */
+
+.wizard-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 4%;
+    
+  }
+  
+  .wizard-steps li {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+  
+  
+  
+ 
+  
+  .wizard-steps li h5 {
+    margin: 0;
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .wizard-steps li span {
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+  }
+  
+  
