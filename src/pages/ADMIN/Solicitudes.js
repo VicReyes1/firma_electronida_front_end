@@ -63,7 +63,7 @@ function Admin_Solicitudes() {
               </div>
             </div>
 
-            <Tabla_Solicitudes_Admin />
+            <Tabla_Solicitudes_Admin tab={activeTab}/>
           </div>
 
           <div className={`tab-pane ${activeTab === 'solicitudesNuevas' ? 'active' : ''}`}>
@@ -76,7 +76,7 @@ function Admin_Solicitudes() {
               </div>
             </div>
 
-            <Tabla_Solicitudes_Nuevas_Admin />
+            <Tabla_Solicitudes_Admin tab={activeTab}/>
           </div>
 
           <div className={`tab-pane ${activeTab === 'solicitudesConcluidas' ? 'active' : ''}`}>
@@ -87,7 +87,7 @@ function Admin_Solicitudes() {
                 </div>
               </div>
             </div>
-            <Tabla_Solicitudes_concluidas_Admin/>
+            <Tabla_Solicitudes_Admin tab={activeTab}/>
           </div>
 
           <div className={`tab-pane ${activeTab === 'solicitudesSuspendidas' ? 'active' : ''}`}>

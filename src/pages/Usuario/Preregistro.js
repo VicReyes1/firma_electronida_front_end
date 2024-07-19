@@ -409,8 +409,10 @@ function Preregistro() {
     // Función para verificar si todas las casillas de verificación están marcadas
     const todasSeleccionadas = () => {
       // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
-      return (isNuevo || isRenovacion || causa_de_solicitud ) && (isServer || isNotary || ArchivoCredencialNotario) && video && ArchivoINE && ArchivoComprobanteDomicilio && ArchivoCURP && ArchivoRFC && ArchivoAval && tipoEntidad && entidad  && direccion && municipio_direccion && estado && cp && puesto && area && telefono && correo && confirma_correo && contrasena && confirma_contrasena  && isResponsavilidadUso && isPoliticas && isRevocacion/* Agregar el resto de tus variables de estado */;
-    };
+      console.log(ArchivoComprobanteDomicilio)
+      return video != null && ArchivoINE != null && ArchivoComprobanteDomicilio != null && ArchivoCURP != null && ArchivoRFC != null && ArchivoAval != null && tipoEntidad != null && entidad != null  && direccion != null && municipio_direccion != null && estado != null && cp != null && puesto != null && area != null && telefono != null && correo != null && confirma_correo != null && contrasena != null && confirma_contrasena != null  && isResponsavilidadUso != null && isPoliticas != null && isRevocacion != null/* Agregar el resto de tus variables de estado */;
+    
+  };
   
 
   const handleVideoChange = (event) => {

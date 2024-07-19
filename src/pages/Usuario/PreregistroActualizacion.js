@@ -602,7 +602,6 @@ function PreregistroActualizacion() {
           accept="video/*"
           onChange={handleVideoChange}
           className="custom-file-input"
-          accept="video/mp4"// Solo permite archivos PDF
         />
       </label>
       {video && (

@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Heder from '../heder';
 import '../../css/Aprobacion_Req.css';
 import { Link, useParams } from 'react-router-dom'; 
+import Swal from 'sweetalert2';
 
 function Aprobacion_Carta() {
   const [isCartaAprobacion, setIsCartaAprobacion] = useState(false);
@@ -35,10 +36,6 @@ function Aprobacion_Carta() {
     setArchivo(e.target.value);
   };
 
-
-
-
-
    // Función para verificar si todas las casillas de verificación están marcadas
    const todasSeleccionadas = () => {
     // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
@@ -61,10 +58,53 @@ function Aprobacion_Carta() {
     setShowModal2(false);
   };
 
-  const handleSubmit = (e) => {
+  const  handleSubmit = async (e) => {
     e.preventDefault();
+    const url = `http://localhost:3001/admin/apruebaCarta/${id}`;
+
+    const body = JSON.stringify({
+        aceptado: true,
+        comentarios: comentarios
+    });
+    try {
+      const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: body
+      });
+
+      if (!response.ok) {
+          const errorData = await response.json();
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un error.',
+        });
+          console.error('Error en la solicitud:', errorData);
+      } else {
+          const data = await response.json();
+          Swal.fire({
+            icon: 'success',
+            title: 'Éxito',
+            text: data.message,
+        }).then(() => {
+            window.location.href = '/admin&solicitudes';
+        });
+          console.log('Solicitud exitosa:', data);
+      }
+  } catch (error) {
+      console.error('Error al aprobar la carta:', error);
+  }
+
     // Aquí puedes enviar el formulario
     console.log('Formulario enviado');
+  };
+  const handleNoSubmit = (e) => {
+    e.preventDefault();
+    
+    console.log('Formulario no enviado');
   };
 
   return (
@@ -147,7 +187,7 @@ function Aprobacion_Carta() {
 
   <Modal.Footer>
     <Button className="boton_modal" variant="secondary" onClick={handleCloseModal}>Atras</Button>
-    <Button  className="boton_modal" variant="primary" onClick={handleSubmit}>Enviar</Button>
+    <Button  className="boton_modal" variant="primary" onClick={handleNoSubmit}>Enviar</Button>
   </Modal.Footer>
 </Modal>
     </div>

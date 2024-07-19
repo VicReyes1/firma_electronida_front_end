@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 const Estadisticas = () => {
+  const [data, setData] = useState({ nuevo: 0, enCurso: 0, concluida: 0, suspendida: 0 });
+
   const columnOptions = {
     chart: {
       type: 'column'
@@ -20,7 +22,7 @@ const Estadisticas = () => {
     },
     series: [{
       name: 'Solicitudes',
-      data: [10, 15, 20, 5] // Datos ficticios
+      data: [data.nuevo, data.enCurso, data.concluidas, data.suspendidas]
     }]
   };
 
@@ -41,7 +43,7 @@ const Estadisticas = () => {
     },
     series: [{
       name: 'Solicitudes',
-      data: [10, 15, 20, 5] // Datos ficticios
+      data: [data.nuevo, data.enCurso, data.concluidas, data.suspendidas]
     }]
   };
 
@@ -56,13 +58,29 @@ const Estadisticas = () => {
       name: 'Solicitudes',
       colorByPoint: true,
       data: [
-        { name: 'Nueva', y: 10 },
-        { name: 'En Progreso', y: 15 },
-        { name: 'Concluida', y: 20 },
-        { name: 'Suspendida', y: 5 }
-      ] // Datos ficticios
+        { name: 'Nueva', y: data.nuevo },
+        { name: 'En Progreso', y: data.enCurso },
+        { name: 'Concluida', y: data.concluidas },
+        { name: 'Suspendida', y: data.suspendidas }
+      ]
     }]
   };
+
+  useEffect(() => {
+    fetch('http://localhost:3001/admin/estadisticas')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setData(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
   return (
     <div>

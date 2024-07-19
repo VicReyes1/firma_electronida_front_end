@@ -119,11 +119,24 @@ function Tabla_Solicitudes_Usuario() {
   const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de ${totalItems} registros`;
 
   const handleRedirection = (id, status) => {
-    if (status === 2) {
-      window.location.href = `/continuar_solicitud1/${id}`;
-    }
-    if (status === 3) {
-      window.location.href = `/continuar_solicitud2/${id}`;
+    
+    switch (status) {
+      case 2:
+        window.location.href = `/continuar_solicitud1/${id}`;
+        break;
+      
+      case 3:
+        window.location.href = `/continuar_solicitud2/${id}`;
+        break;
+      
+      /*case 4:
+        window.location.href = `/continuar_solicitud3/${id}`;*/
+
+      case 5:
+        window.location.href = `/solicitud-concluida-usuario/${id}`;
+  
+      default:
+        break;
     }
   };
 
@@ -136,7 +149,7 @@ function Tabla_Solicitudes_Usuario() {
           Sin acciones
         </button>
       );
-    } else if (estatusTramite === 2) {
+    } else{
       return (
         <button
           className='boton2'

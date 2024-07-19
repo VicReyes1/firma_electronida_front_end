@@ -47,7 +47,7 @@ function Rutas() {
         <Route path='/continuar_solicitud2/:id' element={<Continuar_solicitud2 />} />
         <Route path='/continuar_solicitud1/:id' element={<Continuar_solicitud1 />} />
         <Route path='/continuar_solicitud3/:id' element={<Continuar_solicitud3 />} />
-        <Route path='/solicitud-concluida-usuario' element={<Solicitud_ConcluidaUsuario />} />
+        <Route path='/solicitud-concluida-usuario/:id' element={<Solicitud_ConcluidaUsuario />} />
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos/:id' element={<Verificar_Datos/>} /> {/* ?? */}
         <Route path='/admin&Aprobacion_Carta/:id' element={<Aprobacion_Carta/>} />{/* ?? */}

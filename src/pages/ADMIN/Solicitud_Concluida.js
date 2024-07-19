@@ -30,11 +30,11 @@ function Solicitud_ConcluidaUsuario() {
     });
 
       useEffect(() => {
-        // Simulando la obtención del blob de un archivo PDF
+        // Simulando la obtención del blob de un archivo PDF 
         const fetchidentificacionBlob = async () => {
             try {
                 // Simulando la obtención del blob de un archivo PDF
-                const identificacionBlob = await fetch('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf').then(response => response.blob());
+                const identificacionBlob = await fetch(`http://localhost:3001/admin/returnFile/${id}/solicitudRequerimiento`).then(response => response.blob());
                 setData(prevData => ({
                     ...prevData,
                     identificacionBlob: identificacionBlob // Almacenamos el blob en el estado
@@ -58,7 +58,7 @@ function Solicitud_ConcluidaUsuario() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/admin/getDatos/${id}');
+            const response = await axios.get(`http://localhost:3001/admin/getDatos/${id}`);
             const registro = response.data;
             setData({
                 registro_id: registro.id,
