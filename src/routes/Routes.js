@@ -44,15 +44,15 @@ function Rutas() {
         <Route path='/preregistro22' element={<PreregistroActualizacion />} />
         <Route path='/continuar_solicitud_presencial' element={<Continuar_solicitud_Presencial />} />
         <Route path='/preregistro-presencial' element={<PreregistroPresencial />} />
-        <Route path='/continuar_solicitud2' element={<Continuar_solicitud2 />} />
+        <Route path='/continuar_solicitud2/:id' element={<Continuar_solicitud2 />} />
         <Route path='/continuar_solicitud1/:id' element={<Continuar_solicitud1 />} />
-        <Route path='/continuar_solicitud3' element={<Continuar_solicitud3 />} />
-        <Route path='/solicitud-concluida-usuario' element={<Solicitud_ConcluidaUsuario />} />
+        <Route path='/continuar_solicitud3/:id' element={<Continuar_solicitud3 />} />
+        <Route path='/solicitud-concluida-usuario/:id' element={<Solicitud_ConcluidaUsuario />} />
         <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
         <Route path='/admin&verificar_datos/:id' element={<Verificar_Datos/>} /> {/* ?? */}
-        <Route path='/admin&Aprobacion_Carta' element={<Aprobacion_Carta/>} />{/* ?? */}
+        <Route path='/admin&Aprobacion_Carta/:id' element={<Aprobacion_Carta/>} />{/* ?? */}
         <Route path='/admin&Aprobacion_Req/:id' element={<Aprobacion_Req/>} />{/* Falta ver pdf*/}
-        <Route path='/admin&Solicitud_Concluida' element={<Solicitud_Concluida/>} />{/* Falta solicitud */}
+        <Route path='/admin&Solicitud_Concluida/:id' element={<Solicitud_Concluida/>} />{/* Falta solicitud */}
         <Route path='/PDF' element={<PDFGenerator/>} />
         <Route path='/PDF2' element={<PDFCarta/>} />
         <Route path='/PDF3' element={<PDFViewer/>} />

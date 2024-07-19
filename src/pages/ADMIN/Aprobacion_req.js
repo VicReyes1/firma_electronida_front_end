@@ -21,7 +21,7 @@ function Aprobacion_Req() {
   const [isCertificado_Personal, setIsCertificado_Personal] = useState(false);
   const [isArchivo_p12, setIsArchivo_p12] = useState(false);
   const [isArchivo_key, setIsArchivo_key] = useState(false);
-  const [preregistroId, setPreregistroId] = useState('1');
+  const [preregistroId, setPreregistroId] = useState(id);
 
 
    // Función para cargar el PDF correspondiente desde la API
@@ -130,14 +130,6 @@ const handleDownloadReq = async () => {
         <Button className="boton-req" variant="primary" onClick={handleDownloadReq}>Descargar .req</Button>         
         </div>
 
-        <select className='select23' style={{ marginRight: '2%' }} value={archivo} onChange={handleChangeSelect}>
-            <option value="">INE</option>
-            <option value="">Comprobante de domicilio</option>
-            <option value="">CURP</option>
-            <option value="">RFC</option>
-            <option value="">Aval como Servidor Público o Notario Público</option>
-          </select>
-
           <div className='pdf_contenedor22'>
             {/* Mostrar el PDF si hay un Blob */}
             {pdfBlob && <embed src={URL.createObjectURL(pdfBlob)} type="application/pdf" width="100%" height="120%" />}
@@ -196,10 +188,6 @@ const handleDownloadReq = async () => {
                   <span className="checkbox-text" >Archivo *.KEY</span>
               </label>    
           </div>
-       
-    
-
-       
 
         <Button className="boton_envio2" onClick={todasSeleccionadas() ? handleShowModal1 : handleShowModal2}>
           Siguiente

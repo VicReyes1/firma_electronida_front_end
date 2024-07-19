@@ -3,10 +3,13 @@ import Heder from '../heder';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import '../../css/Solicitud_Concluida.css';
+import { useParams } from 'react-router-dom';
 import WizardStepsCompleted from '../Componentes/WizardSteps-Concluido';
 
 
 function Solicitud_ConcluidaUsuario() {
+
+    const { id } = useParams();
 
     const [data, setData] = useState({
         registro_id: '',
@@ -27,11 +30,11 @@ function Solicitud_ConcluidaUsuario() {
     });
 
       useEffect(() => {
-        // Simulando la obtención del blob de un archivo PDF
+        // Simulando la obtención del blob de un archivo PDF 
         const fetchidentificacionBlob = async () => {
             try {
                 // Simulando la obtención del blob de un archivo PDF
-                const identificacionBlob = await fetch('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf').then(response => response.blob());
+                const identificacionBlob = await fetch(`http://localhost:3001/admin/returnFile/${id}/solicitudRequerimiento`).then(response => response.blob());
                 setData(prevData => ({
                     ...prevData,
                     identificacionBlob: identificacionBlob // Almacenamos el blob en el estado
@@ -55,7 +58,7 @@ function Solicitud_ConcluidaUsuario() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/admin/getDatos/1');
+            const response = await axios.get(`http://localhost:3001/admin/getDatos/${id}`);
             const registro = response.data;
             setData({
                 registro_id: registro.id,
@@ -80,7 +83,7 @@ function Solicitud_ConcluidaUsuario() {
     };
     const descargaIne = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaIne/${1}`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaIne/${id}`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -97,7 +100,7 @@ function Solicitud_ConcluidaUsuario() {
 
     const descargaDomicilio = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaDomicilio/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaDomicilio/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -114,7 +117,7 @@ function Solicitud_ConcluidaUsuario() {
 
     const descargaAval = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaServidor/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaServidor/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -131,7 +134,7 @@ function Solicitud_ConcluidaUsuario() {
 
     const descargaCurp = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaCurp/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaCurp/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -148,7 +151,7 @@ function Solicitud_ConcluidaUsuario() {
 
     const descargaRFC = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaRFC/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaRFC/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -165,7 +168,7 @@ function Solicitud_ConcluidaUsuario() {
 
     const descargaResponsiva = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -182,7 +185,7 @@ function Solicitud_ConcluidaUsuario() {
 
     const handleDownloadReq = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargarReq/${1}`, { responseType: 'blob' });
+            const response = await axios.get(`http://localhost:3001/admin/descargarReq/${id}`, { responseType: 'blob' });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -196,7 +199,7 @@ function Solicitud_ConcluidaUsuario() {
 
       const descargaCertificado = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -212,7 +215,7 @@ function Solicitud_ConcluidaUsuario() {
     };
     const descargaManual = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${1}/`, {
+            const response = await axios.get(`http://localhost:3001/admin/descargaResponsiva/${id}/`, {
                 responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));

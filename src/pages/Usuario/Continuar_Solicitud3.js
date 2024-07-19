@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import '../../css/Continuar_soli.css';
 
@@ -9,7 +9,8 @@ import axios from 'axios';
 
 function Continuar_solicitud3() {
     const [file1, setFile1] = useState(null);
-    const [preregistroId, setPreregistroId] = useState('1'); // Asegúrate de tener el ID del preregistro
+    const { id } = useParams();
+    const [preregistroId, setPreregistroId] = useState(id); // Asegúrate de tener el ID del preregistro
 
     const handleFile1Change = (e) => {
         setFile1(e.target.files[0]);

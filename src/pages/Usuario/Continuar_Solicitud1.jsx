@@ -12,7 +12,6 @@ function Continuar_solicitud1() {
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
     const { id } = useParams();
-
     const handleFile1Change = (e) => {
         setFile1(e.target.files[0]);
     };
