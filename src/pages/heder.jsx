@@ -10,7 +10,7 @@ function heder() {
           <img src={Logo} alt="Logo2" className="Logo2" />
         </div>
         <div className='titulo_header'>
-          Firma Electrónica
+          Firma Electrónica Avanzada
         </div>
       </div>
     </div>

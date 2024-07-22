@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import '../../css/Preregistro.css'; // Verifica la ruta a tu archivo CSS
@@ -16,7 +17,8 @@ import WizardStepsInProgress from '../Componentes/WizardSteps-Progreso';
 
 
 function Preregistro() {
-
+  const { idUser } = useParams();
+  console.log(idUser)
   const [data, setData] = useState({
     ArchivoAval: "",
     ArchivoCURP: "",
@@ -409,7 +411,6 @@ function Preregistro() {
     // Función para verificar si todas las casillas de verificación están marcadas
     const todasSeleccionadas = () => {
       // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
-      console.log(ArchivoComprobanteDomicilio)
       return video != null && ArchivoINE != null && ArchivoComprobanteDomicilio != null && ArchivoCURP != null && ArchivoRFC != null && ArchivoAval != null && tipoEntidad != null && entidad != null  && direccion != null && municipio_direccion != null && estado != null && cp != null && puesto != null && area != null && telefono != null && correo != null && confirma_correo != null && contrasena != null && confirma_contrasena != null  && isResponsavilidadUso != null && isPoliticas != null && isRevocacion != null/* Agregar el resto de tus variables de estado */;
     
   };
@@ -567,8 +568,15 @@ function Preregistro() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let endpoint;
 
-    axios.post('http://localhost:3001/usuario/preregistro', Formulario)
+  if (idUser != null) {
+    endpoint = `http://localhost:3001/usuario/preregistro/${idUser}`;
+  } else {
+    endpoint = `http://localhost:3001/usuario/preregistro`;
+  }
+
+    axios.post(endpoint, Formulario)
     .then(response => {
         // Verificar si la respuesta es exitosa
         if (response.status === 201) {
@@ -665,7 +673,7 @@ function Preregistro() {
         </div>
 
         <div className='text_formulario is-required' style={{ fontWeight:'bold' }}>
-          Video con fondo blanco donde el solicitante establece nombre, posición y dependencia.
+        Video con fondo blanco donde el solicitante establece nombre, cargo, área de adscripción y dependencia.
         </div>
 
         
@@ -698,7 +706,7 @@ function Preregistro() {
         </div>
 
         <div className='text_pdf is-required'>
-        <span style={{ fontWeight: 'bold' }}>Indentificación Oficial con Fotografía</span>
+        <span style={{ fontWeight: 'bold' }}>Indentificación Oficial con Fotografía Vigente</span>
         (INE, Pasaporte, Cédula Profesional)
         </div>
         

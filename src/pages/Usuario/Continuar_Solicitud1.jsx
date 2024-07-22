@@ -80,7 +80,7 @@ function Continuar_solicitud1() {
                     </div>
                 </div>
                 <div className='textito'>
-                    Suba las copias firmadas de los siguientes documentos. 
+                Carga el siguiente documento digital. 
                 </div>
                 <div className='textito2'>
                     En caso de no proporcionar los documentos su solicitud se eliminará después de 7 días. 

@@ -41,6 +41,7 @@ function Rutas() {
         <Route path='/' element={<Landing_Page />} />
         <Route path='/mi_solicitud' element={<Mi_Solicitud />} />
         <Route path='/preregistro' element={<Preregistro />} />
+        <Route path='/preregistro/:idUser' element={<Preregistro />} />
         <Route path='/preregistro22' element={<PreregistroActualizacion />} />
         <Route path='/continuar_solicitud_presencial' element={<Continuar_solicitud_Presencial />} />
         <Route path='/preregistro-presencial' element={<PreregistroPresencial />} />

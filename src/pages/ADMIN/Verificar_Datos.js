@@ -398,7 +398,7 @@ function Verificar_Datos() {
             Verifique Datos
           </div>
           <div className='text_2'>
-            Seleccione los campos que sean correctos. Si es aprobado, se enviarán la carta de solicitud y recursos necesarios para generar el .req al usuario.
+          Seleccione los campos que sean correctos. Si es aprobado, se enviará la solicitud de requerimiento y recursos necesarios para generar el .req al usuario.
           </div>
         </div>
       </div>
