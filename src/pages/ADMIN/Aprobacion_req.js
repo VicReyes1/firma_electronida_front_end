@@ -50,7 +50,7 @@ function Aprobacion_Req() {
   // Función para verificar si todas las casillas de verificación están marcadas
   const todasSeleccionadas = () => {
     // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
-    return isReq && isCertificado_Autoridad && isCertificado_Personal && isArchivo_p12 && Vigencia_Inicio && Vigencia_Fin && NSCertificado/* Agregar el resto de tus variables de estado */;
+    return isReq /* Agregar el resto de tus variables de estado */;
   };    
 
   const [showModal1, setShowModal1] = useState(false);
