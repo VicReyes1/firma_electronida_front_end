@@ -41,7 +41,10 @@ function Continuar_solicitud2() {
                 title: "Proceso Concluido",
                 text: "Su solicitud será guardada en este sitio.",
                 icon: "success"
-            });
+            }).then(() => {
+                // Redireccionar después de cerrar el SweetAlert
+                window.location.href = '/admin&solicitudes'; // Reemplaza '/nueva-ruta' con la ruta deseada
+              })
             console.log('Formulario enviado', response.data);
         } catch (error) {
             Swal.fire({
@@ -64,10 +67,10 @@ function Continuar_solicitud2() {
                     </div>
                 </div>
                 <div className='textito'>
-                    Suba las copias firmadas de los siguientes documentos.
+                Carga el siguiente documento digital.
                 </div>
                 <div className='textito2'>
-                    En caso de no proporcionar los documentos su solicitud se eliminará después de 7 días.
+                    En caso de no proporcionar los documentos su solicitud se eliminará después de 3 días.
                 </div>
                 <div className='text_formulario'>
                     <span style={{ fontWeight: 'bold' }}>Carta Responsiva</span>

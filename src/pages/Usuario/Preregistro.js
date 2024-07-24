@@ -925,7 +925,7 @@ function Preregistro() {
         {/* Agrega las opciones que necesites */}
       </select>
 
-      <input type="text" value={entidad} onChange={(e) => setEntidad(e.target.value)} placeholder="Escriba el nombre de su entidad" />
+      <input type="text" value={secretaria} onChange={(e) => setSecretaria(e.target.value)} placeholder="Escriba el nombre de su entidad" />
         </div>
 
         
