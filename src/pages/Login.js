@@ -9,10 +9,11 @@ import Swal from 'sweetalert2'
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  //const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    //const url = `${apiUrl}/auth/login`;
     const url = `http://localhost:3001/auth/login`;
     const data = {
       correo: email,
@@ -24,9 +25,21 @@ const Login = () => {
       console.log(response);
   
       if (response.status === 200) {
+        const expirationTime = Date.now() + 3600000;
         localStorage.setItem('token', response.data.token);
-        console.log(response.data.token)
-        window.location.href = '/mi_solicitud';
+        localStorage.setItem('tokenExpiration', expirationTime);
+
+        setTimeout(() => {
+          localStorage.removeItem('token');
+          localStorage.removeItem('tokenExpiration');
+        }, 3600000);
+
+        if(response.data.admin === true){
+          window.location.href = '/admin&solicitudes'
+        }
+        else{
+          window.location.href = '/mi_solicitud'
+        }
       }
       
     } catch (error) {

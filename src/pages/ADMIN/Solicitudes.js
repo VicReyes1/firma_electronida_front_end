@@ -8,6 +8,7 @@ import Tabla_Solicitudes_Suspendidas_Admin from '../Componentes/Tabla_suspendida
 import Estadisticas from '../Componentes/Estadisticas';
 
 function Admin_Solicitudes() {
+  const token = localStorage.getItem('token');
   const [activeTab, setActiveTab] = useState('solicitudesEnCurso');
 
   const handleTabClick = (tab) => {

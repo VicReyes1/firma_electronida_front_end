@@ -363,30 +363,10 @@ function Solicitud_ConcluidaUsuario() {
         </div>
 
         <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>.Req</span> 
-        </div>
-        <div>
-           <button onClick={handleDownloadReq} className="boton-blob">Abrir archivo</button>
-        </div>
-
-        <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Carta Responsiva</span> 
         </div>
         <div>
            <button onClick={descargaResponsiva} className="boton-blob">Abrir archivo</button>
-        </div>
-
-        <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>.cer </span> 
-        </div>
-        <div>
-           <button onClick={descargaCertificado} className="boton-blob">Abrir archivo</button>
-        </div>
-        <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Manual de Usuario </span> 
-        </div>
-        <div>
-           <button onClick={descargaManual} className="boton-blob">Abrir archivo</button>
         </div>
 
         

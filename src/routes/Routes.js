@@ -26,7 +26,7 @@ import PreregistroActualizacion from '../pages/Usuario/PreregistroActualizacion'
 import Solicitud_ConcluidaUsuario from '../pages/ADMIN/Solicitud_Concluida';
 
 
-
+import PrivateRoute from './privateRoute';
 
 
 function Rutas() {
@@ -39,7 +39,15 @@ function Rutas() {
         <Route path='/login' element={<Login />} />
         <Route path='/login&RecuperarContraseña' element={<Login_recuperar_contra />} />
         <Route path='/' element={<Landing_Page />} />
-        <Route path='/mi_solicitud' element={<Mi_Solicitud />} />
+        
+        <Route
+          path="/mi_solicitud"
+          element={
+            <PrivateRoute>
+              <Mi_Solicitud />
+            </PrivateRoute>
+          }
+        />
         <Route path='/preregistro' element={<Preregistro />} />
         <Route path='/preregistro/:idUser' element={<Preregistro />} />
         <Route path='/preregistro22' element={<PreregistroActualizacion />} />

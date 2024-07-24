@@ -12,11 +12,16 @@ function Tabla_Solicitudes_Admin({ tab }) {
   const [itemsPerPage] = useState(5); // Change this number to adjust items per page
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
     // Define la URL de tu API
     const url = 'http://localhost:3001/admin/getAll'; // Reemplaza con la URL de tu API
 
     // Hacer la petición GET
-    fetch(url)
+    fetch(url, {
+      headers: {
+        'authorization': `${token}`, // Es buena práctica usar el esquema "Bearer"
+      }
+    })
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

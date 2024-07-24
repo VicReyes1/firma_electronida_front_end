@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Heder from '../heder';
 import axios from 'axios';
 import '../../css/Aprobacion_Req.css';
+import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 
 function Aprobacion_Req() {
@@ -87,9 +88,22 @@ function Aprobacion_Req() {
     try {
         const response = await axios.post('http://localhost:3001/admin/actualizarReq', data);
         console.log('Formulario enviado', response.data);
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Formulario enviado correctamente',
+      }).then(() => {
+          // Redirige a la página de solicitudes después de mostrar la alerta de éxito
+          window.location.href = '/admin&solicitudes';
+      });
         handleCloseModal();
     } catch (error) {
         console.error('Error al enviar el formulario', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un error al enviar el formulario. Por favor, intenta de nuevo.',
+      });
     }
 };
 
@@ -106,6 +120,49 @@ const handleDownloadReq = async () => {
       console.error('Error al descargar el archivo .req:', error);
   }
 };
+const handleNoSubmit = (e) => {
+  e.preventDefault();
+  
+  console.log('Formulario no enviado');
+  const json = {
+    comentario: comentarios,
+    id: id
+};
+
+fetch(`http://localhost:3001/admin/enviaComentario/${id}`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+    },
+    body: JSON.stringify(json)
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+})
+.then(data => {
+    Swal.fire({
+        title: "Formulario Enviado",
+        text: "Se han enviado las correcciones al usuario",
+        icon: "success"
+    });
+    console.log('Formulario enviado', data);
+}).then(() => {
+  // Redireccionar después de cerrar el SweetAlert
+  window.location.href = '/admin&solicitudes'; 
+})
+.catch(error => {
+    Swal.fire({
+        title: "Error",
+        text: "Hubo un problema al enviar el formulario",
+        icon: "error"
+    });
+    console.error('Error fetching data:', error);
+});
+};
 
   return (
     <div>
@@ -117,7 +174,7 @@ const handleDownloadReq = async () => {
           </div>
           <div className='text_2'>
           Verifique que el archivo .req contenga los datos correctos, apegados a los campos de los documentos recibidos.<br></br>
-          Si el archivo es correcto, seleccione el campo de aprobar y se enviarán carta responsiva y manuales.
+          Si el archivo es correcto, seleccione el campo de aprobar y se enviarán carta responsiva, manuales y llaves.
           </div>
         </div>
       </div>
@@ -225,7 +282,7 @@ const handleDownloadReq = async () => {
 
   <Modal.Footer>
     <Button className="boton_modal" variant="secondary" onClick={handleCloseModal}>Atras</Button>
-    <Button  className="boton_modal" variant="primary" onClick={handleSubmit}>Enviar</Button>
+    <Button  className="boton_modal" variant="primary" onClick={handleNoSubmit}>Enviar</Button>
   </Modal.Footer>
 </Modal>
     </div>

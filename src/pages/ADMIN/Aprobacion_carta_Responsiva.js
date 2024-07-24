@@ -105,6 +105,44 @@ function Aprobacion_Carta() {
     e.preventDefault();
     
     console.log('Formulario no enviado');
+    const json = {
+      comentario: comentarios,
+      id: id
+  };
+
+  fetch(`http://localhost:3001/admin/enviaComentario/${id}`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `${token}`
+      },
+      body: JSON.stringify(json)
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      return response.json();
+  })
+  .then(data => {
+      Swal.fire({
+          title: "Formulario Enviado",
+          text: "Se han enviado las correcciones al usuario",
+          icon: "success"
+      });
+      console.log('Formulario enviado', data);
+  }).then(() => {
+    // Redireccionar después de cerrar el SweetAlert
+    window.location.href = '/admin&solicitudes'; // Reemplaza '/nueva-ruta' con la ruta deseada
+  })
+  .catch(error => {
+      Swal.fire({
+          title: "Error",
+          text: "Hubo un problema al enviar el formulario",
+          icon: "error"
+      });
+      console.error('Error fetching data:', error);
+  });
   };
 
   return (
