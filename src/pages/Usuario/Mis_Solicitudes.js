@@ -7,11 +7,12 @@ import Tabla_Solicitudes_Usuario from '../Componentes/Tabla_Usuario';
 function Mi_Solicitud() {
   const [data, setData] = useState([]);
   const [userId, setUserId] = useState(null);
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:3001/usuario/obtenerSolicitudes', {
+      fetch(`${apiUrl}/usuario/obtenerSolicitudes`, {
         method: 'GET',
         headers: {
           'Authorization': `${token}`,

@@ -16,6 +16,8 @@ function Verificar_Datos() {
   const currentDate = new Date();
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = currentDate.toLocaleDateString('es-MX', options);
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
 
   const { id } = useParams();
@@ -283,7 +285,7 @@ function Verificar_Datos() {
     
 
     // Configurar la solicitud POST utilizando Axios
-    axios.post('http://localhost:3001/admin/enviarSolicitud', formData, {
+    axios.post(`${apiUrl}/admin/enviarSolicitud`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -306,7 +308,7 @@ function Verificar_Datos() {
 
   const cargarPDF = (archivoSeleccionado) => {
     
-    fetch(`http://localhost:3001/admin/returnFile/${id}/${archivoSeleccionado}`)
+    fetch(`${apiUrl}/admin/returnFile/${id}/${archivoSeleccionado}`)
         .then(response => response.blob())
         .then(blob => {
           setPdfBlob(URL.createObjectURL(blob));
@@ -316,7 +318,7 @@ function Verificar_Datos() {
 
   useEffect(() => {
     
-    fetch(`http://localhost:3001/admin/getData/${id}`)
+    fetch(`${apiUrl}/admin/getData/${id}`)
       .then(response => response.json())
       .then(data => {
         setData(data.registroExistente);
@@ -387,7 +389,7 @@ function Verificar_Datos() {
         id: id
     };
 
-    fetch(`http://localhost:3001/admin/enviaComentario/${id}`, {
+    fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -432,7 +434,7 @@ const handleNoSubmit = (e) => {
     id: id
 };
 
-fetch(`http://localhost:3001/admin/enviaComentario/${id}`, {
+fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

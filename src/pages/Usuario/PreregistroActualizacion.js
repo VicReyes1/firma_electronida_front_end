@@ -68,10 +68,11 @@ function PreregistroActualizacion() {
   const currentDate = new Date();
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = currentDate.toLocaleDateString('es-MX', options);
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const fetchData = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3001/usuario/getDataPDF/${id}`);
+      const response = await axios.get(`${apiUrl}/usuario/getDataPDF/${id}`);
       
       const responseData = response.data.data;
 
@@ -299,7 +300,7 @@ function PreregistroActualizacion() {
       
 
       // Configurar la solicitud POST utilizando Axios
-      axios.post('http://localhost:3001/usuario/enviarSolicitud', formData, {
+      axios.post('${apiUrl}/usuario/enviarSolicitud', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -487,7 +488,7 @@ function PreregistroActualizacion() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:3001/usuario/preregistro', Formulario)
+    axios.post('${apiUrl}/usuario/preregistro', Formulario)
     .then(response => {
         // Verificar si la respuesta es exitosa
         if (response.status === 201) {
@@ -532,7 +533,7 @@ function PreregistroActualizacion() {
       f.append("id",id)
 
       try {
-        const response = await axios.post('http://localhost:3001/upload', f,{
+        const response = await axios.post('${apiUrl}/upload', f,{
           headers: {
             'Content-Type': 'multipart/form-data'
           }

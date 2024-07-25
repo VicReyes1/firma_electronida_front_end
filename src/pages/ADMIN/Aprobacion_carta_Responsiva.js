@@ -13,13 +13,15 @@ function Aprobacion_Carta() {
   const [comentarios, setComentarios] = useState('');
   const [pdfBlob, setPdfBlob] = useState(null);
   const { id } = useParams();
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
 
    // Función para cargar el PDF correspondiente desde la API
    const cargarPDF = () => {
     // Aquí realizas la petición a tu API para obtener el PDF
     // Reemplaza 'URL_DE_TU_API' por la URL correspondiente a tu API
-    fetch(`http://localhost:3001/admin/returnFile/${id}/carta_responsiva`)
+    fetch(`${apiUrl}/admin/returnFile/${id}/carta_responsiva`)
         .then(response => response.blob())
         .then(blob => {
           setPdfBlob(URL.createObjectURL(blob));
@@ -60,7 +62,7 @@ function Aprobacion_Carta() {
 
   const  handleSubmit = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:3001/admin/apruebaCarta/${id}`;
+    const url = `${apiUrl}/admin/apruebaCarta/${id}`;
 
     const body = JSON.stringify({
         aceptado: true,
@@ -110,7 +112,7 @@ function Aprobacion_Carta() {
       id: id
   };
 
-  fetch(`http://localhost:3001/admin/enviaComentario/${id}`, {
+  fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',

@@ -10,6 +10,8 @@ import Estadisticas from '../Componentes/Estadisticas';
 function Admin_Solicitudes() {
   const token = localStorage.getItem('token');
   const [activeTab, setActiveTab] = useState('solicitudesEnCurso');
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);

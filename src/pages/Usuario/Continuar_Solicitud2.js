@@ -8,6 +8,8 @@ import axios from 'axios';
 import WizardStepsInProgress2 from '../Componentes/WizardSteps-Progreso2';
 
 function Continuar_solicitud2() {
+    const apiUrl = process.env.REACT_APP_API_URL;
+
     const { id } = useParams();
     const [file1, setFile1] = useState(null);
     const [preregistroId, setPreregistroId] = useState(id); // Asume que tienes el ID del preregistro
@@ -32,7 +34,7 @@ function Continuar_solicitud2() {
         formData.append('preregistroId', preregistroId); // Adjunta el ID del preregistro
 
         try {
-            const response = await axios.post('http://localhost:3001/usuario/subirCarta', formData, {
+            const response = await axios.post(`${apiUrl}/usuario/subirCarta`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
