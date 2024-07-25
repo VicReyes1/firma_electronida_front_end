@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //const url = `${apiUrl}/auth/login`;
-    const url = `http://localhost:3001/auth/login`;
+    const url = `http://http://10.16.17.133:3000/auth/login`;
     const data = {
       correo: email,
       password: password
