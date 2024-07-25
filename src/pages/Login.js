@@ -9,12 +9,12 @@ import Swal from 'sweetalert2'
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  //const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //const url = `${apiUrl}/auth/login`;
-    const url = `http://10.16.17.133:3001/auth/login`;
+    const url = `${apiUrl}/auth/login`;
+    //const url = `http://10.16.17.133:3001/auth/login`;
     const data = {
       correo: email,
       password: password

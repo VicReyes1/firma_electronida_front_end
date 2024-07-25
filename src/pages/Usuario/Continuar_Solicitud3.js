@@ -11,6 +11,8 @@ function Continuar_solicitud3() {
     const [file1, setFile1] = useState(null);
     const { id } = useParams();
     const [preregistroId, setPreregistroId] = useState(id); // Asegúrate de tener el ID del preregistro
+    const apiUrl = process.env.REACT_APP_API_URL;
+
 
     const handleFile1Change = (e) => {
         setFile1(e.target.files[0]);
@@ -32,7 +34,7 @@ function Continuar_solicitud3() {
         formData.append('preregistroId', preregistroId); // Adjunta el ID del preregistro
 
         try {
-            const response = await axios.post('http://localhost:3001/usuario/subirSuspencion', formData, {
+            const response = await axios.post(`${apiUrl}/usuario/subirSuspencion`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

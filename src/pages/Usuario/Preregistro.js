@@ -18,6 +18,7 @@ import WizardStepsInProgress from '../Componentes/WizardSteps-Progreso';
 
 function Preregistro() {
   const { idUser } = useParams();
+  const apiUrl = process.env.REACT_APP_API_URL;
   console.log(idUser)
   const [data, setData] = useState({
     ArchivoAval: "",
@@ -85,7 +86,7 @@ function Preregistro() {
 
   const fetchData = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3001/usuario/getDataPDF/${id}`);
+      const response = await axios.get(`${apiUrl}/usuario/getDataPDF/${id}`);
       
       const responseData = response.data.data;
 
@@ -313,7 +314,7 @@ function Preregistro() {
       
 
       // Configurar la solicitud POST utilizando Axios
-      axios.post('http://localhost:3001/usuario/enviarSolicitud', formData, {
+      axios.post('${apiUrl}/usuario/enviarSolicitud', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -443,7 +444,7 @@ function Preregistro() {
     formData.append('pdf', e.target.files[0]);
 
     try {
-      const response = await fetch('http://localhost:3001/extractDataFromPdf', {
+      const response = await fetch('${apiUrl}/extractDataFromPdf', {
         method: 'POST',
         body: formData,
       });
@@ -475,7 +476,7 @@ function Preregistro() {
     formData.append('pdf', e.target.files[0]);
 
     try {
-      const response = await fetch('http://localhost:3001/extractRFC', {
+      const response = await fetch('${apiUrl}/extractRFC', {
         method: 'POST',
         body: formData,
       });
@@ -571,9 +572,9 @@ function Preregistro() {
     let endpoint;
 
   if (idUser != null) {
-    endpoint = `http://localhost:3001/usuario/preregistro/${idUser}`;
+    endpoint = `${apiUrl}/usuario/preregistro/${idUser}`;
   } else {
-    endpoint = `http://localhost:3001/usuario/preregistro`;
+    endpoint = `${apiUrl}/usuario/preregistro`;
   }
 
     axios.post(endpoint, Formulario)
@@ -621,7 +622,7 @@ function Preregistro() {
       f.append("id",id)
 
       try {
-        const response = await axios.post('http://localhost:3001/upload', f,{
+        const response = await axios.post('${apiUrl}/upload', f,{
           headers: {
             'Content-Type': 'multipart/form-data'
           }

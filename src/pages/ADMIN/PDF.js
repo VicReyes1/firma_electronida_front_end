@@ -11,6 +11,8 @@ const PDFGenerator = () => {
   const currentDate = new Date();
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = currentDate.toLocaleDateString('es-MX', options);
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
   /*const [data, setData] = useState({
     municipio_direccion: 'Pachuca de Soto',
@@ -68,7 +70,7 @@ const PDFGenerator = () => {
 
   const fetchData = async (id) => {
     try {
-      const response = await axios.get('http://localhost:3001/usuario/getDataPDF/3');
+      const response = await axios.get(`${apiUrl}/usuario/getDataPDF/3`);
       
       const responseData = response.data.data;
 

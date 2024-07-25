@@ -15,6 +15,7 @@ function Continuar_solicitud1() {
     const handleFile1Change = (e) => {
         setFile1(e.target.files[0]);
     };
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     const handleFile2Change = (e) => {
         const file = e.target.files[0];
@@ -41,7 +42,7 @@ function Continuar_solicitud1() {
     
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://localhost:3001/usuario/subir-archivo-req', formData, {
+            const response = await axios.post(`${apiUrl}/usuario/subir-archivo-req`, formData, {
                 headers: {
                     'Authorization': `${token}`,
                     'Content-Type': 'multipart/form-data'
