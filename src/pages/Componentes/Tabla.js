@@ -10,13 +10,12 @@ function Tabla_Solicitudes_Admin({ tab }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5); // Change this number to adjust items per page
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   useEffect(() => {
     const token = localStorage.getItem('token');
     // Define la URL de tu API
     const url = `${apiUrl}/admin/getAll`; // Reemplaza con la URL de tu API
-    const apiUrl = process.env.REACT_APP_API_URL;
-
+    
     // Hacer la petición GET
     fetch(url, {
       headers: {
