@@ -14,7 +14,8 @@ function Tabla_Solicitudes_Admin({ tab }) {
   useEffect(() => {
     const token = localStorage.getItem('token');
     // Define la URL de tu API
-    const url = 'http://localhost:3001/admin/getAll'; // Reemplaza con la URL de tu API
+    const url = `${apiUrl}/admin/getAll`; // Reemplaza con la URL de tu API
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     // Hacer la petición GET
     fetch(url, {
