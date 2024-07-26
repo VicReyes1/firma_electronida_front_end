@@ -11,7 +11,7 @@ function Solicitud_ConcluidaUsuario() {
     const apiUrl = process.env.REACT_APP_API_URL;
 
     const { id } = useParams();
-    
+    const token = localStorage.getItem('token');
 
     const [data, setData] = useState({
         registro_id: '',
