@@ -14,7 +14,7 @@ function Aprobacion_Carta() {
   const [pdfBlob, setPdfBlob] = useState(null);
   const { id } = useParams();
   const apiUrl = process.env.REACT_APP_API_URL;
-
+  const token = localStorage.getItem('token');
 
 
    // Función para cargar el PDF correspondiente desde la API
