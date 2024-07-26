@@ -11,7 +11,7 @@ function Aprobacion_Req() {
 
   const { id } = useParams();
   const apiUrl = process.env.REACT_APP_API_URL;
-
+  const token = localStorage.getItem('token');
 
   const [isReq, setIsReq] = useState(false);
   const [archivo, setArchivo] = useState('');
