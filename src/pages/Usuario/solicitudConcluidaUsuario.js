@@ -68,7 +68,7 @@ function Solicitud_Concluida() {
                 municipio_direccion: registro.municipio_direccion,
                 cp: registro.cp,
                 puesto: registro.puesto,
-                entidad: registro.entidad,
+                entidad: registro.area,
                 telefono: registro.telefono,
                 extencion: registro.extencion,
                 identificacionBlob: null // Este campo se manejará después
