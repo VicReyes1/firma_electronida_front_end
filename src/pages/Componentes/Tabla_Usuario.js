@@ -12,11 +12,13 @@ function Tabla_Solicitudes_Usuario() {
   const [selectedId2, setSelectedId2] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [selectedId, setSelectedId] = useState('');
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:3001/usuario/obtenerSolicitudes', {
+      fetch(`${apiUrl}/usuario/obtenerSolicitudes`, {
         method: 'GET',
         headers: {
           'Authorization': `${token}`,
