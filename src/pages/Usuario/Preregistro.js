@@ -444,7 +444,7 @@ function Preregistro() {
     formData.append('pdf', e.target.files[0]);
 
     try {
-      const response = await fetch('${apiUrl}/extractDataFromPdf', {
+      const response = await fetch(`${apiUrl}/extractDataFromPdf`, {
         method: 'POST',
         body: formData,
       });
@@ -476,7 +476,7 @@ function Preregistro() {
     formData.append('pdf', e.target.files[0]);
 
     try {
-      const response = await fetch('${apiUrl}/extractRFC', {
+      const response = await fetch(`${apiUrl}/extractRFC`, {
         method: 'POST',
         body: formData,
       });
