@@ -622,7 +622,7 @@ function Preregistro() {
       f.append("id",id)
 
       try {
-        const response = await axios.post('${apiUrl}/upload', f,{
+        const response = await axios.post(`${apiUrl}/upload`, f,{
           headers: {
             'Content-Type': 'multipart/form-data'
           }
