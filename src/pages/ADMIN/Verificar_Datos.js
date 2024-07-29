@@ -152,7 +152,7 @@ function Verificar_Datos() {
     doc.setFont('Montserrat-Bold');
     doc.text('Área:', 20, 90);
     doc.setFont('Montserrat');
-    doc.text(data.entidad, entidadCoords.x, entidadCoords.y);
+    doc.text(data.area, entidadCoords.x, entidadCoords.y);
 
     doc.setFont('Montserrat-Bold');
     doc.text('Nombre Completo:', 20, 100);
@@ -185,7 +185,7 @@ function Verificar_Datos() {
     doc.text('Teléfono: ', 20, 140);
     doc.setFont('Montserrat');
     doc.setFontSize(10);
-    //doc.text(data.telefono, telefonoCoords.x, telefonoCoords.y);
+    doc.text(data.telefono, telefonoCoords.x, telefonoCoords.y);
 
     doc.setFont('Montserrat-Bold');
     doc.text('Extensión: ', 110, 140);
@@ -568,7 +568,7 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isA} onChange={() => setIsA(!isA)} />
                 <span className="checkbox-text2" >Área:&nbsp;</span>
-                {data.entidad}
+                {data.area}
             </label>    
         </div>
 

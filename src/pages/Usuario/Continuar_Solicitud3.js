@@ -42,6 +42,8 @@ function Continuar_solicitud3() {
             Swal.fire({
                 title: "Archivo Subido",
                 icon: "success"
+            }).then(() => {
+                window.location.href = "/";
             });
             console.log('Formulario enviado', response.data);
         } catch (error) {
