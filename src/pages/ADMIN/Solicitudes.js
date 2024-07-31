@@ -12,10 +12,10 @@ function Admin_Solicitudes() {
   const [activeTab, setActiveTab] = useState('solicitudesEnCurso');
   const apiUrl = process.env.REACT_APP_API_URL;
 
-
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
+
 
   return (
     <div>

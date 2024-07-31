@@ -27,7 +27,7 @@ import Solicitud_ConcluidaUsuario from '../pages/ADMIN/Solicitud_Concluida';
 
 
 import PrivateRoute from './privateRoute';
-
+import RoleProtectedRoute from './roleProtectedRoute'
 
 function Rutas() {
  
@@ -39,32 +39,33 @@ function Rutas() {
         <Route path='/login' element={<Login />} />
         <Route path='/login&RecuperarContraseña' element={<Login_recuperar_contra />} />
         <Route path='/' element={<Landing_Page />} />
-        
-        <Route
-          path="/mi_solicitud"
-          element={
-            <PrivateRoute>
-              <Mi_Solicitud />
-            </PrivateRoute>
-          }
-        />
         <Route path='/preregistro' element={<Preregistro />} />
-        <Route path='/preregistro/:idUser' element={<Preregistro />} />
-        <Route path='/preregistro22' element={<PreregistroActualizacion />} />
-        <Route path='/continuar_solicitud_presencial' element={<Continuar_solicitud_Presencial />} />
-        <Route path='/preregistro-presencial' element={<PreregistroPresencial />} />
-        <Route path='/continuar_solicitud2/:id' element={<Continuar_solicitud2 />} />
-        <Route path='/continuar_solicitud1/:id' element={<Continuar_solicitud1 />} />
-        <Route path='/continuar_solicitud3/:id' element={<Continuar_solicitud3 />} />
-        <Route path='/solicitud-concluida-usuario/:id' element={<Solicitud_ConcluidaUsuario />} />
-        <Route path='/admin&solicitudes' element={<Admin_Solicitudes/>} />
-        <Route path='/admin&verificar_datos/:id' element={<Verificar_Datos/>} /> {/* ?? */}
-        <Route path='/admin&Aprobacion_Carta/:id' element={<Aprobacion_Carta/>} />{/* ?? */}
-        <Route path='/admin&Aprobacion_Req/:id' element={<Aprobacion_Req/>} />{/* Falta ver pdf*/}
-        <Route path='/admin&Solicitud_Concluida/:id' element={<Solicitud_Concluida/>} />{/* Falta solicitud */}
+        
+        <Route path="/mi_solicitud" element={<PrivateRoute> <Mi_Solicitud /> </PrivateRoute>}/>
+        <Route path="/preregistro/:idUser" element={<PrivateRoute><Preregistro /></PrivateRoute>} />
+        <Route path="/preregistro22" element={<PrivateRoute><PreregistroActualizacion /></PrivateRoute>} />
+        <Route path="/continuar_solicitud_presencial" element={<PrivateRoute><Continuar_solicitud_Presencial /></PrivateRoute>} />
+        <Route path="/preregistro-presencial" element={<PrivateRoute><PreregistroPresencial /></PrivateRoute>} />
+        <Route path="/continuar_solicitud2/:id" element={<PrivateRoute><Continuar_solicitud2 /></PrivateRoute>} />
+        <Route path="/continuar_solicitud1/:id" element={<PrivateRoute><Continuar_solicitud1 /></PrivateRoute>} />
+        <Route path="/continuar_solicitud3/:id" element={<PrivateRoute><Continuar_solicitud3 /></PrivateRoute>} />
+        <Route path="/solicitud-concluida-usuario/:id" element={<PrivateRoute><Solicitud_ConcluidaUsuario /></PrivateRoute>} />
+
+
+        <Route path="/admin&solicitudes" element={<RoleProtectedRoute><Admin_Solicitudes /></RoleProtectedRoute>} />
+        <Route path="/admin&verificar_datos/:id" element={<RoleProtectedRoute><Verificar_Datos /></RoleProtectedRoute>} />
+        <Route path="/admin&Aprobacion_Carta/:id" element={<RoleProtectedRoute><Aprobacion_Carta /></RoleProtectedRoute>} />
+        <Route path="/admin&Aprobacion_Req/:id" element={<RoleProtectedRoute><Aprobacion_Req /></RoleProtectedRoute>} />
+        <Route path="/admin&Solicitud_Concluida/:id" element={<RoleProtectedRoute><Solicitud_Concluida /></RoleProtectedRoute>} />
+
+        
         <Route path='/PDF' element={<PDFGenerator/>} />
         <Route path='/PDF2' element={<PDFCarta/>} />
         <Route path='/PDF3' element={<PDFViewer/>} />
+
+        <Route path='/continuar_solicitud_presencial' element={<Continuar_solicitud_Presencial />} />
+        <Route path='/preregistro-presencial' element={<PreregistroPresencial />} />
+
       </Routes>
     </div>
   );
