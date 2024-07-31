@@ -93,7 +93,7 @@ function Aprobacion_Req() {
         Swal.fire({
           icon: 'success',
           title: 'Éxito',
-          text: 'Formulario enviado correctamente',
+          text: 'Carta de Responsabilidad y archivos .cer, enviados al solicitantee',
       }).then(() => {
           // Redirige a la página de solicitudes después de mostrar la alerta de éxito
           window.location.href = '/admin&solicitudes';
@@ -172,11 +172,18 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
       <div className="container2">
         <div className='titulo-container'>
           <div className='titulo_2'>
-            Aprobación .Req
+          Aprobación de Solicitud
+de Certificado digital, Video de
+Identidad y .Req
           </div>
           <div className='text_2'>
-          Verifique que el archivo .req contenga los datos correctos, apegados a los campos de los documentos recibidos.<br></br>
-          Si el archivo es correcto, seleccione el campo de aprobar y se enviarán carta responsiva, manuales y llaves.
+          Verifique la identidad del solicitante del trámite; la solicitud que
+contenga la firma (autógrafa) y lo más parecida a su documento de
+identificación oficial, que el archivo .req contenga los datos correctos,
+apegados a los campos de los documentos recibidos.<br></br>
+Si los archivos son correctos, seleccione el campo de aprobar y se
+enviarán carta de confidencialidad y responsabilidad, manuales y
+certificados digitales..
           </div>
         </div>
       </div>

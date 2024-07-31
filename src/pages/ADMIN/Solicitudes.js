@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Heder from '../heder';
 import Tabla_Solicitudes_Admin from '../Componentes/Tabla';
 import '../../css/Admin_Solicitudes.css'; // Asegúrate de importar el archivo CSS
@@ -8,6 +9,7 @@ import Tabla_Solicitudes_Suspendidas_Admin from '../Componentes/Tabla_suspendida
 import Estadisticas from '../Componentes/Estadisticas';
 
 function Admin_Solicitudes() {
+  const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const [activeTab, setActiveTab] = useState('solicitudesEnCurso');
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -23,17 +25,18 @@ function Admin_Solicitudes() {
 
       <div className="custom-tabs">
         <div className="nav-tabs">
-          <div
-            className={`nav-link ${activeTab === 'solicitudesEnCurso' ? 'active' : ''}`}
-            onClick={() => handleTabClick('solicitudesEnCurso')}
-          >
-            Solicitudes en Curso
-          </div>
+          
           <div
             className={`nav-link ${activeTab === 'solicitudesNuevas' ? 'active' : ''}`}
             onClick={() => handleTabClick('solicitudesNuevas')}
           >
             Solicitudes Nuevas
+          </div>
+          <div
+            className={`nav-link ${activeTab === 'solicitudesEnCurso' ? 'active' : ''}`}
+            onClick={() => handleTabClick('solicitudesEnCurso')}
+          >
+            Solicitudes en Curso
           </div>
           <div
             className={`nav-link ${activeTab === 'solicitudesConcluidas' ? 'active' : ''}`}
@@ -46,6 +49,12 @@ function Admin_Solicitudes() {
             onClick={() => handleTabClick('solicitudesSuspendidas')}
           >
             Solicitudes Supendidas
+          </div>
+          <div
+            className={`nav-link ${activeTab === 'presencial' ? 'active' : ''}`}
+            onClick={() => navigate('/preregistro-presencial')}
+          >
+            Solicitud presencial
           </div>
           <div
             className={`nav-link ${activeTab === 'estadisticas' ? 'active' : ''}`}

@@ -640,7 +640,7 @@ function Preregistro() {
         if (response.status === 200) {
           Swal.fire({
               title: "Usuario Registrado",
-              text: "La solicitud ha sido enviada, ahora puede loguearse con su correo y contraseña proporcionado en el prregistro",
+              text: "La solicitud ha sido enviada, ahora puede acceder con su correo y contraseña proporcionado en el preregistro",
               icon: "success",
               allowOutsideClick: false
           }).then(() => {
