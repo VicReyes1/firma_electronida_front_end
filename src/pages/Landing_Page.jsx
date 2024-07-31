@@ -12,7 +12,7 @@ function Landing_Page() {
       </div>
       <div className="content">
         <div className='titulo'>
-          Genera tu Firma Electrónica
+          Obtén tu Firma Electrónica Avanzada
         </div>
 
         <div className='texto'>
@@ -21,20 +21,29 @@ function Landing_Page() {
         
       </div>
       <div className="footer">
+        
         <a href="/login">
           <Button className='boton' variant="primary">Iniciar Sesión</Button>
         </a>
       </div>
       <div className="footer1">
-        <a href="/preregistro">
+        {/*<a href="/preregistro">
           <Button className='boton' variant="primary">Crear Cuenta</Button>
-        </a>
+        </a>*/}
       </div>
       <div className="footer2">
-        <a href="/preregistro-presencial">
-          <Button className='boton' variant="primary">Registro Presencial</Button>
+      <a href="/preregistro">
+          <Button className='boton' variant="primary">Solicitud de Firma Electrónica Avanzada</Button>
         </a>
       </div>
+      {/* 
+<div className="footer2">
+  <a href="/preregistro-presencial">
+    <Button className='boton' variant="primary">Registro Presencial</Button>
+  </a>
+</div> 
+*/}
+
 
     </div>
   );

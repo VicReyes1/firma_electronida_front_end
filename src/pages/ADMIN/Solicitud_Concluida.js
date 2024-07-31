@@ -357,12 +357,12 @@ function Solicitud_ConcluidaUsuario() {
            <button onClick={descargaAval} className="boton-blob">Abrir archivo</button>
         </div>
 
-        <div className='text_formulario177'>
+        {/*<div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Solicitud</span> 
         </div>
         <div>
            <button onClick={handleOpenIdentificacionBlob} className="boton-blob">Abrir archivo</button>
-        </div>
+        </div>*/}
 
         <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Carta Responsiva</span> 

@@ -153,6 +153,9 @@ input {
     padding-left: 20px; /* Agrega un margen izquierdo de 10px */
 
 }
+.uppercase-input {
+  text-transform: uppercase;
+}
 .boton_envio{
     margin-left: 70%;
     margin-right: 10%;

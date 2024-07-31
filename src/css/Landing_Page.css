@@ -39,36 +39,37 @@
 
         .Logo{
             width: 50%; /* Ancho deseado */
-            height: auto; /* Altura automática para mantener la relación de aspecto */
-            margin-top: 3.5%;
+            height: 100%; /* Altura automática para mantener la relación de aspecto */
+            margin-top:0%;
         }
 
         .titulo{
             font-size: 5.5em;
             font-weight: bold;
             font-family: 'Montserrat', sans-serif;
-            margin-top: 5%;
+            margin-top: 1%;
             margin-left: 10%;
             margin-right: 10%;
         }
         .texto{
-            font-size: 1.5em;
+            font-size: 1.3em;
             font-family: 'Montserrat', sans-serif;
-            margin-top: 3%;
+            margin-top: 0.8%;
             margin-left: 23%;
             margin-right: 23%;
         }
 
         .boton {
-            margin-top: 8%;
+            margin-top: 2%;
+            margin-left: 5%;
             background-color: #A02142;
             color: white;
             border-color: #A02142;
             border-radius: 20px;
-            font-size: 2em;
+            font-size: 1.7em;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
-            height: 20%;
+            height: 40%;
             width: 70%;
             transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
           }

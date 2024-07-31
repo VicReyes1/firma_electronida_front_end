@@ -51,7 +51,7 @@ function Continuar_solicitud1() {
             
             Swal.fire({
                 title: "Documentos Enviados",
-                text: "El usuario recibió manuales y .req",
+                text: "",
                 icon: "success"
             }).then(() => {
                 // Redireccionar después de cerrar el SweetAlert

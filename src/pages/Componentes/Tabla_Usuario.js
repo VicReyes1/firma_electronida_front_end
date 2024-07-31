@@ -193,7 +193,14 @@ function Tabla_Solicitudes_Usuario() {
                 {renderButton(item.id, item.estatusTramite)}
               </td>
               <td>
-                <Button className='boton-tabla' variant="primary" onClick={() => handleShowModal(item.id)}>Actualizar</Button>
+              <Button
+                className='boton-tabla'
+                variant="primary"
+                onClick={() => handleShowModal(item.id)}
+                disabled={item.estatusTramite > 1}  // Deshabilitar botón si estatusTramite > 1
+              >
+                {item.estatusTramite > 1 ? 'No disponible' : 'Actualizar'}  // Cambiar el texto del botón
+              </Button>
               </td>
 
             </tr>

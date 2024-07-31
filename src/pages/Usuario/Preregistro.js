@@ -412,7 +412,7 @@ function Preregistro() {
     // Función para verificar si todas las casillas de verificación están marcadas
     const todasSeleccionadas = () => {
       // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
-      return video != null && ArchivoINE != null && ArchivoComprobanteDomicilio != null && ArchivoCURP != null && ArchivoRFC != null && ArchivoAval != null && tipoEntidad != null && entidad != null  && direccion != null && municipio_direccion != null && estado != null && cp != null && puesto != null && area != null && telefono != null && correo != null && confirma_correo != null && contrasena != null && confirma_contrasena != null  && isResponsavilidadUso != null && isPoliticas != null && isRevocacion != null/* Agregar el resto de tus variables de estado */;
+      return video != null && ArchivoINE != null && ArchivoComprobanteDomicilio != null && ArchivoCURP != null && ArchivoRFC != null && ArchivoAval != null && tipoEntidad != null && entidad != null  && direccion != null && municipio_direccion != null && estado != null && cp != null && puesto != null && area != null && telefono != null && correo != null && confirma_correo != null && contrasena != null && confirma_contrasena != null  && isResponsavilidadUso != null && isPoliticas != null /* Agregar el resto de tus variables de estado */;
     
   };
   
@@ -460,7 +460,7 @@ function Preregistro() {
       else{
         setArchivoCURP(e.target.files[0]);
         const data = await response.json(response.json)
-        //setNombre(data.Nombre)
+        setNombre(data.Nombre)
         setCurp(data.CURP)
       }
 ;
@@ -589,6 +589,16 @@ function Preregistro() {
     .catch(error => {
         // Manejar errores
         console.error('Error al enviar el formulario:', error);
+        if (error.response) {
+          // La respuesta fue hecha y el servidor respondió con un estado diferente a 2xx
+          if (error.response.status === 409) {
+              Swal.fire({
+                  title: "Error",
+                  text: "El correo electrónico ya está en uso.",
+                  icon: "error"
+              });
+            }
+          }
         Swal.fire({
             title: "Error",
             text: "Hubo un error al enviar el formulario.",
@@ -815,6 +825,7 @@ function Preregistro() {
           <label className="checkbox-label">
             <input 
               type="checkbox" 
+              disabled
               checked={isRenovacion} 
               onChange={() => {
                 setIsRenovacion(true);
@@ -913,7 +924,7 @@ function Preregistro() {
         </div>*/}
       
         <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Dependencia/Ayuntamiento/Organismo/Notaría Pública</span>  
+        <span style={{ fontWeight: 'bold' }}>Sector Público</span>  
         </div>
        
         <div className="select">
@@ -926,23 +937,26 @@ function Preregistro() {
         {/* Agrega las opciones que necesites */}
       </select>
 
-      <input type="text" value={secretaria} onChange={(e) => setSecretaria(e.target.value)} placeholder="Escriba el nombre de su entidad" />
+      <input className="uppercase-input" type="text" value={secretaria} onChange={(e) => setSecretaria(e.target.value)} placeholder="Escriba el nombre de su entidad" />
         </div>
 
         
         <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Nombre</span>  
+        <span style={{ fontWeight: 'bold' }}>Nombre completo</span>  
         </div>
 
         <div className="inputs">
-         <input style={{ width: '29%', marginBottom:'1%', marginRight:'2%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
-         <input style={{ width: '29%', marginBottom:'1%', marginRight:'2%' }} type="text" value={paterno} onChange={(e) => setPaterno(e.target.value)} placeholder="  Apellido Paterno" />
-         <input style={{ width: '29%', marginBottom:'1%' }} type="text" value={materno} onChange={(e) => setMaterno(e.target.value)} placeholder="  Apellido Materno" />
+         <input className="uppercase-input" style={{ width: '95%', marginBottom:'1%', marginRight:'2%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Deberá contener letras en mayúscula, sin espacios ni caracteres especiales" />
+         {/*<input style={{ width: '29%', marginBottom:'1%', marginRight:'2%' }} type="text" value={paterno} onChange={(e) => setPaterno(e.target.value)} placeholder="  Apellido Paterno" />
+         <input style={{ width: '29%', marginBottom:'1%' }} type="text" value={materno} onChange={(e) => setMaterno(e.target.value)} placeholder="  Apellido Materno" />*/}
         </div>
 
-        <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>CURP/RFC</span>  
-        </div>
+        
+        <div style={{ display: 'inline-block', width: '55%', fontWeight: 'bold' }}>
+          <span className='text_formulario is-required' style={{ float: 'left' }}>CURP</span>
+          <span className='text_formulario is-required' style={{ float: 'right' }}>RFC</span>
+        </div> 
+        
 
         <div className="inputs">
         <input
@@ -965,7 +979,7 @@ function Preregistro() {
             setRfc(value);
           }}
           maxLength={18} // Restringe la entrada a 18 caracteres
-          placeholder="RFC"
+          placeholder="RFC con homoclave"
         />
         </div>
         
@@ -980,7 +994,7 @@ function Preregistro() {
         </div>
 
         <div className="inputs">
-         <input style={{ width: '96%', marginBottom:'1%' }} type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} placeholder="Calle, Número interior o Exterior y Colonia o Barrio" />
+         <input className="uppercase-input" style={{ width: '96%', marginBottom:'1%' }} type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} placeholder="Calle, Número interior o Exterior y Colonia o Barrio" />
         </div>
 
         <div className='text_formulario is-required'>
@@ -1103,12 +1117,16 @@ function Preregistro() {
         <div className='titulo_formulario'>
           4.- Información Personal
         </div>
-        <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Puesto/Área</span>  
-        </div>
+
+        <div style={{ display: 'inline-block', width: '58%', fontWeight: 'bold' }}>
+          <span className='text_formulario is-required' style={{ float: 'left' }}>Puesto</span>
+          <span className='text_formulario is-required' style={{ float: 'right' }}>Área</span>
+        </div> 
+
 
         <div className="inputs">
         <input
+        className="uppercase-input"
           style={{ marginRight: '2%' }}
           type="text"
           value={puesto}
@@ -1116,6 +1134,7 @@ function Preregistro() {
           placeholder="Puesto"
         />
         <input
+        className="uppercase-input"
           style={{ marginRight: '1%' }}
           type="text"
           value={area}
@@ -1124,11 +1143,12 @@ function Preregistro() {
         />
         </div>
 
-        <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Teléfono  </span> 
-        (10 dígitos)
-        <span style={{ fontWeight: 'bold' }}>/Extensión</span> 
-        </div>
+
+        <div style={{ display: 'inline-block', width: '80%', fontWeight: 'bold' }}>
+          <span className='text_formulario is-required' style={{ float: 'left' }}>Teléfono (10 dígitos)</span>        
+          <span className='text_formulario is-required' style={{ float: 'right' }}>Extensión</span>
+        </div> 
+        
 
         <div className="inputs">
           
@@ -1157,11 +1177,11 @@ function Preregistro() {
         />
         </div>
 
-        <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Correo Electrónico  </span> 
-        (debe ser personal)
-        <span style={{ fontWeight: 'bold' }}>/Confirme su Correo Electrónico</span> 
-        </div>
+
+        <div style={{ display: 'inline-block', width: '90%', fontWeight: 'bold' }}>
+          <span className='text_formulario is-required' style={{ float: 'left' }}>Correo Electrónico (personal)</span>        
+          <span className='text_formulario is-required' style={{ float: 'right' }}>Confirme su Correo Electrónico</span>
+        </div> 
 
         <div className="inputs">
         <input
@@ -1188,6 +1208,10 @@ function Preregistro() {
         <div className='text_formulario is-required'>
         <span style={{ fontWeight: 'bold' }}>Contraseña/ Confirme su Contraseña  </span> 
         </div>
+        <div style={{ display: 'inline-block', width: '85%', fontWeight: 'bold' }}>
+          <span className='text_formulario is-required' style={{ float: 'left' }}>Contraseña</span>        
+          <span className='text_formulario is-required' style={{ float: 'right' }}>Confirme su Contraseña</span>
+        </div> 
 
         <div className="custom-inputs">
           <div className="input-container">
@@ -1283,7 +1307,7 @@ function Preregistro() {
         </div>
         <div className="checkboxes">
             <label style={{  fontSize: '0.7em' }} className="checkbox-label">
-                <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isRevocacion} onChange={() => setIsRevocacion(!isRevocacion)} />
+                <input disabled style={{  width: '10px', height:'10px' }} type="checkbox" checked={isRevocacion} onChange={() => setIsRevocacion(!isRevocacion)} />
                 <span className="checkbox-text">He leído y acepto la Responsabilidad de la&nbsp;</span> .
                 <span
               className="link-text"
