@@ -51,7 +51,7 @@ function Continuar_solicitud1() {
             
             Swal.fire({
                 title: "Documentos Enviados",
-                text: "",
+                text: "Solicitud de Certificado Digital, Video de Indentida y archivo *.req",
                 icon: "success"
             }).then(() => {
                 // Redireccionar después de cerrar el SweetAlert
@@ -81,7 +81,7 @@ function Continuar_solicitud1() {
                     </div>
                 </div>
                 <div className='textito'>
-                Carga el siguiente documento digital. 
+                Carga el video de identidad, solicitud de requerimiento y archivo req, son importantes para la generación del certificado digital. 
                 </div>
                 <div className='textito2'>
                     En caso de no proporcionar los documentos su solicitud se eliminará después de 7 días. 

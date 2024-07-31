@@ -69,10 +69,13 @@ function Continuar_solicitud2() {
                     </div>
                 </div>
                 <div className='textito'>
-                Carga el siguiente documento digital.
+                Carga la Carta de Confidencialidad y Responsabilidad.
                 </div>
                 <div className='textito2'>
-                    En caso de no proporcionar los documentos su solicitud se eliminará después de 3 días.
+                Se dará como límite 3 días hábiles para recibirla en la
+                plataforma y dar por concluido el trámite, en caso de no
+                contar con dicho documento se procederá a suspender
+                el certificado digital y no podrá firmar digitalmente.
                 </div>
                 <div className='text_formulario'>
                     <span style={{ fontWeight: 'bold' }}>Carta Responsiva</span>

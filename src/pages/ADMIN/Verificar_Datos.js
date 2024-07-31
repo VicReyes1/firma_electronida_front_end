@@ -502,6 +502,14 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
 
           <div className="checkboxes2">
             <label className="checkbox-label2">
+                <input type="checkbox" checked={isRFC} onChange={() => setIsRFC(!isRFC)} />
+                <span className="checkbox-text2" >RFC:</span>
+                {data.rfc}
+            </label>    
+        </div>
+
+          <div className="checkboxes2">
+            <label className="checkbox-label2">
                 <input type="checkbox" checked={isSP} onChange={() => setIsSP(!isSP)} />
                 <span className="checkbox-text2">{nombre}Servidor Público</span>
             </label>    
@@ -510,52 +518,11 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isRS} onChange={() => setIsRS(!isRS)} />
-                <span style={{fontSize:'1em' }}className="checkbox-text2" >Razón Social:&nbsp;</span>
+                <span style={{fontSize:'1em' }}className="checkbox-text2" >Sector Público:&nbsp;</span>
                 {data.secretaria}
             </label>    
         </div>
 
-        <div className="checkboxes2">
-            <label className="checkbox-label2">
-                <input type="checkbox" checked={isRFC} onChange={() => setIsRFC(!isRFC)} />
-                <span className="checkbox-text2" >RFC:</span>
-                {data.rfc}
-            </label>    
-        </div>
-
-        <div className='titulo_formulario2'>
-                 Dirección
-        </div>
-
-        <div className="checkboxes2">
-            <label className="checkbox-label2">
-                <input type="checkbox" checked={isdireccion} onChange={() => setIsDireccion(!isdireccion)} />
-                <span className="checkbox-text2" >Dirección:&nbsp;</span>
-                {data.direccion}
-            </label>    
-        </div>
-
-        <div className="checkboxes2">
-            <label className="checkbox-label2">
-                <input type="checkbox" checked={ism} onChange={() => setIsM(!ism)} />
-                <span className="checkbox-text2" >Municipio:&nbsp;</span>
-                {data.municipio_direccion}
-            </label>    
-        </div>
-
-        <div className="checkboxes2">
-            <label className="checkbox-label2">
-                <input type="checkbox" checked={isCP} onChange={() => setIsCP(!isCP)} />
-                <span className="checkbox-text2" >Código Postal:&nbsp;</span>
-                {data.cp}
-            </label>    
-        </div>
-
-
-        <div className='titulo_formulario2'>
-             Información Personal
-        </div>
-       
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isP} onChange={() => setIsP(!isP)} />
@@ -567,7 +534,7 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isA} onChange={() => setIsA(!isA)} />
-                <span className="checkbox-text2" >Área:&nbsp;</span>
+                <span className="checkbox-text2" >Institución donde labora:&nbsp;</span>
                 {data.area}
             </label>    
         </div>
@@ -588,8 +555,46 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
             </label>    
         </div>
 
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
+                <input type="checkbox" checked={isExt} onChange={() => setIsExt(!isExt)} />
+                <span className="checkbox-text2" >Correo:&nbsp;</span>
+                {data.correo}
+            </label>    
+        </div>
+        
         <div className='titulo_formulario2'>
-            Documentos
+        Domicilio laboral
+        </div>
+
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
+                <input type="checkbox" checked={isdireccion} onChange={() => setIsDireccion(!isdireccion)} />
+                <span className="checkbox-text2" >Domicilio:&nbsp;</span>
+                {data.direccion}
+            </label>    
+        </div>
+
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
+                <input type="checkbox" checked={ism} onChange={() => setIsM(!ism)} />
+                <span className="checkbox-text2" >Municipio:&nbsp;</span>
+                {data.municipio_direccion}
+            </label>    
+        </div>
+
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
+                <input type="checkbox" checked={isCP} onChange={() => setIsCP(!isCP)} />
+                <span className="checkbox-text2" >C.P.:&nbsp;</span>
+                {data.cp}
+            </label>    
+        </div>
+
+        
+
+        <div className='titulo_formulario2'>
+        Documentos de Identidad
         </div>
 
         <div className="checkboxes2">
@@ -619,7 +624,9 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isAval} onChange={() => setIsAval(!isAval)} />
-                <span className="checkbox-text2">{nombre}Aval</span>
+                <span className="checkbox-text2">{nombre}Avala como Servidor
+                Público o Notario
+                Público</span>
             </label>    
         </div>
 
