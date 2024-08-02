@@ -1,3 +1,14 @@
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10rem;
+  }
+  .eye-icon {
+    margin-left: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
 @font-face {
     font-family: Futura;
     src: url('../Fonts/TIPOGRAFIA\ FUTURA/Futura.ttc');
