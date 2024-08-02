@@ -14,7 +14,6 @@ function Tabla_Solicitudes_Usuario() {
   const [selectedId, setSelectedId] = useState('');
   const apiUrl = process.env.REACT_APP_API_URL;
 
-
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -32,19 +31,24 @@ function Tabla_Solicitudes_Usuario() {
           return response.json(); // Parsea la respuesta como JSON
         })
         .then(data => {
-          setData(data); // Asigna los datos al estado
-          console.log(data);
+          // Verifica la estructura de los datos
+          console.log('Datos recibidos del API:', data);
+          if (Array.isArray(data)) {
+            setData(data); // Asigna los datos al estado si es un array
+          } else {
+            console.error('La respuesta no es un array:', data);
+          }
         })
         .catch(error => console.error('Error al obtener los datos:', error));
     } else {
       console.error('No token found');
       // Aquí puedes manejar el caso en que no se encuentre el token en el localStorage
     }
-  }, []);
+  }, [apiUrl]);
 
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(5); // Change this number to adjust items per page
+  const [itemsPerPage] = useState(5); // Cambia este número para ajustar los elementos por página
 
   const handleShowModal = (id) => {
     setSelectedId(id);
@@ -55,6 +59,7 @@ function Tabla_Solicitudes_Usuario() {
     setShowModal(false);
     setSelectedId('');
   };
+  
   const handleShowModal2 = (id) => {
     setSelectedId2(id);
     setShowModal2(true);
@@ -69,7 +74,7 @@ function Tabla_Solicitudes_Usuario() {
     window.location.href = `/preregistro22`;
   };
 
-  // Filter data based on search term including date
+  // Filtra los datos según el término de búsqueda
   const filteredData = data.filter(item => {
     const normalizeDate = (dateString) => {
       const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -78,12 +83,11 @@ function Tabla_Solicitudes_Usuario() {
       return new Date(year, monthIndex, day);
     };
 
-    // Normalize search term date
+    // Normaliza el término de búsqueda como fecha
     const normalizedSearchTerm = normalizeDate(searchTerm);
 
-    // Check if search term matches date format DD/Mes/YYYY
+    // Verifica si el término de búsqueda coincide con el formato de fecha DD/Mes/YYYY
     if (!isNaN(normalizedSearchTerm.getTime())) {
-      // Compare with date fields
       const normalizedLastUpdate = normalizeDate(item.lastUpdate);
       const normalizedSendDate = normalizeDate(item.sendDate);
       return (
@@ -92,12 +96,11 @@ function Tabla_Solicitudes_Usuario() {
         (normalizedSendDate.getTime() === normalizedSearchTerm.getTime())
       );
     } else {
-      // Perform regular search
       return item.nombre.toLowerCase().includes(searchTerm.toLowerCase());
     }
   });
 
-  // Pagination
+  // Paginación
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
   const nextPage = () => {
@@ -121,22 +124,16 @@ function Tabla_Solicitudes_Usuario() {
   const paginationInfo = `Mostrando ${currentRangeStart} - ${currentRangeEnd} de ${totalItems} registros`;
 
   const handleRedirection = (id, status) => {
-    
     switch (status) {
       case 2:
         window.location.href = `/continuar_solicitud1/${id}`;
         break;
-      
       case 3:
         window.location.href = `/continuar_solicitud2/${id}`;
         break;
-      
-      /*case 4:
-        window.location.href = `/continuar_solicitud3/${id}`;*/
-
       case 5:
         window.location.href = `/solicitud-concluida-usuario/${id}`;
-  
+        break;
       default:
         break;
     }
@@ -151,7 +148,7 @@ function Tabla_Solicitudes_Usuario() {
           Sin acciones
         </button>
       );
-    } else{
+    } else {
       return (
         <button
           className='boton2'
@@ -168,7 +165,7 @@ function Tabla_Solicitudes_Usuario() {
       <Form.Group className='buscar'>
         <Form.Control
           type="text"
-          placeholder="Buscar......"
+          placeholder="Buscar..."
           onChange={e => setSearchTerm(e.target.value)}
         />
       </Form.Group>
@@ -180,31 +177,33 @@ function Tabla_Solicitudes_Usuario() {
             <th>Fecha Envio</th>
             <th>Visualización</th>
             <th>Actualizar</th>
-
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((item, index) => (
-            <tr key={index}>
-              <td>{`${item.nombre} ${item.paterno} ${item.materno}`}</td>
-              <td>{item.status}</td>
-              <td>{item.createdAt}</td>
-              <td>
-                {renderButton(item.id, item.estatusTramite)}
-              </td>
-              <td>
-              <Button
-                className='boton-tabla'
-                variant="primary"
-                onClick={() => handleShowModal(item.id)}
-                disabled={item.estatusTramite > 1}  // Deshabilitar botón si estatusTramite > 1
-              >
-                {item.estatusTramite > 1 ? 'No disponible' : 'Actualizar'}
-              </Button>
-              </td>
-
+          {currentItems.length > 0 ? (
+            currentItems.map((item, index) => (
+              <tr key={index}>
+                <td>{`${item.nombre} ${item.paterno} ${item.materno}`}</td>
+                <td>{item.status}</td>
+                <td>{item.createdAt}</td>
+                <td>{renderButton(item.id, item.estatusTramite)}</td>
+                <td>
+                  <Button
+                    className='boton-tabla'
+                    variant="primary"
+                    onClick={() => handleShowModal(item.id)}
+                    disabled={item.estatusTramite > 1}  // Deshabilitar botón si estatusTramite > 1
+                  >
+                    {item.estatusTramite > 1 ? 'No disponible' : 'Actualizar'}
+                  </Button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="5">No se encontraron registros</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </Table>
       <div className="pagination-container">
@@ -240,13 +239,12 @@ function Tabla_Solicitudes_Usuario() {
           <Modal.Title style={{ fontSize: '3em' }}>¿Seguro que quiere eliminar esta solicitud?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-      
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal2}>
             Atrás
           </Button>
-          <Button variant="primary" >
+          <Button variant="primary">
             Continuar
           </Button>
         </Modal.Footer>

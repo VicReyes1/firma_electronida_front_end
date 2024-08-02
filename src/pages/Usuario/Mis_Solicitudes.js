@@ -6,6 +6,7 @@ import Tabla_Solicitudes_Usuario from '../Componentes/Tabla_Usuario';
 
 function Mi_Solicitud() {
   const [data, setData] = useState([]);
+  const [dummy, setDummy] = useState([]);
   const [userId, setUserId] = useState(null);
   const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -27,9 +28,8 @@ function Mi_Solicitud() {
         })
         .then(data => {
           setData(data); // Asigna los datos al estado
-          if (data.length > 0) {
-            setUserId(data[0].idUser); // Asume que todos los elementos tienen el mismo idUser
-          }
+          setUserId(data.idUser); // Asume que todos los elementos tienen el mismo idUser
+          
           console.log(data);
         })
         .catch(error => console.error('Error al obtener los datos:', error));
@@ -51,7 +51,7 @@ function Mi_Solicitud() {
         <a href={`/preregistro/${userId}`} className='boton_solicitud'>
           <Button className='boton-nueva-soli' variant="primary">Nueva Solicitud</Button>
         </a>
-        <Tabla_Solicitudes_Usuario data={data} />
+        <Tabla_Solicitudes_Usuario />
       </div>
     </div>
   );
