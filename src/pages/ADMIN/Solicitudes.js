@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Heder from '../heder';
 import Tabla_Solicitudes_Admin from '../Componentes/Tabla';
+import TablaAlta from '../Componentes/TablaAlta';
 import '../../css/Admin_Solicitudes.css'; // Asegúrate de importar el archivo CSS
 import Tabla_Solicitudes_concluidas_Admin from '../Componentes/Tabla_concluidas';
 import Tabla_Solicitudes_Nuevas_Admin from '../Componentes/Tabla_nuevas';
@@ -11,7 +12,7 @@ import Estadisticas from '../Componentes/Estadisticas';
 function Admin_Solicitudes() {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
-  const [activeTab, setActiveTab] = useState('solicitudesEnCurso');
+  const [activeTab, setActiveTab] = useState('solicitudesAlta');
   const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleTabClick = (tab) => {
@@ -25,6 +26,13 @@ function Admin_Solicitudes() {
 
       <div className="custom-tabs">
         <div className="nav-tabs">
+          
+        <div
+            className={`nav-link ${activeTab === 'solicitudesAlta' ? 'active' : ''}`}
+            onClick={() => handleTabClick('solicitudesAlta')}
+          >
+            Alta Usuarios
+          </div>
           
           <div
             className={`nav-link ${activeTab === 'solicitudesNuevas' ? 'active' : ''}`}
@@ -65,6 +73,23 @@ function Admin_Solicitudes() {
         </div>
 
         <div className="tab-content">
+
+
+        <div className={`tab-pane ${activeTab === 'solicitudesAlta' ? 'active' : ''}`}>
+            
+            <div className="container2">
+              <div className='titulo-container'>
+                <div className='titulo_2'>
+                  Solicitudes en Curso
+                </div>
+              </div>
+            </div>
+
+            <TablaAlta tab={activeTab}/>
+          </div>
+
+
+
           <div className={`tab-pane ${activeTab === 'solicitudesEnCurso' ? 'active' : ''}`}>
             
             <div className="container2">

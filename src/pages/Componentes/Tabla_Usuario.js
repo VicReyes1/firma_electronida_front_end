@@ -199,7 +199,7 @@ function Tabla_Solicitudes_Usuario() {
                 onClick={() => handleShowModal(item.id)}
                 disabled={item.estatusTramite > 1}  // Deshabilitar botón si estatusTramite > 1
               >
-                {item.estatusTramite > 1 ? 'No disponible' : 'Actualizar'}  // Cambiar el texto del botón
+                {item.estatusTramite > 1 ? 'No disponible' : 'Actualizar'}
               </Button>
               </td>
 
