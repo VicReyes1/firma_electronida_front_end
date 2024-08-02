@@ -28,7 +28,7 @@ function Mi_Solicitud() {
         })
         .then(data => {
           setData(data); // Asigna los datos al estado
-          setUserId(data.idUser); // Asume que todos los elementos tienen el mismo idUser
+          setUserId(data[0].idUser); // Asume que todos los elementos tienen el mismo idUser
           
           console.log(data[0].idUser);
         })
