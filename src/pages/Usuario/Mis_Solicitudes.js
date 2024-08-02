@@ -30,7 +30,7 @@ function Mi_Solicitud() {
           setData(data); // Asigna los datos al estado
           setUserId(data.idUser); // Asume que todos los elementos tienen el mismo idUser
           
-          console.log(data);
+          console.log(data[0].idUser);
         })
         .catch(error => console.error('Error al obtener los datos:', error));
     } else {
