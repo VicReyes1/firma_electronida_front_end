@@ -35,6 +35,7 @@ function Verificar_Datos() {
   const [isA, setIsA] = useState(false);
   const [isT, setIsT] = useState(false);
   const [isExt, setIsExt] = useState(false);
+  const [isEmail, setIsEmail] = useState(false);
   const [isIde, setIsIde] = useState(false);
   const [isCD, setIsCD] = useState(false);
   const [isCURP, setIsCURP] = useState(false);
@@ -362,7 +363,7 @@ function Verificar_Datos() {
       .then(() => {
         Swal.fire({
           title: "Documentos Enviados",
-          text: "El usuario recibió manuales y .req",
+          text: "El usuario recibió manual y .req",
           icon: "success"
         }).then(() => {
           // Redireccionar después de cerrar el SweetAlert
@@ -557,7 +558,7 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
 
         <div className="checkboxes2">
             <label className="checkbox-label2">
-                <input type="checkbox" checked={isExt} onChange={() => setIsExt(!isExt)} />
+                <input type="checkbox" checked={isEmail} onChange={() => setIsEmail(!isEmail)} />
                 <span className="checkbox-text2" >Correo:&nbsp;</span>
                 {data.correo}
             </label>    

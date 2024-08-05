@@ -634,8 +634,8 @@ function Preregistro() {
         });
         if (response.status === 200) {
           Swal.fire({
-              title: "Usuario Registrado",
-              text: "La solicitud ha sido enviada, ahora puede acceder con su correo y contraseña proporcionado en el preregistro",
+              title: "Solicitud enviada",
+              text: "La solicitud ha sido enviada, por fovor espere a que sea validada",
               icon: "success",
               allowOutsideClick: false
           }).then(() => {
@@ -941,7 +941,7 @@ function Preregistro() {
         </div>
 
         <div className="inputs">
-         <input className="uppercase-input" style={{ width: '95%', marginBottom:'1%', marginRight:'2%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Deberá contener letras en mayúscula, sin espacios ni caracteres especiales" />
+         <input className="uppercase-input" style={{ width: '95%', marginBottom:'1%', marginRight:'2%' }} type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre(s), Apellido paterno y apellido materno" />
          {/*<input style={{ width: '29%', marginBottom:'1%', marginRight:'2%' }} type="text" value={paterno} onChange={(e) => setPaterno(e.target.value)} placeholder="  Apellido Paterno" />
          <input style={{ width: '29%', marginBottom:'1%' }} type="text" value={materno} onChange={(e) => setMaterno(e.target.value)} placeholder="  Apellido Materno" />*/}
         </div>
