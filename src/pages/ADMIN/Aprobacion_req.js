@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Heder from '../heder';
 import axios from 'axios';
 import '../../css/Aprobacion_Req.css';
+import generatePDF from './generaCarta'
 import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 
@@ -12,6 +13,10 @@ function Aprobacion_Req() {
   const { id } = useParams();
   const apiUrl = process.env.REACT_APP_API_URL;
   const token = localStorage.getItem('token');
+  const [file1, setFile1] = useState(null);
+  const [file2, setFile2] = useState(null);
+  const [file3, setFile3] = useState(null);
+  const [file4, setFile4] = useState(null);
 
   const [isReq, setIsReq] = useState(false);
   const [archivo, setArchivo] = useState('');
@@ -40,6 +45,18 @@ function Aprobacion_Req() {
       .catch(error => console.error('Error al obtener el PDF:', error));
   };
 
+  const handleFile1Change = (e) => {
+    setFile1(e.target.files[0]);
+};
+  const handleFile2Change = (e) => {
+    setFile2(e.target.files[0]);
+  };
+  const handleFile3Change = (e) => {
+    setFile3(e.target.files[0]);
+  };
+  const handleFile4Change = (e) => {
+    setFile4(e.target.files[0]);
+  };
   // Cargar el PDF inicialmente según la opción seleccionada
   useEffect(() => {
     cargarPDF('solicitud_requerimiento')
@@ -89,16 +106,44 @@ function Aprobacion_Req() {
 
     try {
         const response = await axios.post(`${apiUrl}/admin/actualizarReq`, data);
+        console.log(id);
+        const pdfCarta = await generatePDF(id);
+        const documentos = [];
+        documentos[0]=(file1)
+        documentos[1]=(file2)
+        documentos[2]=(file3)
+        documentos[3]=(file4)
+        documentos[4]=(pdfCarta)
+        //documentos.push(ArchivoAval)
+        console.log(documentos)
         console.log('Formulario enviado', response.data);
+        const f = new FormData()
+        
+        documentos.forEach((documento, index) => {
+          if (documento) {
+            f.append(`file${index}`, documento); // Nombres de campo únicos
+          } else {
+            f.append(`file${index}`, new Blob(), { type: 'application/pdf' }); // Enviar un Blob vacío si no hay archivo
+          }
+        });
+        
+        f.append("id",id)
+
+        const response2 = await axios.post(`${apiUrl}/admin/subirCertificados/${id}`, f,{
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        console.log('Formulario2 enviado', response2.data);
         Swal.fire({
           icon: 'success',
           title: 'Éxito',
-          text: 'Carta de Responsabilidad y archivos .cer, enviados al solicitantee',
+          text: 'Carta de Responsabilidad enviada al solicitantee',
       }).then(() => {
           // Redirige a la página de solicitudes después de mostrar la alerta de éxito
           window.location.href = '/admin&solicitudes';
       });
-        handleCloseModal();
+        //handleCloseModal();
     } catch (error) {
         console.error('Error al enviar el formulario', error);
         Swal.fire({
@@ -129,9 +174,10 @@ const handleNoSubmit = (e) => {
   const json = {
     comentario: comentarios,
     id: id
+
 };
 
-fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
+fetch(`${apiUrl}/admin/enviaComentarioReq/${id}`, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -173,8 +219,7 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
         <div className='titulo-container'>
           <div className='titulo_2'>
           Aprobación de Solicitud
-de Certificado digital, Video de
-Identidad y .Req
+de Certificado digital y .Req
           </div>
           <div className='text_2'>
           Verifique la identidad del solicitante del trámite; la solicitud que
@@ -229,7 +274,66 @@ certificados digitales..
           </div>
         </div>
 
+        <div className='text_formulario'>
+                    <span style={{ fontWeight: 'bold' }}>Certificado Digital de la Autoridad Certificadora de Firma Electrónica Avanzada</span>
+                </div>
+                <div className="files">
+                    <label className="custom-file-label">
+                        Seleccionar Archivo
+                        <input 
+                            type="file" 
+                            onChange={handleFile1Change} 
+                            className="custom-file-input"
+                        />
+                    </label>
+                    {file1 ? <span className="file-name">{file1.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+          </div>
 
+          <div className='text_formulario'>
+                    <span style={{ fontWeight: 'bold' }}>Certificado Digital de Firma Electrónica Avanzada Personal</span>
+                </div>
+                <div className="files">
+                    <label className="custom-file-label">
+                        Seleccionar Archivo
+                        <input 
+                            type="file" 
+                            onChange={handleFile2Change} 
+                            className="custom-file-input"
+                        />
+                    </label>
+                    {file2 ? <span className="file-name">{file2.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+          </div>
+
+          <div className='text_formulario'>
+                    <span style={{ fontWeight: 'bold' }}>Archivo PKCS12 (*.pfx o *.p12)</span>
+                </div>
+                <div className="files">
+                    <label className="custom-file-label">
+                        Seleccionar Archivo
+                        <input 
+                            type="file" 
+                            onChange={handleFile3Change} 
+                            className="custom-file-input"
+                        />
+                    </label>
+                    {file3 ? <span className="file-name">{file3.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+          </div>
+
+          <div className='text_formulario'>
+                    <span style={{ fontWeight: 'bold' }}>Archivo *.KEY</span>
+                </div>
+                <div className="files">
+                    <label className="custom-file-label">
+                        Seleccionar Archivo
+                        <input 
+                            type="file" 
+                            onChange={handleFile4Change} 
+                            className="custom-file-input"
+                        />
+                    </label>
+                    {file4 ? <span className="file-name">{file4.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+          </div>
+        <br/>
         <div className="checkboxes">
               <label className="checkbox-label">
                   <input type="checkbox" checked={isCertificado_Autoridad} onChange={() => setIsCertificado_Autoridad(!isCertificado_Autoridad)} />
