@@ -149,3 +149,14 @@
     }
 
   }
+
+
+  .logout-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 0.25em;
+    text-decoration: underline;
+    float: right;
+  }
