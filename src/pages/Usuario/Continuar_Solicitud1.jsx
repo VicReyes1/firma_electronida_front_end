@@ -51,7 +51,7 @@ function Continuar_solicitud1() {
             
             Swal.fire({
                 title: "Documentos Enviados",
-                text: "Solicitud de Certificado Digital, Video de Indentida y archivo *.req",
+                text: "Solicitud de Certificado Digital y archivo *.req",
                 icon: "success"
             }).then(() => {
                 // Redireccionar después de cerrar el SweetAlert

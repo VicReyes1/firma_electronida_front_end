@@ -635,7 +635,7 @@ function Preregistro() {
         if (response.status === 200) {
           Swal.fire({
               title: "Solicitud enviada",
-              text: "La solicitud ha sido enviada, por fovor espere a que sea validada",
+              text: "La solicitud ha sido enviada, por favor espere a que sea validada",
               icon: "success",
               allowOutsideClick: false
           }).then(() => {
