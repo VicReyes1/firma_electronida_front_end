@@ -12,6 +12,7 @@ function Tabla_Solicitudes_Usuario() {
   const [selectedId2, setSelectedId2] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [selectedId, setSelectedId] = useState('');
+  const [idd, setIdd] = useState('');
   const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
@@ -52,6 +53,7 @@ function Tabla_Solicitudes_Usuario() {
 
   const handleShowModal = (id) => {
     setSelectedId(id);
+    setIdd(id);
     setShowModal(true);
   };
 
@@ -72,7 +74,7 @@ function Tabla_Solicitudes_Usuario() {
 
   const handleContinue = () => {
     const token = localStorage.getItem('token');
-    fetch(`${apiUrl}/usuario/borrarPreregistro/${setSelectedId}`, {
+    fetch(`${apiUrl}/usuario/borrarPreregistro/${idd}`, {
       method: 'GET',
       headers: {
         'Authorization': `${token}`,

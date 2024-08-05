@@ -363,7 +363,7 @@ function Verificar_Datos() {
       .then(() => {
         Swal.fire({
           title: "Documentos Enviados",
-          text: "El usuario recibió manual y .req",
+          text: "El usuario recibió solicitud, manual y .req",
           icon: "success"
         }).then(() => {
           // Redireccionar después de cerrar el SweetAlert
@@ -535,7 +535,7 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
         <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isA} onChange={() => setIsA(!isA)} />
-                <span className="checkbox-text2" >Institución donde labora:&nbsp;</span>
+                <span className="checkbox-text2" >Área:&nbsp;</span>
                 {data.area}
             </label>    
         </div>
