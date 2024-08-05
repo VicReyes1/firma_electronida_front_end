@@ -71,6 +71,7 @@ function Tabla_Solicitudes_Usuario() {
   };
 
   const handleContinue = () => {
+    const token = localStorage.getItem('token');
     fetch(`${apiUrl}/usuario/borrarPreregistro/${setSelectedId}`, {
       method: 'GET',
       headers: {

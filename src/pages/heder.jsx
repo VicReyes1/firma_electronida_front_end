@@ -18,8 +18,9 @@ function Heder() {
         </div>
         <div style={{ display: 'inline-block', width: '100%', fontWeight: 'bold' }}className='titulo_header'>
           Firma Electrónica Avanzada
+          <button className="logout-button" onClick={logOut}>Cerrar Sesión</button>
           <div>
-          <button onClick={logOut}>Cerrar Sesión</button>
+          
           </div>
         </div>
         
