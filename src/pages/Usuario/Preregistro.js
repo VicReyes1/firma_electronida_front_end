@@ -482,12 +482,7 @@ function Preregistro() {
       });
 
       if (!response.ok) {
-        Swal.fire({
-          title: "Error",
-          text: "Solo es permitido el archivo expedido por la página oficial.",
-          icon: "error"
-      });
-        throw new Error('Error al procesar el archivo PDF');
+        setArchivoRFC(e.target.files[0]);
       }
       else{
         setArchivoRFC(e.target.files[0]);
