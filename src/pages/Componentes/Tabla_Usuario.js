@@ -71,7 +71,24 @@ function Tabla_Solicitudes_Usuario() {
   };
 
   const handleContinue = () => {
-    window.location.href = `/preregistro22`;
+    fetch(`${apiUrl}/usuario/borrarPreregistro/${setSelectedId}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch');
+        }
+        return response.json(); // Parsea la respuesta como JSON
+      })
+      .then(datos =>{
+        window.location.href = `/preregistro/${data[0].idUser}`;
+        window
+      })
+      .catch(error => console.error('Error al obtener los datos:', error));
   };
 
   // Filtra los datos según el término de búsqueda
