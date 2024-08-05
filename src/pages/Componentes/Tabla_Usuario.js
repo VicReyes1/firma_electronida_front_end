@@ -87,7 +87,6 @@ function Tabla_Solicitudes_Usuario() {
       })
       .then(datos =>{
         window.location.href = `/preregistro/${data[0].idUser}`;
-        window
       })
       .catch(error => console.error('Error al obtener los datos:', error));
   };
