@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../../css/Ver_solicitud.css'; // Verifica la ruta a tu archivo CSS
 import Heder from '../heder';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Table from 'react-bootstrap/Table';
 import Tabla_Solicitudes_Usuario from '../Componentes/Tabla_Usuario';
 
 function Mi_Solicitud() {
@@ -51,7 +53,32 @@ function Mi_Solicitud() {
         <a href={`/preregistro/${userId}`} className='boton_solicitud'>
           <Button className='boton-nueva-soli' variant="primary">Nueva Solicitud</Button>
         </a>
-        <Tabla_Solicitudes_Usuario />
+        {data[0] && data[0].id ? (
+          <Tabla_Solicitudes_Usuario />
+        ) : (
+          <div className="tabla-container">
+            <Form.Group className='buscar'>
+              <Form.Control
+                type="text"
+                placeholder="Buscar..."
+              />
+            </Form.Group>
+            <Table striped bordered hover className="custom-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Estatus</th>
+                  <th>Fecha Envio</th>
+                  <th>Visualización</th>
+                  <th>Actualizar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Aquí puedes agregar filas vacías o un mensaje indicando que no hay datos */}
+              </tbody>
+            </Table>
+          </div>
+        )}
       </div>
     </div>
   );
