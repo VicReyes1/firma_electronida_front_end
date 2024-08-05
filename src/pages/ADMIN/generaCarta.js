@@ -55,7 +55,7 @@ const generatePDFBlob = async (data) => {
   doc.text('Hidalgo a ', 152, 45);
   doc.text(',', 150, 45);
   doc.text(data.municipio_direccion || '', 125, 45);
-  doc.text(data.updatedAt.toISOString().split('T')[0] || '', 168, 45);
+  doc.text(data.updatedAt|| '', 168, 45);
 
   doc.setFont('Montserrat-Bold');
   doc.setFontSize(8);
