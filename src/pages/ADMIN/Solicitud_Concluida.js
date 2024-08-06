@@ -9,6 +9,7 @@ import WizardStepsCompleted from '../Componentes/WizardSteps-Concluido';
 
 function Solicitud_ConcluidaUsuario() {
     const apiUrl = process.env.REACT_APP_API_URL;
+    
 
     const { id } = useParams();
     const token = localStorage.getItem('token');
@@ -60,7 +61,11 @@ function Solicitud_ConcluidaUsuario() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${apiUrl}/admin/getDatos/${id}`);
+            const response = await axios.get(`${apiUrl}/admin/getDatos/${id}`, {
+                headers: {
+                    'Authorization': `${token}`
+                }
+            });
             const registro = response.data;
             setData({
                 registro_id: registro.id,
@@ -86,7 +91,8 @@ function Solicitud_ConcluidaUsuario() {
     const descargaIne = async () => {
         try {
             const response = await axios.get(`${apiUrl}/admin/descargaIne/${id}`, {
-                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+                responseType: 'blob',
+                
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
@@ -154,7 +160,8 @@ function Solicitud_ConcluidaUsuario() {
     const descargaRFC = async () => {
         try {
             const response = await axios.get(`${apiUrl}/admin/descargaRFC/${id}/`, {
-                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+                responseType: 'blob',
+                'Authorization': `${token}`
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
@@ -171,7 +178,8 @@ function Solicitud_ConcluidaUsuario() {
     const descargaRequerimiento = async () => {
         try {
             const response = await axios.get(`${apiUrl}/admin/descargaRequerimiento/${id}/`, {
-                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+                responseType: 'blob',
+                'Authorization': `${token}`
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
@@ -188,7 +196,8 @@ function Solicitud_ConcluidaUsuario() {
     const descargaResponsiva = async () => {
         try {
             const response = await axios.get(`${apiUrl}/admin/descargaResponsiva/${id}/`, {
-                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+                responseType: 'blob',
+                'Authorization': `${token}`
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
@@ -204,7 +213,7 @@ function Solicitud_ConcluidaUsuario() {
 
     const handleDownloadReq = async () => {
         try {
-            const response = await axios.get(`${apiUrl}/admin/descargarReq/${id}`, { responseType: 'blob' });
+            const response = await axios.get(`${apiUrl}/admin/descargarReq/${id}`, { responseType: 'blob','Authorization': `${token}` });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -219,7 +228,8 @@ function Solicitud_ConcluidaUsuario() {
       const descargaCertificado = async () => {
         try {
             const response = await axios.get(`${apiUrl}/admin/descargaResponsiva/${id}/`, {
-                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+                responseType: 'blob',
+                'Authorization': `${token}`
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
@@ -235,7 +245,8 @@ function Solicitud_ConcluidaUsuario() {
     const descargaManual = async () => {
         try {
             const response = await axios.get(`${apiUrl}/admin/descargaResponsiva/${id}/`, {
-                responseType: 'blob' // Muy importante para manejar la respuesta como un Blob
+                responseType: 'blob',
+                'Authorization': `${token}`
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');

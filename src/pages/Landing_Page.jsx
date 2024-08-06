@@ -92,14 +92,25 @@ const Landing_Page = () => {
 
       </div>
       <div className="content">
+      <div className='texto'>
+      Bienvenidos
+        </div>
+
         <div className='titulo'>
-          Obtén tu Firma Electrónica Avanzada
+        FIRMA ELECTRÓNICA AVANZADA
+        PARA EL ESTADO DE HIDALGO
         </div>
 
         <div className='texto'>
-          La Firma Electrónica Avanzada Estatal es de uso exclusivo para trámites gubernamentales del Estado de Hidalgo y no se emplea en trámites de tipo federal.
+        Es de uso exclusivo para trámites Gubernamentales del Estado de Hidalgo y no se emplea en trámites de tipo federal.
         </div>
-        
+        <br/><br/>
+        <div className='texto'>
+        Realice el trámite para
+        </div>  
+        <div className='titulo'>
+        Obtener tu Firma Electrónica Avanzada
+        </div>
       </div>
       <div className="footer">
         
