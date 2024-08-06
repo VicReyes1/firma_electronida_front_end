@@ -123,28 +123,28 @@ const generatePDFBlob = async (data) => {
   doc.setFont('Montserrat-Bold');
   doc.text('Autoridad Certificadora de Firma Electrónica Avanzada', 67, 225);
   doc.text('[      ]', 170, 225);
-  doc.text(data.fea_autoridad === 'true' ? 'X' : '', 172, 225);
+  doc.text(data.fea_autoridad ? 'X' : '', 172, 225);
 
   doc.setFont('Montserrat');
   doc.text('* Certificado Digital de Firma Electrónica Avanzada', 35, 230);
   doc.setFont('Montserrat-Bold');
   doc.text('Personal', 100, 230);
   doc.text('[      ]', 170, 230);
-  doc.text(data.fea_personal === 'true' ? 'X' : '', 172, 230);
+  doc.text(data.fea_personal ? 'X' : '', 172, 230);
 
   doc.setFont('Montserrat');
   doc.text('* Archivo', 35, 235);
   doc.setFont('Montserrat-Bold');
   doc.text('PKCS12 (*.pfx o *.p12)', 48, 235);
   doc.text('[      ]', 170, 235);
-  doc.text(data.PKCS12 === 'true' ? 'X' : '', 172, 235);
+  doc.text(data.PKCS12 ? 'X' : '', 172, 235);
 
   doc.setFont('Montserrat');
   doc.text('* Archivo', 35, 240);
   doc.setFont('Montserrat-Bold');
   doc.text('*.KEY', 48, 240);
   doc.text('[      ]', 170, 240);
-  doc.text(data.key === 'true' ? 'X' : '', 172, 240);
+  doc.text(data.key ? 'X' : '', 172, 240);
 
   doc.setFont('Montserrat');
   doc.setFontSize(8);
