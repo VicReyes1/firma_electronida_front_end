@@ -14,8 +14,96 @@ import logo from '../../Images/Escudoo_color.png'; // Ruta relativa a la imagen 
 //import swal from 'sweetalert';
 import WizardStepsInicial from '../Componentes/WizardSteps-Inicial';
 import WizardStepsInProgress from '../Componentes/WizardSteps-Progreso';
+import Select from 'react-select';
 
 
+
+const municipios = [
+  { value: 'Acatlán', label: 'Acatlán' },
+  { value: 'Acaxochitlán', label: 'Acaxochitlán' },
+  { value: 'Actopan', label: 'Actopan' },
+  { value: 'Agua Blanca de Iturbide', label: 'Agua Blanca de Iturbide' },
+  { value: 'Ajacuba', label: 'Ajacuba' },
+  { value: 'Alfajayucan', label: 'Alfajayucan' },
+  { value: 'Almoloya', label: 'Almoloya' },
+  { value: 'Apan', label: 'Apan' },
+  { value: 'El Arenal', label: 'El Arenal' },
+  { value: 'Atitalaquia', label: 'Atitalaquia' },
+  { value: 'Atlapexco', label: 'Atlapexco' },
+  { value: 'Atotonilco el Grande', label: 'Atotonilco el Grande' },
+  { value: 'Atotonilco de Tula', label: 'Atotonilco de Tula' },
+  { value: 'Calnali', label: 'Calnali' },
+  { value: 'Cardonal', label: 'Cardonal' },
+  { value: 'Cuautepec de Hinojosa', label: 'Cuautepec de Hinojosa' },
+  { value: 'Chapantongo', label: 'Chapantongo' },
+  { value: 'Chapulhuacán', label: 'Chapulhuacán' },
+  { value: 'Chilcuautla', label: 'Chilcuautla' },
+  { value: 'Eloxochitlán', label: 'Eloxochitlán' },
+  { value: 'Emiliano Zapata', label: 'Emiliano Zapata' },
+  { value: 'Epazoyucan', label: 'Epazoyucan' },
+  { value: 'Francisco I. Madero', label: 'Francisco I. Madero' },
+  { value: 'Huasca de Ocampo', label: 'Huasca de Ocampo' },
+  { value: 'Huautla', label: 'Huautla' },
+  { value: 'Huazalingo', label: 'Huazalingo' },
+  { value: 'Huehuetla', label: 'Huehuetla' },
+  { value: 'Huejutla de Reyes', label: 'Huejutla de Reyes' },
+  { value: 'Huichapan', label: 'Huichapan' },
+  { value: 'Ixmiquilpan', label: 'Ixmiquilpan' },
+  { value: 'Jacala de Ledezma', label: 'Jacala de Ledezma' },
+  { value: 'Jaltocán', label: 'Jaltocán' },
+  { value: 'Juárez Hidalgo', label: 'Juárez Hidalgo' },
+  { value: 'Lolotla', label: 'Lolotla' },
+  { value: 'Metepec', label: 'Metepec' },
+  { value: 'San Agustín Metzquititlán', label: 'San Agustín Metzquititlán' },
+  { value: 'Metztitlán', label: 'Metztitlán' },
+  { value: 'Mineral del Chico', label: 'Mineral del Chico' },
+  { value: 'Mineral del Monte', label: 'Mineral del Monte' },
+  { value: 'La Misión', label: 'La Misión' },
+  { value: 'Mixquiahuala de Juárez', label: 'Mixquiahuala de Juárez' },
+  { value: 'Molango de Escamilla', label: 'Molango de Escamilla' },
+  { value: 'Nicolás Flores', label: 'Nicolás Flores' },
+  { value: 'Nopala de Villagrán', label: 'Nopala de Villagrán' },
+  { value: 'Omitlán de Juárez', label: 'Omitlán de Juárez' },
+  { value: 'San Felipe Orizatlán', label: 'San Felipe Orizatlán' },
+  { value: 'Pacula', label: 'Pacula' },
+  { value: 'Pachuca de Soto', label: 'Pachuca de Soto' },
+  { value: 'Pisaflores', label: 'Pisaflores' },
+  { value: 'Progreso de Obregón', label: 'Progreso de Obregón' },
+  { value: 'Mineral de la Reforma', label: 'Mineral de la Reforma' },
+  { value: 'San Agustín Tlaxiaca', label: 'San Agustín Tlaxiaca' },
+  { value: 'San Bartolo Tutotepec', label: 'San Bartolo Tutotepec' },
+  { value: 'San Salvador', label: 'San Salvador' },
+  { value: 'Santiago de Anaya', label: 'Santiago de Anaya' },
+  { value: 'Santiago Tulantepec de Lugo Guerrero', label: 'Santiago Tulantepec de Lugo Guerrero' },
+  { value: 'Singuilucan', label: 'Singuilucan' },
+  { value: 'Tasquillo', label: 'Tasquillo' },
+  { value: 'Tecozautla', label: 'Tecozautla' },
+  { value: 'Tenango de Doria', label: 'Tenango de Doria' },
+  { value: 'Tepeapulco', label: 'Tepeapulco' },
+  { value: 'Tepehuacán de Guerrero', label: 'Tepehuacán de Guerrero' },
+  { value: 'Tepeji del Río de Ocampo', label: 'Tepeji del Río de Ocampo' },
+  { value: 'Tepetitlán', label: 'Tepetitlán' },
+  { value: 'Tetepango', label: 'Tetepango' },
+  { value: 'Villa de Tezontepec', label: 'Villa de Tezontepec' },
+  { value: 'Tezontepec de Aldama', label: 'Tezontepec de Aldama' },
+  { value: 'Tianguistengo', label: 'Tianguistengo' },
+  { value: 'Tizayuca', label: 'Tizayuca' },
+  { value: 'Tlahuelilpan', label: 'Tlahuelilpan' },
+  { value: 'Tlahuiltepa', label: 'Tlahuiltepa' },
+  { value: 'Tlanalapa', label: 'Tlanalapa' },
+  { value: 'Tlanchinol', label: 'Tlanchinol' },
+  { value: 'Tlaxcoapan', label: 'Tlaxcoapan' },
+  { value: 'Tolcayuca', label: 'Tolcayuca' },
+  { value: 'Tula de Allende', label: 'Tula de Allende' },
+  { value: 'Tulancingo de Bravo', label: 'Tulancingo de Bravo' },
+  { value: 'Xochiatipan', label: 'Xochiatipan' },
+  { value: 'Xochicoatlán', label: 'Xochicoatlán' },
+  { value: 'Yahualica', label: 'Yahualica' },
+  { value: 'Zacualtipán de Ángeles', label: 'Zacualtipán de Ángeles' },
+  { value: 'Zapotlán de Juárez', label: 'Zapotlán de Juárez' },
+  { value: 'Zempoala', label: 'Zempoala' },
+  { value: 'Zimapán', label: 'Zimapán' },
+];
 function Preregistro() {
   const { idUser } = useParams();
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -47,6 +135,7 @@ function Preregistro() {
     // Otros campos que esperas recibir de la API
   });
   
+ 
 
   const [municipio_direccionCoords, setMunicipioCoords] = useState({ x: 112, y: 45 });
   const [fechaCoords, setFechaCoords] = useState({ x: 163, y: 45 });
@@ -394,6 +483,8 @@ function Preregistro() {
   const [correo, setCorreo] = useState('');
   const [contrasena, setContrasena] = useState('');
   const [video, setVideo] = useState(null);
+  const [valor, setValor] = useState(null);
+
 
 
   const [isResponsavilidadUso, setIsResponsavilidadUso] = useState(false);
@@ -661,7 +752,17 @@ function Preregistro() {
   const [showPwd, setShowPwd] = useState(false)
 
 
-  
+  const handleChange = (selectedOption) => {
+    console.log(selectedOption)
+    setMunicipio_Direccion(selectedOption.value);
+    setValor(selectedOption);
+    console.log(municipio_direccion)
+  };
+
+  useEffect(() => {
+    console.log("Municipio seleccionado:", municipio_direccion);
+  }, [municipio_direccion]);
+
  
 
   return (
@@ -838,7 +939,7 @@ function Preregistro() {
 
           
           <div className="select">
-          <select style={{ marginRight: '2%' }} value={causa_de_solicitud} onChange={(e) => setcausa_de_solicitud(e.target.value)} requried>
+          <select style={{ marginRight: '2%' }} value={causa_de_solicitud} onChange={(e) => setcausa_de_solicitud(e.target.value)} requried isSearchable={true}>
           <option value="Sospecha de utilización de la clave privada, contraseña o de la propia firma electrónica avanzada por parte de un tercero no autorizado">Sospecha de utilización de la clave privada, contraseña o de la propia firma electrónica avanzada por parte de un tercero no autorizado</option>
           <option value="A solicitud del titular del certificado, cuando requiera la modificación de alguno de los datos contenidos en el mismo">A solicitud del titular del certificado, cuando requiera la modificación de alguno de los datos contenidos en el mismo</option>
           <option value="Cuando la Autoridad Certificadora lo estime conveniente">Cuando la Autoridad Certificadora lo estime conveniente</option>
@@ -923,7 +1024,7 @@ function Preregistro() {
         </div>
        
         <div className="select">
-        <select style={{ marginRight: '2%', width:'48%' }} value={tipoEntidad} onChange={(e) => setTipoEntidad(e.target.value)} >
+        <select style={{ marginRight: '2%', width:'48%' }} value={tipoEntidad} onChange={(e) => setTipoEntidad(e.target.value)} isSearchable={true}>
         <option value="">Seleccione la entidad que le corresponda</option>
         <option value="Dependencia">Dependencia</option>
         <option value="Ayuntamiento">Ayuntamiento</option>
@@ -992,111 +1093,16 @@ function Preregistro() {
          <input className="uppercase-input" style={{ width: '96%', marginBottom:'1%' }} type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} placeholder="Calle, Número interior o Exterior y Colonia o Barrio" />
         </div>
 
-        <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Municipio/Estado/Código Postal</span>  
-        </div>
-       
-        <div className="select">
-        <select
-        style={{ marginRight: '2%' }}
-        value={municipio_direccion}
-        onChange={(e) => setMunicipio_Direccion(e.target.value)}
-      >
-        <option value="">Municipio</option>
-        <option value="Acatlán">Acatlán</option>
-        <option value="Acaxochitlán">Acaxochitlán</option>
-        <option value="Actopan">Actopan</option>
-        <option value="Agua Blanca de Iturbide">Agua Blanca de Iturbide</option>
-        <option value="Ajacuba">Ajacuba</option>
-        <option value="Alfajayucan">Alfajayucan</option>
-        <option value="Almoloya">Almoloya</option>
-        <option value="Apan">Apan</option>
-        <option value="El Arenal">El Arenal</option>
-        <option value="Atitalaquia">Atitalaquia</option>
-        <option value="Atlapexco">Atlapexco</option>
-        <option value="Atotonilco el Grande">Atotonilco el Grande</option>
-        <option value="Atotonilco de Tula">Atotonilco de Tula</option>
-        <option value="Calnali">Calnali</option>
-        <option value="Cardonal">Cardonal</option>
-        <option value="Cuautepec de Hinojosa">Cuautepec de Hinojosa</option>
-        <option value="Chapantongo">Chapantongo</option>
-        <option value="Chapulhuacán">Chapulhuacán</option>
-        <option value="Chilcuautla">Chilcuautla</option>
-        <option value="Eloxochitlán">Eloxochitlán</option>
-        <option value="Emiliano Zapata">Emiliano Zapata</option>
-        <option value="Epazoyucan">Epazoyucan</option>
-        <option value="Francisco I. Madero">Francisco I. Madero</option>
-        <option value="Huasca de Ocampo">Huasca de Ocampo</option>
-        <option value="Huautla">Huautla</option>
-        <option value="Huazalingo">Huazalingo</option>
-        <option value="Huehuetla">Huehuetla</option>
-        <option value="Huejutla de Reyes">Huejutla de Reyes</option>
-        <option value="Huichapan">Huichapan</option>
-        <option value="Ixmiquilpan">Ixmiquilpan</option>
-        <option value="Jacala de Ledezma">Jacala de Ledezma</option>
-        <option value="Jaltocán">Jaltocán</option>
-        <option value="Juárez Hidalgo">Juárez Hidalgo</option>
-        <option value="Lolotla">Lolotla</option>
-        <option value="Metepec">Metepec</option>
-        <option value="San Agustín Metzquititlán">San Agustín Metzquititlán</option>
-        <option value="Metztitlán">Metztitlán</option>
-        <option value="Mineral del Chico">Mineral del Chico</option>
-        <option value="Mineral del Monte">Mineral del Monte</option>
-        <option value="La Misión">La Misión</option>
-        <option value="Mixquiahuala de Juárez">Mixquiahuala de Juárez</option>
-        <option value="Molango de Escamilla">Molango de Escamilla</option>
-        <option value="Nicolás Flores">Nicolás Flores</option>
-        <option value="Nopala de Villagrán">Nopala de Villagrán</option>
-        <option value="Omitlán de Juárez">Omitlán de Juárez</option>
-        <option value="San Felipe Orizatlán">San Felipe Orizatlán</option>
-        <option value="Pacula">Pacula</option>
-        <option value="Pachuca de Soto">Pachuca de Soto</option>
-        <option value="Pisaflores">Pisaflores</option>
-        <option value="Progreso de Obregón">Progreso de Obregón</option>
-        <option value="Mineral de la Reforma">Mineral de la Reforma</option>
-        <option value="San Agustín Tlaxiaca">San Agustín Tlaxiaca</option>
-        <option value="San Bartolo Tutotepec">San Bartolo Tutotepec</option>
-        <option value="San Salvador">San Salvador</option>
-        <option value="Santiago de Anaya">Santiago de Anaya</option>
-        <option value="Santiago Tulantepec de Lugo Guerrero">Santiago Tulantepec de Lugo Guerrero</option>
-        <option value="Singuilucan">Singuilucan</option>
-        <option value="Tasquillo">Tasquillo</option>
-        <option value="Tecozautla">Tecozautla</option>
-        <option value="Tenango de Doria">Tenango de Doria</option>
-        <option value="Tepeapulco">Tepeapulco</option>
-        <option value="Tepehuacán de Guerrero">Tepehuacán de Guerrero</option>
-        <option value="Tepeji del Río de Ocampo">Tepeji del Río de Ocampo</option>
-        <option value="Tepetitlán">Tepetitlán</option>
-        <option value="Tetepango">Tetepango</option>
-        <option value="Villa de Tezontepec">Villa de Tezontepec</option>
-        <option value="Tezontepec de Aldama">Tezontepec de Aldama</option>
-        <option value="Tianguistengo">Tianguistengo</option>
-        <option value="Tizayuca">Tizayuca</option>
-        <option value="Tlahuelilpan">Tlahuelilpan</option>
-        <option value="Tlahuiltepa">Tlahuiltepa</option>
-        <option value="Tlanalapa">Tlanalapa</option>
-        <option value="Tlanchinol">Tlanchinol</option>
-        <option value="Tlaxcoapan">Tlaxcoapan</option>
-        <option value="Tolcayuca">Tolcayuca</option>
-        <option value="Tula de Allende">Tula de Allende</option>
-        <option value="Tulancingo de Bravo">Tulancingo de Bravo</option>
-        <option value="Xochiatipan">Xochiatipan</option>
-        <option value="Xochicoatlán">Xochicoatlán</option>
-        <option value="Yahualica">Yahualica</option>
-        <option value="Zacualtipán de Ángeles">Zacualtipán de Ángeles</option>
-        <option value="Zapotlán de Juárez">Zapotlán de Juárez</option>
-        <option value="Zempoala">Zempoala</option>
-        <option value="Zimapán">Zimapán</option>
-      </select>
-            {/* Agrega las opciones que necesites */}
 
+        <div className='text_formulario is-required'>
+        <span style={{ fontWeight: 'bold' }}>Estado/Código Postal</span>  
+        </div>
 
           <select style={{ marginRight: '2%' }} value={estado} onChange={(e) => setEstado(e.target.value)}>
             <option value="">Estado</option>
             <option value="Hidalgo">Hidalgo</option>
           </select>
-
-        <input
+          <input
           style={{ width: '46%' }}
           type="number"
           value={cp}
@@ -1107,6 +1113,55 @@ function Preregistro() {
           maxLength={5} // Restringe la entrada a 18 caracteres
           placeholder="Código Postal"
         />
+
+        <div className='text_formulario is-required'>
+        <span style={{ fontWeight: 'bold' }}>Municipio</span>  
+        </div>
+       
+        <div className="select">
+        <Select
+        styles={{
+          control: (provided) => ({
+            ...provided,
+            backgroundColor: 'white',
+            border: '1px solid #383737',
+            borderRadius: '10px',
+            padding: '0px',
+            fontSize: '16px',
+            height: 'px',
+            width: '30%',
+            fontFamily: "'Montserrat', sans-serif"
+          }),
+          option: (provided) => ({
+            ...provided,
+            backgroundColor: '#d9d9d9',
+            color: '#383737',
+            fontSize: '16px',
+            width: '100%',
+            fontFamily: "'Montserrat', sans-serif"
+          }),
+          singleValue: (provided) => ({
+            ...provided,
+            color: '#383737',
+            fontSize: '16px',
+            fontFamily: "'Montserrat', sans-serif"
+          }),
+          menu: (provided) => ({
+            ...provided,
+            width: '30%',
+            zIndex: 9999
+          })
+        }}
+        value={valor}
+        onChange={handleChange}
+        options={municipios}
+        isSearchable={true}
+        placeholder="Selecciona un municipio"
+      />
+            {/* Agrega las opciones que necesites */}
+            
+
+
         </div>
 
         <div className='titulo_formulario'>
