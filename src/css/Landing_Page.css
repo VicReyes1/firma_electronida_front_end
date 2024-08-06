@@ -55,7 +55,7 @@
         }
 
         .titulo{
-            font-size: 5.5em;
+            font-size: 1.5em;
             font-weight: bold;
             font-family: 'Montserrat', sans-serif;
             margin-top: 1%;
@@ -63,7 +63,7 @@
             margin-right: 10%;
         }
         .texto{
-            font-size: 1.3em;
+            font-size: 1em;
             font-family: 'Montserrat', sans-serif;
             margin-top: 0.8%;
             margin-left: 23%;
