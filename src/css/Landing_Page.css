@@ -80,8 +80,8 @@
             font-size: 1.7em;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
-            height: 40%;
-            width: 70%;
+            height: 30%;
+            width: 50%;
             transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios */
           }
           
