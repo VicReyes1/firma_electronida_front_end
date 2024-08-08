@@ -158,19 +158,30 @@ function Tabla_Solicitudes_Usuario() {
     }
   };
 
-  const renderButton = (id, estatusTramite) => {
+  const renderButton = (id, estatusTramite,editable) => {
     if (estatusTramite === 1) {
       return (
         <button
           className='boton2'
+          disabled={!editable}
         >
           Sin acciones
+        </button>
+      );
+    } else if (estatusTramite === 5){
+      return (
+        <button
+          className='boton2'
+          onClick={() => handleRedirection(id, estatusTramite)}
+        >
+          Solicitud Terminada
         </button>
       );
     } else {
       return (
         <button
           className='boton2'
+          disabled={!editable}
           onClick={() => handleRedirection(id, estatusTramite)}
         >
           Continuar Solicitud
@@ -205,7 +216,7 @@ function Tabla_Solicitudes_Usuario() {
                 <td>{`${item.nombre} ${item.paterno} ${item.materno}`}</td>
                 <td>{item.status}</td>
                 <td>{item.createdAt}</td>
-                <td>{renderButton(item.id, item.estatusTramite)}</td>
+                <td>{renderButton(item.id, item.estatusTramite, item.editable)}</td>
                 <td>
                   <Button
                     className='boton-tabla'
