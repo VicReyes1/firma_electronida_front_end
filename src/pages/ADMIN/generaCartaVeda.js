@@ -1,11 +1,8 @@
-
-
-
 import axios from 'axios';
 import { jsPDF } from 'jspdf';
 import montserratRegular from '../../Fonts/Montserrat-Regular.ttf';
 import montserratBold from '../../Fonts/Montserrat-Bold.ttf';
-import logo from '../../Images/logo333.png';
+import logo from '../../Images/Escudoo_color.png';
 const apiUrl = process.env.REACT_APP_API_URL;
 const fetchData = async (id) => {
     try {
@@ -39,35 +36,30 @@ const generatePDFBlob = async (data) => {
   doc.addFont(montserratBold, 'Montserrat-Bold', 'normal');
   doc.setFont('Montserrat');
 
-  doc.addImage(logo, 'PNG', 150, 10, 45, 10);
+  doc.addImage(logo, 'PNG', 180, 5, 20, 25);
 
   doc.setTextColor(128, 128, 128);
   doc.setFontSize(8);
-  doc.text('AC_RESPONSIVA', 170, 25);
+  doc.text('AC_RESPONSIVA', 173, 33);
   doc.text('AUTORIDAD CERTIFICADORA DE FIRMA ELECTRÓNICA AVANZADA', 15, 15);
   doc.text('PARA EL ESTADO DE HIDALGO', 15, 20);
 
   doc.setFont('Montserrat-Bold');
+  doc.setTextColor(0, 0, 0);
   doc.setFontSize(10);
-  doc.setTextColor(105, 27, 49);
   doc.text('GOBIERNO DEL ESTADO DE HIDALGO', 65, 30);
-  doc.setTextColor(188, 149, 91);
   doc.text('CARTA DE CONFIDENCIALIDAD Y RESPONSABILIDAD', 50, 35);
-  
+
   doc.setFont('Montserrat');
   doc.setFontSize(8);
-  doc.setTextColor(0, 0, 0);
   doc.text('Pachuca de Soto,  Hidalgo.', 152, 45);
-  
+
 
   doc.setFont('Montserrat-Bold');
   doc.setFontSize(8);
-  doc.setTextColor(105, 27, 49);
   doc.text('Gobierno del Estado de Hidalgo', 15, 50);
-  doc.setTextColor(188, 149, 91);
   doc.text('Presente', 15, 55);
-  
-  doc.setTextColor(0, 0, 0);
+
   doc.setFont('Montserrat');
   doc.text('El que suscribe', 15, 60);
   doc.text(data.nombre || '', 40, 60);
@@ -78,7 +70,7 @@ const generatePDFBlob = async (data) => {
   doc.text('y de acuerdo a los términos de la Ley Sobre el Uso de Medios Electrónicos y Firma Electrónica Avanzada para el Estado de', 15, 70);
   doc.text('Hidalgo, bajo protesta de decir verdad expongo lo siguiente:', 15, 75);
 
-  doc.text('Reconozco desde e l día de hoy que la ', 15, 85);
+  doc.text('Reconozco desde el día de hoy que la ', 15, 85);
   doc.setFont('Montserrat-Bold');
   doc.text('Autoridad Certificadora de Firma Electrónica Avanzada para el Estado de Hidalgo', 70, 85);
   doc.setFont('Montserrat');
@@ -121,9 +113,7 @@ const generatePDFBlob = async (data) => {
   doc.text('jurídico o administrativo a que haya lugar.', 15, 210);
 
   doc.setFont('Montserrat-Bold');
-  doc.setTextColor(105, 27, 49);
   doc.text('Recibí en medio electrónico, digital:', 15, 220);
-  doc.setTextColor(0, 0, 0);
 
   doc.setFont('Montserrat');
   doc.setFontSize(7);
@@ -156,9 +146,8 @@ const generatePDFBlob = async (data) => {
 
   doc.setFont('Montserrat');
   doc.setFontSize(8);
-  doc.setTextColor(105, 27, 49);
   doc.text('- De conformidad -', 90, 250);
-  doc.setTextColor(0, 0, 0);
+
   doc.setFont('Montserrat');
   doc.text('_____________________________________________________________________ ', 55, 270);
   doc.setTextColor(128, 128, 128);
@@ -190,4 +179,3 @@ const generatePDF = async (id) => {
 };
 
 export default generatePDF;
-
