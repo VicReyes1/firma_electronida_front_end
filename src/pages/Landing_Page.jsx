@@ -117,6 +117,10 @@ const Landing_Page = () => {
         <a href="/login">
           <Button className='boton' variant="primary">Iniciar Sesión</Button>
         </a>
+        <div className='texto'>
+        En caso de tener una cuenta activa puede acceder a la plataforma.
+        </div> 
+
       </div>
       <div className="footer1">
         {/*<a href="/preregistro">
@@ -127,6 +131,10 @@ const Landing_Page = () => {
       <a>
           <Button onClick={handleShow} className='boton' variant="primary">Registro</Button>
       </a>
+      <div className='texto'>
+          Proporciona los datos necesarios para crear por
+          primera vez una cuenta.
+        </div> 
       </div>
 
 

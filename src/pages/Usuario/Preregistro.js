@@ -1186,7 +1186,7 @@ function Preregistro() {
         onChange={handleChange}
         options={municipios}
         isSearchable={true}
-        placeholder="Selecciona un municipio"
+        placeholder="SELECCIONA MUNUCIPIO"
       />
             {/* Agrega las opciones que necesites */}
             
@@ -1241,7 +1241,7 @@ function Preregistro() {
             setTelefono(value);
           }}
           maxLength={10} // Restringe la entrada a 18 caracteres
-          placeholder="Teléfono"
+          placeholder="TELÉFONO"
         />
 
         <input
@@ -1253,14 +1253,14 @@ function Preregistro() {
             setExtencion(value);
           }}
           maxLength={4} // Restringe la entrada a 18 caracteres
-          placeholder="Extensión"
+          placeholder="EXTENSIÓN"
         />
         </div>
 
 
         <div style={{ display: 'inline-block', width: '90%', fontWeight: 'bold' }}>
-          <span className='text_formulario is-required' style={{ float: 'left' }}>Correo Electrónico (personal)</span>        
-          <span className='text_formulario is-required' style={{ float: 'right' }}>Confirme su Correo Electrónico</span>
+          <span className='text_formulario is-required' style={{ float: 'left' }}>CORREO ELECTRÓNICO (PERSONAL)</span>        
+          <span className='text_formulario is-required' style={{ float: 'right' }}>CONFIRME SU CORREO ELECTRÓNICO</span>
         </div> 
 
         <div className="inputs">
@@ -1288,7 +1288,7 @@ function Preregistro() {
         <div style={{  marginTop: '2%' }} className="checkboxes">
             <label style={{  fontSize: '0.7em' }} className="checkbox-label">
                 <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isAceptaCorreo} onChange={() => setIsAceptaCorreo(!isAceptaCorreo)} />
-                <span className="checkbox-text">Acepto que este correo unicamente será el que reciba los mensajes y documentos relacionados con el tramite</span>.
+                <span className="checkbox-text">Acepto que este correo unicamente será el que reciba los mensajes y documentos relacionados con el tramite.</span>
 
             </label>
         </div>
@@ -1301,7 +1301,7 @@ function Preregistro() {
               onClick={handleModalTerminosOpen}
               style={{ color: 'blue', textDecoration: 'underline', cursor: 'pointer' }}>
                    Responsabilidad del uso de la Firma Electrónica.</span>
-                   </span>.
+                   </span>
 
             </label>
         </div>
