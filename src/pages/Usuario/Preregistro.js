@@ -17,7 +17,7 @@ import WizardStepsInProgress from '../Componentes/WizardSteps-Progreso';
 import Select from 'react-select';
 
 
-import { cpOptions } from './cp';
+
 const municipios = [
   { value: 'Acatlán', label: 'Acatlán' },
   { value: 'Acaxochitlán', label: 'Acaxochitlán' },
@@ -755,7 +755,6 @@ function Preregistro() {
 
   const [correo_place, setCorreo_place] = useState(null)
 
-  const [valorCP, setValorCP] = useState(null);
 
   const handleChange = (selectedOption) => {
     console.log(selectedOption)
@@ -764,17 +763,9 @@ function Preregistro() {
     console.log(municipio_direccion)
   };
 
-  const handleChangeCP = (selectedOption) => {
-    console.log(selectedOption)
-    setcp(selectedOption.value);
-    setValorCP(selectedOption);
-    console.log(municipio_direccion)
-  };
-
   useEffect(() => {
     console.log("Municipio seleccionado:", municipio_direccion);
-    console.log("CP seleccionado:", cp);
-  }, [municipio_direccion,cp]);
+  }, [municipio_direccion]);
 
   useEffect(() => {
     if(idUser){
@@ -819,7 +810,7 @@ function Preregistro() {
         </div>
 
         <div className='text_formulario is-required' style={{ fontWeight:'bold' }}>
-        Video con fondo blanco donde el solicitante establece nombre, cargo, área de adscripción e institución laboral. (Max 10mb)
+        Video con fondo blanco donde el solicitante establece nombre, cargo, área de adscripción y dependencia.
         </div>
 
         
@@ -847,13 +838,13 @@ function Preregistro() {
           2.- Proporcione los siguientes documentos
         </div>
 
-        <div style={{ fontWeight: 'bold' }} className='text_formulario is-required'>
+        <div className='text_formulario is-required'>
         El formato permitido para los archivos es .pdf (se permite hasta 1MB en total para todos los archivos).
         </div>
 
         <div className='text_pdf is-required'>
         <span style={{ fontWeight: 'bold' }}>Indentificación Oficial con Fotografía Vigente</span>
-        (INE o Pasaporte o Cédula Profesional)
+        (INE, Pasaporte, Cédula Profesional)
         </div>
         
         <div className="files">
@@ -871,7 +862,7 @@ function Preregistro() {
 
         <div className='text_pdf is-required'>
         <span style={{ fontWeight: 'bold', marginBottom:'2%' }}>Comprobante de Domicilio Laboral no mayor a 3 meses</span>
-        (Recibo de Teléfono o Agua Potable o Luz)
+        (Recibo de Teléfono, Agua Potable o Luz)
         </div>
 
         <div className="files">
@@ -924,7 +915,7 @@ function Preregistro() {
         </div>
 
         <div className='text_pdf is-required'>
-        <span style={{ fontWeight: 'bold' }}>Documento que lo Avala como Servidor Público o Notario Público </span>Vigente
+        <span style={{ fontWeight: 'bold' }}>Documento que lo Avala como Servidor Público o Notario Público Vigente</span>
        
         </div>
 
@@ -1064,11 +1055,11 @@ function Preregistro() {
        
         <div className="select">
         <select style={{ marginRight: '2%', width:'48%' }} value={tipoEntidad} onChange={(e) => setTipoEntidad(e.target.value)} isSearchable={true}>
-        <option value="">SELECCIONE LA ENTIDAD QUE LE CORRESPONDA</option>
-        <option value="DEPENDENCIA">DEPENDENCIA</option>
-        <option value="AYUNTAMIENTO">AYUNTAMIENTO</option>
-        <option value="ORGANISMO">ORGANISMO</option>
-        <option value="NOTARIA_PUBLICA">NOTARÍA PÚBLICA</option>
+        <option value="">Seleccione la entidad que le corresponda</option>
+        <option value="Dependencia">Dependencia</option>
+        <option value="Ayuntamiento">Ayuntamiento</option>
+        <option value="Organismo">Organismo</option>
+        <option value="Notaria Publica">Notaría Pública</option>
         {/* Agrega las opciones que necesites */}
       </select>
 
@@ -1134,16 +1125,24 @@ function Preregistro() {
 
 
         <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Estado</span>  
+        <span style={{ fontWeight: 'bold' }}>Estado/Código Postal</span>  
         </div>
 
-          <select style={{ marginRight: '2%', width:'30%'}} value={estado} onChange={(e) => setEstado(e.target.value)}>
-            <option value="">ESTADO</option>
-            <option value="HIDALGO">HIDALGO</option>
+          <select style={{ marginRight: '2%' }} value={estado} onChange={(e) => setEstado(e.target.value)}>
+            <option value="">Estado</option>
+            <option value="Hidalgo">Hidalgo</option>
           </select>
-
-         
-
+          <input
+          style={{ width: '46%' }}
+          type="number"
+          value={cp}
+          onChange={(e) => {
+            const value = e.target.value.slice(0, 5); // Limita el valor a 18 caracteres
+            setcp(value);
+          }}
+          maxLength={5} // Restringe la entrada a 18 caracteres
+          placeholder="Código Postal"
+        />
 
         <div className='text_formulario is-required'>
         <span style={{ fontWeight: 'bold' }}>Municipio</span>  
@@ -1194,47 +1193,6 @@ function Preregistro() {
 
 
         </div>
-        <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Código Postal</span>  
-        </div>
-          <Select
-      styles={{
-        control: (provided) => ({
-          ...provided,
-          backgroundColor: 'white',
-          border: '1px solid #383737',
-          borderRadius: '10px',
-          padding: '0px',
-          fontSize: '16px',
-          width: '30%',
-          fontFamily: "'Montserrat', sans-serif"
-        }),
-        option: (provided) => ({
-          ...provided,
-          backgroundColor: '#d9d9d9',
-          color: '#383737',
-          fontSize: '16px',
-          width: '100%',
-          fontFamily: "'Montserrat', sans-serif"
-        }),
-        singleValue: (provided) => ({
-          ...provided,
-          color: '#383737',
-          fontSize: '16px',
-          fontFamily: "'Montserrat', sans-serif"
-        }),
-        menu: (provided) => ({
-          ...provided,
-          width: '30%',
-          zIndex: 9999
-        })
-      }}
-      value={valorCP}
-      onChange={handleChangeCP}
-      options={cpOptions} // Aquí es donde deberías tener las opciones para el código postal
-      isSearchable={true}
-      placeholder="CÓDIGO POSTAL"
-    />
 
         <div className='titulo_formulario'>
           4.- Información Personal
@@ -1301,8 +1259,8 @@ function Preregistro() {
 
 
         <div style={{ display: 'inline-block', width: '90%', fontWeight: 'bold' }}>
-          <span className='text_formulario is-required' style={{ float: 'left' }}>Correo Electrónico </span>        
-          {/*<span className='text_formulario is-required' style={{ float: 'right' }}>Confirme su Correo Electrónico</span>*/}
+          <span className='text_formulario is-required' style={{ float: 'left' }}>CORREO ELECTRÓNICO (PERSONAL)</span>        
+          <span className='text_formulario is-required' style={{ float: 'right' }}>CONFIRME SU CORREO ELECTRÓNICO</span>
         </div> 
 
         <div className="inputs">
@@ -1314,7 +1272,7 @@ function Preregistro() {
           placeholder="Correo"
         />
 
-        {/*<input
+        <input
           type="text"
           value={confirma_correo}
           onChange={(e) => {
@@ -1324,7 +1282,7 @@ function Preregistro() {
           }}
           placeholder="Confirme su correo"
           className={!correosCoinciden ? 'rojo' : ''} // Agrega una clase rojo si los correos no coinciden
-        />*/}
+        />
         </div>
 
         <div style={{  marginTop: '2%' }} className="checkboxes">

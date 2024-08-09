@@ -29,8 +29,7 @@ function Solicitud_ConcluidaUsuario() {
         entidad: '',
         telefono: '',
         extencion: '',
-        identificacionBlob: null,
-        area: ''
+        identificacionBlob: null
     });
 
       useEffect(() => {
@@ -83,7 +82,6 @@ function Solicitud_ConcluidaUsuario() {
                 entidad: registro.entidad,
                 telefono: registro.telefono,
                 extencion: registro.extencion,
-                area: registro.area,
                 identificacionBlob: null // Este campo se manejará después
             });
         } catch (error) {
@@ -390,7 +388,7 @@ function Solicitud_ConcluidaUsuario() {
 
         <div className='text_formulario17'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Área:</span>
-            {data.area}
+            {data.entidad}
         </div>
         <div className='text_formulario17'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Telefono:</span>

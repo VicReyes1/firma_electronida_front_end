@@ -16,7 +16,7 @@ const WizardStepsCompleted = () => {
             </li>
             <li>
                 <h5 >Paso 3</h5>
-                <span>Carta de Confidencialidad</span>
+                <span>Carta de Confidencialidad y Responsabilidad</span>
             </li>
             <li>
                 <h5 style={{ marginLeft: '20%' }}>Concluido</h5>

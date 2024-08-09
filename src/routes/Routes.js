@@ -15,8 +15,6 @@ import Admin_Solicitudes from '../pages/ADMIN/Solicitudes';
 import Verificar_Datos from '../pages/ADMIN/Verificar_Datos';
 import Aprobacion_Req from '../pages/ADMIN/Aprobacion_req';
 import Solicitud_Concluida from '../pages/ADMIN/Solicitud_Concluida';
-import Solicitud_Concluida_U from '../pages/ADMIN/solicitudConcluidaUsuario';
-
 
 import PDFGenerator from '../pages/ADMIN/PDF';
 import PDFCarta from '../pages/ADMIN/PDF2';
@@ -51,7 +49,7 @@ function Rutas() {
         <Route path="/continuar_solicitud2/:id" element={<PrivateRoute><Continuar_solicitud2 /></PrivateRoute>} />
         <Route path="/continuar_solicitud1/:id" element={<PrivateRoute><Continuar_solicitud1 /></PrivateRoute>} />
         <Route path="/continuar_solicitud3/:id" element={<PrivateRoute><Continuar_solicitud3 /></PrivateRoute>} />
-        <Route path="/solicitud-concluida-usuario/:id" element={<PrivateRoute><Solicitud_Concluida_U /></PrivateRoute>} />
+        <Route path="/solicitud-concluida-usuario/:id" element={<PrivateRoute><Solicitud_ConcluidaUsuario /></PrivateRoute>} />
 
 
         <Route path="/admin&solicitudes" element={<RoleProtectedRoute><Admin_Solicitudes /></RoleProtectedRoute>} />
