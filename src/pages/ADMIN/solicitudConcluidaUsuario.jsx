@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import WizardStepsCompleted from '../Componentes/WizardSteps-Concluido';
 
 
-function Solicitud_ConcluidaUsuario() {
+function Solicitud_ConcluidaUsuario_U() {
     const apiUrl = process.env.REACT_APP_API_URL;
     
 
@@ -413,51 +413,6 @@ function Solicitud_ConcluidaUsuario() {
         <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Identificación Oficial con Fotografía</span> 
         </div>
-        <div>
-           <button onClick={descargaIne} className="boton-blob">Abrir archivo</button>
-        </div>
-
-        <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Comprobante de Domicilio</span> 
-        </div>
-        <div>
-           <button onClick={descargaDomicilio} className="boton-blob">Abrir archivo</button>
-        </div>
-
-        <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Clave Única de Registro de Población</span> 
-        </div>
-        <div>
-           <button onClick={descargaCurp} className="boton-blob">Abrir archivo</button>
-        </div>
-
-        <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Registro Federal de Contribuyentes</span> 
-        </div>
-        <div>
-           <button onClick={descargaRFC} className="boton-blob">Abrir archivo</button>
-        </div>
-
-        <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Documento que lo Avala como Servidor Público</span> 
-        </div>
-        <div>
-           <button onClick={descargaAval} className="boton-blob">Abrir archivo</button>
-        </div>
-
-        <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Solicitud</span> 
-        </div>
-        <div>
-           <button onClick={descargaRequerimiento} className="boton-blob">Abrir archivo</button>
-        </div>
-
-        <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Carta Responsiva</span> 
-        </div>
-        <div>
-           <button onClick={descargaResponsiva} className="boton-blob">Abrir archivo</button>
-        </div>
 
         <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Expediente DI</span> 
@@ -483,4 +438,4 @@ function Solicitud_ConcluidaUsuario() {
   );
 }
 
-export default Solicitud_ConcluidaUsuario;
+export default Solicitud_ConcluidaUsuario_U;
