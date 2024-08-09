@@ -268,7 +268,18 @@ function Solicitud_ConcluidaUsuario() {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'carta_responsiva.pdf'); // Nombre del archivo a descargar
+
+            const contentDisposition = response.headers['content-disposition'];
+            let fileName = 'expediente.pdf'; // Nombre por defecto en caso de que no se encuentre en los encabezados
+
+        if (contentDisposition) {
+            const fileNameMatch = contentDisposition.match(/filename="(.+)"/);
+            if (fileNameMatch && fileNameMatch[1]) {
+                fileName = fileNameMatch[1];
+            }
+        }
+
+            link.setAttribute('download', fileName); // Nombre del archivo a descargar
             document.body.appendChild(link);
             link.click();
             link.parentNode.removeChild(link);
@@ -287,7 +298,17 @@ function Solicitud_ConcluidaUsuario() {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'carta_responsiva.pdf'); // Nombre del archivo a descargar
+            const contentDisposition = response.headers['content-disposition'];
+            let fileName = 'expediente.pdf'; // Nombre por defecto en caso de que no se encuentre en los encabezados
+
+        if (contentDisposition) {
+            const fileNameMatch = contentDisposition.match(/filename="(.+)"/);
+            if (fileNameMatch && fileNameMatch[1]) {
+                fileName = fileNameMatch[1];
+            }
+        }
+
+            link.setAttribute('download', fileName);
             document.body.appendChild(link);
             link.click();
             link.parentNode.removeChild(link);
