@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import montserratRegular from '../../Fonts/Montserrat-Regular.ttf'; // Ruta relativa a la fuente dentro del proyecto
 import montserratBold from '../../Fonts/Montserrat-Bold.ttf'; // Ruta relativa a la fuente dentro del proyecto
-import logo from '../../Images/Escudoo_color.png'; // Ruta relativa a la imagen dentro del proyecto
+import logo from '../../Images/logo333.png'; // Ruta relativa a la imagen dentro del proyecto
 import axios from 'axios';
 
 
@@ -53,15 +53,15 @@ function Verificar_Datos() {
   const [entidadCoords, setentidadCoords] = useState({ x: 32, y: 90 });
   const [nombreCoords, setnombreCoords] = useState({ x: 58, y: 100 });
   const [puestoCoords, setpuestoCoords] = useState({ x: 37, y: 110 });
-  const [RFCCoords, setRFCCoords] = useState({ x: 30, y: 120 });
+  const [RFCCoords, setRFCCoords] = useState({ x: 65, y: 120 });
   const [CURPCoords, setCURPCoords] = useState({ x: 124, y: 120 });
   const [correoCoords, setcorreoCoords] = useState({ x: 58, y: 130 });
   const [telefonoCoords, settelefonoCoords] = useState({ x: 40, y: 140 });
   const [extencionCoords, setextencionCoords] = useState({ x: 132, y: 140 });
   const [direccionCoords, setdireccionCoords] = useState({ x: 20, y: 160 });
   const [municipio_direccionCoords2, setMunicipioCoords2] = useState({ x: 42, y: 170 });
-  const [estadoCoords, setestadoCoords] = useState({ x: 108, y: 170 });
-  const [cpCoords, setcpCoords] = useState({ x: 175, y: 170 });
+  const [estadoCoords, setestadoCoords] = useState({ x: 135, y: 170 });
+  const [cpCoords, setcpCoords] = useState({ x: 188, y: 170 });
   const [ineCoords, setineCoords] = useState({ x: 175, y: 210 });
   const [ComprobanteDomicilioCoords, setComprobanteDomicilioCoords] = useState({ x: 175, y: 215 });
   const [ArchivoCURPCoords, setArchivoCURPCoords] = useState({ x: 175, y: 220 });
@@ -111,31 +111,40 @@ function Verificar_Datos() {
     doc.setFont('Montserrat');
 
     // Agregar imagen como encabezado
-    doc.addImage(logo, 'PNG', 180, 5, 20, 25); // Ajusta las coordenadas y el tamaño según tus necesidades
+    doc.addImage(logo, 'PNG', 150, 10, 45, 10); // Ajusta las coordenadas y el tamaño según tus necesidades
 
     // Agregar texto adicional al documento
     doc.setTextColor(128, 128, 128); // Establece el color gris (RGB: 128, 128, 128)
     doc.setFontSize(8); // Establece el tamaño de letra más pequeño
     doc.text('AUTORIDAD CERTIFICADORA DE FIRMA ELECTRÓNICA AVANZADA', 15, 15);
     doc.text('PARA EL ESTADO DE HIDALGO', 15, 20);
+    doc.text('AC_FREQ01', 178, 25);
 
     doc.setFont('Montserrat-Bold');
-    doc.setTextColor(0, 0, 0);
+    doc.setTextColor(105, 27, 49);
     doc.setFontSize(12); // Establece el tamaño de letra más pequeño
     doc.text('GOBIERNO DEL ESTADO DE HIDALGO', 65, 30);
+    doc.setTextColor(188, 149, 91);
     doc.text('SOLICITUD DE CERTIFICADO DIGITAL DE FIRMA ELECTRÓNICA AVANZADA', 22, 35);
 
+    doc.setTextColor(0, 0, 0);
     doc.setFont('Montserrat');
     doc.setFontSize(10);
-    doc.text('Hidalgo a ', 144, 45);
-    doc.text(',', 142, 45);
-    doc.text(data.municipio_direccion, municipio_direccionCoords.x, municipio_direccionCoords.y);
-    doc.text(formattedDate, fechaCoords.x, fechaCoords.y);
+    doc.text('________________________________________ Hidalgo a ________ de __________________ de __________', 22, 45);
+    doc.setFontSize(8);
+    doc.setTextColor(128, 128, 128);
+    doc.text('Municipio', 50, 48);
+    doc.text('dd', 116, 48);
+    doc.text('mes', 145, 48);
+    doc.text('aaaa', 175, 48);
+    // doc.text(data.municipio_direccion, municipio_direccionCoords.x, municipio_direccionCoords.y);
+    // doc.text(formattedDate, fechaCoords.x, fechaCoords.y);
 
-    
+    doc.setTextColor(105, 27, 49);
     doc.setFont('Montserrat-Bold');
     doc.setFontSize(12);
     doc.text('1.  DATOS DEL SOLICITANTE', 15, 60);
+    doc.setTextColor(0, 0, 0);
     doc.setFontSize(10);
     doc.text('Servidor Público  (   )     Notario Público  (   )', 95, 60);
     doc.text(data.isNotary === 'true' ? 'X' : '', notarioCoords.x, notarioCoords.y);
@@ -166,7 +175,7 @@ function Verificar_Datos() {
     doc.text(data.puesto, puestoCoords.x, puestoCoords.y);
 
     doc.setFont('Montserrat-Bold');
-    doc.text('RFC: ', 20, 120);
+    doc.text('RFC (con Homoclave): ', 20, 120);
    
     doc.setFont('Montserrat');
     doc.setFontSize(10);
@@ -195,7 +204,9 @@ function Verificar_Datos() {
 
     doc.setFont('Montserrat-Bold');
     doc.setFontSize(12);
-    doc.text('2.  DATOS DEL DOMICILIO DE TRABAJO', 15, 150);
+    doc.setTextColor(105, 27, 49);
+    doc.text('2.  DATOS DEL DOMICILIO', 15, 150);
+    doc.setTextColor(0, 0, 0);
     doc.setFontSize(10);
     doc.setFont('Montserrat');
     doc.text(data.direccion, direccionCoords.x, direccionCoords.y);
@@ -206,25 +217,29 @@ function Verificar_Datos() {
     doc.text(data.municipio_direccion, municipio_direccionCoords2.x, municipio_direccionCoords2.y);
 
     doc.setFont('Montserrat-Bold');
-    doc.text('Entidad: ', 90, 170);
+    doc.text('Entidad: ', 118, 170);
     doc.setFont('Montserrat');
     doc.text(data.estado, estadoCoords.x, estadoCoords.y);
 
     doc.setFont('Montserrat-Bold');
-    doc.text('Código Postal: ', 145, 170);
+    doc.text('Código Postal: ', 159, 170);
     doc.setFont('Montserrat');
     doc.text(data.cp, cpCoords.x, cpCoords.y);
 
     doc.setFont('Montserrat-Bold');
     doc.setFontSize(12);
+    doc.setTextColor(105, 27, 49);
     doc.text('3.  DOCUMENTOS DE IDENTIDAD', 15, 180);
+    doc.setTextColor(0, 0, 0);
     doc.setFont('Montserrat');
     doc.setFontSize(9.5);
     doc.text('PARA OBTENER EL CERTIFICADO DIGITAL DE LA FIRMA ELECTRÓNICA AVANZADA ES NECESARIO QUE ', 20, 190);
     doc.text('ENTREGUE,  JUNTO CON ESTA SOLICITUD,  LOS DOCUMENTOS QUE A CONTINUACIÓN SE INDICAN EN ', 20, 195);
     doc.text('ORIGINAL, ', 20, 200);
     doc.setFont('Montserrat-Bold');
+    doc.setTextColor(105, 27, 49);
     doc.text('MARCANDO CON UNA "X"  ', 39, 200);
+    doc.setTextColor(0, 0, 0);
     doc.setFont('Montserrat');
     doc.text('EN LA DOCUMENTACIÓN PROPORCIONADA.', 86, 200);
 
@@ -266,9 +281,11 @@ function Verificar_Datos() {
     
     doc.setFont('Montserrat-Bold');
     doc.setFontSize(10);
+    doc.setTextColor(105, 27, 49);
     doc.text('DECLARO BAJO PROTESTA DE DECIR VERDAD QUE LOS DATOS ', 45, 250);
     doc.text('CONTENIDOS EN ESTA SOLICITUD SON CIERTOS ', 59, 255);
     doc.setFont('Montserrat');
+    doc.setTextColor(0, 0, 0);
     doc.text('______________________________________________________________________________ ', 35, 270);
     doc.setTextColor(128, 128, 128);
     doc.text('FIRMA ', 100, 275);
