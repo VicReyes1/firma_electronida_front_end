@@ -259,6 +259,43 @@ function Solicitud_ConcluidaUsuario() {
             console.error('Error downloading the PDF:', error);
         }
     };
+    const descargaExpedienteDI = async () => {
+        try {
+            const response = await axios.get(`${apiUrl}/admin/descargaExpediente/${id}/`, {
+                responseType: 'blob',
+                'Authorization': `${token}`
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'carta_responsiva.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+            
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    }
+
+    const descargaExpedienteCCR = async () => {
+        try {
+            const response = await axios.get(`${apiUrl}/admin/descargaExpedienteCCR/${id}/`, {
+                responseType: 'blob',
+                'Authorization': `${token}`
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'carta_responsiva.pdf'); // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+            
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    }
 
   return (
     <div>
@@ -399,8 +436,19 @@ function Solicitud_ConcluidaUsuario() {
            <button onClick={descargaResponsiva} className="boton-blob">Abrir archivo</button>
         </div>
 
-        
- 
+        <div className='text_formulario177'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Expediente DI</span> 
+        </div>
+        <div>
+           <button onClick={descargaExpedienteDI} className="boton-blob">Abrir archivo</button>
+        </div>
+
+        <div className='text_formulario177'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Expediente CCR</span> 
+        </div>
+        <div>
+           <button onClick={descargaExpedienteCCR} className="boton-blob">Abrir archivo</button>
+        </div>
             
         </div>
 
