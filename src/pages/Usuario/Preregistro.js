@@ -1065,10 +1065,13 @@ function Preregistro() {
         <div className="select">
         <select style={{ marginRight: '2%', width:'48%' }} value={tipoEntidad} onChange={(e) => setTipoEntidad(e.target.value)} isSearchable={true}>
         <option value="">SELECCIONE LA ENTIDAD QUE LE CORRESPONDA</option>
-        <option value="DEPENDENCIA">DEPENDENCIA</option>
-        <option value="AYUNTAMIENTO">AYUNTAMIENTO</option>
-        <option value="ORGANISMO">ORGANISMO</option>
-        <option value="NOTARIA_PUBLICA">NOTARÍA PÚBLICA</option>
+        <option value="DEPENDENCIA_DEL_GOBIERNO_ESTATAL">DEPENDENCIA DEL GOBIERNO ESTATAL</option>
+        <option value="ENTIDAD_PARAESTATAL">ENTIDAD PARAESTATAL</option>
+        <option value="ENTIDAD_MUNICIPAL_ESTATAL">ENTIDAD MUNICIPAL ESTATAL</option>
+        <option value="H_AYUNTAMIENTO_MUNICIPAL_ESTATAL">H. AYUNTAMIENTO MUNICIPAL ESTATAL</option>
+        <option value="NOTARIA_PUBLICA_ESTATAL">NOTARÍA PÚBLICA ESTATAL</option>
+        <option value="ORGANISMO_DESCONCENTRADO_ESTATAL">ORGANISMO DESCONCENTRADO ESTATAL</option>
+        <option value="ORGANISMO_AUTONOMO">ORGANISMO AUTÓNOMO</option>
         {/* Agrega las opciones que necesites */}
       </select>
 
