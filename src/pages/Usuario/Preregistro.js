@@ -658,6 +658,7 @@ function Preregistro() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let endpoint;
+    handleCloseModal();
 
   if (idUser != null) {
     endpoint = `${apiUrl}/usuario/preregistro/${idUser}`;
