@@ -410,9 +410,6 @@ function Solicitud_ConcluidaUsuario_U() {
         <div className='titulo_formulario17'>
             Documentos
         </div>
-        <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Identificación Oficial con Fotografía</span> 
-        </div>
 
         <div className='text_formulario177'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Expediente DI</span> 
