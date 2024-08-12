@@ -1064,7 +1064,7 @@ function Preregistro() {
        
         <div className="select">
         <select style={{ marginRight: '2%', width:'48%' }} value={tipoEntidad} onChange={(e) => setTipoEntidad(e.target.value)} isSearchable={true}>
-        <option value="">SELECCIONE LA ENTIDAD QUE LE CORRESPONDA</option>
+        <option value="">SELECCIONE EL SECTOR QUE LE CORRESPONDA</option>
         <option value="DEPENDENCIA_DEL_GOBIERNO_ESTATAL">DEPENDENCIA DEL GOBIERNO ESTATAL</option>
         <option value="ENTIDAD_PARAESTATAL">ENTIDAD PARAESTATAL</option>
         <option value="ENTIDAD_MUNICIPAL_ESTATAL">ENTIDAD MUNICIPAL ESTATAL</option>
@@ -1075,7 +1075,7 @@ function Preregistro() {
         {/* Agrega las opciones que necesites */}
       </select>
 
-      <input className="uppercase-input" type="text" value={secretaria} onChange={(e) => setSecretaria(e.target.value)} placeholder="Escriba el nombre de su entidad" />
+      <input className="uppercase-input" type="text" value={secretaria} onChange={(e) => setSecretaria(e.target.value)} placeholder="Escriba el nombre DE SU INSTITUCIÓN" />
         </div>
 
         
@@ -1264,12 +1264,12 @@ function Preregistro() {
           type="text"
           value={area}
           onChange={(e) => setArea(e.target.value)}
-          placeholder="Área"
+          placeholder="Área de adscripción"
         />
         </div>
 
 
-        <div style={{ display: 'inline-block', width: '80%', fontWeight: 'bold' }}>
+        <div style={{ display: 'inline-block', width: '45%', fontWeight: 'bold' }}>
           <span className='text_formulario is-required' style={{ float: 'left' }}>Teléfono (10 dígitos)</span>        
           <span className='text_formulario is-required' style={{ float: 'right' }}>Extensión</span>
         </div> 
@@ -1278,7 +1278,7 @@ function Preregistro() {
         <div className="inputs">
           
         <input
-          style={{ width: '62%', marginRight: '2%' }}
+          style={{ width: '25%', marginRight: '2%' }}
           type="number"
           value={telefono}
           onChange={(e) => {
@@ -1290,7 +1290,7 @@ function Preregistro() {
         />
 
         <input
-          style={{ width: '30%' }}
+          style={{ width: '17%' }}
           type="number"
           value={extencion}
           onChange={(e) => {
