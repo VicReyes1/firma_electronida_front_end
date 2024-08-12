@@ -332,13 +332,7 @@ input {
   margin-bottom: 10%;
 }
 
-.titulo_modal{
-  font-size: 3em;
-}
 
-.texto_modal{
-  font-size: 2em;
-}
 
 input { 
   width: 45%; /* Ancho del combo box, ajusta según necesites */
