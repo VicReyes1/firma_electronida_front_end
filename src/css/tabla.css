@@ -80,6 +80,12 @@
   color: white; /* Cambia el color del texto al pasar el mouse */
 }
 
+.boton2:disabled{
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .buscar{
   width: 600px;
   margin-right: 200px;

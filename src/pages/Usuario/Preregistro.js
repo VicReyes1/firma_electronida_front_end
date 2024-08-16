@@ -1332,14 +1332,14 @@ function Preregistro() {
         </div>
 
         <div style={{  marginTop: '2%' }} className="checkboxes">
-            <label style={{  fontSize: '0.7em' }} className="checkbox-label">
+            <label style={{  fontSize: '0.9em !important' }} className="checkbox-label">
                 <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isAceptaCorreo} onChange={() => setIsAceptaCorreo(!isAceptaCorreo)} />
                 <span className="checkbox-text">Acepto que este correo unicamente será el que reciba los mensajes y documentos relacionados con el tramite.</span>
 
             </label>
         </div>
         <div style={{ /* marginTop: '2%' */}} className="checkboxes">
-            <label style={{  fontSize: '0.7em' }} className="checkbox-label">
+            <label style={{  fontSize: '0.9em !important' }} className="checkbox-label">
                 <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isResponsavilidadUso} onChange={() => setIsResponsavilidadUso(!isResponsavilidadUso)} />
                 <span className="checkbox-text">Acepto la&nbsp;
                 <span
@@ -1352,7 +1352,7 @@ function Preregistro() {
             </label>
         </div>
         <div className="checkboxes">
-            <label style={{  fontSize: '0.7em', }} className="checkbox-label">
+            <label style={{  fontSize: '0.9em !important', }} className="checkbox-label">
                 <input style={{  width: '10px', height:'10px' }} type="checkbox" checked={isPoliticas} onChange={() => setIsPoliticas(!isPoliticas)} />
                 <span className="checkbox-text">
                   He leído y acepto las políticas de&nbsp;

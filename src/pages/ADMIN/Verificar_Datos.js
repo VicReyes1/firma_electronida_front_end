@@ -355,8 +355,9 @@ function Verificar_Datos() {
    // Función para verificar si todas las casillas de verificación están marcadas
   const todasSeleccionadas = () => {
     // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
-    return isSP && isRS /* Agregar el resto de tus variables de estado */;
+    return isSP && isRS && isRFC && isdireccion && ism && isCP && isP && isA && isT && isExt && isEmail && isIde && isCD && isCURP && isDRFC && isAval;
   };
+
 
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
@@ -518,6 +519,47 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
             {data.curp}
           </div>
 
+          <div className='titulo_formulario2'>
+        Documentos de Identidad
+        </div>
+
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
+                <input type="checkbox" checked={isIde} onChange={() => setIsIde(!isIde)} />
+                <span className="checkbox-text2">{nombre}Identificación</span>
+            </label>    
+        </div>
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
+                <input type="checkbox" checked={isCD} onChange={() => setIsCD(!isCD)} />
+                <span className="checkbox-text2">{nombre}Comprobante de Domicilio</span>
+            </label>    
+        </div>
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
+                <input type="checkbox" checked={isCURP} onChange={() => setIsCURP(!isCURP)} />
+                <span className="checkbox-text2">{nombre}CURP</span>
+            </label>    
+        </div>
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
+                <input type="checkbox" checked={isDRFC} onChange={() => setIsDRFC(!isDRFC)} />
+                <span className="checkbox-text2">{nombre}RFC</span>
+            </label>    
+        </div>
+        <div className="checkboxes2">
+            <label className="checkbox-label2">
+                <input type="checkbox" checked={isAval} onChange={() => setIsAval(!isAval)} />
+                <span className="checkbox-text2">{nombre}Avala como Servidor
+                Público o Notario
+                Público</span>
+            </label>    
+        </div>
+
+        <div className='titulo_formulario2'>
+        Datos del Solicitante
+        </div>
+
           <div className="checkboxes2">
             <label className="checkbox-label2">
                 <input type="checkbox" checked={isRFC} onChange={() => setIsRFC(!isRFC)} />
@@ -611,42 +653,7 @@ fetch(`${apiUrl}/admin/enviaComentario/${id}`, {
 
         
 
-        <div className='titulo_formulario2'>
-        Documentos de Identidad
-        </div>
-
-        <div className="checkboxes2">
-            <label className="checkbox-label2">
-                <input type="checkbox" checked={isIde} onChange={() => setIsIde(!isIde)} />
-                <span className="checkbox-text2">{nombre}Identificación</span>
-            </label>    
-        </div>
-        <div className="checkboxes2">
-            <label className="checkbox-label2">
-                <input type="checkbox" checked={isCD} onChange={() => setIsCD(!isCD)} />
-                <span className="checkbox-text2">{nombre}Comprobante de Domicilio</span>
-            </label>    
-        </div>
-        <div className="checkboxes2">
-            <label className="checkbox-label2">
-                <input type="checkbox" checked={isCURP} onChange={() => setIsCURP(!isCURP)} />
-                <span className="checkbox-text2">{nombre}CURP</span>
-            </label>    
-        </div>
-        <div className="checkboxes2">
-            <label className="checkbox-label2">
-                <input type="checkbox" checked={isDRFC} onChange={() => setIsDRFC(!isDRFC)} />
-                <span className="checkbox-text2">{nombre}RFC</span>
-            </label>    
-        </div>
-        <div className="checkboxes2">
-            <label className="checkbox-label2">
-                <input type="checkbox" checked={isAval} onChange={() => setIsAval(!isAval)} />
-                <span className="checkbox-text2">{nombre}Avala como Servidor
-                Público o Notario
-                Público</span>
-            </label>    
-        </div>
+        
 
         </div>
 
