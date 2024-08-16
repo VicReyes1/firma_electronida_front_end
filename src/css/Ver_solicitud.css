@@ -2,7 +2,7 @@
     display: flex;
      /* Centra verticalmente los elementos */
     flex-direction: column; /* Apila los elementos verticalmente */
-    margin-top: 2%;
+    margin-top: 0%;
     width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
   }
   
@@ -15,8 +15,8 @@
   .titulo_header {
     background-color: #691B31;
     color: white;
-    padding: 40px;
-    font-size: 3.5em;
+    padding: 20px;
+    font-size: 3em;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif; 
     text-align: left;
@@ -29,8 +29,8 @@
   }
   
   .Logo2 {
-    width: 300px;
-    height: auto;
+    width: auto;
+    height: 5.9rem;
   }
   
   .titulo-container {   
@@ -39,7 +39,7 @@
   }
   
   .titulo_2 {
-    font-size: 5em;
+    font-size: 3em;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
   }

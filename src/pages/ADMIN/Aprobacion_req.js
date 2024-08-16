@@ -304,7 +304,7 @@ certificados digitales..
                     {file2 ? <span className="file-name">{file2.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
           </div>
 
-          <div className='text_formulario'>
+          {/*<div className='text_formulario'>
                     <span style={{ fontWeight: 'bold' }}>Archivo PKCS12 (*.pfx o *.p12)</span>
                 </div>
                 <div className="files">
@@ -332,7 +332,7 @@ certificados digitales..
                         />
                     </label>
                     {file4 ? <span className="file-name">{file4.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
-          </div>
+          </div>*/}
         <br/>
         <div className="checkboxes">
               <label className="checkbox-label">
