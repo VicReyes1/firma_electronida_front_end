@@ -222,7 +222,7 @@ function Aprobacion_Carta() {
     >
     <Modal show={showModal2} onHide={handleCloseModal} centered backdrop="static">
   <Modal.Header >
-    <Modal.Title className='titulo_modal'>¿Seguro que quiere regresar el formulario al usuario?</Modal.Title>
+    <Modal.Title className='titulo_modal'>Se notificará al solicitante que la Carta de Confidencialidad y Responsabilidad es incorrecta</Modal.Title>
   </Modal.Header>
 
   <Modal.Footer>
