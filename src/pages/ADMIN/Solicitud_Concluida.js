@@ -74,7 +74,7 @@ function Solicitud_ConcluidaUsuario() {
                 CURP: registro.curp,
                 notario: registro.isNotary ? 'true' : 'false',
                 servidor: registro.isServer ? 'true' : 'false',
-                secretaria: registro.secretaria,
+                area: registro.area,
                 RFC: registro.rfc,
                 direccion: registro.direccion,
                 municipio_direccion: registro.municipio_direccion,
@@ -354,7 +354,7 @@ function Solicitud_ConcluidaUsuario() {
         </div>
         <div className='text_formulario17'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Razón Social:</span>
-            {data.secretaria}
+            {data.area}
         </div>
         <div className='text_formulario17'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>RFC:</span>

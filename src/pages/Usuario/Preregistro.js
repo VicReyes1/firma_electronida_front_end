@@ -849,7 +849,7 @@ function Preregistro() {
         </div>
 
         <div style={{ fontWeight: 'bold' }} className='text_formulario is-required'>
-        El formato permitido para los archivos es .pdf (se permite hasta 1MB en total para todos los archivos).
+        El formato permitido para los archivos es .pdf (se permite hasta 1 Mb por archivo pdf).
         </div>
 
         <div className='text_pdf is-required'>
