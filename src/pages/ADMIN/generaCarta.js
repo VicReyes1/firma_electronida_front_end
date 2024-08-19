@@ -73,7 +73,7 @@ const generatePDFBlob = async (data) => {
   doc.text(data.nombre || '', 40, 60);
   doc.text('___________________________________________________________________________________________________________', 40, 60.5);
   doc.text('adscrito(a) a (l) (la)', 15, 65);
-  doc.text(data.area || '', 45, 65);
+  doc.text(data.secretaria || '', 45, 65);
   doc.text('_______________________________________________________________________________________________________', 45, 65.5);
   doc.text('y de acuerdo a los términos de la Ley Sobre el Uso de Medios Electrónicos y Firma Electrónica Avanzada para el Estado de', 15, 70);
   doc.text('Hidalgo, bajo protesta de decir verdad expongo lo siguiente:', 15, 75);

@@ -349,45 +349,21 @@ function Solicitud_ConcluidaUsuario_U() {
             {data.CURP}
         </div>
         <div className='text_formulario17'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>RFC:</span>
+            {data.RFC}
+        </div>
+        <div className='text_formulario17'>
             <span style={{ fontWeight: 'bold' }}></span>
             {data.notario === 'true' ? 'Notario Público':''}{data.servidor === 'true' ? 'Servidor Público':''}
         </div>
         <div className='text_formulario17'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Razón Social:</span>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Sector Público:</span>
             {data.secretaria}
         </div>
-        <div className='text_formulario17'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>RFC:</span>
-            {data.RFC}
-        </div>
-
-        <div className='titulo_formulario17'>
-            Dirección 
-        </div>
-
-          <div className='text_formulario17'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Dirección:</span>
-            {data.direccion}
-        </div>
-
-        <div className='text_formulario17'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Municipo:</span>
-            {data.municipio_direccion}
-        </div>
-        <div className='text_formulario17'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Código Postal:</span>
-            {data.cp}
-        </div>
-
-        <div className='titulo_formulario17'>
-            Información Personal 
-        </div>
-
         <div className='text_formulario17'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Puesto:</span>
             {data.puesto}
         </div>
-
         <div className='text_formulario17'>
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Área:</span>
             {data.area}
@@ -401,6 +377,31 @@ function Solicitud_ConcluidaUsuario_U() {
             <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Extensión:</span>
             {data.extencion}
         </div>
+       
+
+        <div className='titulo_formulario17'>
+        Domicilio laboral 
+        </div>
+
+          <div className='text_formulario17'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Domicilio:</span>
+            {data.direccion}
+        </div>
+
+        <div className='text_formulario17'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Municipo:</span>
+            {data.municipio_direccion}
+        </div>
+        <div className='text_formulario17'>
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Código Postal:</span>
+            {data.cp}
+        </div>
+
+
+        
+
+        
+        
        
 
         </div>
@@ -419,7 +420,7 @@ function Solicitud_ConcluidaUsuario_U() {
         </div>
 
         <div className='text_formulario177'>
-            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Expediente CCR</span> 
+            <span style={{ fontWeight: 'bold', marginRight:'2%' }}>Documento CCR</span> 
         </div>
         <div>
            <button onClick={descargaExpedienteCCR} className="boton-blob">Abrir archivo</button>
