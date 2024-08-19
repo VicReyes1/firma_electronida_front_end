@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/Ver_solicitud.css'; // Verifica la ruta a tu archivo CSS
 import Logo from '../Images/logotipo-01.png'; // Verifica la ruta a tu imagen
+import logout from '../Images/logout.svg'
 import { Link, useNavigate } from 'react-router-dom'; // Usar useNavigate para la navegación
 
 function Heder() {
@@ -18,7 +19,8 @@ function Heder() {
         </div>
         <div style={{ display: 'inline-block', width: '100%', fontWeight: 'bold' }}className='titulo_header'>
           Firma Electrónica Avanzada
-          <button className="logout-button" onClick={logOut}>Cerrar Sesión</button>
+          {/*<button className="logout-button" onClick={logOut}>Cerrar Sesión</button>*/}
+          <img className="logout-button" src={logout} alt='Cerrar sesión' onClick={logOut}/>
           <div>
           
           </div>

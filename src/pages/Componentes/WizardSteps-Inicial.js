@@ -11,12 +11,12 @@ const WizardStepsInicial = () => {
                 <span>Ingresar Documentos e Información</span>
             </li>
             <li>
-            <h5 style={{ color: 'black' }} >Paso 2</h5>
-            <span style={{ color: 'black' }}>Carga Solicitud y Requerimiento</span>
+            <h5 style={{ color: 'grey' }} >Paso 2</h5>
+            <span style={{ color: 'grey' }}>Carga Solicitud y Requerimiento</span>
             </li>
             <li>
-            <h5 style={{ color: 'black' }} >Paso 3</h5>
-            <span style={{ color: 'black' }}>Carta de Confidencialidad y Responsabilidad</span>
+            <h5 style={{ color: 'grey' }} >Paso 3</h5>
+            <span style={{ color: 'grey' }}>Carta de Confidencialidad y Responsabilidad</span>
             </li>
 
            

@@ -10,6 +10,7 @@
     width: 100%; /* Asegura que el encabezado ocupe todo el ancho */
     display: flex;
     align-items: center; /* Centra los elementos del header */
+    justify-content: space-between;
   }
   
   .titulo_header {
@@ -158,5 +159,7 @@
     cursor: pointer;
     font-size: 0.25em;
     text-decoration: underline;
-    float: right;
+    float: inline-end;
+    height: 100%;
+    width: auto;
   }

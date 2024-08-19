@@ -90,7 +90,7 @@ function Continuar_solicitud2() {
                             className="custom-file-input"
                         />
                     </label>
-                    {file1 ? null : <span className="no-file-message">Ningún archivo seleccionado</span>}
+                    {file1 ? file1.name : <span className="no-file-message">Ningún archivo seleccionado</span>}
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center' }}>
