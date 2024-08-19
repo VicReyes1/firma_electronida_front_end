@@ -815,77 +815,15 @@ function Preregistro() {
 
       <div className='formulario'>
 
-        <div className='titulo_formulario'>
-          1.- Video de Identificación
-        </div>
-
-        <div className='text_formulario is-required' style={{ fontWeight:'bold' }}>
-        Video con fondo blanco donde el solicitante establece nombre, cargo, área de adscripción e institución laboral. (Max 10mb)
-        </div>
-
         
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-      <label className="custom-file-label">
-        Seleccionar Archivo
-        <input
-          type="file"
-          accept="video/*"
-          onChange={handleVideoChange}
-          className="custom-file-input"
-          required
-        />
-      </label>
-      {video && (
-        <div style={{ color: error ? 'red' : 'gray', marginLeft: '2%' }}>
-          Video seleccionado: {video.name}
-        </div>
-      )}
-      {error && <div style={{ color: 'red', marginLeft: '2%' }}>{error}</div>}
-    </div>
 
         <form onSubmit={handleSubmit}>
         <div className='titulo_formulario'>
-          2.- Proporcione los siguientes documentos
+        Proporcione los siguientes documentos
         </div>
 
         <div style={{ fontWeight: 'bold' }} className='text_formulario is-required'>
         El formato permitido para los archivos es .pdf (se permite hasta 1 Mb por archivo pdf).
-        </div>
-
-        <div className='text_pdf is-required'>
-        <span style={{ fontWeight: 'bold' }}>Indentificación Oficial con Fotografía Vigente</span>
-        (INE o Pasaporte o Cédula Profesional)
-        </div>
-        
-        <div className="files">
-            <label className="custom-file-label " style={{ marginTop: '6%' }}>
-                Seleccionar Archivo
-                <input 
-                type="file" 
-                onChange={handleArchivoINEChange} 
-                className="custom-file-input"
-                accept="application/pdf" // Solo permite archivos PDF
-                />
-            </label>
-            {ArchivoINE ? <span className="file-name">{ArchivoINE.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
-        </div>
-
-        <div className='text_pdf is-required'>
-        <span style={{ fontWeight: 'bold', marginBottom:'2%' }}>Comprobante de Domicilio Laboral no mayor a 3 meses</span>
-        (Recibo de Teléfono o Agua Potable o Luz)
-        </div>
-
-        <div className="files">
-            <label className="custom-file-label">
-                Seleccionar Archivo
-                <input 
-                type="file" 
-                onChange={handleArchivoComprobanteDomicilioChange} 
-                className="custom-file-input"
-                accept="application/pdf" // Solo permite archivos PDF
-                />
-            </label>
-            {ArchivoComprobanteDomicilio ? <span className="file-name">{ArchivoComprobanteDomicilio.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
 
         <div className='text_pdf is-required'>
@@ -925,6 +863,46 @@ function Preregistro() {
         </div>
 
         <div className='text_pdf is-required'>
+        <span style={{ fontWeight: 'bold' }}>Indentificación Oficial con Fotografía Vigente</span>
+        (INE o Pasaporte o Cédula Profesional)
+        </div>
+        
+        <div className="files">
+            <label className="custom-file-label " style={{ marginTop: '6%' }}>
+                Seleccionar Archivo
+                <input 
+                type="file" 
+                onChange={handleArchivoINEChange} 
+                className="custom-file-input"
+                accept="application/pdf" // Solo permite archivos PDF
+                />
+            </label>
+            {ArchivoINE ? <span className="file-name">{ArchivoINE.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+        </div>
+
+        <div className='text_pdf is-required'>
+        <span style={{ fontWeight: 'bold', marginBottom:'2%' }}>Comprobante de Domicilio Laboral no mayor a 3 meses</span>
+        (Recibo de Teléfono o Agua Potable o Luz)
+        </div>
+
+        <div className="files">
+            <label className="custom-file-label">
+                Seleccionar Archivo
+                <input 
+                type="file" 
+                onChange={handleArchivoComprobanteDomicilioChange} 
+                className="custom-file-input"
+                accept="application/pdf" // Solo permite archivos PDF
+                />
+            </label>
+            {ArchivoComprobanteDomicilio ? <span className="file-name">{ArchivoComprobanteDomicilio.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
+        </div>
+
+        
+
+        
+
+        <div className='text_pdf is-required'>
         <span style={{ fontWeight: 'bold' }}>Documento que lo Avala como Servidor Público o Notario Público </span>Vigente
        
         </div>
@@ -941,6 +919,34 @@ function Preregistro() {
             </label>
             {ArchivoAval ? <span className="file-name">{ArchivoAval.name}</span> : <span className="no-file-message">Ningún archivo seleccionado</span>}
         </div>
+
+        {/*<div className='titulo_formulario'>
+          Video de Identificación
+        </div>*/}
+
+        <div className='text_formulario is-required' style={{ fontWeight:'bold' }}>
+        Video con fondo blanco donde el solicitante establece nombre, cargo, área de adscripción e institución laboral. (Max 10mb)
+        </div>
+
+        
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+      <label className="custom-file-label">
+        Seleccionar Archivo
+        <input
+          type="file"
+          accept="video/*"
+          onChange={handleVideoChange}
+          className="custom-file-input"
+          required
+        />
+      </label>
+      {video && (
+        <div style={{ color: error ? 'red' : 'gray', marginLeft: '2%' }}>
+          Video seleccionado: {video.name}
+        </div>
+      )}
+      {error && <div style={{ color: 'red', marginLeft: '2%' }}>{error}</div>}
+    </div>
 
         <div className='text_pdf is-required'>
         <span style={{ fontWeight: 'bold' }}>Trámite de Certificación Digital</span>  
@@ -1122,14 +1128,10 @@ function Preregistro() {
         />
         </div>
         
-       
 
-        <div className='titulo_formulario'>
-          3.- Dirección como aparece en comprobante de domicilio
-        </div>
 
         <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Calle, Número Interior o Exterior y Colonia o Barrio</span>  
+        <span style={{ fontWeight: 'bold' }}>Dirección como aparece en comprobante de domicilio</span>  
         </div>
 
         <div className="inputs">
@@ -1241,7 +1243,7 @@ function Preregistro() {
     />
 
         <div className='titulo_formulario'>
-          4.- Información Personal
+          Datos de Oficina
         </div>
 
         <div style={{ display: 'inline-block', width: '58%', fontWeight: 'bold' }}>
