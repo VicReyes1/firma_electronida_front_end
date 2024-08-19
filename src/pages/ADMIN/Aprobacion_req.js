@@ -372,7 +372,7 @@ certificados digitales..
     >
     <Modal show={showModal1} onHide={handleCloseModal} centered backdrop="static">
   <Modal.Header >
-    <Modal.Title className='titulo_modal'>¿Seguro que quiere enviar carpeta al usuario?</Modal.Title>
+    <Modal.Title className='titulo_modal'>¿Seguro que quiere enviar carta responsiva al usuario?</Modal.Title>
   </Modal.Header>
   <Modal.Body>
     <p className='texto_modal'>Incluye carta responsiva, manuales y .cer</p>
@@ -390,7 +390,7 @@ certificados digitales..
     >
     <Modal show={showModal2} onHide={handleCloseModal} centered backdrop="static">
   <Modal.Header >
-    <Modal.Title className='titulo_modal'>¿Seguro que quiere regresar el formulario al usuario?</Modal.Title>
+    <Modal.Title className='titulo_modal'>¿Seguro que quiere regresar la carta responsiva al usuario?</Modal.Title>
   </Modal.Header>
 
   <Modal.Footer>

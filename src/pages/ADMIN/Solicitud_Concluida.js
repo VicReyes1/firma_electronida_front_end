@@ -84,6 +84,7 @@ function Solicitud_ConcluidaUsuario() {
                 telefono: registro.telefono,
                 extencion: registro.extencion,
                 area: registro.area,
+                secretaria: registro.secretaria,
                 identificacionBlob: null // Este campo se manejará después
             });
         } catch (error) {
