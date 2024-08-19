@@ -58,9 +58,26 @@
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 5%;
     border-width: 2px;
-    padding-left: 30px; /* Agrega un margen izquierdo de 10px */
-  }
-  
-  .form-control-veda:focus {
-    box-shadow: 0px 0px 5px 5px 'Montserrat', sans-serif !important;
-  }
+    padding-left: 30px; /* Agrega un margen izquierdo de 30px */
+}
+
+.form-control-veda:focus {
+    box-shadow: 0px 0px 5px 5px rgba(105, 27, 49, 0.5); /* Aplicar sombra correcta */
+    outline: none; /* Elimina el contorno por defecto */
+}
+
+.form-control-veda:hover {
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilos para cuando el navegador autocompleta los campos */
+input.form-control-veda:-webkit-autofill,
+input.form-control-veda:-webkit-autofill:hover,
+input.form-control-veda:-webkit-autofill:focus,
+input.form-control-veda:-webkit-autofill:active {
+    font-size: 2em !important; /* Asegúrate de que el tamaño se mantenga grande */
+    font-family: 'Montserrat', sans-serif !important; /* Mantén la familia de la fuente */
+    -webkit-text-fill-color: black !important; /* Asegúrate de que el color del texto sea negro */
+    background-color: transparent !important; /* Mantén el fondo transparente */
+}

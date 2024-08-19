@@ -154,6 +154,11 @@ const generatePDFBlob = async (data) => {
   doc.text('[      ]', 170, 240);
   doc.text(data.key ? 'X' : '', 172, 240);
 
+  doc.setFont('Montserrat-Bold');
+  doc.text('Acepto Terminos y Condiciones', 35, 245);
+  doc.text('[      ]', 170, 245);
+  doc.text('X', 172, 245);
+
   doc.setFont('Montserrat');
   doc.setFontSize(8);
   doc.setTextColor(105, 27, 49);
