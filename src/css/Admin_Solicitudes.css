@@ -41,4 +41,22 @@
   .tab-pane.active {
     display: block;
   }
+
+  .responsive-combobox {
+    display: none;
+  }
+  
+  @media screen and (max-width: 850px) {
+    .nav-tabs {
+      display: none;
+    }
+  
+    .responsive-combobox {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1em;
+    }
+  }
   

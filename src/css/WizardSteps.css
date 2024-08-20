@@ -2,13 +2,15 @@
 
 .wizard-steps {
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     align-items: center;
     list-style: none;
     padding: 0;
     border-radius: 5px;
-    padding: 10px;
+    padding: 0.8em;
     margin: 4%;
+    height: 4rem;
+    width: auto;
     
   }
   
