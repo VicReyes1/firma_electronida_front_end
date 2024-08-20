@@ -19,6 +19,14 @@ function Admin_Solicitudes() {
     setActiveTab(tab);
   };
 
+  const handleSelectChange = (event) => {
+    const selectedTab = event.target.value;
+    if (selectedTab === 'presencial') {
+      navigate('/preregistro-presencial');
+    } else {
+      setActiveTab(selectedTab);
+    }
+  };
 
   return (
     <div>
@@ -72,6 +80,20 @@ function Admin_Solicitudes() {
           </div>
         </div>
 
+
+       <select
+          className="responsive-combobox"
+          value={activeTab}
+          onChange={handleSelectChange}
+        >
+          <option value="solicitudesAlta">Alta Usuarios</option>
+          <option value="solicitudesNuevas">Solicitudes Nuevas</option>
+          <option value="solicitudesEnCurso">Solicitudes en Curso</option>
+          <option value="solicitudesConcluidas">Solicitudes Concluidas</option>
+          <option value="solicitudesSuspendidas">Solicitudes Suspendidas</option>
+          <option value="estadisticas">Estadísticas</option>
+          <option value="presencial">Solicitud presencial</option>
+        </select>
         <div className="tab-content">
 
 
