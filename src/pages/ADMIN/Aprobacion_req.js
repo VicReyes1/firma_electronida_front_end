@@ -109,7 +109,12 @@ function Aprobacion_Req() {
     };
 
     try {
-        const response = await axios.post(`${apiUrl}/admin/actualizarReq`, data);
+      const response = await axios.post(`${apiUrl}/admin/actualizarReq`, data, {
+        headers: {
+            'Authorization': `${token}`, // Token de autenticación
+            'Content-Type': 'application/json'  // Tipo de contenido JSON
+        }
+    });
         console.log(id);
         const pdfCarta = await generatePDF(id);
         const documentos = [];
