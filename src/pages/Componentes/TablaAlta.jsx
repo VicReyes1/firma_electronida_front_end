@@ -167,6 +167,7 @@ function TablaAlta({ tab }) {
             <th>Nombre</th>
             <th>Correo</th>
             <th>Fecha de Envío</th>
+            <th>Estado</th>
             <th>Actualizar</th>
           </tr>
         </thead>
@@ -176,6 +177,7 @@ function TablaAlta({ tab }) {
               <td>{`${item.nombre} `}</td>
               <td>{item.correo}</td>
               <td>{item.createdAt}</td>
+              <td>{item.estatus}</td>
               <td style={{ display: 'flex', gap: '0.2rem' }}>
                     <button
                 className='boton'
