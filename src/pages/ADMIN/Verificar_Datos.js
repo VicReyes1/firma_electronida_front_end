@@ -325,18 +325,31 @@ function Verificar_Datos() {
   };
 
   const cargarPDF = (archivoSeleccionado) => {
-    
-    fetch(`${apiUrl}/admin/returnFile/${id}/${archivoSeleccionado}`)
-        .then(response => response.blob())
-        .then(blob => {
-          setPdfBlob(URL.createObjectURL(blob));
-        }).catch(error => console.error('Error al cargar el archivo:', error));
-  };
+    fetch(`${apiUrl}/admin/returnFile/${id}/${archivoSeleccionado}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `${token}` // Aquí se añade el token de autenticación
+        }
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        setPdfBlob(URL.createObjectURL(blob));
+    })
+    .catch(error => console.error('Error al cargar el archivo:', error));
+};
+
 
 
   useEffect(() => {
     
-    fetch(`${apiUrl}/admin/getData/${id}`)
+    fetch(`${apiUrl}/admin/getData/${id}`, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `${token}` // Se suele usar el prefijo 'Bearer' para tokens de autenticación
+      }
+  })
+    
       .then(response => response.json())
       .then(data => {
         setData(data.registroExistente);
