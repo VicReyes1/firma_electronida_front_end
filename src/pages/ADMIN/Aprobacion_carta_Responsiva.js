@@ -21,7 +21,12 @@ function Aprobacion_Carta() {
    const cargarPDF = () => {
     // Aquí realizas la petición a tu API para obtener el PDF
     // Reemplaza 'URL_DE_TU_API' por la URL correspondiente a tu API
-    fetch(`${apiUrl}/admin/returnFile/${id}/carta_responsiva`)
+    fetch(`${apiUrl}/admin/returnFile/${id}/carta_responsiva`,{
+      method: 'GET',
+      headers: {
+        'Authorization': `${token}`
+      }
+    })
         .then(response => response.blob())
         .then(blob => {
           setPdfBlob(URL.createObjectURL(blob));

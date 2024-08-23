@@ -36,7 +36,11 @@ function Aprobacion_Req() {
    const cargarPDF = (archivoSeleccionado) => {
     // Aquí realizas la petición a tu API para obtener el PDF
     // Reemplaza 'URL_DE_TU_API' por la URL correspondiente a tu API
-    fetch(`${apiUrl}/admin/returnFile/${id}/${archivoSeleccionado}`)
+    fetch(`${apiUrl}/admin/returnFile/${id}/${archivoSeleccionado}`,{
+      headers: {
+        'Authorization': `${token}`
+      }
+    })
       .then(response => response.blob())
       .then(blob => {
         // Establece el Blob del PDF en el estado
