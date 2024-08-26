@@ -5,6 +5,7 @@ import HighchartsReact from 'highcharts-react-official';
 const Estadisticas = () => {
   const [data, setData] = useState({ nuevo: 0, enCurso: 0, concluida: 0, suspendida: 0 });
   const apiUrl = process.env.REACT_APP_API_URL;
+  const token = localStorage.getItem('token');
   const columnOptions = {
     chart: {
       type: 'column'
@@ -67,7 +68,11 @@ const Estadisticas = () => {
   };
 
   useEffect(() => {
-    fetch(`${apiUrl}/admin/estadisticas`)
+    fetch(`${apiUrl}/admin/estadisticas`,{
+      headers: {
+        'Authorization': `${token}`
+      }
+    })
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
