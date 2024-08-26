@@ -37,7 +37,7 @@ function Continuar_solicitud2() {
             const response = await axios.post(`${apiUrl}/usuario/subirCarta`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `${token}`
                 }
             });
             Swal.fire({
