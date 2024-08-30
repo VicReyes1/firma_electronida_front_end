@@ -31,6 +31,8 @@ import Solicitud_ConcluidaUsuario from '../pages/ADMIN/Solicitud_Concluida';
 import PrivateRoute from './privateRoute';
 import RoleProtectedRoute from './roleProtectedRoute'
 
+import VerificarDatosPDF_priv from '../pages/ADMIN/Verificar_Datos_Priva';
+
 function Rutas() {
  
 
@@ -56,6 +58,9 @@ function Rutas() {
 
         <Route path="/admin&solicitudes" element={<RoleProtectedRoute><Admin_Solicitudes /></RoleProtectedRoute>} />
         <Route path="/admin&verificar_datos/:id" element={<RoleProtectedRoute><Verificar_Datos /></RoleProtectedRoute>} />
+        <Route path="/admin&verificar_datos_priva" element={<VerificarDatosPDF_priv />}/>
+
+
         <Route path="/admin&Aprobacion_Carta/:id" element={<RoleProtectedRoute><Aprobacion_Carta /></RoleProtectedRoute>} />
         <Route path="/admin&Aprobacion_Req/:id" element={<RoleProtectedRoute><Aprobacion_Req /></RoleProtectedRoute>} />
         <Route path="/admin&Solicitud_Concluida/:id" element={<RoleProtectedRoute><Solicitud_Concluida /></RoleProtectedRoute>} />

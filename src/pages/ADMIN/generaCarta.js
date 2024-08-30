@@ -78,7 +78,7 @@ const generatePDFBlob = async (data) => {
   doc.text('y de acuerdo a los términos de la Ley Sobre el Uso de Medios Electrónicos y Firma Electrónica Avanzada para el Estado de', 15, 70);
   doc.text('Hidalgo, bajo protesta de decir verdad expongo lo siguiente:', 15, 75);
 
-  doc.text('Reconozco desde e l día de hoy que la ', 15, 85);
+  doc.text('Reconozco desde el día de hoy que la ', 15, 85);
   doc.setFont('Montserrat-Bold');
   doc.text('Autoridad Certificadora de Firma Electrónica Avanzada para el Estado de Hidalgo', 70, 85);
   doc.setFont('Montserrat');

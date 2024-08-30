@@ -68,7 +68,8 @@ function Verificar_Datos() {
   const [ArchivoRFCCoords, setArchivoRFCCoords] = useState({ x: 175, y: 225 });
   const [ArchivoAvalCoords, setArchivoAvalCoords] = useState({ x: 175, y: 230 });
   const [ArchivoNotarioCoords, setArchivoNotarioCoords] = useState({ x: 175, y: 235 });
-
+  const [empleadoprivado, setempladoCoords] = useState ({x: 80, y: 50})
+  
   const convertObjectToString = () => {
 
     const stringifiedData = {};
