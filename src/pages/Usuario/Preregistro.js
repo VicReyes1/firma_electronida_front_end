@@ -121,6 +121,7 @@ function Preregistro() {
     fecha: "",
     isNotary: "",
     isServer: "",
+    isPhysic: "",
     secretaria: "",
     entidad: "",
     nombre: "",
@@ -460,6 +461,7 @@ function Preregistro() {
   const [ArchivoCredencialNotario, setArchivoCredencialNotario] = useState(null);
   const [isServer, setIsServer] = useState(false);
   const [isNotary, setIsNotary] = useState(false);
+  const [isPhysic, setIsPhysic] = useState(false);
   const [isNuevo, setIsNuevo] = useState(false);
   const [isRenovacion, setIsRenovacion] = useState(false);
   const [causa_de_solicitud, setcausa_de_solicitud] = useState('');
@@ -627,6 +629,7 @@ function Preregistro() {
   const Formulario = {
     isServer,
     isNotary,
+    isPhysic,
     isNuevo,
     isRenovacion,
     secretaria,
@@ -1019,6 +1022,7 @@ function Preregistro() {
                 onChange={() => {
                   setIsServer(true);
                   setIsNotary(false);
+                  setIsPhysic(false);
                 }} 
               />
               <span className="checkbox-text">Servidor Público</span>
@@ -1030,9 +1034,22 @@ function Preregistro() {
                 onChange={() => {
                   setIsNotary(true);
                   setIsServer(false);
+                  setIsPhysic(false);
                 }} 
               />
               <span className="checkbox-text">Notario Público</span>
+            </label>
+            <label className="checkbox-label">
+              <input 
+                type="checkbox" 
+                checked={isPhysic} 
+                onChange={() => {
+                  setIsNotary(false);
+                  setIsServer(false);
+                  setIsPhysic(true);
+                }} 
+              />
+              <span className="checkbox-text">Persona Física</span>
             </label>
           </div>
 
@@ -1066,23 +1083,33 @@ function Preregistro() {
         </div>*/}
       
         <div className='text_formulario is-required'>
-        <span style={{ fontWeight: 'bold' }}>Sector Público</span>  
+        <span style={{ fontWeight: 'bold' }}>Sector al que pertenece</span>  
         </div>
        
         <div className="select">
         <select style={{ marginRight: '2%', width:'48%' }} value={tipoEntidad} onChange={(e) => setTipoEntidad(e.target.value)} isSearchable={true}>
         <option value="">SELECCIONE EL SECTOR QUE LE CORRESPONDA</option>
-        <option value="DEPENDENCIA_DEL_GOBIERNO_ESTATAL">DEPENDENCIA DEL GOBIERNO ESTATAL</option>
-        <option value="ENTIDAD_PARAESTATAL">ENTIDAD PARAESTATAL</option>
-        <option value="ENTIDAD_MUNICIPAL_ESTATAL">ENTIDAD MUNICIPAL ESTATAL</option>
-        <option value="H_AYUNTAMIENTO_MUNICIPAL_ESTATAL">H. AYUNTAMIENTO MUNICIPAL ESTATAL</option>
-        <option value="NOTARIA_PUBLICA_ESTATAL">NOTARÍA PÚBLICA ESTATAL</option>
-        <option value="ORGANISMO_DESCONCENTRADO_ESTATAL">ORGANISMO DESCONCENTRADO ESTATAL</option>
-        <option value="ORGANISMO_AUTONOMO">ORGANISMO AUTÓNOMO</option>
+        <optgroup label="PÚBLICO">
+	        <option value="DEPENDENCIA_DEL_GOBIERNO_ESTATAL">DEPENDENCIA DEL GOBIERNO ESTATAL</option>
+	        <option value="ENTIDAD_PARAESTATAL">ENTIDAD PARAESTATAL</option>
+	        <option value="ENTIDAD_MUNICIPAL_ESTATAL">ENTIDAD MUNICIPAL ESTATAL</option>
+	        <option value="H_AYUNTAMIENTO_MUNICIPAL_ESTATAL">H. AYUNTAMIENTO MUNICIPAL ESTATAL</option>
+	        <option value="NOTARIA_PUBLICA_ESTATAL">NOTARÍA PÚBLICA ESTATAL</option>
+	        <option value="ORGANISMO_DESCONCENTRADO_ESTATAL">ORGANISMO DESCONCENTRADO ESTATAL</option>
+	        <option value="ORGANISMO_AUTONOMO">ORGANISMO AUTÓNOMO</option>
+        </optgroup>
+        <optgroup label="PRIVADO">
+	        <option value="EMPRESA">EMPRESA</option>
+	        <option value="ASOCIACION_CIVIL">ASOCIACIÓN CIVIL</option>
+        </optgroup>
+        <optgroup label="OTROS">
+	        <option value="INDEPENDIENTE">INDEPENDIENTE</option>
+	        <option value="OTROS">OTROS</option>
+        </optgroup>
         {/* Agrega las opciones que necesites */}
       </select>
 
-      <input className="uppercase-input" type="text" value={secretaria} onChange={(e) => setSecretaria(e.target.value)} placeholder="Escriba el nombre DE SU INSTITUCIÓN" />
+      <input className="uppercase-input" type="text" value={secretaria} onChange={(e) => setSecretaria(e.target.value)} placeholder="NOMBRE DE LA INSTITUCION / ORGANIZACION / EMPRESA" />
         </div>
 
         
