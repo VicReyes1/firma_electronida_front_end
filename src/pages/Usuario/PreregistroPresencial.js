@@ -400,6 +400,7 @@ function PreregistroPresencial() {
   const [contrasenasCoinciden, setContrasenasCoinciden] = useState(true);
   const [mostrarContrasena, setMostrarContrasena] = useState(false);
   const [mostrarConfirmaContrasena, setMostrarConfirmaContrasena] = useState(false);
+  const [presencial, setPresencial] = useState(true);
 
  
   const [error, setError] = useState('');
@@ -407,7 +408,7 @@ function PreregistroPresencial() {
     // Función para verificar si todas las casillas de verificación están marcadas
     const todasSeleccionadas = () => {
       // Verificar el estado de todas las variables de estado y devolver true si todas están marcadas
-      return (isNuevo || isRenovacion || causa_de_solicitud ) && (isServer || isNotary || ArchivoCredencialNotario) && ArchivoINE && ArchivoComprobanteDomicilio && ArchivoCURP && ArchivoRFC && ArchivoAval && secretaria && tipoEntidad && entidad  && direccion && municipio_direccion && estado && cp && puesto && area && telefono && correo && confirma_correo && contrasena && confirma_contrasena  && isResponsavilidadUso && isPoliticas && isRevocacion/* Agregar el resto de tus variables de estado */;
+      return ArchivoINE && ArchivoComprobanteDomicilio && ArchivoCURP && ArchivoRFC && ArchivoAval
     };
   
 
@@ -489,6 +490,7 @@ function PreregistroPresencial() {
     isPoliticas,
     isRevocacion,
     causa_de_solicitud,
+    presencial
   };
 
 
@@ -542,20 +544,20 @@ function PreregistroPresencial() {
       f.append("id",id)
 
       try {
-        const response = await axios.post(`${apiUrl}/upload`, f,{
+        const response = await axios.post(`${apiUrl}/admin/upload`, f,{
           headers: {
             'Content-Type': 'multipart/form-data'
           }
         });
         if (response.status === 200) {
           Swal.fire({
-              title: "Usuario Registrado",
-              text: "La solicitud ha sido enviada, ahora puede loguearse con su correo y contraseña proporcionado en el prregistro",
+              title: "Registro completado",
+              text: "El expediente estará diponible para el administrador",
               icon: "success",
               allowOutsideClick: false
           }).then(() => {
               // Redirigir a otra página después de que el usuario cierre el alert
-              window.location.href = '/'; // Cambia esta ruta por la ruta de redirección deseada
+              window.location.href = '/admin&solicitudes'; // Cambia esta ruta por la ruta de redirección deseada
             });
         } else {
           throw new Error('Error en la solicitud');

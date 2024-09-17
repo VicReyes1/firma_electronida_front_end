@@ -3,6 +3,8 @@ import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import Pagination from 'react-bootstrap/Pagination';
 import '../../css/tabla.css'; // Importa tus estilos CSS personalizados aquí
+import Swal from 'sweetalert2';
+
 
 function Tabla_Solicitudes_Admin({ tab }) {
   const [data, setData] = useState([]);
@@ -157,6 +159,58 @@ function Tabla_Solicitudes_Admin({ tab }) {
     }
   };
 
+  const handleElimination = (id) => {
+    const token = localStorage.getItem('token');
+    // Mostrar swal para confirmar antes de hacer el fetch
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "No podrás revertir esta acción",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario confirma, hace el fetch
+        fetch(`${apiUrl}/admin/borrarRegistro/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `${token}`, // Añade el token de autorización
+            'Content-Type': 'application/json'
+          }
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Error en la eliminación');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Muestra swal de éxito si se elimina correctamente
+          Swal.fire(
+            '¡Eliminado!',
+            'El registro ha sido eliminado correctamente.',
+            'success'
+          ).then(() => {
+            // Recarga la página después de que el usuario cierre el Swal
+            window.location.reload();
+          });
+        })
+        .catch((error) => {
+          console.error('Error en la eliminación:', error);
+          // Muestra swal de error si la eliminación falla
+          Swal.fire(
+            'Error',
+            'Hubo un problema al eliminar el registro.',
+            'error'
+          );
+        });
+      }
+    });
+  };
+
   return (
     <div className="tabla-container">
       <Form.Group className='buscar'>
@@ -176,12 +230,13 @@ function Tabla_Solicitudes_Admin({ tab }) {
             <th>Ultima Actualización</th>
             <th>Fecha de Envío</th>
             <th>Visualización</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
           {currentItems.map((item, index) => (
             <tr key={index}>
-              <td className={item.nuevo_modificado ? 'blue-circle' : ''}></td>
+              <td className={item.editable ? '' : 'blue-circle'}></td>
               <td>{`${item.nombre} ${item.paterno} ${item.materno}`}</td>
               <td>{item.correo}</td>
               <td>{item.telefono}</td>
@@ -190,6 +245,23 @@ function Tabla_Solicitudes_Admin({ tab }) {
               <td>
                 {renderButton(item.id, item.estatusTramite)}
               </td>
+              <td>
+                {item.estatusTramite === 5 ? (
+                  <button
+                    className='boton3'
+                    disabled={true}
+                  >
+                    No disponible
+                  </button>
+                ) : (
+                  <button
+                    className='boton3'
+                    onClick={() => handleElimination(item.id)}
+                  >
+                    Eliminar
+                  </button>
+                )}
+            </td>
             </tr>
           ))}
         </tbody>
