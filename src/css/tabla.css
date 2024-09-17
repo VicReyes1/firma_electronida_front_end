@@ -46,9 +46,9 @@
   align-items: center;
 }
 
-.pagination-info {
-  /* Mantén el estilo original o añade cualquier otro estilo adicional */
-}
+/*.pagination-info {
+  /* Mantén el estilo original o añade cualquier otro estilo adicional 
+}*/
 
 .pagina {
   background-color: #691B31;
@@ -83,7 +83,7 @@
 .boton2:disabled{
   background-color: #ccc;
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.5; 
 }
 
 .buscar{
@@ -157,4 +157,14 @@
 .modal-footer .btn-secondary:hover {
   background-color: #A02142; /* Cambia el color de fondo al pasar el mouse */
   color: white; /* Cambia el color del texto al pasar el mouse */
+}
+
+.filtros {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filtros select {
+  width: 9rem;
 }
