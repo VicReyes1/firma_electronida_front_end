@@ -485,7 +485,7 @@ function Verificar_Datos() {
     
     
     const pdfBlob = doc.output('blob');
-
+    //console.log(pdfBlob)
     // Crear un objeto FormData para enviar el archivo adjunto
     const formData = new FormData();
     formData.append('archivo', pdfBlob, 'Solicitud de firma electronica avanzada.pdf');
