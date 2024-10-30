@@ -240,7 +240,7 @@ function Tabla_Solicitudes_Admin({ tab }) {
               <td>{`${item.nombre} ${item.paterno} ${item.materno}`}</td>
               <td>{item.correo}</td>
               <td>{item.telefono}</td>
-              <td>{item.actualizacion}</td>
+              <td>{item.updatedAt}</td>
               <td>{item.createdAt}</td>
               <td>
                 {renderButton(item.id, item.estatusTramite)}
