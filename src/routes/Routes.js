@@ -6,6 +6,7 @@ import Login from '../pages/Login';
 import Landing_Page from '../pages/Landing_Page';
 import Preregistro from '../pages/Usuario/Preregistro';
 import Login_recuperar_contra from '../pages/Login_recuperar_contra';
+import Login_recuperar_contra_2 from '../pages/IngresaCodigo';
 import Mi_Solicitud from '../pages/Usuario/Mis_Solicitudes';
 
 import Continuar_solicitud2 from '../pages/Usuario/Continuar_Solicitud2';
@@ -42,6 +43,7 @@ function Rutas() {
         
         <Route path='/login' element={<Login />} />
         <Route path='/login&RecuperarContraseña' element={<Login_recuperar_contra />} />
+        <Route path='/ingresaCodigo' element={<Login_recuperar_contra_2 />} />
         <Route path='/' element={<Landing_Page />} />
         <Route path='/preregistro' element={<Preregistro />} />
         
